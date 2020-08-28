@@ -3,6 +3,7 @@ package cloudformation
 import (
 	"github.com/aws/aws-sdk-go/service/cloudformation"
 	"github.com/banzaicloud/cadence-aws-sdk/sdk/internal/errors"
+	cloudformationwf "github.com/banzaicloud/cadence-aws-sdk/workflow/service/cloudformation"
 	"go.uber.org/cadence/workflow"
 )
 
@@ -20,24 +21,14 @@ type CloudFormation interface {
 
 type cloudFormation struct{}
 
-const describeStackResourcesActivityName = "aws-cloudformation-DescribeStackResources"
-
-type describeStackResourcesActivityInput struct {
-	Input *DescribeStackResourcesInput
-}
-
-type describeStackResourcesActivityOutput struct {
-	Output *DescribeStackResourcesOutput
-}
-
 func (c cloudFormation) DescribeStackResources(ctx workflow.Context, input *DescribeStackResourcesInput) (*DescribeStackResourcesOutput, error) {
-	in := describeStackResourcesActivityInput{
+	in := cloudformationwf.DescribeStackResourcesInput{
 		Input: input,
 	}
 
-	var output describeStackResourcesActivityOutput
+	var output cloudformationwf.DescribeStackResourcesOutput
 
-	err := workflow.ExecuteActivity(ctx, describeStackResourcesActivityName, in).Get(ctx, &output) // nolint: lll
+	err := workflow.ExecuteActivity(ctx, "aws-cloudformation-DescribeStackResources", in).Get(ctx, &output) // nolint: lll
 	if err != nil {
 		return nil, errors.DecodeError(err)
 	}
