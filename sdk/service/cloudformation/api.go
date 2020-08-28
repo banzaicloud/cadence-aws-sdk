@@ -10,16 +10,20 @@ import (
 // DescribeStackResourcesInput is the input for the DescribeStackResources operation.
 type DescribeStackResourcesInput = cloudformation.DescribeStackResourcesInput
 
-// DescribeStackResourcesOutput  is the output for the DescribeStackResources operation.
+// DescribeStackResourcesOutput is the output for the DescribeStackResources operation.
 type DescribeStackResourcesOutput = cloudformation.DescribeStackResourcesOutput
 
-// CloudFormation implements AWS CF operations and wraps them in a Cadence specific context.
+// CloudFormation provides the API operation methods for making requests to AWS in Cadence workflows.
 type CloudFormation interface {
-	// DescribeStackResources implements the DescribeStackResources API operation.
 	DescribeStackResources(ctx workflow.Context, input *DescribeStackResourcesInput) (*DescribeStackResourcesOutput, error)
 }
 
 type cloudFormation struct{}
+
+// New creates a new instance of the CloudFormation client.
+func New() CloudFormation {
+	return cloudFormation{}
+}
 
 func (c cloudFormation) DescribeStackResources(ctx workflow.Context, input *DescribeStackResourcesInput) (*DescribeStackResourcesOutput, error) {
 	in := cloudformationwf.DescribeStackResourcesInput{
