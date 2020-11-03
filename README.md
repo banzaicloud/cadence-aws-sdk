@@ -1,23 +1,8 @@
 # Cadence AWS SDK
 
-**Cadence wrapper around the AWS Go SDK to make working with the AWS API easier in Cadence workflows.**
+**Cadence backport for [Temporal AWS SDK](https://github.com/temporalio/temporal-aws-sdk-go).**
 
-
-## Usage
-
-### `sdk`
-
-The SDK package implements the API that you can use in your workflows.
-
-### `workflow`
-
-The workflow package implements the Cadence activities for the AWS API operations.
-
-### `worker` (soon)
-
-A ready-to use Cadence worker for the activities in this library.
-You can use it instead of registering the activities in your workers.
-
+TODO
 
 ## License
 
