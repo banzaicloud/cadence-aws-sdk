@@ -41,6 +41,6 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 {{- range $services }}
 {{- $name := .Name }}
 {{- $lowerName := .Name |ToLower }}
-	worker.RegisterActivityWithOptions({{ $lowerName }}.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws.{{.ID}}."})
+	worker.RegisterActivityWithOptions({{ $lowerName }}.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-{{.ID}}-"})
 {{- end }}
 }
