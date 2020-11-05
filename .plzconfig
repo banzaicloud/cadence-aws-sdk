@@ -1,0 +1,9 @@
+[please]
+version = 15.7.1
+
+[go]
+importpath = github.com/banzaicloud/cadence-aws-sdk
+
+[alias "generate"]
+desc = Generate SDK code
+cmd = run :temporal-aws-sdk-generator -- --template-dir templates --output-dir .
