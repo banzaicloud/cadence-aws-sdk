@@ -15,7 +15,7 @@ var _ clients.VoidFuture
 
 type Client interface {
 	InvokeEndpoint(ctx workflow.Context, input *sagemakerruntime.InvokeEndpointInput) (*sagemakerruntime.InvokeEndpointOutput, error)
-	InvokeEndpointAsync(ctx workflow.Context, input *sagemakerruntime.InvokeEndpointInput) *SageMakerRuntimeInvokeEndpointFuture
+	InvokeEndpointAsync(ctx workflow.Context, input *sagemakerruntime.InvokeEndpointInput) *InvokeEndpointFuture
 }
 
 func NewClient() Client {
