@@ -14,6 +14,9 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	CreateAddon(ctx workflow.Context, input *eks.CreateAddonInput) (*eks.CreateAddonOutput, error)
+	CreateAddonAsync(ctx workflow.Context, input *eks.CreateAddonInput) *CreateAddonFuture
+
 	CreateCluster(ctx workflow.Context, input *eks.CreateClusterInput) (*eks.CreateClusterOutput, error)
 	CreateClusterAsync(ctx workflow.Context, input *eks.CreateClusterInput) *CreateClusterFuture
 
@@ -23,6 +26,9 @@ type Client interface {
 	CreateNodegroup(ctx workflow.Context, input *eks.CreateNodegroupInput) (*eks.CreateNodegroupOutput, error)
 	CreateNodegroupAsync(ctx workflow.Context, input *eks.CreateNodegroupInput) *CreateNodegroupFuture
 
+	DeleteAddon(ctx workflow.Context, input *eks.DeleteAddonInput) (*eks.DeleteAddonOutput, error)
+	DeleteAddonAsync(ctx workflow.Context, input *eks.DeleteAddonInput) *DeleteAddonFuture
+
 	DeleteCluster(ctx workflow.Context, input *eks.DeleteClusterInput) (*eks.DeleteClusterOutput, error)
 	DeleteClusterAsync(ctx workflow.Context, input *eks.DeleteClusterInput) *DeleteClusterFuture
 
@@ -31,6 +37,12 @@ type Client interface {
 
 	DeleteNodegroup(ctx workflow.Context, input *eks.DeleteNodegroupInput) (*eks.DeleteNodegroupOutput, error)
 	DeleteNodegroupAsync(ctx workflow.Context, input *eks.DeleteNodegroupInput) *DeleteNodegroupFuture
+
+	DescribeAddon(ctx workflow.Context, input *eks.DescribeAddonInput) (*eks.DescribeAddonOutput, error)
+	DescribeAddonAsync(ctx workflow.Context, input *eks.DescribeAddonInput) *DescribeAddonFuture
+
+	DescribeAddonVersions(ctx workflow.Context, input *eks.DescribeAddonVersionsInput) (*eks.DescribeAddonVersionsOutput, error)
+	DescribeAddonVersionsAsync(ctx workflow.Context, input *eks.DescribeAddonVersionsInput) *DescribeAddonVersionsFuture
 
 	DescribeCluster(ctx workflow.Context, input *eks.DescribeClusterInput) (*eks.DescribeClusterOutput, error)
 	DescribeClusterAsync(ctx workflow.Context, input *eks.DescribeClusterInput) *DescribeClusterFuture
@@ -43,6 +55,9 @@ type Client interface {
 
 	DescribeUpdate(ctx workflow.Context, input *eks.DescribeUpdateInput) (*eks.DescribeUpdateOutput, error)
 	DescribeUpdateAsync(ctx workflow.Context, input *eks.DescribeUpdateInput) *DescribeUpdateFuture
+
+	ListAddons(ctx workflow.Context, input *eks.ListAddonsInput) (*eks.ListAddonsOutput, error)
+	ListAddonsAsync(ctx workflow.Context, input *eks.ListAddonsInput) *ListAddonsFuture
 
 	ListClusters(ctx workflow.Context, input *eks.ListClustersInput) (*eks.ListClustersOutput, error)
 	ListClustersAsync(ctx workflow.Context, input *eks.ListClustersInput) *ListClustersFuture
@@ -65,6 +80,9 @@ type Client interface {
 	UntagResource(ctx workflow.Context, input *eks.UntagResourceInput) (*eks.UntagResourceOutput, error)
 	UntagResourceAsync(ctx workflow.Context, input *eks.UntagResourceInput) *UntagResourceFuture
 
+	UpdateAddon(ctx workflow.Context, input *eks.UpdateAddonInput) (*eks.UpdateAddonOutput, error)
+	UpdateAddonAsync(ctx workflow.Context, input *eks.UpdateAddonInput) *UpdateAddonFuture
+
 	UpdateClusterConfig(ctx workflow.Context, input *eks.UpdateClusterConfigInput) (*eks.UpdateClusterConfigOutput, error)
 	UpdateClusterConfigAsync(ctx workflow.Context, input *eks.UpdateClusterConfigInput) *UpdateClusterConfigFuture
 
@@ -76,6 +94,12 @@ type Client interface {
 
 	UpdateNodegroupVersion(ctx workflow.Context, input *eks.UpdateNodegroupVersionInput) (*eks.UpdateNodegroupVersionOutput, error)
 	UpdateNodegroupVersionAsync(ctx workflow.Context, input *eks.UpdateNodegroupVersionInput) *UpdateNodegroupVersionFuture
+
+	WaitUntilAddonActive(ctx workflow.Context, input *eks.DescribeAddonInput) error
+	WaitUntilAddonActiveAsync(ctx workflow.Context, input *eks.DescribeAddonInput) *clients.VoidFuture
+
+	WaitUntilAddonDeleted(ctx workflow.Context, input *eks.DescribeAddonInput) error
+	WaitUntilAddonDeletedAsync(ctx workflow.Context, input *eks.DescribeAddonInput) *clients.VoidFuture
 
 	WaitUntilClusterActive(ctx workflow.Context, input *eks.DescribeClusterInput) error
 	WaitUntilClusterActiveAsync(ctx workflow.Context, input *eks.DescribeClusterInput) *clients.VoidFuture

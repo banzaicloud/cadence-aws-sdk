@@ -125,6 +125,17 @@ func (r *GetOpenIdTokenForDeveloperIdentityFuture) Get(ctx workflow.Context) (*c
 	return &output, err
 }
 
+type GetPrincipalTagAttributeMapFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetPrincipalTagAttributeMapFuture) Get(ctx workflow.Context) (*cognitoidentity.GetPrincipalTagAttributeMapOutput, error) {
+	var output cognitoidentity.GetPrincipalTagAttributeMapOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListIdentitiesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -187,6 +198,17 @@ type SetIdentityPoolRolesFuture struct {
 
 func (r *SetIdentityPoolRolesFuture) Get(ctx workflow.Context) (*cognitoidentity.SetIdentityPoolRolesOutput, error) {
 	var output cognitoidentity.SetIdentityPoolRolesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type SetPrincipalTagAttributeMapFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *SetPrincipalTagAttributeMapFuture) Get(ctx workflow.Context) (*cognitoidentity.SetPrincipalTagAttributeMapOutput, error) {
+	var output cognitoidentity.SetPrincipalTagAttributeMapOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -356,6 +378,17 @@ func (a *stub) GetOpenIdTokenForDeveloperIdentityAsync(ctx workflow.Context, inp
 	return &GetOpenIdTokenForDeveloperIdentityFuture{Future: future}
 }
 
+func (a *stub) GetPrincipalTagAttributeMap(ctx workflow.Context, input *cognitoidentity.GetPrincipalTagAttributeMapInput) (*cognitoidentity.GetPrincipalTagAttributeMapOutput, error) {
+	var output cognitoidentity.GetPrincipalTagAttributeMapOutput
+	err := workflow.ExecuteActivity(ctx, "aws-cognitoidentity-GetPrincipalTagAttributeMap", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetPrincipalTagAttributeMapAsync(ctx workflow.Context, input *cognitoidentity.GetPrincipalTagAttributeMapInput) *GetPrincipalTagAttributeMapFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-cognitoidentity-GetPrincipalTagAttributeMap", input)
+	return &GetPrincipalTagAttributeMapFuture{Future: future}
+}
+
 func (a *stub) ListIdentities(ctx workflow.Context, input *cognitoidentity.ListIdentitiesInput) (*cognitoidentity.ListIdentitiesOutput, error) {
 	var output cognitoidentity.ListIdentitiesOutput
 	err := workflow.ExecuteActivity(ctx, "aws-cognitoidentity-ListIdentities", input).Get(ctx, &output)
@@ -420,6 +453,17 @@ func (a *stub) SetIdentityPoolRoles(ctx workflow.Context, input *cognitoidentity
 func (a *stub) SetIdentityPoolRolesAsync(ctx workflow.Context, input *cognitoidentity.SetIdentityPoolRolesInput) *SetIdentityPoolRolesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-cognitoidentity-SetIdentityPoolRoles", input)
 	return &SetIdentityPoolRolesFuture{Future: future}
+}
+
+func (a *stub) SetPrincipalTagAttributeMap(ctx workflow.Context, input *cognitoidentity.SetPrincipalTagAttributeMapInput) (*cognitoidentity.SetPrincipalTagAttributeMapOutput, error) {
+	var output cognitoidentity.SetPrincipalTagAttributeMapOutput
+	err := workflow.ExecuteActivity(ctx, "aws-cognitoidentity-SetPrincipalTagAttributeMap", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) SetPrincipalTagAttributeMapAsync(ctx workflow.Context, input *cognitoidentity.SetPrincipalTagAttributeMapInput) *SetPrincipalTagAttributeMapFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-cognitoidentity-SetPrincipalTagAttributeMap", input)
+	return &SetPrincipalTagAttributeMapFuture{Future: future}
 }
 
 func (a *stub) TagResource(ctx workflow.Context, input *cognitoidentity.TagResourceInput) (*cognitoidentity.TagResourceOutput, error) {

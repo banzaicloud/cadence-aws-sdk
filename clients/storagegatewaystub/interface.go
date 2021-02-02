@@ -104,6 +104,9 @@ type Client interface {
 	DescribeBandwidthRateLimit(ctx workflow.Context, input *storagegateway.DescribeBandwidthRateLimitInput) (*storagegateway.DescribeBandwidthRateLimitOutput, error)
 	DescribeBandwidthRateLimitAsync(ctx workflow.Context, input *storagegateway.DescribeBandwidthRateLimitInput) *DescribeBandwidthRateLimitFuture
 
+	DescribeBandwidthRateLimitSchedule(ctx workflow.Context, input *storagegateway.DescribeBandwidthRateLimitScheduleInput) (*storagegateway.DescribeBandwidthRateLimitScheduleOutput, error)
+	DescribeBandwidthRateLimitScheduleAsync(ctx workflow.Context, input *storagegateway.DescribeBandwidthRateLimitScheduleInput) *DescribeBandwidthRateLimitScheduleFuture
+
 	DescribeCache(ctx workflow.Context, input *storagegateway.DescribeCacheInput) (*storagegateway.DescribeCacheOutput, error)
 	DescribeCacheAsync(ctx workflow.Context, input *storagegateway.DescribeCacheInput) *DescribeCacheFuture
 
@@ -229,6 +232,9 @@ type Client interface {
 
 	UpdateBandwidthRateLimit(ctx workflow.Context, input *storagegateway.UpdateBandwidthRateLimitInput) (*storagegateway.UpdateBandwidthRateLimitOutput, error)
 	UpdateBandwidthRateLimitAsync(ctx workflow.Context, input *storagegateway.UpdateBandwidthRateLimitInput) *UpdateBandwidthRateLimitFuture
+
+	UpdateBandwidthRateLimitSchedule(ctx workflow.Context, input *storagegateway.UpdateBandwidthRateLimitScheduleInput) (*storagegateway.UpdateBandwidthRateLimitScheduleOutput, error)
+	UpdateBandwidthRateLimitScheduleAsync(ctx workflow.Context, input *storagegateway.UpdateBandwidthRateLimitScheduleInput) *UpdateBandwidthRateLimitScheduleFuture
 
 	UpdateChapCredentials(ctx workflow.Context, input *storagegateway.UpdateChapCredentialsInput) (*storagegateway.UpdateChapCredentialsOutput, error)
 	UpdateChapCredentialsAsync(ctx workflow.Context, input *storagegateway.UpdateChapCredentialsInput) *UpdateChapCredentialsFuture

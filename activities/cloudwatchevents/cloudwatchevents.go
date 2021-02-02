@@ -63,6 +63,26 @@ func (a *Activities) ActivateEventSource(ctx context.Context, input *cloudwatche
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CancelReplay(ctx context.Context, input *cloudwatchevents.CancelReplayInput) (*cloudwatchevents.CancelReplayOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CancelReplayWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateArchive(ctx context.Context, input *cloudwatchevents.CreateArchiveInput) (*cloudwatchevents.CreateArchiveOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateArchiveWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateEventBus(ctx context.Context, input *cloudwatchevents.CreateEventBusInput) (*cloudwatchevents.CreateEventBusOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -89,6 +109,16 @@ func (a *Activities) DeactivateEventSource(ctx context.Context, input *cloudwatc
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeactivateEventSourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteArchive(ctx context.Context, input *cloudwatchevents.DeleteArchiveInput) (*cloudwatchevents.DeleteArchiveOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteArchiveWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -123,6 +153,16 @@ func (a *Activities) DeleteRule(ctx context.Context, input *cloudwatchevents.Del
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeArchive(ctx context.Context, input *cloudwatchevents.DescribeArchiveInput) (*cloudwatchevents.DescribeArchiveOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeArchiveWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeEventBus(ctx context.Context, input *cloudwatchevents.DescribeEventBusInput) (*cloudwatchevents.DescribeEventBusOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -153,6 +193,16 @@ func (a *Activities) DescribePartnerEventSource(ctx context.Context, input *clou
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeReplay(ctx context.Context, input *cloudwatchevents.DescribeReplayInput) (*cloudwatchevents.DescribeReplayOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeReplayWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeRule(ctx context.Context, input *cloudwatchevents.DescribeRuleInput) (*cloudwatchevents.DescribeRuleOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -179,6 +229,16 @@ func (a *Activities) EnableRule(ctx context.Context, input *cloudwatchevents.Ena
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.EnableRuleWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListArchives(ctx context.Context, input *cloudwatchevents.ListArchivesInput) (*cloudwatchevents.ListArchivesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListArchivesWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -219,6 +279,16 @@ func (a *Activities) ListPartnerEventSources(ctx context.Context, input *cloudwa
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListPartnerEventSourcesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListReplays(ctx context.Context, input *cloudwatchevents.ListReplaysInput) (*cloudwatchevents.ListReplaysOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListReplaysWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -333,6 +403,16 @@ func (a *Activities) RemoveTargets(ctx context.Context, input *cloudwatchevents.
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) StartReplay(ctx context.Context, input *cloudwatchevents.StartReplayInput) (*cloudwatchevents.StartReplayOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StartReplayWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) TagResource(ctx context.Context, input *cloudwatchevents.TagResourceInput) (*cloudwatchevents.TagResourceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -359,6 +439,16 @@ func (a *Activities) UntagResource(ctx context.Context, input *cloudwatchevents.
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UntagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateArchive(ctx context.Context, input *cloudwatchevents.UpdateArchiveInput) (*cloudwatchevents.UpdateArchiveOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateArchiveWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

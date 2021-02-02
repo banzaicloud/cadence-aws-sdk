@@ -169,6 +169,17 @@ func (r *CancelMLTaskRunFuture) Get(ctx workflow.Context) (*glue.CancelMLTaskRun
 	return &output, err
 }
 
+type CheckSchemaVersionValidityFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CheckSchemaVersionValidityFuture) Get(ctx workflow.Context) (*glue.CheckSchemaVersionValidityOutput, error) {
+	var output glue.CheckSchemaVersionValidityOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateClassifierFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -253,6 +264,39 @@ type CreatePartitionFuture struct {
 
 func (r *CreatePartitionFuture) Get(ctx workflow.Context) (*glue.CreatePartitionOutput, error) {
 	var output glue.CreatePartitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreatePartitionIndexFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreatePartitionIndexFuture) Get(ctx workflow.Context) (*glue.CreatePartitionIndexOutput, error) {
+	var output glue.CreatePartitionIndexOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateRegistryFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateRegistryFuture) Get(ctx workflow.Context) (*glue.CreateRegistryOutput, error) {
+	var output glue.CreateRegistryOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateSchemaFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateSchemaFuture) Get(ctx workflow.Context) (*glue.CreateSchemaOutput, error) {
+	var output glue.CreateSchemaOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -433,6 +477,28 @@ func (r *DeletePartitionFuture) Get(ctx workflow.Context) (*glue.DeletePartition
 	return &output, err
 }
 
+type DeletePartitionIndexFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeletePartitionIndexFuture) Get(ctx workflow.Context) (*glue.DeletePartitionIndexOutput, error) {
+	var output glue.DeletePartitionIndexOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteRegistryFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteRegistryFuture) Get(ctx workflow.Context) (*glue.DeleteRegistryOutput, error) {
+	var output glue.DeleteRegistryOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteResourcePolicyFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -440,6 +506,28 @@ type DeleteResourcePolicyFuture struct {
 
 func (r *DeleteResourcePolicyFuture) Get(ctx workflow.Context) (*glue.DeleteResourcePolicyOutput, error) {
 	var output glue.DeleteResourcePolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteSchemaFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteSchemaFuture) Get(ctx workflow.Context) (*glue.DeleteSchemaOutput, error) {
+	var output glue.DeleteSchemaOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteSchemaVersionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteSchemaVersionsFuture) Get(ctx workflow.Context) (*glue.DeleteSchemaVersionsOutput, error) {
+	var output glue.DeleteSchemaVersionsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -840,6 +928,17 @@ func (r *GetPlanFuture) Get(ctx workflow.Context) (*glue.GetPlanOutput, error) {
 	return &output, err
 }
 
+type GetRegistryFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetRegistryFuture) Get(ctx workflow.Context) (*glue.GetRegistryOutput, error) {
+	var output glue.GetRegistryOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetResourcePoliciesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -858,6 +957,50 @@ type GetResourcePolicyFuture struct {
 
 func (r *GetResourcePolicyFuture) Get(ctx workflow.Context) (*glue.GetResourcePolicyOutput, error) {
 	var output glue.GetResourcePolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetSchemaFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetSchemaFuture) Get(ctx workflow.Context) (*glue.GetSchemaOutput, error) {
+	var output glue.GetSchemaOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetSchemaByDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetSchemaByDefinitionFuture) Get(ctx workflow.Context) (*glue.GetSchemaByDefinitionOutput, error) {
+	var output glue.GetSchemaByDefinitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetSchemaVersionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetSchemaVersionFuture) Get(ctx workflow.Context) (*glue.GetSchemaVersionOutput, error) {
+	var output glue.GetSchemaVersionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetSchemaVersionsDiffFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetSchemaVersionsDiffFuture) Get(ctx workflow.Context) (*glue.GetSchemaVersionsDiffOutput, error) {
+	var output glue.GetSchemaVersionsDiffOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1082,6 +1225,39 @@ func (r *ListMLTransformsFuture) Get(ctx workflow.Context) (*glue.ListMLTransfor
 	return &output, err
 }
 
+type ListRegistriesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListRegistriesFuture) Get(ctx workflow.Context) (*glue.ListRegistriesOutput, error) {
+	var output glue.ListRegistriesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListSchemaVersionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListSchemaVersionsFuture) Get(ctx workflow.Context) (*glue.ListSchemaVersionsOutput, error) {
+	var output glue.ListSchemaVersionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListSchemasFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListSchemasFuture) Get(ctx workflow.Context) (*glue.ListSchemasOutput, error) {
+	var output glue.ListSchemasOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListTriggersFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1126,6 +1302,17 @@ func (r *PutResourcePolicyFuture) Get(ctx workflow.Context) (*glue.PutResourcePo
 	return &output, err
 }
 
+type PutSchemaVersionMetadataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutSchemaVersionMetadataFuture) Get(ctx workflow.Context) (*glue.PutSchemaVersionMetadataOutput, error) {
+	var output glue.PutSchemaVersionMetadataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type PutWorkflowRunPropertiesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1133,6 +1320,39 @@ type PutWorkflowRunPropertiesFuture struct {
 
 func (r *PutWorkflowRunPropertiesFuture) Get(ctx workflow.Context) (*glue.PutWorkflowRunPropertiesOutput, error) {
 	var output glue.PutWorkflowRunPropertiesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type QuerySchemaVersionMetadataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *QuerySchemaVersionMetadataFuture) Get(ctx workflow.Context) (*glue.QuerySchemaVersionMetadataOutput, error) {
+	var output glue.QuerySchemaVersionMetadataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type RegisterSchemaVersionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *RegisterSchemaVersionFuture) Get(ctx workflow.Context) (*glue.RegisterSchemaVersionOutput, error) {
+	var output glue.RegisterSchemaVersionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type RemoveSchemaVersionMetadataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *RemoveSchemaVersionMetadataFuture) Get(ctx workflow.Context) (*glue.RemoveSchemaVersionMetadataOutput, error) {
+	var output glue.RemoveSchemaVersionMetadataOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1456,6 +1676,28 @@ func (r *UpdatePartitionFuture) Get(ctx workflow.Context) (*glue.UpdatePartition
 	return &output, err
 }
 
+type UpdateRegistryFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateRegistryFuture) Get(ctx workflow.Context) (*glue.UpdateRegistryOutput, error) {
+	var output glue.UpdateRegistryOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateSchemaFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateSchemaFuture) Get(ctx workflow.Context) (*glue.UpdateSchemaOutput, error) {
+	var output glue.UpdateSchemaOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateTableFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1654,6 +1896,17 @@ func (a *stub) CancelMLTaskRunAsync(ctx workflow.Context, input *glue.CancelMLTa
 	return &CancelMLTaskRunFuture{Future: future}
 }
 
+func (a *stub) CheckSchemaVersionValidity(ctx workflow.Context, input *glue.CheckSchemaVersionValidityInput) (*glue.CheckSchemaVersionValidityOutput, error) {
+	var output glue.CheckSchemaVersionValidityOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-CheckSchemaVersionValidity", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CheckSchemaVersionValidityAsync(ctx workflow.Context, input *glue.CheckSchemaVersionValidityInput) *CheckSchemaVersionValidityFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-CheckSchemaVersionValidity", input)
+	return &CheckSchemaVersionValidityFuture{Future: future}
+}
+
 func (a *stub) CreateClassifier(ctx workflow.Context, input *glue.CreateClassifierInput) (*glue.CreateClassifierOutput, error) {
 	var output glue.CreateClassifierOutput
 	err := workflow.ExecuteActivity(ctx, "aws-glue-CreateClassifier", input).Get(ctx, &output)
@@ -1740,6 +1993,39 @@ func (a *stub) CreatePartition(ctx workflow.Context, input *glue.CreatePartition
 func (a *stub) CreatePartitionAsync(ctx workflow.Context, input *glue.CreatePartitionInput) *CreatePartitionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-glue-CreatePartition", input)
 	return &CreatePartitionFuture{Future: future}
+}
+
+func (a *stub) CreatePartitionIndex(ctx workflow.Context, input *glue.CreatePartitionIndexInput) (*glue.CreatePartitionIndexOutput, error) {
+	var output glue.CreatePartitionIndexOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-CreatePartitionIndex", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreatePartitionIndexAsync(ctx workflow.Context, input *glue.CreatePartitionIndexInput) *CreatePartitionIndexFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-CreatePartitionIndex", input)
+	return &CreatePartitionIndexFuture{Future: future}
+}
+
+func (a *stub) CreateRegistry(ctx workflow.Context, input *glue.CreateRegistryInput) (*glue.CreateRegistryOutput, error) {
+	var output glue.CreateRegistryOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-CreateRegistry", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateRegistryAsync(ctx workflow.Context, input *glue.CreateRegistryInput) *CreateRegistryFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-CreateRegistry", input)
+	return &CreateRegistryFuture{Future: future}
+}
+
+func (a *stub) CreateSchema(ctx workflow.Context, input *glue.CreateSchemaInput) (*glue.CreateSchemaOutput, error) {
+	var output glue.CreateSchemaOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-CreateSchema", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateSchemaAsync(ctx workflow.Context, input *glue.CreateSchemaInput) *CreateSchemaFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-CreateSchema", input)
+	return &CreateSchemaFuture{Future: future}
 }
 
 func (a *stub) CreateScript(ctx workflow.Context, input *glue.CreateScriptInput) (*glue.CreateScriptOutput, error) {
@@ -1918,6 +2204,28 @@ func (a *stub) DeletePartitionAsync(ctx workflow.Context, input *glue.DeletePart
 	return &DeletePartitionFuture{Future: future}
 }
 
+func (a *stub) DeletePartitionIndex(ctx workflow.Context, input *glue.DeletePartitionIndexInput) (*glue.DeletePartitionIndexOutput, error) {
+	var output glue.DeletePartitionIndexOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-DeletePartitionIndex", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeletePartitionIndexAsync(ctx workflow.Context, input *glue.DeletePartitionIndexInput) *DeletePartitionIndexFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-DeletePartitionIndex", input)
+	return &DeletePartitionIndexFuture{Future: future}
+}
+
+func (a *stub) DeleteRegistry(ctx workflow.Context, input *glue.DeleteRegistryInput) (*glue.DeleteRegistryOutput, error) {
+	var output glue.DeleteRegistryOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-DeleteRegistry", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteRegistryAsync(ctx workflow.Context, input *glue.DeleteRegistryInput) *DeleteRegistryFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-DeleteRegistry", input)
+	return &DeleteRegistryFuture{Future: future}
+}
+
 func (a *stub) DeleteResourcePolicy(ctx workflow.Context, input *glue.DeleteResourcePolicyInput) (*glue.DeleteResourcePolicyOutput, error) {
 	var output glue.DeleteResourcePolicyOutput
 	err := workflow.ExecuteActivity(ctx, "aws-glue-DeleteResourcePolicy", input).Get(ctx, &output)
@@ -1927,6 +2235,28 @@ func (a *stub) DeleteResourcePolicy(ctx workflow.Context, input *glue.DeleteReso
 func (a *stub) DeleteResourcePolicyAsync(ctx workflow.Context, input *glue.DeleteResourcePolicyInput) *DeleteResourcePolicyFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-glue-DeleteResourcePolicy", input)
 	return &DeleteResourcePolicyFuture{Future: future}
+}
+
+func (a *stub) DeleteSchema(ctx workflow.Context, input *glue.DeleteSchemaInput) (*glue.DeleteSchemaOutput, error) {
+	var output glue.DeleteSchemaOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-DeleteSchema", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteSchemaAsync(ctx workflow.Context, input *glue.DeleteSchemaInput) *DeleteSchemaFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-DeleteSchema", input)
+	return &DeleteSchemaFuture{Future: future}
+}
+
+func (a *stub) DeleteSchemaVersions(ctx workflow.Context, input *glue.DeleteSchemaVersionsInput) (*glue.DeleteSchemaVersionsOutput, error) {
+	var output glue.DeleteSchemaVersionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-DeleteSchemaVersions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteSchemaVersionsAsync(ctx workflow.Context, input *glue.DeleteSchemaVersionsInput) *DeleteSchemaVersionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-DeleteSchemaVersions", input)
+	return &DeleteSchemaVersionsFuture{Future: future}
 }
 
 func (a *stub) DeleteSecurityConfiguration(ctx workflow.Context, input *glue.DeleteSecurityConfigurationInput) (*glue.DeleteSecurityConfigurationOutput, error) {
@@ -2325,6 +2655,17 @@ func (a *stub) GetPlanAsync(ctx workflow.Context, input *glue.GetPlanInput) *Get
 	return &GetPlanFuture{Future: future}
 }
 
+func (a *stub) GetRegistry(ctx workflow.Context, input *glue.GetRegistryInput) (*glue.GetRegistryOutput, error) {
+	var output glue.GetRegistryOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-GetRegistry", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetRegistryAsync(ctx workflow.Context, input *glue.GetRegistryInput) *GetRegistryFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-GetRegistry", input)
+	return &GetRegistryFuture{Future: future}
+}
+
 func (a *stub) GetResourcePolicies(ctx workflow.Context, input *glue.GetResourcePoliciesInput) (*glue.GetResourcePoliciesOutput, error) {
 	var output glue.GetResourcePoliciesOutput
 	err := workflow.ExecuteActivity(ctx, "aws-glue-GetResourcePolicies", input).Get(ctx, &output)
@@ -2345,6 +2686,50 @@ func (a *stub) GetResourcePolicy(ctx workflow.Context, input *glue.GetResourcePo
 func (a *stub) GetResourcePolicyAsync(ctx workflow.Context, input *glue.GetResourcePolicyInput) *GetResourcePolicyFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-glue-GetResourcePolicy", input)
 	return &GetResourcePolicyFuture{Future: future}
+}
+
+func (a *stub) GetSchema(ctx workflow.Context, input *glue.GetSchemaInput) (*glue.GetSchemaOutput, error) {
+	var output glue.GetSchemaOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-GetSchema", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetSchemaAsync(ctx workflow.Context, input *glue.GetSchemaInput) *GetSchemaFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-GetSchema", input)
+	return &GetSchemaFuture{Future: future}
+}
+
+func (a *stub) GetSchemaByDefinition(ctx workflow.Context, input *glue.GetSchemaByDefinitionInput) (*glue.GetSchemaByDefinitionOutput, error) {
+	var output glue.GetSchemaByDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-GetSchemaByDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetSchemaByDefinitionAsync(ctx workflow.Context, input *glue.GetSchemaByDefinitionInput) *GetSchemaByDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-GetSchemaByDefinition", input)
+	return &GetSchemaByDefinitionFuture{Future: future}
+}
+
+func (a *stub) GetSchemaVersion(ctx workflow.Context, input *glue.GetSchemaVersionInput) (*glue.GetSchemaVersionOutput, error) {
+	var output glue.GetSchemaVersionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-GetSchemaVersion", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetSchemaVersionAsync(ctx workflow.Context, input *glue.GetSchemaVersionInput) *GetSchemaVersionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-GetSchemaVersion", input)
+	return &GetSchemaVersionFuture{Future: future}
+}
+
+func (a *stub) GetSchemaVersionsDiff(ctx workflow.Context, input *glue.GetSchemaVersionsDiffInput) (*glue.GetSchemaVersionsDiffOutput, error) {
+	var output glue.GetSchemaVersionsDiffOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-GetSchemaVersionsDiff", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetSchemaVersionsDiffAsync(ctx workflow.Context, input *glue.GetSchemaVersionsDiffInput) *GetSchemaVersionsDiffFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-GetSchemaVersionsDiff", input)
+	return &GetSchemaVersionsDiffFuture{Future: future}
 }
 
 func (a *stub) GetSecurityConfiguration(ctx workflow.Context, input *glue.GetSecurityConfigurationInput) (*glue.GetSecurityConfigurationOutput, error) {
@@ -2567,6 +2952,39 @@ func (a *stub) ListMLTransformsAsync(ctx workflow.Context, input *glue.ListMLTra
 	return &ListMLTransformsFuture{Future: future}
 }
 
+func (a *stub) ListRegistries(ctx workflow.Context, input *glue.ListRegistriesInput) (*glue.ListRegistriesOutput, error) {
+	var output glue.ListRegistriesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-ListRegistries", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListRegistriesAsync(ctx workflow.Context, input *glue.ListRegistriesInput) *ListRegistriesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-ListRegistries", input)
+	return &ListRegistriesFuture{Future: future}
+}
+
+func (a *stub) ListSchemaVersions(ctx workflow.Context, input *glue.ListSchemaVersionsInput) (*glue.ListSchemaVersionsOutput, error) {
+	var output glue.ListSchemaVersionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-ListSchemaVersions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListSchemaVersionsAsync(ctx workflow.Context, input *glue.ListSchemaVersionsInput) *ListSchemaVersionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-ListSchemaVersions", input)
+	return &ListSchemaVersionsFuture{Future: future}
+}
+
+func (a *stub) ListSchemas(ctx workflow.Context, input *glue.ListSchemasInput) (*glue.ListSchemasOutput, error) {
+	var output glue.ListSchemasOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-ListSchemas", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListSchemasAsync(ctx workflow.Context, input *glue.ListSchemasInput) *ListSchemasFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-ListSchemas", input)
+	return &ListSchemasFuture{Future: future}
+}
+
 func (a *stub) ListTriggers(ctx workflow.Context, input *glue.ListTriggersInput) (*glue.ListTriggersOutput, error) {
 	var output glue.ListTriggersOutput
 	err := workflow.ExecuteActivity(ctx, "aws-glue-ListTriggers", input).Get(ctx, &output)
@@ -2611,6 +3029,17 @@ func (a *stub) PutResourcePolicyAsync(ctx workflow.Context, input *glue.PutResou
 	return &PutResourcePolicyFuture{Future: future}
 }
 
+func (a *stub) PutSchemaVersionMetadata(ctx workflow.Context, input *glue.PutSchemaVersionMetadataInput) (*glue.PutSchemaVersionMetadataOutput, error) {
+	var output glue.PutSchemaVersionMetadataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-PutSchemaVersionMetadata", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutSchemaVersionMetadataAsync(ctx workflow.Context, input *glue.PutSchemaVersionMetadataInput) *PutSchemaVersionMetadataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-PutSchemaVersionMetadata", input)
+	return &PutSchemaVersionMetadataFuture{Future: future}
+}
+
 func (a *stub) PutWorkflowRunProperties(ctx workflow.Context, input *glue.PutWorkflowRunPropertiesInput) (*glue.PutWorkflowRunPropertiesOutput, error) {
 	var output glue.PutWorkflowRunPropertiesOutput
 	err := workflow.ExecuteActivity(ctx, "aws-glue-PutWorkflowRunProperties", input).Get(ctx, &output)
@@ -2620,6 +3049,39 @@ func (a *stub) PutWorkflowRunProperties(ctx workflow.Context, input *glue.PutWor
 func (a *stub) PutWorkflowRunPropertiesAsync(ctx workflow.Context, input *glue.PutWorkflowRunPropertiesInput) *PutWorkflowRunPropertiesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-glue-PutWorkflowRunProperties", input)
 	return &PutWorkflowRunPropertiesFuture{Future: future}
+}
+
+func (a *stub) QuerySchemaVersionMetadata(ctx workflow.Context, input *glue.QuerySchemaVersionMetadataInput) (*glue.QuerySchemaVersionMetadataOutput, error) {
+	var output glue.QuerySchemaVersionMetadataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-QuerySchemaVersionMetadata", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) QuerySchemaVersionMetadataAsync(ctx workflow.Context, input *glue.QuerySchemaVersionMetadataInput) *QuerySchemaVersionMetadataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-QuerySchemaVersionMetadata", input)
+	return &QuerySchemaVersionMetadataFuture{Future: future}
+}
+
+func (a *stub) RegisterSchemaVersion(ctx workflow.Context, input *glue.RegisterSchemaVersionInput) (*glue.RegisterSchemaVersionOutput, error) {
+	var output glue.RegisterSchemaVersionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-RegisterSchemaVersion", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) RegisterSchemaVersionAsync(ctx workflow.Context, input *glue.RegisterSchemaVersionInput) *RegisterSchemaVersionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-RegisterSchemaVersion", input)
+	return &RegisterSchemaVersionFuture{Future: future}
+}
+
+func (a *stub) RemoveSchemaVersionMetadata(ctx workflow.Context, input *glue.RemoveSchemaVersionMetadataInput) (*glue.RemoveSchemaVersionMetadataOutput, error) {
+	var output glue.RemoveSchemaVersionMetadataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-RemoveSchemaVersionMetadata", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) RemoveSchemaVersionMetadataAsync(ctx workflow.Context, input *glue.RemoveSchemaVersionMetadataInput) *RemoveSchemaVersionMetadataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-RemoveSchemaVersionMetadata", input)
+	return &RemoveSchemaVersionMetadataFuture{Future: future}
 }
 
 func (a *stub) ResetJobBookmark(ctx workflow.Context, input *glue.ResetJobBookmarkInput) (*glue.ResetJobBookmarkOutput, error) {
@@ -2939,6 +3401,28 @@ func (a *stub) UpdatePartition(ctx workflow.Context, input *glue.UpdatePartition
 func (a *stub) UpdatePartitionAsync(ctx workflow.Context, input *glue.UpdatePartitionInput) *UpdatePartitionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-glue-UpdatePartition", input)
 	return &UpdatePartitionFuture{Future: future}
+}
+
+func (a *stub) UpdateRegistry(ctx workflow.Context, input *glue.UpdateRegistryInput) (*glue.UpdateRegistryOutput, error) {
+	var output glue.UpdateRegistryOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-UpdateRegistry", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateRegistryAsync(ctx workflow.Context, input *glue.UpdateRegistryInput) *UpdateRegistryFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-UpdateRegistry", input)
+	return &UpdateRegistryFuture{Future: future}
+}
+
+func (a *stub) UpdateSchema(ctx workflow.Context, input *glue.UpdateSchemaInput) (*glue.UpdateSchemaOutput, error) {
+	var output glue.UpdateSchemaOutput
+	err := workflow.ExecuteActivity(ctx, "aws-glue-UpdateSchema", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateSchemaAsync(ctx workflow.Context, input *glue.UpdateSchemaInput) *UpdateSchemaFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-glue-UpdateSchema", input)
+	return &UpdateSchemaFuture{Future: future}
 }
 
 func (a *stub) UpdateTable(ctx workflow.Context, input *glue.UpdateTableInput) (*glue.UpdateTableOutput, error) {

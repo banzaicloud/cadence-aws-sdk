@@ -41,6 +41,9 @@ type Client interface {
 	ListGroups(ctx workflow.Context, input *resourcegroups.ListGroupsInput) (*resourcegroups.ListGroupsOutput, error)
 	ListGroupsAsync(ctx workflow.Context, input *resourcegroups.ListGroupsInput) *ListGroupsFuture
 
+	PutGroupConfiguration(ctx workflow.Context, input *resourcegroups.PutGroupConfigurationInput) (*resourcegroups.PutGroupConfigurationOutput, error)
+	PutGroupConfigurationAsync(ctx workflow.Context, input *resourcegroups.PutGroupConfigurationInput) *PutGroupConfigurationFuture
+
 	SearchResources(ctx workflow.Context, input *resourcegroups.SearchResourcesInput) (*resourcegroups.SearchResourcesOutput, error)
 	SearchResourcesAsync(ctx workflow.Context, input *resourcegroups.SearchResourcesInput) *SearchResourcesFuture
 

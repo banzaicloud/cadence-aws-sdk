@@ -63,6 +63,16 @@ func (a *Activities) AcceptReservedInstancesExchangeQuote(ctx context.Context, i
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) AcceptTransitGatewayMulticastDomainAssociations(ctx context.Context, input *ec2.AcceptTransitGatewayMulticastDomainAssociationsInput) (*ec2.AcceptTransitGatewayMulticastDomainAssociationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.AcceptTransitGatewayMulticastDomainAssociationsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) AcceptTransitGatewayPeeringAttachment(ctx context.Context, input *ec2.AcceptTransitGatewayPeeringAttachmentInput) (*ec2.AcceptTransitGatewayPeeringAttachmentOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -730,6 +740,17 @@ func (a *Activities) CreateNetworkAclEntry(ctx context.Context, input *ec2.Creat
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateNetworkInsightsPath(ctx context.Context, input *ec2.CreateNetworkInsightsPathInput) (*ec2.CreateNetworkInsightsPathOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CreateNetworkInsightsPathWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateNetworkInterface(ctx context.Context, input *ec2.CreateNetworkInterfaceInput) (*ec2.CreateNetworkInterfaceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -901,6 +922,26 @@ func (a *Activities) CreateTransitGateway(ctx context.Context, input *ec2.Create
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreateTransitGatewayWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateTransitGatewayConnect(ctx context.Context, input *ec2.CreateTransitGatewayConnectInput) (*ec2.CreateTransitGatewayConnectOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateTransitGatewayConnectWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateTransitGatewayConnectPeer(ctx context.Context, input *ec2.CreateTransitGatewayConnectPeerInput) (*ec2.CreateTransitGatewayConnectPeerOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateTransitGatewayConnectPeerWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1248,6 +1289,26 @@ func (a *Activities) DeleteNetworkAclEntry(ctx context.Context, input *ec2.Delet
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteNetworkInsightsAnalysis(ctx context.Context, input *ec2.DeleteNetworkInsightsAnalysisInput) (*ec2.DeleteNetworkInsightsAnalysisOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteNetworkInsightsAnalysisWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteNetworkInsightsPath(ctx context.Context, input *ec2.DeleteNetworkInsightsPathInput) (*ec2.DeleteNetworkInsightsPathOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteNetworkInsightsPathWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteNetworkInterface(ctx context.Context, input *ec2.DeleteNetworkInterfaceInput) (*ec2.DeleteNetworkInterfaceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1404,6 +1465,26 @@ func (a *Activities) DeleteTransitGateway(ctx context.Context, input *ec2.Delete
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteTransitGatewayWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteTransitGatewayConnect(ctx context.Context, input *ec2.DeleteTransitGatewayConnectInput) (*ec2.DeleteTransitGatewayConnectOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteTransitGatewayConnectWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteTransitGatewayConnectPeer(ctx context.Context, input *ec2.DeleteTransitGatewayConnectPeerInput) (*ec2.DeleteTransitGatewayConnectPeerOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteTransitGatewayConnectPeerWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -2218,6 +2299,26 @@ func (a *Activities) DescribeNetworkAcls(ctx context.Context, input *ec2.Describ
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeNetworkInsightsAnalyses(ctx context.Context, input *ec2.DescribeNetworkInsightsAnalysesInput) (*ec2.DescribeNetworkInsightsAnalysesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeNetworkInsightsAnalysesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeNetworkInsightsPaths(ctx context.Context, input *ec2.DescribeNetworkInsightsPathsInput) (*ec2.DescribeNetworkInsightsPathsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeNetworkInsightsPathsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeNetworkInterfaceAttribute(ctx context.Context, input *ec2.DescribeNetworkInterfaceAttributeInput) (*ec2.DescribeNetworkInterfaceAttributeOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -2534,6 +2635,26 @@ func (a *Activities) DescribeTransitGatewayAttachments(ctx context.Context, inpu
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeTransitGatewayAttachmentsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeTransitGatewayConnectPeers(ctx context.Context, input *ec2.DescribeTransitGatewayConnectPeersInput) (*ec2.DescribeTransitGatewayConnectPeersOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeTransitGatewayConnectPeersWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeTransitGatewayConnects(ctx context.Context, input *ec2.DescribeTransitGatewayConnectsInput) (*ec2.DescribeTransitGatewayConnectsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeTransitGatewayConnectsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -3876,6 +3997,16 @@ func (a *Activities) RegisterTransitGatewayMulticastGroupSources(ctx context.Con
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) RejectTransitGatewayMulticastDomainAssociations(ctx context.Context, input *ec2.RejectTransitGatewayMulticastDomainAssociationsInput) (*ec2.RejectTransitGatewayMulticastDomainAssociationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RejectTransitGatewayMulticastDomainAssociationsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) RejectTransitGatewayPeeringAttachment(ctx context.Context, input *ec2.RejectTransitGatewayPeeringAttachmentInput) (*ec2.RejectTransitGatewayPeeringAttachmentOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -4205,6 +4336,17 @@ func (a *Activities) StartInstances(ctx context.Context, input *ec2.StartInstanc
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.StartInstancesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) StartNetworkInsightsAnalysis(ctx context.Context, input *ec2.StartNetworkInsightsAnalysisInput) (*ec2.StartNetworkInsightsAnalysisOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.StartNetworkInsightsAnalysisWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

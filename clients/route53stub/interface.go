@@ -14,6 +14,9 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	ActivateKeySigningKey(ctx workflow.Context, input *route53.ActivateKeySigningKeyInput) (*route53.ActivateKeySigningKeyOutput, error)
+	ActivateKeySigningKeyAsync(ctx workflow.Context, input *route53.ActivateKeySigningKeyInput) *ActivateKeySigningKeyFuture
+
 	AssociateVPCWithHostedZone(ctx workflow.Context, input *route53.AssociateVPCWithHostedZoneInput) (*route53.AssociateVPCWithHostedZoneOutput, error)
 	AssociateVPCWithHostedZoneAsync(ctx workflow.Context, input *route53.AssociateVPCWithHostedZoneInput) *AssociateVPCWithHostedZoneFuture
 
@@ -28,6 +31,9 @@ type Client interface {
 
 	CreateHostedZone(ctx workflow.Context, input *route53.CreateHostedZoneInput) (*route53.CreateHostedZoneOutput, error)
 	CreateHostedZoneAsync(ctx workflow.Context, input *route53.CreateHostedZoneInput) *CreateHostedZoneFuture
+
+	CreateKeySigningKey(ctx workflow.Context, input *route53.CreateKeySigningKeyInput) (*route53.CreateKeySigningKeyOutput, error)
+	CreateKeySigningKeyAsync(ctx workflow.Context, input *route53.CreateKeySigningKeyInput) *CreateKeySigningKeyFuture
 
 	CreateQueryLoggingConfig(ctx workflow.Context, input *route53.CreateQueryLoggingConfigInput) (*route53.CreateQueryLoggingConfigOutput, error)
 	CreateQueryLoggingConfigAsync(ctx workflow.Context, input *route53.CreateQueryLoggingConfigInput) *CreateQueryLoggingConfigFuture
@@ -47,11 +53,17 @@ type Client interface {
 	CreateVPCAssociationAuthorization(ctx workflow.Context, input *route53.CreateVPCAssociationAuthorizationInput) (*route53.CreateVPCAssociationAuthorizationOutput, error)
 	CreateVPCAssociationAuthorizationAsync(ctx workflow.Context, input *route53.CreateVPCAssociationAuthorizationInput) *CreateVPCAssociationAuthorizationFuture
 
+	DeactivateKeySigningKey(ctx workflow.Context, input *route53.DeactivateKeySigningKeyInput) (*route53.DeactivateKeySigningKeyOutput, error)
+	DeactivateKeySigningKeyAsync(ctx workflow.Context, input *route53.DeactivateKeySigningKeyInput) *DeactivateKeySigningKeyFuture
+
 	DeleteHealthCheck(ctx workflow.Context, input *route53.DeleteHealthCheckInput) (*route53.DeleteHealthCheckOutput, error)
 	DeleteHealthCheckAsync(ctx workflow.Context, input *route53.DeleteHealthCheckInput) *DeleteHealthCheckFuture
 
 	DeleteHostedZone(ctx workflow.Context, input *route53.DeleteHostedZoneInput) (*route53.DeleteHostedZoneOutput, error)
 	DeleteHostedZoneAsync(ctx workflow.Context, input *route53.DeleteHostedZoneInput) *DeleteHostedZoneFuture
+
+	DeleteKeySigningKey(ctx workflow.Context, input *route53.DeleteKeySigningKeyInput) (*route53.DeleteKeySigningKeyOutput, error)
+	DeleteKeySigningKeyAsync(ctx workflow.Context, input *route53.DeleteKeySigningKeyInput) *DeleteKeySigningKeyFuture
 
 	DeleteQueryLoggingConfig(ctx workflow.Context, input *route53.DeleteQueryLoggingConfigInput) (*route53.DeleteQueryLoggingConfigOutput, error)
 	DeleteQueryLoggingConfigAsync(ctx workflow.Context, input *route53.DeleteQueryLoggingConfigInput) *DeleteQueryLoggingConfigFuture
@@ -68,8 +80,14 @@ type Client interface {
 	DeleteVPCAssociationAuthorization(ctx workflow.Context, input *route53.DeleteVPCAssociationAuthorizationInput) (*route53.DeleteVPCAssociationAuthorizationOutput, error)
 	DeleteVPCAssociationAuthorizationAsync(ctx workflow.Context, input *route53.DeleteVPCAssociationAuthorizationInput) *DeleteVPCAssociationAuthorizationFuture
 
+	DisableHostedZoneDNSSEC(ctx workflow.Context, input *route53.DisableHostedZoneDNSSECInput) (*route53.DisableHostedZoneDNSSECOutput, error)
+	DisableHostedZoneDNSSECAsync(ctx workflow.Context, input *route53.DisableHostedZoneDNSSECInput) *DisableHostedZoneDNSSECFuture
+
 	DisassociateVPCFromHostedZone(ctx workflow.Context, input *route53.DisassociateVPCFromHostedZoneInput) (*route53.DisassociateVPCFromHostedZoneOutput, error)
 	DisassociateVPCFromHostedZoneAsync(ctx workflow.Context, input *route53.DisassociateVPCFromHostedZoneInput) *DisassociateVPCFromHostedZoneFuture
+
+	EnableHostedZoneDNSSEC(ctx workflow.Context, input *route53.EnableHostedZoneDNSSECInput) (*route53.EnableHostedZoneDNSSECOutput, error)
+	EnableHostedZoneDNSSECAsync(ctx workflow.Context, input *route53.EnableHostedZoneDNSSECInput) *EnableHostedZoneDNSSECFuture
 
 	GetAccountLimit(ctx workflow.Context, input *route53.GetAccountLimitInput) (*route53.GetAccountLimitOutput, error)
 	GetAccountLimitAsync(ctx workflow.Context, input *route53.GetAccountLimitInput) *GetAccountLimitFuture
@@ -79,6 +97,9 @@ type Client interface {
 
 	GetCheckerIpRanges(ctx workflow.Context, input *route53.GetCheckerIpRangesInput) (*route53.GetCheckerIpRangesOutput, error)
 	GetCheckerIpRangesAsync(ctx workflow.Context, input *route53.GetCheckerIpRangesInput) *GetCheckerIpRangesFuture
+
+	GetDNSSEC(ctx workflow.Context, input *route53.GetDNSSECInput) (*route53.GetDNSSECOutput, error)
+	GetDNSSECAsync(ctx workflow.Context, input *route53.GetDNSSECInput) *GetDNSSECFuture
 
 	GetGeoLocation(ctx workflow.Context, input *route53.GetGeoLocationInput) (*route53.GetGeoLocationOutput, error)
 	GetGeoLocationAsync(ctx workflow.Context, input *route53.GetGeoLocationInput) *GetGeoLocationFuture

@@ -47,6 +47,15 @@ type Client interface {
 	CreateContactMethod(ctx workflow.Context, input *lightsail.CreateContactMethodInput) (*lightsail.CreateContactMethodOutput, error)
 	CreateContactMethodAsync(ctx workflow.Context, input *lightsail.CreateContactMethodInput) *CreateContactMethodFuture
 
+	CreateContainerService(ctx workflow.Context, input *lightsail.CreateContainerServiceInput) (*lightsail.CreateContainerServiceOutput, error)
+	CreateContainerServiceAsync(ctx workflow.Context, input *lightsail.CreateContainerServiceInput) *CreateContainerServiceFuture
+
+	CreateContainerServiceDeployment(ctx workflow.Context, input *lightsail.CreateContainerServiceDeploymentInput) (*lightsail.CreateContainerServiceDeploymentOutput, error)
+	CreateContainerServiceDeploymentAsync(ctx workflow.Context, input *lightsail.CreateContainerServiceDeploymentInput) *CreateContainerServiceDeploymentFuture
+
+	CreateContainerServiceRegistryLogin(ctx workflow.Context, input *lightsail.CreateContainerServiceRegistryLoginInput) (*lightsail.CreateContainerServiceRegistryLoginOutput, error)
+	CreateContainerServiceRegistryLoginAsync(ctx workflow.Context, input *lightsail.CreateContainerServiceRegistryLoginInput) *CreateContainerServiceRegistryLoginFuture
+
 	CreateDisk(ctx workflow.Context, input *lightsail.CreateDiskInput) (*lightsail.CreateDiskOutput, error)
 	CreateDiskAsync(ctx workflow.Context, input *lightsail.CreateDiskInput) *CreateDiskFuture
 
@@ -103,6 +112,12 @@ type Client interface {
 
 	DeleteContactMethod(ctx workflow.Context, input *lightsail.DeleteContactMethodInput) (*lightsail.DeleteContactMethodOutput, error)
 	DeleteContactMethodAsync(ctx workflow.Context, input *lightsail.DeleteContactMethodInput) *DeleteContactMethodFuture
+
+	DeleteContainerImage(ctx workflow.Context, input *lightsail.DeleteContainerImageInput) (*lightsail.DeleteContainerImageOutput, error)
+	DeleteContainerImageAsync(ctx workflow.Context, input *lightsail.DeleteContainerImageInput) *DeleteContainerImageFuture
+
+	DeleteContainerService(ctx workflow.Context, input *lightsail.DeleteContainerServiceInput) (*lightsail.DeleteContainerServiceOutput, error)
+	DeleteContainerServiceAsync(ctx workflow.Context, input *lightsail.DeleteContainerServiceInput) *DeleteContainerServiceFuture
 
 	DeleteDisk(ctx workflow.Context, input *lightsail.DeleteDiskInput) (*lightsail.DeleteDiskOutput, error)
 	DeleteDiskAsync(ctx workflow.Context, input *lightsail.DeleteDiskInput) *DeleteDiskFuture
@@ -190,6 +205,27 @@ type Client interface {
 
 	GetContactMethods(ctx workflow.Context, input *lightsail.GetContactMethodsInput) (*lightsail.GetContactMethodsOutput, error)
 	GetContactMethodsAsync(ctx workflow.Context, input *lightsail.GetContactMethodsInput) *GetContactMethodsFuture
+
+	GetContainerAPIMetadata(ctx workflow.Context, input *lightsail.GetContainerAPIMetadataInput) (*lightsail.GetContainerAPIMetadataOutput, error)
+	GetContainerAPIMetadataAsync(ctx workflow.Context, input *lightsail.GetContainerAPIMetadataInput) *GetContainerAPIMetadataFuture
+
+	GetContainerImages(ctx workflow.Context, input *lightsail.GetContainerImagesInput) (*lightsail.GetContainerImagesOutput, error)
+	GetContainerImagesAsync(ctx workflow.Context, input *lightsail.GetContainerImagesInput) *GetContainerImagesFuture
+
+	GetContainerLog(ctx workflow.Context, input *lightsail.GetContainerLogInput) (*lightsail.GetContainerLogOutput, error)
+	GetContainerLogAsync(ctx workflow.Context, input *lightsail.GetContainerLogInput) *GetContainerLogFuture
+
+	GetContainerServiceDeployments(ctx workflow.Context, input *lightsail.GetContainerServiceDeploymentsInput) (*lightsail.GetContainerServiceDeploymentsOutput, error)
+	GetContainerServiceDeploymentsAsync(ctx workflow.Context, input *lightsail.GetContainerServiceDeploymentsInput) *GetContainerServiceDeploymentsFuture
+
+	GetContainerServiceMetricData(ctx workflow.Context, input *lightsail.GetContainerServiceMetricDataInput) (*lightsail.GetContainerServiceMetricDataOutput, error)
+	GetContainerServiceMetricDataAsync(ctx workflow.Context, input *lightsail.GetContainerServiceMetricDataInput) *GetContainerServiceMetricDataFuture
+
+	GetContainerServicePowers(ctx workflow.Context, input *lightsail.GetContainerServicePowersInput) (*lightsail.GetContainerServicePowersOutput, error)
+	GetContainerServicePowersAsync(ctx workflow.Context, input *lightsail.GetContainerServicePowersInput) *GetContainerServicePowersFuture
+
+	GetContainerServices(ctx workflow.Context, input *lightsail.GetContainerServicesInput) (*lightsail.GetContainerServicesOutput, error)
+	GetContainerServicesAsync(ctx workflow.Context, input *lightsail.GetContainerServicesInput) *GetContainerServicesFuture
 
 	GetDisk(ctx workflow.Context, input *lightsail.GetDiskInput) (*lightsail.GetDiskOutput, error)
 	GetDiskAsync(ctx workflow.Context, input *lightsail.GetDiskInput) *GetDiskFuture
@@ -344,6 +380,9 @@ type Client interface {
 	RebootRelationalDatabase(ctx workflow.Context, input *lightsail.RebootRelationalDatabaseInput) (*lightsail.RebootRelationalDatabaseOutput, error)
 	RebootRelationalDatabaseAsync(ctx workflow.Context, input *lightsail.RebootRelationalDatabaseInput) *RebootRelationalDatabaseFuture
 
+	RegisterContainerImage(ctx workflow.Context, input *lightsail.RegisterContainerImageInput) (*lightsail.RegisterContainerImageOutput, error)
+	RegisterContainerImageAsync(ctx workflow.Context, input *lightsail.RegisterContainerImageInput) *RegisterContainerImageFuture
+
 	ReleaseStaticIp(ctx workflow.Context, input *lightsail.ReleaseStaticIpInput) (*lightsail.ReleaseStaticIpOutput, error)
 	ReleaseStaticIpAsync(ctx workflow.Context, input *lightsail.ReleaseStaticIpInput) *ReleaseStaticIpFuture
 
@@ -352,6 +391,9 @@ type Client interface {
 
 	SendContactMethodVerification(ctx workflow.Context, input *lightsail.SendContactMethodVerificationInput) (*lightsail.SendContactMethodVerificationOutput, error)
 	SendContactMethodVerificationAsync(ctx workflow.Context, input *lightsail.SendContactMethodVerificationInput) *SendContactMethodVerificationFuture
+
+	SetIpAddressType(ctx workflow.Context, input *lightsail.SetIpAddressTypeInput) (*lightsail.SetIpAddressTypeOutput, error)
+	SetIpAddressTypeAsync(ctx workflow.Context, input *lightsail.SetIpAddressTypeInput) *SetIpAddressTypeFuture
 
 	StartInstance(ctx workflow.Context, input *lightsail.StartInstanceInput) (*lightsail.StartInstanceOutput, error)
 	StartInstanceAsync(ctx workflow.Context, input *lightsail.StartInstanceInput) *StartInstanceFuture
@@ -376,6 +418,9 @@ type Client interface {
 
 	UntagResource(ctx workflow.Context, input *lightsail.UntagResourceInput) (*lightsail.UntagResourceOutput, error)
 	UntagResourceAsync(ctx workflow.Context, input *lightsail.UntagResourceInput) *UntagResourceFuture
+
+	UpdateContainerService(ctx workflow.Context, input *lightsail.UpdateContainerServiceInput) (*lightsail.UpdateContainerServiceOutput, error)
+	UpdateContainerServiceAsync(ctx workflow.Context, input *lightsail.UpdateContainerServiceInput) *UpdateContainerServiceFuture
 
 	UpdateDistribution(ctx workflow.Context, input *lightsail.UpdateDistributionInput) (*lightsail.UpdateDistributionOutput, error)
 	UpdateDistributionAsync(ctx workflow.Context, input *lightsail.UpdateDistributionInput) *UpdateDistributionFuture

@@ -83,6 +83,9 @@ type Client interface {
 	GetCompatibleElasticsearchVersions(ctx workflow.Context, input *elasticsearchservice.GetCompatibleElasticsearchVersionsInput) (*elasticsearchservice.GetCompatibleElasticsearchVersionsOutput, error)
 	GetCompatibleElasticsearchVersionsAsync(ctx workflow.Context, input *elasticsearchservice.GetCompatibleElasticsearchVersionsInput) *GetCompatibleElasticsearchVersionsFuture
 
+	GetPackageVersionHistory(ctx workflow.Context, input *elasticsearchservice.GetPackageVersionHistoryInput) (*elasticsearchservice.GetPackageVersionHistoryOutput, error)
+	GetPackageVersionHistoryAsync(ctx workflow.Context, input *elasticsearchservice.GetPackageVersionHistoryInput) *GetPackageVersionHistoryFuture
+
 	GetUpgradeHistory(ctx workflow.Context, input *elasticsearchservice.GetUpgradeHistoryInput) (*elasticsearchservice.GetUpgradeHistoryOutput, error)
 	GetUpgradeHistoryAsync(ctx workflow.Context, input *elasticsearchservice.GetUpgradeHistoryInput) *GetUpgradeHistoryFuture
 
@@ -121,6 +124,9 @@ type Client interface {
 
 	UpdateElasticsearchDomainConfig(ctx workflow.Context, input *elasticsearchservice.UpdateElasticsearchDomainConfigInput) (*elasticsearchservice.UpdateElasticsearchDomainConfigOutput, error)
 	UpdateElasticsearchDomainConfigAsync(ctx workflow.Context, input *elasticsearchservice.UpdateElasticsearchDomainConfigInput) *UpdateElasticsearchDomainConfigFuture
+
+	UpdatePackage(ctx workflow.Context, input *elasticsearchservice.UpdatePackageInput) (*elasticsearchservice.UpdatePackageOutput, error)
+	UpdatePackageAsync(ctx workflow.Context, input *elasticsearchservice.UpdatePackageInput) *UpdatePackageFuture
 
 	UpgradeElasticsearchDomain(ctx workflow.Context, input *elasticsearchservice.UpgradeElasticsearchDomainInput) (*elasticsearchservice.UpgradeElasticsearchDomainOutput, error)
 	UpgradeElasticsearchDomainAsync(ctx workflow.Context, input *elasticsearchservice.UpgradeElasticsearchDomainInput) *UpgradeElasticsearchDomainFuture

@@ -144,6 +144,16 @@ func (a *Activities) CreateOpsItem(ctx context.Context, input *ssm.CreateOpsItem
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateOpsMetadata(ctx context.Context, input *ssm.CreateOpsMetadataInput) (*ssm.CreateOpsMetadataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateOpsMetadataWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreatePatchBaseline(ctx context.Context, input *ssm.CreatePatchBaselineInput) (*ssm.CreatePatchBaselineOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -212,6 +222,16 @@ func (a *Activities) DeleteMaintenanceWindow(ctx context.Context, input *ssm.Del
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteMaintenanceWindowWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteOpsMetadata(ctx context.Context, input *ssm.DeleteOpsMetadataInput) (*ssm.DeleteOpsMetadataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteOpsMetadataWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -766,6 +786,16 @@ func (a *Activities) GetOpsItem(ctx context.Context, input *ssm.GetOpsItemInput)
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetOpsMetadata(ctx context.Context, input *ssm.GetOpsMetadataInput) (*ssm.GetOpsMetadataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetOpsMetadataWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetOpsSummary(ctx context.Context, input *ssm.GetOpsSummaryInput) (*ssm.GetOpsSummaryOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -916,6 +946,16 @@ func (a *Activities) ListComplianceSummaries(ctx context.Context, input *ssm.Lis
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListDocumentMetadataHistory(ctx context.Context, input *ssm.ListDocumentMetadataHistoryInput) (*ssm.ListDocumentMetadataHistoryOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListDocumentMetadataHistoryWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListDocumentVersions(ctx context.Context, input *ssm.ListDocumentVersionsInput) (*ssm.ListDocumentVersionsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -942,6 +982,26 @@ func (a *Activities) ListInventoryEntries(ctx context.Context, input *ssm.ListIn
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListInventoryEntriesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListOpsItemEvents(ctx context.Context, input *ssm.ListOpsItemEventsInput) (*ssm.ListOpsItemEventsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListOpsItemEventsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListOpsMetadata(ctx context.Context, input *ssm.ListOpsMetadataInput) (*ssm.ListOpsMetadataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListOpsMetadataWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1129,6 +1189,17 @@ func (a *Activities) StartAutomationExecution(ctx context.Context, input *ssm.St
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) StartChangeRequestExecution(ctx context.Context, input *ssm.StartChangeRequestExecutionInput) (*ssm.StartChangeRequestExecutionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.StartChangeRequestExecutionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) StartSession(ctx context.Context, input *ssm.StartSessionInput) (*ssm.StartSessionOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1199,6 +1270,16 @@ func (a *Activities) UpdateDocumentDefaultVersion(ctx context.Context, input *ss
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) UpdateDocumentMetadata(ctx context.Context, input *ssm.UpdateDocumentMetadataInput) (*ssm.UpdateDocumentMetadataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateDocumentMetadataWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) UpdateMaintenanceWindow(ctx context.Context, input *ssm.UpdateMaintenanceWindowInput) (*ssm.UpdateMaintenanceWindowOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1245,6 +1326,16 @@ func (a *Activities) UpdateOpsItem(ctx context.Context, input *ssm.UpdateOpsItem
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateOpsItemWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateOpsMetadata(ctx context.Context, input *ssm.UpdateOpsMetadataInput) (*ssm.UpdateOpsMetadataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateOpsMetadataWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

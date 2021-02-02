@@ -53,12 +53,129 @@ func (a *Activities) getClient(ctx context.Context) (licensemanageriface.License
 	return licensemanager.New(sess), nil
 }
 
+func (a *Activities) AcceptGrant(ctx context.Context, input *licensemanager.AcceptGrantInput) (*licensemanager.AcceptGrantOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.AcceptGrantWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CheckInLicense(ctx context.Context, input *licensemanager.CheckInLicenseInput) (*licensemanager.CheckInLicenseOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CheckInLicenseWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CheckoutBorrowLicense(ctx context.Context, input *licensemanager.CheckoutBorrowLicenseInput) (*licensemanager.CheckoutBorrowLicenseOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CheckoutBorrowLicenseWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CheckoutLicense(ctx context.Context, input *licensemanager.CheckoutLicenseInput) (*licensemanager.CheckoutLicenseOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CheckoutLicenseWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateGrant(ctx context.Context, input *licensemanager.CreateGrantInput) (*licensemanager.CreateGrantOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CreateGrantWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateGrantVersion(ctx context.Context, input *licensemanager.CreateGrantVersionInput) (*licensemanager.CreateGrantVersionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CreateGrantVersionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateLicense(ctx context.Context, input *licensemanager.CreateLicenseInput) (*licensemanager.CreateLicenseOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CreateLicenseWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateLicenseConfiguration(ctx context.Context, input *licensemanager.CreateLicenseConfigurationInput) (*licensemanager.CreateLicenseConfigurationOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreateLicenseConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateLicenseVersion(ctx context.Context, input *licensemanager.CreateLicenseVersionInput) (*licensemanager.CreateLicenseVersionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CreateLicenseVersionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateToken(ctx context.Context, input *licensemanager.CreateTokenInput) (*licensemanager.CreateTokenOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CreateTokenWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteGrant(ctx context.Context, input *licensemanager.DeleteGrantInput) (*licensemanager.DeleteGrantOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteGrantWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteLicense(ctx context.Context, input *licensemanager.DeleteLicenseInput) (*licensemanager.DeleteLicenseOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteLicenseWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -73,12 +190,72 @@ func (a *Activities) DeleteLicenseConfiguration(ctx context.Context, input *lice
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteToken(ctx context.Context, input *licensemanager.DeleteTokenInput) (*licensemanager.DeleteTokenOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteTokenWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ExtendLicenseConsumption(ctx context.Context, input *licensemanager.ExtendLicenseConsumptionInput) (*licensemanager.ExtendLicenseConsumptionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ExtendLicenseConsumptionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetAccessToken(ctx context.Context, input *licensemanager.GetAccessTokenInput) (*licensemanager.GetAccessTokenOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetAccessTokenWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetGrant(ctx context.Context, input *licensemanager.GetGrantInput) (*licensemanager.GetGrantOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetGrantWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetLicense(ctx context.Context, input *licensemanager.GetLicenseInput) (*licensemanager.GetLicenseOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetLicenseWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetLicenseConfiguration(ctx context.Context, input *licensemanager.GetLicenseConfigurationInput) (*licensemanager.GetLicenseConfigurationOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetLicenseConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetLicenseUsage(ctx context.Context, input *licensemanager.GetLicenseUsageInput) (*licensemanager.GetLicenseUsageOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetLicenseUsageWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -99,6 +276,16 @@ func (a *Activities) ListAssociationsForLicenseConfiguration(ctx context.Context
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListAssociationsForLicenseConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListDistributedGrants(ctx context.Context, input *licensemanager.ListDistributedGrantsInput) (*licensemanager.ListDistributedGrantsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListDistributedGrantsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -133,6 +320,46 @@ func (a *Activities) ListLicenseSpecificationsForResource(ctx context.Context, i
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListLicenseVersions(ctx context.Context, input *licensemanager.ListLicenseVersionsInput) (*licensemanager.ListLicenseVersionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListLicenseVersionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListLicenses(ctx context.Context, input *licensemanager.ListLicensesInput) (*licensemanager.ListLicensesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListLicensesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListReceivedGrants(ctx context.Context, input *licensemanager.ListReceivedGrantsInput) (*licensemanager.ListReceivedGrantsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListReceivedGrantsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListReceivedLicenses(ctx context.Context, input *licensemanager.ListReceivedLicensesInput) (*licensemanager.ListReceivedLicensesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListReceivedLicensesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListResourceInventory(ctx context.Context, input *licensemanager.ListResourceInventoryInput) (*licensemanager.ListResourceInventoryOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -153,12 +380,32 @@ func (a *Activities) ListTagsForResource(ctx context.Context, input *licensemana
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListTokens(ctx context.Context, input *licensemanager.ListTokensInput) (*licensemanager.ListTokensOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListTokensWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListUsageForLicenseConfiguration(ctx context.Context, input *licensemanager.ListUsageForLicenseConfigurationInput) (*licensemanager.ListUsageForLicenseConfigurationOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListUsageForLicenseConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) RejectGrant(ctx context.Context, input *licensemanager.RejectGrantInput) (*licensemanager.RejectGrantOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RejectGrantWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

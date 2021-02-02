@@ -163,6 +163,36 @@ func (a *Activities) CreateContactMethod(ctx context.Context, input *lightsail.C
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateContainerService(ctx context.Context, input *lightsail.CreateContainerServiceInput) (*lightsail.CreateContainerServiceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateContainerServiceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateContainerServiceDeployment(ctx context.Context, input *lightsail.CreateContainerServiceDeploymentInput) (*lightsail.CreateContainerServiceDeploymentOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateContainerServiceDeploymentWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateContainerServiceRegistryLogin(ctx context.Context, input *lightsail.CreateContainerServiceRegistryLoginInput) (*lightsail.CreateContainerServiceRegistryLoginOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateContainerServiceRegistryLoginWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateDisk(ctx context.Context, input *lightsail.CreateDiskInput) (*lightsail.CreateDiskOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -349,6 +379,26 @@ func (a *Activities) DeleteContactMethod(ctx context.Context, input *lightsail.D
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteContactMethodWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteContainerImage(ctx context.Context, input *lightsail.DeleteContainerImageInput) (*lightsail.DeleteContainerImageOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteContainerImageWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteContainerService(ctx context.Context, input *lightsail.DeleteContainerServiceInput) (*lightsail.DeleteContainerServiceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteContainerServiceWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -639,6 +689,76 @@ func (a *Activities) GetContactMethods(ctx context.Context, input *lightsail.Get
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetContactMethodsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetContainerAPIMetadata(ctx context.Context, input *lightsail.GetContainerAPIMetadataInput) (*lightsail.GetContainerAPIMetadataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetContainerAPIMetadataWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetContainerImages(ctx context.Context, input *lightsail.GetContainerImagesInput) (*lightsail.GetContainerImagesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetContainerImagesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetContainerLog(ctx context.Context, input *lightsail.GetContainerLogInput) (*lightsail.GetContainerLogOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetContainerLogWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetContainerServiceDeployments(ctx context.Context, input *lightsail.GetContainerServiceDeploymentsInput) (*lightsail.GetContainerServiceDeploymentsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetContainerServiceDeploymentsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetContainerServiceMetricData(ctx context.Context, input *lightsail.GetContainerServiceMetricDataInput) (*lightsail.GetContainerServiceMetricDataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetContainerServiceMetricDataWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetContainerServicePowers(ctx context.Context, input *lightsail.GetContainerServicePowersInput) (*lightsail.GetContainerServicePowersOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetContainerServicePowersWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetContainerServices(ctx context.Context, input *lightsail.GetContainerServicesInput) (*lightsail.GetContainerServicesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetContainerServicesWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1153,6 +1273,16 @@ func (a *Activities) RebootRelationalDatabase(ctx context.Context, input *lights
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) RegisterContainerImage(ctx context.Context, input *lightsail.RegisterContainerImageInput) (*lightsail.RegisterContainerImageOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RegisterContainerImageWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ReleaseStaticIp(ctx context.Context, input *lightsail.ReleaseStaticIpInput) (*lightsail.ReleaseStaticIpOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1179,6 +1309,16 @@ func (a *Activities) SendContactMethodVerification(ctx context.Context, input *l
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.SendContactMethodVerificationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) SetIpAddressType(ctx context.Context, input *lightsail.SetIpAddressTypeInput) (*lightsail.SetIpAddressTypeOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.SetIpAddressTypeWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1259,6 +1399,16 @@ func (a *Activities) UntagResource(ctx context.Context, input *lightsail.UntagRe
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UntagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateContainerService(ctx context.Context, input *lightsail.UpdateContainerServiceInput) (*lightsail.UpdateContainerServiceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateContainerServiceWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

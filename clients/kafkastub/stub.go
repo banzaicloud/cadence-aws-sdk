@@ -290,6 +290,17 @@ func (r *UpdateBrokerStorageFuture) Get(ctx workflow.Context) (*kafka.UpdateBrok
 	return &output, err
 }
 
+type UpdateBrokerTypeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateBrokerTypeFuture) Get(ctx workflow.Context) (*kafka.UpdateBrokerTypeOutput, error) {
+	var output kafka.UpdateBrokerTypeOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateClusterConfigurationFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -607,6 +618,17 @@ func (a *stub) UpdateBrokerStorage(ctx workflow.Context, input *kafka.UpdateBrok
 func (a *stub) UpdateBrokerStorageAsync(ctx workflow.Context, input *kafka.UpdateBrokerStorageInput) *UpdateBrokerStorageFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-kafka-UpdateBrokerStorage", input)
 	return &UpdateBrokerStorageFuture{Future: future}
+}
+
+func (a *stub) UpdateBrokerType(ctx workflow.Context, input *kafka.UpdateBrokerTypeInput) (*kafka.UpdateBrokerTypeOutput, error) {
+	var output kafka.UpdateBrokerTypeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-kafka-UpdateBrokerType", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateBrokerTypeAsync(ctx workflow.Context, input *kafka.UpdateBrokerTypeInput) *UpdateBrokerTypeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-kafka-UpdateBrokerType", input)
+	return &UpdateBrokerTypeFuture{Future: future}
 }
 
 func (a *stub) UpdateClusterConfiguration(ctx workflow.Context, input *kafka.UpdateClusterConfigurationInput) (*kafka.UpdateClusterConfigurationOutput, error) {

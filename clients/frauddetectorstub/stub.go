@@ -114,6 +114,17 @@ func (r *DeleteDetectorVersionFuture) Get(ctx workflow.Context) (*frauddetector.
 	return &output, err
 }
 
+type DeleteEntityTypeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteEntityTypeFuture) Get(ctx workflow.Context) (*frauddetector.DeleteEntityTypeOutput, error) {
+	var output frauddetector.DeleteEntityTypeOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteEventFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -125,6 +136,72 @@ func (r *DeleteEventFuture) Get(ctx workflow.Context) (*frauddetector.DeleteEven
 	return &output, err
 }
 
+type DeleteEventTypeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteEventTypeFuture) Get(ctx workflow.Context) (*frauddetector.DeleteEventTypeOutput, error) {
+	var output frauddetector.DeleteEventTypeOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteExternalModelFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteExternalModelFuture) Get(ctx workflow.Context) (*frauddetector.DeleteExternalModelOutput, error) {
+	var output frauddetector.DeleteExternalModelOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteLabelFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteLabelFuture) Get(ctx workflow.Context) (*frauddetector.DeleteLabelOutput, error) {
+	var output frauddetector.DeleteLabelOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteModelFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteModelFuture) Get(ctx workflow.Context) (*frauddetector.DeleteModelOutput, error) {
+	var output frauddetector.DeleteModelOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteModelVersionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteModelVersionFuture) Get(ctx workflow.Context) (*frauddetector.DeleteModelVersionOutput, error) {
+	var output frauddetector.DeleteModelVersionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteOutcomeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteOutcomeFuture) Get(ctx workflow.Context) (*frauddetector.DeleteOutcomeOutput, error) {
+	var output frauddetector.DeleteOutcomeOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteRuleFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -132,6 +209,17 @@ type DeleteRuleFuture struct {
 
 func (r *DeleteRuleFuture) Get(ctx workflow.Context) (*frauddetector.DeleteRuleOutput, error) {
 	var output frauddetector.DeleteRuleOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteVariableFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteVariableFuture) Get(ctx workflow.Context) (*frauddetector.DeleteVariableOutput, error) {
+	var output frauddetector.DeleteVariableOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -609,6 +697,17 @@ func (a *stub) DeleteDetectorVersionAsync(ctx workflow.Context, input *frauddete
 	return &DeleteDetectorVersionFuture{Future: future}
 }
 
+func (a *stub) DeleteEntityType(ctx workflow.Context, input *frauddetector.DeleteEntityTypeInput) (*frauddetector.DeleteEntityTypeOutput, error) {
+	var output frauddetector.DeleteEntityTypeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteEntityType", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteEntityTypeAsync(ctx workflow.Context, input *frauddetector.DeleteEntityTypeInput) *DeleteEntityTypeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteEntityType", input)
+	return &DeleteEntityTypeFuture{Future: future}
+}
+
 func (a *stub) DeleteEvent(ctx workflow.Context, input *frauddetector.DeleteEventInput) (*frauddetector.DeleteEventOutput, error) {
 	var output frauddetector.DeleteEventOutput
 	err := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteEvent", input).Get(ctx, &output)
@@ -620,6 +719,72 @@ func (a *stub) DeleteEventAsync(ctx workflow.Context, input *frauddetector.Delet
 	return &DeleteEventFuture{Future: future}
 }
 
+func (a *stub) DeleteEventType(ctx workflow.Context, input *frauddetector.DeleteEventTypeInput) (*frauddetector.DeleteEventTypeOutput, error) {
+	var output frauddetector.DeleteEventTypeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteEventType", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteEventTypeAsync(ctx workflow.Context, input *frauddetector.DeleteEventTypeInput) *DeleteEventTypeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteEventType", input)
+	return &DeleteEventTypeFuture{Future: future}
+}
+
+func (a *stub) DeleteExternalModel(ctx workflow.Context, input *frauddetector.DeleteExternalModelInput) (*frauddetector.DeleteExternalModelOutput, error) {
+	var output frauddetector.DeleteExternalModelOutput
+	err := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteExternalModel", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteExternalModelAsync(ctx workflow.Context, input *frauddetector.DeleteExternalModelInput) *DeleteExternalModelFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteExternalModel", input)
+	return &DeleteExternalModelFuture{Future: future}
+}
+
+func (a *stub) DeleteLabel(ctx workflow.Context, input *frauddetector.DeleteLabelInput) (*frauddetector.DeleteLabelOutput, error) {
+	var output frauddetector.DeleteLabelOutput
+	err := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteLabel", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteLabelAsync(ctx workflow.Context, input *frauddetector.DeleteLabelInput) *DeleteLabelFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteLabel", input)
+	return &DeleteLabelFuture{Future: future}
+}
+
+func (a *stub) DeleteModel(ctx workflow.Context, input *frauddetector.DeleteModelInput) (*frauddetector.DeleteModelOutput, error) {
+	var output frauddetector.DeleteModelOutput
+	err := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteModel", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteModelAsync(ctx workflow.Context, input *frauddetector.DeleteModelInput) *DeleteModelFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteModel", input)
+	return &DeleteModelFuture{Future: future}
+}
+
+func (a *stub) DeleteModelVersion(ctx workflow.Context, input *frauddetector.DeleteModelVersionInput) (*frauddetector.DeleteModelVersionOutput, error) {
+	var output frauddetector.DeleteModelVersionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteModelVersion", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteModelVersionAsync(ctx workflow.Context, input *frauddetector.DeleteModelVersionInput) *DeleteModelVersionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteModelVersion", input)
+	return &DeleteModelVersionFuture{Future: future}
+}
+
+func (a *stub) DeleteOutcome(ctx workflow.Context, input *frauddetector.DeleteOutcomeInput) (*frauddetector.DeleteOutcomeOutput, error) {
+	var output frauddetector.DeleteOutcomeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteOutcome", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteOutcomeAsync(ctx workflow.Context, input *frauddetector.DeleteOutcomeInput) *DeleteOutcomeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteOutcome", input)
+	return &DeleteOutcomeFuture{Future: future}
+}
+
 func (a *stub) DeleteRule(ctx workflow.Context, input *frauddetector.DeleteRuleInput) (*frauddetector.DeleteRuleOutput, error) {
 	var output frauddetector.DeleteRuleOutput
 	err := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteRule", input).Get(ctx, &output)
@@ -629,6 +794,17 @@ func (a *stub) DeleteRule(ctx workflow.Context, input *frauddetector.DeleteRuleI
 func (a *stub) DeleteRuleAsync(ctx workflow.Context, input *frauddetector.DeleteRuleInput) *DeleteRuleFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteRule", input)
 	return &DeleteRuleFuture{Future: future}
+}
+
+func (a *stub) DeleteVariable(ctx workflow.Context, input *frauddetector.DeleteVariableInput) (*frauddetector.DeleteVariableOutput, error) {
+	var output frauddetector.DeleteVariableOutput
+	err := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteVariable", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteVariableAsync(ctx workflow.Context, input *frauddetector.DeleteVariableInput) *DeleteVariableFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-frauddetector-DeleteVariable", input)
+	return &DeleteVariableFuture{Future: future}
 }
 
 func (a *stub) DescribeDetector(ctx workflow.Context, input *frauddetector.DescribeDetectorInput) (*frauddetector.DescribeDetectorOutput, error) {

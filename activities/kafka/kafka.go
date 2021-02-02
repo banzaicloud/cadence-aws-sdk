@@ -303,6 +303,16 @@ func (a *Activities) UpdateBrokerStorage(ctx context.Context, input *kafka.Updat
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) UpdateBrokerType(ctx context.Context, input *kafka.UpdateBrokerTypeInput) (*kafka.UpdateBrokerTypeOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateBrokerTypeWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) UpdateClusterConfiguration(ctx context.Context, input *kafka.UpdateClusterConfigurationInput) (*kafka.UpdateClusterConfigurationOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

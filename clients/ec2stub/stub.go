@@ -26,6 +26,17 @@ func (r *AcceptReservedInstancesExchangeQuoteFuture) Get(ctx workflow.Context) (
 	return &output, err
 }
 
+type AcceptTransitGatewayMulticastDomainAssociationsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AcceptTransitGatewayMulticastDomainAssociationsFuture) Get(ctx workflow.Context) (*ec2.AcceptTransitGatewayMulticastDomainAssociationsOutput, error) {
+	var output ec2.AcceptTransitGatewayMulticastDomainAssociationsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type AcceptTransitGatewayPeeringAttachmentFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -741,6 +752,17 @@ func (r *CreateNetworkAclEntryFuture) Get(ctx workflow.Context) (*ec2.CreateNetw
 	return &output, err
 }
 
+type CreateNetworkInsightsPathFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateNetworkInsightsPathFuture) Get(ctx workflow.Context) (*ec2.CreateNetworkInsightsPathOutput, error) {
+	var output ec2.CreateNetworkInsightsPathOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateNetworkInterfaceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -924,6 +946,28 @@ type CreateTransitGatewayFuture struct {
 
 func (r *CreateTransitGatewayFuture) Get(ctx workflow.Context) (*ec2.CreateTransitGatewayOutput, error) {
 	var output ec2.CreateTransitGatewayOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateTransitGatewayConnectFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateTransitGatewayConnectFuture) Get(ctx workflow.Context) (*ec2.CreateTransitGatewayConnectOutput, error) {
+	var output ec2.CreateTransitGatewayConnectOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateTransitGatewayConnectPeerFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateTransitGatewayConnectPeerFuture) Get(ctx workflow.Context) (*ec2.CreateTransitGatewayConnectPeerOutput, error) {
+	var output ec2.CreateTransitGatewayConnectPeerOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1302,6 +1346,28 @@ func (r *DeleteNetworkAclEntryFuture) Get(ctx workflow.Context) (*ec2.DeleteNetw
 	return &output, err
 }
 
+type DeleteNetworkInsightsAnalysisFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteNetworkInsightsAnalysisFuture) Get(ctx workflow.Context) (*ec2.DeleteNetworkInsightsAnalysisOutput, error) {
+	var output ec2.DeleteNetworkInsightsAnalysisOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteNetworkInsightsPathFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteNetworkInsightsPathFuture) Get(ctx workflow.Context) (*ec2.DeleteNetworkInsightsPathOutput, error) {
+	var output ec2.DeleteNetworkInsightsPathOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteNetworkInterfaceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1474,6 +1540,28 @@ type DeleteTransitGatewayFuture struct {
 
 func (r *DeleteTransitGatewayFuture) Get(ctx workflow.Context) (*ec2.DeleteTransitGatewayOutput, error) {
 	var output ec2.DeleteTransitGatewayOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteTransitGatewayConnectFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteTransitGatewayConnectFuture) Get(ctx workflow.Context) (*ec2.DeleteTransitGatewayConnectOutput, error) {
+	var output ec2.DeleteTransitGatewayConnectOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteTransitGatewayConnectPeerFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteTransitGatewayConnectPeerFuture) Get(ctx workflow.Context) (*ec2.DeleteTransitGatewayConnectPeerOutput, error) {
+	var output ec2.DeleteTransitGatewayConnectPeerOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -2369,6 +2457,28 @@ func (r *DescribeNetworkAclsFuture) Get(ctx workflow.Context) (*ec2.DescribeNetw
 	return &output, err
 }
 
+type DescribeNetworkInsightsAnalysesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeNetworkInsightsAnalysesFuture) Get(ctx workflow.Context) (*ec2.DescribeNetworkInsightsAnalysesOutput, error) {
+	var output ec2.DescribeNetworkInsightsAnalysesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeNetworkInsightsPathsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeNetworkInsightsPathsFuture) Get(ctx workflow.Context) (*ec2.DescribeNetworkInsightsPathsOutput, error) {
+	var output ec2.DescribeNetworkInsightsPathsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeNetworkInterfaceAttributeFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -2717,6 +2827,28 @@ type DescribeTransitGatewayAttachmentsFuture struct {
 
 func (r *DescribeTransitGatewayAttachmentsFuture) Get(ctx workflow.Context) (*ec2.DescribeTransitGatewayAttachmentsOutput, error) {
 	var output ec2.DescribeTransitGatewayAttachmentsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeTransitGatewayConnectPeersFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeTransitGatewayConnectPeersFuture) Get(ctx workflow.Context) (*ec2.DescribeTransitGatewayConnectPeersOutput, error) {
+	var output ec2.DescribeTransitGatewayConnectPeersOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeTransitGatewayConnectsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeTransitGatewayConnectsFuture) Get(ctx workflow.Context) (*ec2.DescribeTransitGatewayConnectsOutput, error) {
+	var output ec2.DescribeTransitGatewayConnectsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -4184,6 +4316,17 @@ func (r *RegisterTransitGatewayMulticastGroupSourcesFuture) Get(ctx workflow.Con
 	return &output, err
 }
 
+type RejectTransitGatewayMulticastDomainAssociationsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *RejectTransitGatewayMulticastDomainAssociationsFuture) Get(ctx workflow.Context) (*ec2.RejectTransitGatewayMulticastDomainAssociationsOutput, error) {
+	var output ec2.RejectTransitGatewayMulticastDomainAssociationsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type RejectTransitGatewayPeeringAttachmentFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -4547,6 +4690,17 @@ func (r *StartInstancesFuture) Get(ctx workflow.Context) (*ec2.StartInstancesOut
 	return &output, err
 }
 
+type StartNetworkInsightsAnalysisFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartNetworkInsightsAnalysisFuture) Get(ctx workflow.Context) (*ec2.StartNetworkInsightsAnalysisOutput, error) {
+	var output ec2.StartNetworkInsightsAnalysisOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type StartVpcEndpointServicePrivateDnsVerificationFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -4666,6 +4820,17 @@ func (a *stub) AcceptReservedInstancesExchangeQuote(ctx workflow.Context, input 
 func (a *stub) AcceptReservedInstancesExchangeQuoteAsync(ctx workflow.Context, input *ec2.AcceptReservedInstancesExchangeQuoteInput) *AcceptReservedInstancesExchangeQuoteFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ec2-AcceptReservedInstancesExchangeQuote", input)
 	return &AcceptReservedInstancesExchangeQuoteFuture{Future: future}
+}
+
+func (a *stub) AcceptTransitGatewayMulticastDomainAssociations(ctx workflow.Context, input *ec2.AcceptTransitGatewayMulticastDomainAssociationsInput) (*ec2.AcceptTransitGatewayMulticastDomainAssociationsOutput, error) {
+	var output ec2.AcceptTransitGatewayMulticastDomainAssociationsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-AcceptTransitGatewayMulticastDomainAssociations", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AcceptTransitGatewayMulticastDomainAssociationsAsync(ctx workflow.Context, input *ec2.AcceptTransitGatewayMulticastDomainAssociationsInput) *AcceptTransitGatewayMulticastDomainAssociationsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-AcceptTransitGatewayMulticastDomainAssociations", input)
+	return &AcceptTransitGatewayMulticastDomainAssociationsFuture{Future: future}
 }
 
 func (a *stub) AcceptTransitGatewayPeeringAttachment(ctx workflow.Context, input *ec2.AcceptTransitGatewayPeeringAttachmentInput) (*ec2.AcceptTransitGatewayPeeringAttachmentOutput, error) {
@@ -5383,6 +5548,17 @@ func (a *stub) CreateNetworkAclEntryAsync(ctx workflow.Context, input *ec2.Creat
 	return &CreateNetworkAclEntryFuture{Future: future}
 }
 
+func (a *stub) CreateNetworkInsightsPath(ctx workflow.Context, input *ec2.CreateNetworkInsightsPathInput) (*ec2.CreateNetworkInsightsPathOutput, error) {
+	var output ec2.CreateNetworkInsightsPathOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-CreateNetworkInsightsPath", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateNetworkInsightsPathAsync(ctx workflow.Context, input *ec2.CreateNetworkInsightsPathInput) *CreateNetworkInsightsPathFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-CreateNetworkInsightsPath", input)
+	return &CreateNetworkInsightsPathFuture{Future: future}
+}
+
 func (a *stub) CreateNetworkInterface(ctx workflow.Context, input *ec2.CreateNetworkInterfaceInput) (*ec2.CreateNetworkInterfaceOutput, error) {
 	var output ec2.CreateNetworkInterfaceOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ec2-CreateNetworkInterface", input).Get(ctx, &output)
@@ -5568,6 +5744,28 @@ func (a *stub) CreateTransitGateway(ctx workflow.Context, input *ec2.CreateTrans
 func (a *stub) CreateTransitGatewayAsync(ctx workflow.Context, input *ec2.CreateTransitGatewayInput) *CreateTransitGatewayFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ec2-CreateTransitGateway", input)
 	return &CreateTransitGatewayFuture{Future: future}
+}
+
+func (a *stub) CreateTransitGatewayConnect(ctx workflow.Context, input *ec2.CreateTransitGatewayConnectInput) (*ec2.CreateTransitGatewayConnectOutput, error) {
+	var output ec2.CreateTransitGatewayConnectOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-CreateTransitGatewayConnect", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateTransitGatewayConnectAsync(ctx workflow.Context, input *ec2.CreateTransitGatewayConnectInput) *CreateTransitGatewayConnectFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-CreateTransitGatewayConnect", input)
+	return &CreateTransitGatewayConnectFuture{Future: future}
+}
+
+func (a *stub) CreateTransitGatewayConnectPeer(ctx workflow.Context, input *ec2.CreateTransitGatewayConnectPeerInput) (*ec2.CreateTransitGatewayConnectPeerOutput, error) {
+	var output ec2.CreateTransitGatewayConnectPeerOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-CreateTransitGatewayConnectPeer", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateTransitGatewayConnectPeerAsync(ctx workflow.Context, input *ec2.CreateTransitGatewayConnectPeerInput) *CreateTransitGatewayConnectPeerFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-CreateTransitGatewayConnectPeer", input)
+	return &CreateTransitGatewayConnectPeerFuture{Future: future}
 }
 
 func (a *stub) CreateTransitGatewayMulticastDomain(ctx workflow.Context, input *ec2.CreateTransitGatewayMulticastDomainInput) (*ec2.CreateTransitGatewayMulticastDomainOutput, error) {
@@ -5944,6 +6142,28 @@ func (a *stub) DeleteNetworkAclEntryAsync(ctx workflow.Context, input *ec2.Delet
 	return &DeleteNetworkAclEntryFuture{Future: future}
 }
 
+func (a *stub) DeleteNetworkInsightsAnalysis(ctx workflow.Context, input *ec2.DeleteNetworkInsightsAnalysisInput) (*ec2.DeleteNetworkInsightsAnalysisOutput, error) {
+	var output ec2.DeleteNetworkInsightsAnalysisOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-DeleteNetworkInsightsAnalysis", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteNetworkInsightsAnalysisAsync(ctx workflow.Context, input *ec2.DeleteNetworkInsightsAnalysisInput) *DeleteNetworkInsightsAnalysisFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-DeleteNetworkInsightsAnalysis", input)
+	return &DeleteNetworkInsightsAnalysisFuture{Future: future}
+}
+
+func (a *stub) DeleteNetworkInsightsPath(ctx workflow.Context, input *ec2.DeleteNetworkInsightsPathInput) (*ec2.DeleteNetworkInsightsPathOutput, error) {
+	var output ec2.DeleteNetworkInsightsPathOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-DeleteNetworkInsightsPath", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteNetworkInsightsPathAsync(ctx workflow.Context, input *ec2.DeleteNetworkInsightsPathInput) *DeleteNetworkInsightsPathFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-DeleteNetworkInsightsPath", input)
+	return &DeleteNetworkInsightsPathFuture{Future: future}
+}
+
 func (a *stub) DeleteNetworkInterface(ctx workflow.Context, input *ec2.DeleteNetworkInterfaceInput) (*ec2.DeleteNetworkInterfaceOutput, error) {
 	var output ec2.DeleteNetworkInterfaceOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ec2-DeleteNetworkInterface", input).Get(ctx, &output)
@@ -6118,6 +6338,28 @@ func (a *stub) DeleteTransitGateway(ctx workflow.Context, input *ec2.DeleteTrans
 func (a *stub) DeleteTransitGatewayAsync(ctx workflow.Context, input *ec2.DeleteTransitGatewayInput) *DeleteTransitGatewayFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ec2-DeleteTransitGateway", input)
 	return &DeleteTransitGatewayFuture{Future: future}
+}
+
+func (a *stub) DeleteTransitGatewayConnect(ctx workflow.Context, input *ec2.DeleteTransitGatewayConnectInput) (*ec2.DeleteTransitGatewayConnectOutput, error) {
+	var output ec2.DeleteTransitGatewayConnectOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-DeleteTransitGatewayConnect", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteTransitGatewayConnectAsync(ctx workflow.Context, input *ec2.DeleteTransitGatewayConnectInput) *DeleteTransitGatewayConnectFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-DeleteTransitGatewayConnect", input)
+	return &DeleteTransitGatewayConnectFuture{Future: future}
+}
+
+func (a *stub) DeleteTransitGatewayConnectPeer(ctx workflow.Context, input *ec2.DeleteTransitGatewayConnectPeerInput) (*ec2.DeleteTransitGatewayConnectPeerOutput, error) {
+	var output ec2.DeleteTransitGatewayConnectPeerOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-DeleteTransitGatewayConnectPeer", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteTransitGatewayConnectPeerAsync(ctx workflow.Context, input *ec2.DeleteTransitGatewayConnectPeerInput) *DeleteTransitGatewayConnectPeerFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-DeleteTransitGatewayConnectPeer", input)
+	return &DeleteTransitGatewayConnectPeerFuture{Future: future}
 }
 
 func (a *stub) DeleteTransitGatewayMulticastDomain(ctx workflow.Context, input *ec2.DeleteTransitGatewayMulticastDomainInput) (*ec2.DeleteTransitGatewayMulticastDomainOutput, error) {
@@ -7011,6 +7253,28 @@ func (a *stub) DescribeNetworkAclsAsync(ctx workflow.Context, input *ec2.Describ
 	return &DescribeNetworkAclsFuture{Future: future}
 }
 
+func (a *stub) DescribeNetworkInsightsAnalyses(ctx workflow.Context, input *ec2.DescribeNetworkInsightsAnalysesInput) (*ec2.DescribeNetworkInsightsAnalysesOutput, error) {
+	var output ec2.DescribeNetworkInsightsAnalysesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-DescribeNetworkInsightsAnalyses", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeNetworkInsightsAnalysesAsync(ctx workflow.Context, input *ec2.DescribeNetworkInsightsAnalysesInput) *DescribeNetworkInsightsAnalysesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-DescribeNetworkInsightsAnalyses", input)
+	return &DescribeNetworkInsightsAnalysesFuture{Future: future}
+}
+
+func (a *stub) DescribeNetworkInsightsPaths(ctx workflow.Context, input *ec2.DescribeNetworkInsightsPathsInput) (*ec2.DescribeNetworkInsightsPathsOutput, error) {
+	var output ec2.DescribeNetworkInsightsPathsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-DescribeNetworkInsightsPaths", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeNetworkInsightsPathsAsync(ctx workflow.Context, input *ec2.DescribeNetworkInsightsPathsInput) *DescribeNetworkInsightsPathsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-DescribeNetworkInsightsPaths", input)
+	return &DescribeNetworkInsightsPathsFuture{Future: future}
+}
+
 func (a *stub) DescribeNetworkInterfaceAttribute(ctx workflow.Context, input *ec2.DescribeNetworkInterfaceAttributeInput) (*ec2.DescribeNetworkInterfaceAttributeOutput, error) {
 	var output ec2.DescribeNetworkInterfaceAttributeOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ec2-DescribeNetworkInterfaceAttribute", input).Get(ctx, &output)
@@ -7361,6 +7625,28 @@ func (a *stub) DescribeTransitGatewayAttachments(ctx workflow.Context, input *ec
 func (a *stub) DescribeTransitGatewayAttachmentsAsync(ctx workflow.Context, input *ec2.DescribeTransitGatewayAttachmentsInput) *DescribeTransitGatewayAttachmentsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ec2-DescribeTransitGatewayAttachments", input)
 	return &DescribeTransitGatewayAttachmentsFuture{Future: future}
+}
+
+func (a *stub) DescribeTransitGatewayConnectPeers(ctx workflow.Context, input *ec2.DescribeTransitGatewayConnectPeersInput) (*ec2.DescribeTransitGatewayConnectPeersOutput, error) {
+	var output ec2.DescribeTransitGatewayConnectPeersOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-DescribeTransitGatewayConnectPeers", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeTransitGatewayConnectPeersAsync(ctx workflow.Context, input *ec2.DescribeTransitGatewayConnectPeersInput) *DescribeTransitGatewayConnectPeersFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-DescribeTransitGatewayConnectPeers", input)
+	return &DescribeTransitGatewayConnectPeersFuture{Future: future}
+}
+
+func (a *stub) DescribeTransitGatewayConnects(ctx workflow.Context, input *ec2.DescribeTransitGatewayConnectsInput) (*ec2.DescribeTransitGatewayConnectsOutput, error) {
+	var output ec2.DescribeTransitGatewayConnectsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-DescribeTransitGatewayConnects", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeTransitGatewayConnectsAsync(ctx workflow.Context, input *ec2.DescribeTransitGatewayConnectsInput) *DescribeTransitGatewayConnectsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-DescribeTransitGatewayConnects", input)
+	return &DescribeTransitGatewayConnectsFuture{Future: future}
 }
 
 func (a *stub) DescribeTransitGatewayMulticastDomains(ctx workflow.Context, input *ec2.DescribeTransitGatewayMulticastDomainsInput) (*ec2.DescribeTransitGatewayMulticastDomainsOutput, error) {
@@ -8826,6 +9112,17 @@ func (a *stub) RegisterTransitGatewayMulticastGroupSourcesAsync(ctx workflow.Con
 	return &RegisterTransitGatewayMulticastGroupSourcesFuture{Future: future}
 }
 
+func (a *stub) RejectTransitGatewayMulticastDomainAssociations(ctx workflow.Context, input *ec2.RejectTransitGatewayMulticastDomainAssociationsInput) (*ec2.RejectTransitGatewayMulticastDomainAssociationsOutput, error) {
+	var output ec2.RejectTransitGatewayMulticastDomainAssociationsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-RejectTransitGatewayMulticastDomainAssociations", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) RejectTransitGatewayMulticastDomainAssociationsAsync(ctx workflow.Context, input *ec2.RejectTransitGatewayMulticastDomainAssociationsInput) *RejectTransitGatewayMulticastDomainAssociationsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-RejectTransitGatewayMulticastDomainAssociations", input)
+	return &RejectTransitGatewayMulticastDomainAssociationsFuture{Future: future}
+}
+
 func (a *stub) RejectTransitGatewayPeeringAttachment(ctx workflow.Context, input *ec2.RejectTransitGatewayPeeringAttachmentInput) (*ec2.RejectTransitGatewayPeeringAttachmentOutput, error) {
 	var output ec2.RejectTransitGatewayPeeringAttachmentOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ec2-RejectTransitGatewayPeeringAttachment", input).Get(ctx, &output)
@@ -9187,6 +9484,17 @@ func (a *stub) StartInstances(ctx workflow.Context, input *ec2.StartInstancesInp
 func (a *stub) StartInstancesAsync(ctx workflow.Context, input *ec2.StartInstancesInput) *StartInstancesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ec2-StartInstances", input)
 	return &StartInstancesFuture{Future: future}
+}
+
+func (a *stub) StartNetworkInsightsAnalysis(ctx workflow.Context, input *ec2.StartNetworkInsightsAnalysisInput) (*ec2.StartNetworkInsightsAnalysisOutput, error) {
+	var output ec2.StartNetworkInsightsAnalysisOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ec2-StartNetworkInsightsAnalysis", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartNetworkInsightsAnalysisAsync(ctx workflow.Context, input *ec2.StartNetworkInsightsAnalysisInput) *StartNetworkInsightsAnalysisFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ec2-StartNetworkInsightsAnalysis", input)
+	return &StartNetworkInsightsAnalysisFuture{Future: future}
 }
 
 func (a *stub) StartVpcEndpointServicePrivateDnsVerification(ctx workflow.Context, input *ec2.StartVpcEndpointServicePrivateDnsVerificationInput) (*ec2.StartVpcEndpointServicePrivateDnsVerificationOutput, error) {

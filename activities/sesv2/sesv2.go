@@ -683,6 +683,16 @@ func (a *Activities) PutDeliverabilityDashboardOption(ctx context.Context, input
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) PutEmailIdentityConfigurationSetAttributes(ctx context.Context, input *sesv2.PutEmailIdentityConfigurationSetAttributesInput) (*sesv2.PutEmailIdentityConfigurationSetAttributesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutEmailIdentityConfigurationSetAttributesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) PutEmailIdentityDkimAttributes(ctx context.Context, input *sesv2.PutEmailIdentityDkimAttributesInput) (*sesv2.PutEmailIdentityDkimAttributesOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

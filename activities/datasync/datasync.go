@@ -362,3 +362,13 @@ func (a *Activities) UpdateTask(ctx context.Context, input *datasync.UpdateTaskI
 
 	return output, internal.EncodeError(err)
 }
+
+func (a *Activities) UpdateTaskExecution(ctx context.Context, input *datasync.UpdateTaskExecutionInput) (*datasync.UpdateTaskExecutionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateTaskExecutionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}

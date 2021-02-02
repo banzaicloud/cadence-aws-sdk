@@ -15,6 +15,17 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type CreateAddonFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateAddonFuture) Get(ctx workflow.Context) (*eks.CreateAddonOutput, error) {
+	var output eks.CreateAddonOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateClusterFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -48,6 +59,17 @@ func (r *CreateNodegroupFuture) Get(ctx workflow.Context) (*eks.CreateNodegroupO
 	return &output, err
 }
 
+type DeleteAddonFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteAddonFuture) Get(ctx workflow.Context) (*eks.DeleteAddonOutput, error) {
+	var output eks.DeleteAddonOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteClusterFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -77,6 +99,28 @@ type DeleteNodegroupFuture struct {
 
 func (r *DeleteNodegroupFuture) Get(ctx workflow.Context) (*eks.DeleteNodegroupOutput, error) {
 	var output eks.DeleteNodegroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeAddonFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeAddonFuture) Get(ctx workflow.Context) (*eks.DescribeAddonOutput, error) {
+	var output eks.DescribeAddonOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeAddonVersionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeAddonVersionsFuture) Get(ctx workflow.Context) (*eks.DescribeAddonVersionsOutput, error) {
+	var output eks.DescribeAddonVersionsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -121,6 +165,17 @@ type DescribeUpdateFuture struct {
 
 func (r *DescribeUpdateFuture) Get(ctx workflow.Context) (*eks.DescribeUpdateOutput, error) {
 	var output eks.DescribeUpdateOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListAddonsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListAddonsFuture) Get(ctx workflow.Context) (*eks.ListAddonsOutput, error) {
+	var output eks.ListAddonsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -202,6 +257,17 @@ func (r *UntagResourceFuture) Get(ctx workflow.Context) (*eks.UntagResourceOutpu
 	return &output, err
 }
 
+type UpdateAddonFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateAddonFuture) Get(ctx workflow.Context) (*eks.UpdateAddonOutput, error) {
+	var output eks.UpdateAddonOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateClusterConfigFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -246,6 +312,17 @@ func (r *UpdateNodegroupVersionFuture) Get(ctx workflow.Context) (*eks.UpdateNod
 	return &output, err
 }
 
+func (a *stub) CreateAddon(ctx workflow.Context, input *eks.CreateAddonInput) (*eks.CreateAddonOutput, error) {
+	var output eks.CreateAddonOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eks-CreateAddon", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateAddonAsync(ctx workflow.Context, input *eks.CreateAddonInput) *CreateAddonFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eks-CreateAddon", input)
+	return &CreateAddonFuture{Future: future}
+}
+
 func (a *stub) CreateCluster(ctx workflow.Context, input *eks.CreateClusterInput) (*eks.CreateClusterOutput, error) {
 	var output eks.CreateClusterOutput
 	err := workflow.ExecuteActivity(ctx, "aws-eks-CreateCluster", input).Get(ctx, &output)
@@ -279,6 +356,17 @@ func (a *stub) CreateNodegroupAsync(ctx workflow.Context, input *eks.CreateNodeg
 	return &CreateNodegroupFuture{Future: future}
 }
 
+func (a *stub) DeleteAddon(ctx workflow.Context, input *eks.DeleteAddonInput) (*eks.DeleteAddonOutput, error) {
+	var output eks.DeleteAddonOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eks-DeleteAddon", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteAddonAsync(ctx workflow.Context, input *eks.DeleteAddonInput) *DeleteAddonFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eks-DeleteAddon", input)
+	return &DeleteAddonFuture{Future: future}
+}
+
 func (a *stub) DeleteCluster(ctx workflow.Context, input *eks.DeleteClusterInput) (*eks.DeleteClusterOutput, error) {
 	var output eks.DeleteClusterOutput
 	err := workflow.ExecuteActivity(ctx, "aws-eks-DeleteCluster", input).Get(ctx, &output)
@@ -310,6 +398,28 @@ func (a *stub) DeleteNodegroup(ctx workflow.Context, input *eks.DeleteNodegroupI
 func (a *stub) DeleteNodegroupAsync(ctx workflow.Context, input *eks.DeleteNodegroupInput) *DeleteNodegroupFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-eks-DeleteNodegroup", input)
 	return &DeleteNodegroupFuture{Future: future}
+}
+
+func (a *stub) DescribeAddon(ctx workflow.Context, input *eks.DescribeAddonInput) (*eks.DescribeAddonOutput, error) {
+	var output eks.DescribeAddonOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eks-DescribeAddon", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeAddonAsync(ctx workflow.Context, input *eks.DescribeAddonInput) *DescribeAddonFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eks-DescribeAddon", input)
+	return &DescribeAddonFuture{Future: future}
+}
+
+func (a *stub) DescribeAddonVersions(ctx workflow.Context, input *eks.DescribeAddonVersionsInput) (*eks.DescribeAddonVersionsOutput, error) {
+	var output eks.DescribeAddonVersionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eks-DescribeAddonVersions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeAddonVersionsAsync(ctx workflow.Context, input *eks.DescribeAddonVersionsInput) *DescribeAddonVersionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eks-DescribeAddonVersions", input)
+	return &DescribeAddonVersionsFuture{Future: future}
 }
 
 func (a *stub) DescribeCluster(ctx workflow.Context, input *eks.DescribeClusterInput) (*eks.DescribeClusterOutput, error) {
@@ -354,6 +464,17 @@ func (a *stub) DescribeUpdate(ctx workflow.Context, input *eks.DescribeUpdateInp
 func (a *stub) DescribeUpdateAsync(ctx workflow.Context, input *eks.DescribeUpdateInput) *DescribeUpdateFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-eks-DescribeUpdate", input)
 	return &DescribeUpdateFuture{Future: future}
+}
+
+func (a *stub) ListAddons(ctx workflow.Context, input *eks.ListAddonsInput) (*eks.ListAddonsOutput, error) {
+	var output eks.ListAddonsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eks-ListAddons", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListAddonsAsync(ctx workflow.Context, input *eks.ListAddonsInput) *ListAddonsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eks-ListAddons", input)
+	return &ListAddonsFuture{Future: future}
 }
 
 func (a *stub) ListClusters(ctx workflow.Context, input *eks.ListClustersInput) (*eks.ListClustersOutput, error) {
@@ -433,6 +554,17 @@ func (a *stub) UntagResourceAsync(ctx workflow.Context, input *eks.UntagResource
 	return &UntagResourceFuture{Future: future}
 }
 
+func (a *stub) UpdateAddon(ctx workflow.Context, input *eks.UpdateAddonInput) (*eks.UpdateAddonOutput, error) {
+	var output eks.UpdateAddonOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eks-UpdateAddon", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateAddonAsync(ctx workflow.Context, input *eks.UpdateAddonInput) *UpdateAddonFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eks-UpdateAddon", input)
+	return &UpdateAddonFuture{Future: future}
+}
+
 func (a *stub) UpdateClusterConfig(ctx workflow.Context, input *eks.UpdateClusterConfigInput) (*eks.UpdateClusterConfigOutput, error) {
 	var output eks.UpdateClusterConfigOutput
 	err := workflow.ExecuteActivity(ctx, "aws-eks-UpdateClusterConfig", input).Get(ctx, &output)
@@ -475,6 +607,24 @@ func (a *stub) UpdateNodegroupVersion(ctx workflow.Context, input *eks.UpdateNod
 func (a *stub) UpdateNodegroupVersionAsync(ctx workflow.Context, input *eks.UpdateNodegroupVersionInput) *UpdateNodegroupVersionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-eks-UpdateNodegroupVersion", input)
 	return &UpdateNodegroupVersionFuture{Future: future}
+}
+
+func (a *stub) WaitUntilAddonActive(ctx workflow.Context, input *eks.DescribeAddonInput) error {
+	return workflow.ExecuteActivity(ctx, "aws-eks-WaitUntilAddonActive", input).Get(ctx, nil)
+}
+
+func (a *stub) WaitUntilAddonActiveAsync(ctx workflow.Context, input *eks.DescribeAddonInput) *clients.VoidFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eks-WaitUntilAddonActive", input)
+	return clients.NewVoidFuture(future)
+}
+
+func (a *stub) WaitUntilAddonDeleted(ctx workflow.Context, input *eks.DescribeAddonInput) error {
+	return workflow.ExecuteActivity(ctx, "aws-eks-WaitUntilAddonDeleted", input).Get(ctx, nil)
+}
+
+func (a *stub) WaitUntilAddonDeletedAsync(ctx workflow.Context, input *eks.DescribeAddonInput) *clients.VoidFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eks-WaitUntilAddonDeleted", input)
+	return clients.NewVoidFuture(future)
 }
 
 func (a *stub) WaitUntilClusterActive(ctx workflow.Context, input *eks.DescribeClusterInput) error {

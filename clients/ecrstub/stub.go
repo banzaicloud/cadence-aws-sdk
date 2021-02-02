@@ -81,6 +81,17 @@ func (r *DeleteLifecyclePolicyFuture) Get(ctx workflow.Context) (*ecr.DeleteLife
 	return &output, err
 }
 
+type DeleteRegistryPolicyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteRegistryPolicyFuture) Get(ctx workflow.Context) (*ecr.DeleteRegistryPolicyOutput, error) {
+	var output ecr.DeleteRegistryPolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteRepositoryFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -121,6 +132,17 @@ type DescribeImagesFuture struct {
 
 func (r *DescribeImagesFuture) Get(ctx workflow.Context) (*ecr.DescribeImagesOutput, error) {
 	var output ecr.DescribeImagesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeRegistryFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeRegistryFuture) Get(ctx workflow.Context) (*ecr.DescribeRegistryOutput, error) {
+	var output ecr.DescribeRegistryOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -176,6 +198,17 @@ type GetLifecyclePolicyPreviewFuture struct {
 
 func (r *GetLifecyclePolicyPreviewFuture) Get(ctx workflow.Context) (*ecr.GetLifecyclePolicyPreviewOutput, error) {
 	var output ecr.GetLifecyclePolicyPreviewOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetRegistryPolicyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetRegistryPolicyFuture) Get(ctx workflow.Context) (*ecr.GetRegistryPolicyOutput, error) {
+	var output ecr.GetRegistryPolicyOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -264,6 +297,28 @@ type PutLifecyclePolicyFuture struct {
 
 func (r *PutLifecyclePolicyFuture) Get(ctx workflow.Context) (*ecr.PutLifecyclePolicyOutput, error) {
 	var output ecr.PutLifecyclePolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type PutRegistryPolicyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutRegistryPolicyFuture) Get(ctx workflow.Context) (*ecr.PutRegistryPolicyOutput, error) {
+	var output ecr.PutRegistryPolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type PutReplicationConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutReplicationConfigurationFuture) Get(ctx workflow.Context) (*ecr.PutReplicationConfigurationOutput, error) {
+	var output ecr.PutReplicationConfigurationOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -400,6 +455,17 @@ func (a *stub) DeleteLifecyclePolicyAsync(ctx workflow.Context, input *ecr.Delet
 	return &DeleteLifecyclePolicyFuture{Future: future}
 }
 
+func (a *stub) DeleteRegistryPolicy(ctx workflow.Context, input *ecr.DeleteRegistryPolicyInput) (*ecr.DeleteRegistryPolicyOutput, error) {
+	var output ecr.DeleteRegistryPolicyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ecr-DeleteRegistryPolicy", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteRegistryPolicyAsync(ctx workflow.Context, input *ecr.DeleteRegistryPolicyInput) *DeleteRegistryPolicyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ecr-DeleteRegistryPolicy", input)
+	return &DeleteRegistryPolicyFuture{Future: future}
+}
+
 func (a *stub) DeleteRepository(ctx workflow.Context, input *ecr.DeleteRepositoryInput) (*ecr.DeleteRepositoryOutput, error) {
 	var output ecr.DeleteRepositoryOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ecr-DeleteRepository", input).Get(ctx, &output)
@@ -442,6 +508,17 @@ func (a *stub) DescribeImages(ctx workflow.Context, input *ecr.DescribeImagesInp
 func (a *stub) DescribeImagesAsync(ctx workflow.Context, input *ecr.DescribeImagesInput) *DescribeImagesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ecr-DescribeImages", input)
 	return &DescribeImagesFuture{Future: future}
+}
+
+func (a *stub) DescribeRegistry(ctx workflow.Context, input *ecr.DescribeRegistryInput) (*ecr.DescribeRegistryOutput, error) {
+	var output ecr.DescribeRegistryOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ecr-DescribeRegistry", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeRegistryAsync(ctx workflow.Context, input *ecr.DescribeRegistryInput) *DescribeRegistryFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ecr-DescribeRegistry", input)
+	return &DescribeRegistryFuture{Future: future}
 }
 
 func (a *stub) DescribeRepositories(ctx workflow.Context, input *ecr.DescribeRepositoriesInput) (*ecr.DescribeRepositoriesOutput, error) {
@@ -497,6 +574,17 @@ func (a *stub) GetLifecyclePolicyPreview(ctx workflow.Context, input *ecr.GetLif
 func (a *stub) GetLifecyclePolicyPreviewAsync(ctx workflow.Context, input *ecr.GetLifecyclePolicyPreviewInput) *GetLifecyclePolicyPreviewFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ecr-GetLifecyclePolicyPreview", input)
 	return &GetLifecyclePolicyPreviewFuture{Future: future}
+}
+
+func (a *stub) GetRegistryPolicy(ctx workflow.Context, input *ecr.GetRegistryPolicyInput) (*ecr.GetRegistryPolicyOutput, error) {
+	var output ecr.GetRegistryPolicyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ecr-GetRegistryPolicy", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetRegistryPolicyAsync(ctx workflow.Context, input *ecr.GetRegistryPolicyInput) *GetRegistryPolicyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ecr-GetRegistryPolicy", input)
+	return &GetRegistryPolicyFuture{Future: future}
 }
 
 func (a *stub) GetRepositoryPolicy(ctx workflow.Context, input *ecr.GetRepositoryPolicyInput) (*ecr.GetRepositoryPolicyOutput, error) {
@@ -585,6 +673,28 @@ func (a *stub) PutLifecyclePolicy(ctx workflow.Context, input *ecr.PutLifecycleP
 func (a *stub) PutLifecyclePolicyAsync(ctx workflow.Context, input *ecr.PutLifecyclePolicyInput) *PutLifecyclePolicyFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ecr-PutLifecyclePolicy", input)
 	return &PutLifecyclePolicyFuture{Future: future}
+}
+
+func (a *stub) PutRegistryPolicy(ctx workflow.Context, input *ecr.PutRegistryPolicyInput) (*ecr.PutRegistryPolicyOutput, error) {
+	var output ecr.PutRegistryPolicyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ecr-PutRegistryPolicy", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutRegistryPolicyAsync(ctx workflow.Context, input *ecr.PutRegistryPolicyInput) *PutRegistryPolicyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ecr-PutRegistryPolicy", input)
+	return &PutRegistryPolicyFuture{Future: future}
+}
+
+func (a *stub) PutReplicationConfiguration(ctx workflow.Context, input *ecr.PutReplicationConfigurationInput) (*ecr.PutReplicationConfigurationOutput, error) {
+	var output ecr.PutReplicationConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ecr-PutReplicationConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutReplicationConfigurationAsync(ctx workflow.Context, input *ecr.PutReplicationConfigurationInput) *PutReplicationConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ecr-PutReplicationConfiguration", input)
+	return &PutReplicationConfigurationFuture{Future: future}
 }
 
 func (a *stub) SetRepositoryPolicy(ctx workflow.Context, input *ecr.SetRepositoryPolicyInput) (*ecr.SetRepositoryPolicyOutput, error) {

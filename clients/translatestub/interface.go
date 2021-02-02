@@ -14,17 +14,29 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	CreateParallelData(ctx workflow.Context, input *translate.CreateParallelDataInput) (*translate.CreateParallelDataOutput, error)
+	CreateParallelDataAsync(ctx workflow.Context, input *translate.CreateParallelDataInput) *CreateParallelDataFuture
+
+	DeleteParallelData(ctx workflow.Context, input *translate.DeleteParallelDataInput) (*translate.DeleteParallelDataOutput, error)
+	DeleteParallelDataAsync(ctx workflow.Context, input *translate.DeleteParallelDataInput) *DeleteParallelDataFuture
+
 	DeleteTerminology(ctx workflow.Context, input *translate.DeleteTerminologyInput) (*translate.DeleteTerminologyOutput, error)
 	DeleteTerminologyAsync(ctx workflow.Context, input *translate.DeleteTerminologyInput) *DeleteTerminologyFuture
 
 	DescribeTextTranslationJob(ctx workflow.Context, input *translate.DescribeTextTranslationJobInput) (*translate.DescribeTextTranslationJobOutput, error)
 	DescribeTextTranslationJobAsync(ctx workflow.Context, input *translate.DescribeTextTranslationJobInput) *DescribeTextTranslationJobFuture
 
+	GetParallelData(ctx workflow.Context, input *translate.GetParallelDataInput) (*translate.GetParallelDataOutput, error)
+	GetParallelDataAsync(ctx workflow.Context, input *translate.GetParallelDataInput) *GetParallelDataFuture
+
 	GetTerminology(ctx workflow.Context, input *translate.GetTerminologyInput) (*translate.GetTerminologyOutput, error)
 	GetTerminologyAsync(ctx workflow.Context, input *translate.GetTerminologyInput) *GetTerminologyFuture
 
 	ImportTerminology(ctx workflow.Context, input *translate.ImportTerminologyInput) (*translate.ImportTerminologyOutput, error)
 	ImportTerminologyAsync(ctx workflow.Context, input *translate.ImportTerminologyInput) *ImportTerminologyFuture
+
+	ListParallelData(ctx workflow.Context, input *translate.ListParallelDataInput) (*translate.ListParallelDataOutput, error)
+	ListParallelDataAsync(ctx workflow.Context, input *translate.ListParallelDataInput) *ListParallelDataFuture
 
 	ListTerminologies(ctx workflow.Context, input *translate.ListTerminologiesInput) (*translate.ListTerminologiesOutput, error)
 	ListTerminologiesAsync(ctx workflow.Context, input *translate.ListTerminologiesInput) *ListTerminologiesFuture
@@ -40,6 +52,9 @@ type Client interface {
 
 	Text(ctx workflow.Context, input *translate.TextInput) (*translate.TextOutput, error)
 	TextAsync(ctx workflow.Context, input *translate.TextInput) *TextFuture
+
+	UpdateParallelData(ctx workflow.Context, input *translate.UpdateParallelDataInput) (*translate.UpdateParallelDataOutput, error)
+	UpdateParallelDataAsync(ctx workflow.Context, input *translate.UpdateParallelDataInput) *UpdateParallelDataFuture
 }
 
 func NewClient() Client {

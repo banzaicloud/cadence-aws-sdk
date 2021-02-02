@@ -14,6 +14,9 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	AssociateFileSystemAliases(ctx workflow.Context, input *fsx.AssociateFileSystemAliasesInput) (*fsx.AssociateFileSystemAliasesOutput, error)
+	AssociateFileSystemAliasesAsync(ctx workflow.Context, input *fsx.AssociateFileSystemAliasesInput) *AssociateFileSystemAliasesFuture
+
 	CancelDataRepositoryTask(ctx workflow.Context, input *fsx.CancelDataRepositoryTaskInput) (*fsx.CancelDataRepositoryTaskOutput, error)
 	CancelDataRepositoryTaskAsync(ctx workflow.Context, input *fsx.CancelDataRepositoryTaskInput) *CancelDataRepositoryTaskFuture
 
@@ -41,8 +44,14 @@ type Client interface {
 	DescribeDataRepositoryTasks(ctx workflow.Context, input *fsx.DescribeDataRepositoryTasksInput) (*fsx.DescribeDataRepositoryTasksOutput, error)
 	DescribeDataRepositoryTasksAsync(ctx workflow.Context, input *fsx.DescribeDataRepositoryTasksInput) *DescribeDataRepositoryTasksFuture
 
+	DescribeFileSystemAliases(ctx workflow.Context, input *fsx.DescribeFileSystemAliasesInput) (*fsx.DescribeFileSystemAliasesOutput, error)
+	DescribeFileSystemAliasesAsync(ctx workflow.Context, input *fsx.DescribeFileSystemAliasesInput) *DescribeFileSystemAliasesFuture
+
 	DescribeFileSystems(ctx workflow.Context, input *fsx.DescribeFileSystemsInput) (*fsx.DescribeFileSystemsOutput, error)
 	DescribeFileSystemsAsync(ctx workflow.Context, input *fsx.DescribeFileSystemsInput) *DescribeFileSystemsFuture
+
+	DisassociateFileSystemAliases(ctx workflow.Context, input *fsx.DisassociateFileSystemAliasesInput) (*fsx.DisassociateFileSystemAliasesOutput, error)
+	DisassociateFileSystemAliasesAsync(ctx workflow.Context, input *fsx.DisassociateFileSystemAliasesInput) *DisassociateFileSystemAliasesFuture
 
 	ListTagsForResource(ctx workflow.Context, input *fsx.ListTagsForResourceInput) (*fsx.ListTagsForResourceOutput, error)
 	ListTagsForResourceAsync(ctx workflow.Context, input *fsx.ListTagsForResourceInput) *ListTagsForResourceFuture

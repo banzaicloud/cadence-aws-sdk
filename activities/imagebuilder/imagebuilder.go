@@ -75,6 +75,17 @@ func (a *Activities) CreateComponent(ctx context.Context, input *imagebuilder.Cr
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateContainerRecipe(ctx context.Context, input *imagebuilder.CreateContainerRecipeInput) (*imagebuilder.CreateContainerRecipeOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CreateContainerRecipeWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateDistributionConfiguration(ctx context.Context, input *imagebuilder.CreateDistributionConfigurationInput) (*imagebuilder.CreateDistributionConfigurationOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -136,6 +147,16 @@ func (a *Activities) DeleteComponent(ctx context.Context, input *imagebuilder.De
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteComponentWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteContainerRecipe(ctx context.Context, input *imagebuilder.DeleteContainerRecipeInput) (*imagebuilder.DeleteContainerRecipeOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteContainerRecipeWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -206,6 +227,26 @@ func (a *Activities) GetComponentPolicy(ctx context.Context, input *imagebuilder
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetComponentPolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetContainerRecipe(ctx context.Context, input *imagebuilder.GetContainerRecipeInput) (*imagebuilder.GetContainerRecipeOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetContainerRecipeWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetContainerRecipePolicy(ctx context.Context, input *imagebuilder.GetContainerRecipePolicyInput) (*imagebuilder.GetContainerRecipePolicyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetContainerRecipePolicyWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -311,6 +352,16 @@ func (a *Activities) ListComponents(ctx context.Context, input *imagebuilder.Lis
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListContainerRecipes(ctx context.Context, input *imagebuilder.ListContainerRecipesInput) (*imagebuilder.ListContainerRecipesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListContainerRecipesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListDistributionConfigurations(ctx context.Context, input *imagebuilder.ListDistributionConfigurationsInput) (*imagebuilder.ListDistributionConfigurationsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -397,6 +448,16 @@ func (a *Activities) PutComponentPolicy(ctx context.Context, input *imagebuilder
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.PutComponentPolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutContainerRecipePolicy(ctx context.Context, input *imagebuilder.PutContainerRecipePolicyInput) (*imagebuilder.PutContainerRecipePolicyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutContainerRecipePolicyWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

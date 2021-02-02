@@ -81,6 +81,28 @@ func (r *CreateSecurityConfigurationFuture) Get(ctx workflow.Context) (*emr.Crea
 	return &output, err
 }
 
+type CreateStudioFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateStudioFuture) Get(ctx workflow.Context) (*emr.CreateStudioOutput, error) {
+	var output emr.CreateStudioOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateStudioSessionMappingFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateStudioSessionMappingFuture) Get(ctx workflow.Context) (*emr.CreateStudioSessionMappingOutput, error) {
+	var output emr.CreateStudioSessionMappingOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteSecurityConfigurationFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -88,6 +110,28 @@ type DeleteSecurityConfigurationFuture struct {
 
 func (r *DeleteSecurityConfigurationFuture) Get(ctx workflow.Context) (*emr.DeleteSecurityConfigurationOutput, error) {
 	var output emr.DeleteSecurityConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteStudioFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteStudioFuture) Get(ctx workflow.Context) (*emr.DeleteStudioOutput, error) {
+	var output emr.DeleteStudioOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteStudioSessionMappingFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteStudioSessionMappingFuture) Get(ctx workflow.Context) (*emr.DeleteStudioSessionMappingOutput, error) {
+	var output emr.DeleteStudioSessionMappingOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -147,6 +191,17 @@ func (r *DescribeStepFuture) Get(ctx workflow.Context) (*emr.DescribeStepOutput,
 	return &output, err
 }
 
+type DescribeStudioFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeStudioFuture) Get(ctx workflow.Context) (*emr.DescribeStudioOutput, error) {
+	var output emr.DescribeStudioOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetBlockPublicAccessConfigurationFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -165,6 +220,17 @@ type GetManagedScalingPolicyFuture struct {
 
 func (r *GetManagedScalingPolicyFuture) Get(ctx workflow.Context) (*emr.GetManagedScalingPolicyOutput, error) {
 	var output emr.GetManagedScalingPolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetStudioSessionMappingFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetStudioSessionMappingFuture) Get(ctx workflow.Context) (*emr.GetStudioSessionMappingOutput, error) {
+	var output emr.GetStudioSessionMappingOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -253,6 +319,28 @@ type ListStepsFuture struct {
 
 func (r *ListStepsFuture) Get(ctx workflow.Context) (*emr.ListStepsOutput, error) {
 	var output emr.ListStepsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListStudioSessionMappingsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListStudioSessionMappingsFuture) Get(ctx workflow.Context) (*emr.ListStudioSessionMappingsOutput, error) {
+	var output emr.ListStudioSessionMappingsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListStudiosFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListStudiosFuture) Get(ctx workflow.Context) (*emr.ListStudiosOutput, error) {
+	var output emr.ListStudiosOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -422,6 +510,17 @@ func (r *TerminateJobFlowsFuture) Get(ctx workflow.Context) (*emr.TerminateJobFl
 	return &output, err
 }
 
+type UpdateStudioSessionMappingFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateStudioSessionMappingFuture) Get(ctx workflow.Context) (*emr.UpdateStudioSessionMappingOutput, error) {
+	var output emr.UpdateStudioSessionMappingOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 func (a *stub) AddInstanceFleet(ctx workflow.Context, input *emr.AddInstanceFleetInput) (*emr.AddInstanceFleetOutput, error) {
 	var output emr.AddInstanceFleetOutput
 	err := workflow.ExecuteActivity(ctx, "aws-emr-AddInstanceFleet", input).Get(ctx, &output)
@@ -488,6 +587,28 @@ func (a *stub) CreateSecurityConfigurationAsync(ctx workflow.Context, input *emr
 	return &CreateSecurityConfigurationFuture{Future: future}
 }
 
+func (a *stub) CreateStudio(ctx workflow.Context, input *emr.CreateStudioInput) (*emr.CreateStudioOutput, error) {
+	var output emr.CreateStudioOutput
+	err := workflow.ExecuteActivity(ctx, "aws-emr-CreateStudio", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateStudioAsync(ctx workflow.Context, input *emr.CreateStudioInput) *CreateStudioFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-emr-CreateStudio", input)
+	return &CreateStudioFuture{Future: future}
+}
+
+func (a *stub) CreateStudioSessionMapping(ctx workflow.Context, input *emr.CreateStudioSessionMappingInput) (*emr.CreateStudioSessionMappingOutput, error) {
+	var output emr.CreateStudioSessionMappingOutput
+	err := workflow.ExecuteActivity(ctx, "aws-emr-CreateStudioSessionMapping", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateStudioSessionMappingAsync(ctx workflow.Context, input *emr.CreateStudioSessionMappingInput) *CreateStudioSessionMappingFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-emr-CreateStudioSessionMapping", input)
+	return &CreateStudioSessionMappingFuture{Future: future}
+}
+
 func (a *stub) DeleteSecurityConfiguration(ctx workflow.Context, input *emr.DeleteSecurityConfigurationInput) (*emr.DeleteSecurityConfigurationOutput, error) {
 	var output emr.DeleteSecurityConfigurationOutput
 	err := workflow.ExecuteActivity(ctx, "aws-emr-DeleteSecurityConfiguration", input).Get(ctx, &output)
@@ -497,6 +618,28 @@ func (a *stub) DeleteSecurityConfiguration(ctx workflow.Context, input *emr.Dele
 func (a *stub) DeleteSecurityConfigurationAsync(ctx workflow.Context, input *emr.DeleteSecurityConfigurationInput) *DeleteSecurityConfigurationFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-emr-DeleteSecurityConfiguration", input)
 	return &DeleteSecurityConfigurationFuture{Future: future}
+}
+
+func (a *stub) DeleteStudio(ctx workflow.Context, input *emr.DeleteStudioInput) (*emr.DeleteStudioOutput, error) {
+	var output emr.DeleteStudioOutput
+	err := workflow.ExecuteActivity(ctx, "aws-emr-DeleteStudio", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteStudioAsync(ctx workflow.Context, input *emr.DeleteStudioInput) *DeleteStudioFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-emr-DeleteStudio", input)
+	return &DeleteStudioFuture{Future: future}
+}
+
+func (a *stub) DeleteStudioSessionMapping(ctx workflow.Context, input *emr.DeleteStudioSessionMappingInput) (*emr.DeleteStudioSessionMappingOutput, error) {
+	var output emr.DeleteStudioSessionMappingOutput
+	err := workflow.ExecuteActivity(ctx, "aws-emr-DeleteStudioSessionMapping", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteStudioSessionMappingAsync(ctx workflow.Context, input *emr.DeleteStudioSessionMappingInput) *DeleteStudioSessionMappingFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-emr-DeleteStudioSessionMapping", input)
+	return &DeleteStudioSessionMappingFuture{Future: future}
 }
 
 func (a *stub) DescribeCluster(ctx workflow.Context, input *emr.DescribeClusterInput) (*emr.DescribeClusterOutput, error) {
@@ -554,6 +697,17 @@ func (a *stub) DescribeStepAsync(ctx workflow.Context, input *emr.DescribeStepIn
 	return &DescribeStepFuture{Future: future}
 }
 
+func (a *stub) DescribeStudio(ctx workflow.Context, input *emr.DescribeStudioInput) (*emr.DescribeStudioOutput, error) {
+	var output emr.DescribeStudioOutput
+	err := workflow.ExecuteActivity(ctx, "aws-emr-DescribeStudio", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeStudioAsync(ctx workflow.Context, input *emr.DescribeStudioInput) *DescribeStudioFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-emr-DescribeStudio", input)
+	return &DescribeStudioFuture{Future: future}
+}
+
 func (a *stub) GetBlockPublicAccessConfiguration(ctx workflow.Context, input *emr.GetBlockPublicAccessConfigurationInput) (*emr.GetBlockPublicAccessConfigurationOutput, error) {
 	var output emr.GetBlockPublicAccessConfigurationOutput
 	err := workflow.ExecuteActivity(ctx, "aws-emr-GetBlockPublicAccessConfiguration", input).Get(ctx, &output)
@@ -574,6 +728,17 @@ func (a *stub) GetManagedScalingPolicy(ctx workflow.Context, input *emr.GetManag
 func (a *stub) GetManagedScalingPolicyAsync(ctx workflow.Context, input *emr.GetManagedScalingPolicyInput) *GetManagedScalingPolicyFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-emr-GetManagedScalingPolicy", input)
 	return &GetManagedScalingPolicyFuture{Future: future}
+}
+
+func (a *stub) GetStudioSessionMapping(ctx workflow.Context, input *emr.GetStudioSessionMappingInput) (*emr.GetStudioSessionMappingOutput, error) {
+	var output emr.GetStudioSessionMappingOutput
+	err := workflow.ExecuteActivity(ctx, "aws-emr-GetStudioSessionMapping", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetStudioSessionMappingAsync(ctx workflow.Context, input *emr.GetStudioSessionMappingInput) *GetStudioSessionMappingFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-emr-GetStudioSessionMapping", input)
+	return &GetStudioSessionMappingFuture{Future: future}
 }
 
 func (a *stub) ListBootstrapActions(ctx workflow.Context, input *emr.ListBootstrapActionsInput) (*emr.ListBootstrapActionsOutput, error) {
@@ -662,6 +827,28 @@ func (a *stub) ListSteps(ctx workflow.Context, input *emr.ListStepsInput) (*emr.
 func (a *stub) ListStepsAsync(ctx workflow.Context, input *emr.ListStepsInput) *ListStepsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-emr-ListSteps", input)
 	return &ListStepsFuture{Future: future}
+}
+
+func (a *stub) ListStudioSessionMappings(ctx workflow.Context, input *emr.ListStudioSessionMappingsInput) (*emr.ListStudioSessionMappingsOutput, error) {
+	var output emr.ListStudioSessionMappingsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-emr-ListStudioSessionMappings", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListStudioSessionMappingsAsync(ctx workflow.Context, input *emr.ListStudioSessionMappingsInput) *ListStudioSessionMappingsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-emr-ListStudioSessionMappings", input)
+	return &ListStudioSessionMappingsFuture{Future: future}
+}
+
+func (a *stub) ListStudios(ctx workflow.Context, input *emr.ListStudiosInput) (*emr.ListStudiosOutput, error) {
+	var output emr.ListStudiosOutput
+	err := workflow.ExecuteActivity(ctx, "aws-emr-ListStudios", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListStudiosAsync(ctx workflow.Context, input *emr.ListStudiosInput) *ListStudiosFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-emr-ListStudios", input)
+	return &ListStudiosFuture{Future: future}
 }
 
 func (a *stub) ModifyCluster(ctx workflow.Context, input *emr.ModifyClusterInput) (*emr.ModifyClusterOutput, error) {
@@ -827,6 +1014,17 @@ func (a *stub) TerminateJobFlows(ctx workflow.Context, input *emr.TerminateJobFl
 func (a *stub) TerminateJobFlowsAsync(ctx workflow.Context, input *emr.TerminateJobFlowsInput) *TerminateJobFlowsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-emr-TerminateJobFlows", input)
 	return &TerminateJobFlowsFuture{Future: future}
+}
+
+func (a *stub) UpdateStudioSessionMapping(ctx workflow.Context, input *emr.UpdateStudioSessionMappingInput) (*emr.UpdateStudioSessionMappingOutput, error) {
+	var output emr.UpdateStudioSessionMappingOutput
+	err := workflow.ExecuteActivity(ctx, "aws-emr-UpdateStudioSessionMapping", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateStudioSessionMappingAsync(ctx workflow.Context, input *emr.UpdateStudioSessionMappingInput) *UpdateStudioSessionMappingFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-emr-UpdateStudioSessionMapping", input)
+	return &UpdateStudioSessionMappingFuture{Future: future}
 }
 
 func (a *stub) WaitUntilClusterRunning(ctx workflow.Context, input *emr.DescribeClusterInput) error {

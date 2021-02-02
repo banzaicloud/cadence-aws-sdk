@@ -20,6 +20,9 @@ type Client interface {
 	CreateComponent(ctx workflow.Context, input *imagebuilder.CreateComponentInput) (*imagebuilder.CreateComponentOutput, error)
 	CreateComponentAsync(ctx workflow.Context, input *imagebuilder.CreateComponentInput) *CreateComponentFuture
 
+	CreateContainerRecipe(ctx workflow.Context, input *imagebuilder.CreateContainerRecipeInput) (*imagebuilder.CreateContainerRecipeOutput, error)
+	CreateContainerRecipeAsync(ctx workflow.Context, input *imagebuilder.CreateContainerRecipeInput) *CreateContainerRecipeFuture
+
 	CreateDistributionConfiguration(ctx workflow.Context, input *imagebuilder.CreateDistributionConfigurationInput) (*imagebuilder.CreateDistributionConfigurationOutput, error)
 	CreateDistributionConfigurationAsync(ctx workflow.Context, input *imagebuilder.CreateDistributionConfigurationInput) *CreateDistributionConfigurationFuture
 
@@ -37,6 +40,9 @@ type Client interface {
 
 	DeleteComponent(ctx workflow.Context, input *imagebuilder.DeleteComponentInput) (*imagebuilder.DeleteComponentOutput, error)
 	DeleteComponentAsync(ctx workflow.Context, input *imagebuilder.DeleteComponentInput) *DeleteComponentFuture
+
+	DeleteContainerRecipe(ctx workflow.Context, input *imagebuilder.DeleteContainerRecipeInput) (*imagebuilder.DeleteContainerRecipeOutput, error)
+	DeleteContainerRecipeAsync(ctx workflow.Context, input *imagebuilder.DeleteContainerRecipeInput) *DeleteContainerRecipeFuture
 
 	DeleteDistributionConfiguration(ctx workflow.Context, input *imagebuilder.DeleteDistributionConfigurationInput) (*imagebuilder.DeleteDistributionConfigurationOutput, error)
 	DeleteDistributionConfigurationAsync(ctx workflow.Context, input *imagebuilder.DeleteDistributionConfigurationInput) *DeleteDistributionConfigurationFuture
@@ -58,6 +64,12 @@ type Client interface {
 
 	GetComponentPolicy(ctx workflow.Context, input *imagebuilder.GetComponentPolicyInput) (*imagebuilder.GetComponentPolicyOutput, error)
 	GetComponentPolicyAsync(ctx workflow.Context, input *imagebuilder.GetComponentPolicyInput) *GetComponentPolicyFuture
+
+	GetContainerRecipe(ctx workflow.Context, input *imagebuilder.GetContainerRecipeInput) (*imagebuilder.GetContainerRecipeOutput, error)
+	GetContainerRecipeAsync(ctx workflow.Context, input *imagebuilder.GetContainerRecipeInput) *GetContainerRecipeFuture
+
+	GetContainerRecipePolicy(ctx workflow.Context, input *imagebuilder.GetContainerRecipePolicyInput) (*imagebuilder.GetContainerRecipePolicyOutput, error)
+	GetContainerRecipePolicyAsync(ctx workflow.Context, input *imagebuilder.GetContainerRecipePolicyInput) *GetContainerRecipePolicyFuture
 
 	GetDistributionConfiguration(ctx workflow.Context, input *imagebuilder.GetDistributionConfigurationInput) (*imagebuilder.GetDistributionConfigurationOutput, error)
 	GetDistributionConfigurationAsync(ctx workflow.Context, input *imagebuilder.GetDistributionConfigurationInput) *GetDistributionConfigurationFuture
@@ -89,6 +101,9 @@ type Client interface {
 	ListComponents(ctx workflow.Context, input *imagebuilder.ListComponentsInput) (*imagebuilder.ListComponentsOutput, error)
 	ListComponentsAsync(ctx workflow.Context, input *imagebuilder.ListComponentsInput) *ListComponentsFuture
 
+	ListContainerRecipes(ctx workflow.Context, input *imagebuilder.ListContainerRecipesInput) (*imagebuilder.ListContainerRecipesOutput, error)
+	ListContainerRecipesAsync(ctx workflow.Context, input *imagebuilder.ListContainerRecipesInput) *ListContainerRecipesFuture
+
 	ListDistributionConfigurations(ctx workflow.Context, input *imagebuilder.ListDistributionConfigurationsInput) (*imagebuilder.ListDistributionConfigurationsOutput, error)
 	ListDistributionConfigurationsAsync(ctx workflow.Context, input *imagebuilder.ListDistributionConfigurationsInput) *ListDistributionConfigurationsFuture
 
@@ -115,6 +130,9 @@ type Client interface {
 
 	PutComponentPolicy(ctx workflow.Context, input *imagebuilder.PutComponentPolicyInput) (*imagebuilder.PutComponentPolicyOutput, error)
 	PutComponentPolicyAsync(ctx workflow.Context, input *imagebuilder.PutComponentPolicyInput) *PutComponentPolicyFuture
+
+	PutContainerRecipePolicy(ctx workflow.Context, input *imagebuilder.PutContainerRecipePolicyInput) (*imagebuilder.PutContainerRecipePolicyOutput, error)
+	PutContainerRecipePolicyAsync(ctx workflow.Context, input *imagebuilder.PutContainerRecipePolicyInput) *PutContainerRecipePolicyFuture
 
 	PutImagePolicy(ctx workflow.Context, input *imagebuilder.PutImagePolicyInput) (*imagebuilder.PutImagePolicyOutput, error)
 	PutImagePolicyAsync(ctx workflow.Context, input *imagebuilder.PutImagePolicyInput) *PutImagePolicyFuture

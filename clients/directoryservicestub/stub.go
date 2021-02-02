@@ -37,6 +37,17 @@ func (r *AddIpRoutesFuture) Get(ctx workflow.Context) (*directoryservice.AddIpRo
 	return &output, err
 }
 
+type AddRegionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AddRegionFuture) Get(ctx workflow.Context) (*directoryservice.AddRegionOutput, error) {
+	var output directoryservice.AddRegionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type AddTagsToResourceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -301,6 +312,17 @@ func (r *DescribeLDAPSSettingsFuture) Get(ctx workflow.Context) (*directoryservi
 	return &output, err
 }
 
+type DescribeRegionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeRegionsFuture) Get(ctx workflow.Context) (*directoryservice.DescribeRegionsOutput, error) {
+	var output directoryservice.DescribeRegionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeSharedDirectoriesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -334,6 +356,17 @@ func (r *DescribeTrustsFuture) Get(ctx workflow.Context) (*directoryservice.Desc
 	return &output, err
 }
 
+type DisableClientAuthenticationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisableClientAuthenticationFuture) Get(ctx workflow.Context) (*directoryservice.DisableClientAuthenticationOutput, error) {
+	var output directoryservice.DisableClientAuthenticationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DisableLDAPSFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -363,6 +396,17 @@ type DisableSsoFuture struct {
 
 func (r *DisableSsoFuture) Get(ctx workflow.Context) (*directoryservice.DisableSsoOutput, error) {
 	var output directoryservice.DisableSsoOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type EnableClientAuthenticationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *EnableClientAuthenticationFuture) Get(ctx workflow.Context) (*directoryservice.EnableClientAuthenticationOutput, error) {
+	var output directoryservice.EnableClientAuthenticationOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -521,6 +565,17 @@ func (r *RemoveIpRoutesFuture) Get(ctx workflow.Context) (*directoryservice.Remo
 	return &output, err
 }
 
+type RemoveRegionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *RemoveRegionFuture) Get(ctx workflow.Context) (*directoryservice.RemoveRegionOutput, error) {
+	var output directoryservice.RemoveRegionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type RemoveTagsFromResourceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -662,6 +717,17 @@ func (a *stub) AddIpRoutes(ctx workflow.Context, input *directoryservice.AddIpRo
 func (a *stub) AddIpRoutesAsync(ctx workflow.Context, input *directoryservice.AddIpRoutesInput) *AddIpRoutesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-directoryservice-AddIpRoutes", input)
 	return &AddIpRoutesFuture{Future: future}
+}
+
+func (a *stub) AddRegion(ctx workflow.Context, input *directoryservice.AddRegionInput) (*directoryservice.AddRegionOutput, error) {
+	var output directoryservice.AddRegionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-directoryservice-AddRegion", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AddRegionAsync(ctx workflow.Context, input *directoryservice.AddRegionInput) *AddRegionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-directoryservice-AddRegion", input)
+	return &AddRegionFuture{Future: future}
 }
 
 func (a *stub) AddTagsToResource(ctx workflow.Context, input *directoryservice.AddTagsToResourceInput) (*directoryservice.AddTagsToResourceOutput, error) {
@@ -928,6 +994,17 @@ func (a *stub) DescribeLDAPSSettingsAsync(ctx workflow.Context, input *directory
 	return &DescribeLDAPSSettingsFuture{Future: future}
 }
 
+func (a *stub) DescribeRegions(ctx workflow.Context, input *directoryservice.DescribeRegionsInput) (*directoryservice.DescribeRegionsOutput, error) {
+	var output directoryservice.DescribeRegionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-directoryservice-DescribeRegions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeRegionsAsync(ctx workflow.Context, input *directoryservice.DescribeRegionsInput) *DescribeRegionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-directoryservice-DescribeRegions", input)
+	return &DescribeRegionsFuture{Future: future}
+}
+
 func (a *stub) DescribeSharedDirectories(ctx workflow.Context, input *directoryservice.DescribeSharedDirectoriesInput) (*directoryservice.DescribeSharedDirectoriesOutput, error) {
 	var output directoryservice.DescribeSharedDirectoriesOutput
 	err := workflow.ExecuteActivity(ctx, "aws-directoryservice-DescribeSharedDirectories", input).Get(ctx, &output)
@@ -961,6 +1038,17 @@ func (a *stub) DescribeTrustsAsync(ctx workflow.Context, input *directoryservice
 	return &DescribeTrustsFuture{Future: future}
 }
 
+func (a *stub) DisableClientAuthentication(ctx workflow.Context, input *directoryservice.DisableClientAuthenticationInput) (*directoryservice.DisableClientAuthenticationOutput, error) {
+	var output directoryservice.DisableClientAuthenticationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-directoryservice-DisableClientAuthentication", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisableClientAuthenticationAsync(ctx workflow.Context, input *directoryservice.DisableClientAuthenticationInput) *DisableClientAuthenticationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-directoryservice-DisableClientAuthentication", input)
+	return &DisableClientAuthenticationFuture{Future: future}
+}
+
 func (a *stub) DisableLDAPS(ctx workflow.Context, input *directoryservice.DisableLDAPSInput) (*directoryservice.DisableLDAPSOutput, error) {
 	var output directoryservice.DisableLDAPSOutput
 	err := workflow.ExecuteActivity(ctx, "aws-directoryservice-DisableLDAPS", input).Get(ctx, &output)
@@ -992,6 +1080,17 @@ func (a *stub) DisableSso(ctx workflow.Context, input *directoryservice.DisableS
 func (a *stub) DisableSsoAsync(ctx workflow.Context, input *directoryservice.DisableSsoInput) *DisableSsoFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-directoryservice-DisableSso", input)
 	return &DisableSsoFuture{Future: future}
+}
+
+func (a *stub) EnableClientAuthentication(ctx workflow.Context, input *directoryservice.EnableClientAuthenticationInput) (*directoryservice.EnableClientAuthenticationOutput, error) {
+	var output directoryservice.EnableClientAuthenticationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-directoryservice-EnableClientAuthentication", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) EnableClientAuthenticationAsync(ctx workflow.Context, input *directoryservice.EnableClientAuthenticationInput) *EnableClientAuthenticationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-directoryservice-EnableClientAuthentication", input)
+	return &EnableClientAuthenticationFuture{Future: future}
 }
 
 func (a *stub) EnableLDAPS(ctx workflow.Context, input *directoryservice.EnableLDAPSInput) (*directoryservice.EnableLDAPSOutput, error) {
@@ -1146,6 +1245,17 @@ func (a *stub) RemoveIpRoutes(ctx workflow.Context, input *directoryservice.Remo
 func (a *stub) RemoveIpRoutesAsync(ctx workflow.Context, input *directoryservice.RemoveIpRoutesInput) *RemoveIpRoutesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-directoryservice-RemoveIpRoutes", input)
 	return &RemoveIpRoutesFuture{Future: future}
+}
+
+func (a *stub) RemoveRegion(ctx workflow.Context, input *directoryservice.RemoveRegionInput) (*directoryservice.RemoveRegionOutput, error) {
+	var output directoryservice.RemoveRegionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-directoryservice-RemoveRegion", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) RemoveRegionAsync(ctx workflow.Context, input *directoryservice.RemoveRegionInput) *RemoveRegionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-directoryservice-RemoveRegion", input)
+	return &RemoveRegionFuture{Future: future}
 }
 
 func (a *stub) RemoveTagsFromResource(ctx workflow.Context, input *directoryservice.RemoveTagsFromResourceInput) (*directoryservice.RemoveTagsFromResourceOutput, error) {

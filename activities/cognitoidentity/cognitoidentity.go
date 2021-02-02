@@ -153,6 +153,16 @@ func (a *Activities) GetOpenIdTokenForDeveloperIdentity(ctx context.Context, inp
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetPrincipalTagAttributeMap(ctx context.Context, input *cognitoidentity.GetPrincipalTagAttributeMapInput) (*cognitoidentity.GetPrincipalTagAttributeMapOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetPrincipalTagAttributeMapWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListIdentities(ctx context.Context, input *cognitoidentity.ListIdentitiesInput) (*cognitoidentity.ListIdentitiesOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -209,6 +219,16 @@ func (a *Activities) SetIdentityPoolRoles(ctx context.Context, input *cognitoide
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.SetIdentityPoolRolesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) SetPrincipalTagAttributeMap(ctx context.Context, input *cognitoidentity.SetPrincipalTagAttributeMapInput) (*cognitoidentity.SetPrincipalTagAttributeMapOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.SetPrincipalTagAttributeMapWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

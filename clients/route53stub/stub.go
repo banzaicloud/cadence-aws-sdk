@@ -15,6 +15,17 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type ActivateKeySigningKeyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ActivateKeySigningKeyFuture) Get(ctx workflow.Context) (*route53.ActivateKeySigningKeyOutput, error) {
+	var output route53.ActivateKeySigningKeyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type AssociateVPCWithHostedZoneFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -66,6 +77,17 @@ type CreateHostedZoneFuture struct {
 
 func (r *CreateHostedZoneFuture) Get(ctx workflow.Context) (*route53.CreateHostedZoneOutput, error) {
 	var output route53.CreateHostedZoneOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateKeySigningKeyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateKeySigningKeyFuture) Get(ctx workflow.Context) (*route53.CreateKeySigningKeyOutput, error) {
+	var output route53.CreateKeySigningKeyOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -136,6 +158,17 @@ func (r *CreateVPCAssociationAuthorizationFuture) Get(ctx workflow.Context) (*ro
 	return &output, err
 }
 
+type DeactivateKeySigningKeyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeactivateKeySigningKeyFuture) Get(ctx workflow.Context) (*route53.DeactivateKeySigningKeyOutput, error) {
+	var output route53.DeactivateKeySigningKeyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteHealthCheckFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -154,6 +187,17 @@ type DeleteHostedZoneFuture struct {
 
 func (r *DeleteHostedZoneFuture) Get(ctx workflow.Context) (*route53.DeleteHostedZoneOutput, error) {
 	var output route53.DeleteHostedZoneOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteKeySigningKeyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteKeySigningKeyFuture) Get(ctx workflow.Context) (*route53.DeleteKeySigningKeyOutput, error) {
+	var output route53.DeleteKeySigningKeyOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -213,6 +257,17 @@ func (r *DeleteVPCAssociationAuthorizationFuture) Get(ctx workflow.Context) (*ro
 	return &output, err
 }
 
+type DisableHostedZoneDNSSECFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisableHostedZoneDNSSECFuture) Get(ctx workflow.Context) (*route53.DisableHostedZoneDNSSECOutput, error) {
+	var output route53.DisableHostedZoneDNSSECOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DisassociateVPCFromHostedZoneFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -220,6 +275,17 @@ type DisassociateVPCFromHostedZoneFuture struct {
 
 func (r *DisassociateVPCFromHostedZoneFuture) Get(ctx workflow.Context) (*route53.DisassociateVPCFromHostedZoneOutput, error) {
 	var output route53.DisassociateVPCFromHostedZoneOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type EnableHostedZoneDNSSECFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *EnableHostedZoneDNSSECFuture) Get(ctx workflow.Context) (*route53.EnableHostedZoneDNSSECOutput, error) {
+	var output route53.EnableHostedZoneDNSSECOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -253,6 +319,17 @@ type GetCheckerIpRangesFuture struct {
 
 func (r *GetCheckerIpRangesFuture) Get(ctx workflow.Context) (*route53.GetCheckerIpRangesOutput, error) {
 	var output route53.GetCheckerIpRangesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetDNSSECFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetDNSSECFuture) Get(ctx workflow.Context) (*route53.GetDNSSECOutput, error) {
+	var output route53.GetDNSSECOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -642,6 +719,17 @@ func (r *UpdateTrafficPolicyInstanceFuture) Get(ctx workflow.Context) (*route53.
 	return &output, err
 }
 
+func (a *stub) ActivateKeySigningKey(ctx workflow.Context, input *route53.ActivateKeySigningKeyInput) (*route53.ActivateKeySigningKeyOutput, error) {
+	var output route53.ActivateKeySigningKeyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-route53-ActivateKeySigningKey", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ActivateKeySigningKeyAsync(ctx workflow.Context, input *route53.ActivateKeySigningKeyInput) *ActivateKeySigningKeyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-route53-ActivateKeySigningKey", input)
+	return &ActivateKeySigningKeyFuture{Future: future}
+}
+
 func (a *stub) AssociateVPCWithHostedZone(ctx workflow.Context, input *route53.AssociateVPCWithHostedZoneInput) (*route53.AssociateVPCWithHostedZoneOutput, error) {
 	var output route53.AssociateVPCWithHostedZoneOutput
 	err := workflow.ExecuteActivity(ctx, "aws-route53-AssociateVPCWithHostedZone", input).Get(ctx, &output)
@@ -695,6 +783,17 @@ func (a *stub) CreateHostedZone(ctx workflow.Context, input *route53.CreateHoste
 func (a *stub) CreateHostedZoneAsync(ctx workflow.Context, input *route53.CreateHostedZoneInput) *CreateHostedZoneFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-route53-CreateHostedZone", input)
 	return &CreateHostedZoneFuture{Future: future}
+}
+
+func (a *stub) CreateKeySigningKey(ctx workflow.Context, input *route53.CreateKeySigningKeyInput) (*route53.CreateKeySigningKeyOutput, error) {
+	var output route53.CreateKeySigningKeyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-route53-CreateKeySigningKey", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateKeySigningKeyAsync(ctx workflow.Context, input *route53.CreateKeySigningKeyInput) *CreateKeySigningKeyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-route53-CreateKeySigningKey", input)
+	return &CreateKeySigningKeyFuture{Future: future}
 }
 
 func (a *stub) CreateQueryLoggingConfig(ctx workflow.Context, input *route53.CreateQueryLoggingConfigInput) (*route53.CreateQueryLoggingConfigOutput, error) {
@@ -763,6 +862,17 @@ func (a *stub) CreateVPCAssociationAuthorizationAsync(ctx workflow.Context, inpu
 	return &CreateVPCAssociationAuthorizationFuture{Future: future}
 }
 
+func (a *stub) DeactivateKeySigningKey(ctx workflow.Context, input *route53.DeactivateKeySigningKeyInput) (*route53.DeactivateKeySigningKeyOutput, error) {
+	var output route53.DeactivateKeySigningKeyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-route53-DeactivateKeySigningKey", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeactivateKeySigningKeyAsync(ctx workflow.Context, input *route53.DeactivateKeySigningKeyInput) *DeactivateKeySigningKeyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-route53-DeactivateKeySigningKey", input)
+	return &DeactivateKeySigningKeyFuture{Future: future}
+}
+
 func (a *stub) DeleteHealthCheck(ctx workflow.Context, input *route53.DeleteHealthCheckInput) (*route53.DeleteHealthCheckOutput, error) {
 	var output route53.DeleteHealthCheckOutput
 	err := workflow.ExecuteActivity(ctx, "aws-route53-DeleteHealthCheck", input).Get(ctx, &output)
@@ -783,6 +893,17 @@ func (a *stub) DeleteHostedZone(ctx workflow.Context, input *route53.DeleteHoste
 func (a *stub) DeleteHostedZoneAsync(ctx workflow.Context, input *route53.DeleteHostedZoneInput) *DeleteHostedZoneFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-route53-DeleteHostedZone", input)
 	return &DeleteHostedZoneFuture{Future: future}
+}
+
+func (a *stub) DeleteKeySigningKey(ctx workflow.Context, input *route53.DeleteKeySigningKeyInput) (*route53.DeleteKeySigningKeyOutput, error) {
+	var output route53.DeleteKeySigningKeyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-route53-DeleteKeySigningKey", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteKeySigningKeyAsync(ctx workflow.Context, input *route53.DeleteKeySigningKeyInput) *DeleteKeySigningKeyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-route53-DeleteKeySigningKey", input)
+	return &DeleteKeySigningKeyFuture{Future: future}
 }
 
 func (a *stub) DeleteQueryLoggingConfig(ctx workflow.Context, input *route53.DeleteQueryLoggingConfigInput) (*route53.DeleteQueryLoggingConfigOutput, error) {
@@ -840,6 +961,17 @@ func (a *stub) DeleteVPCAssociationAuthorizationAsync(ctx workflow.Context, inpu
 	return &DeleteVPCAssociationAuthorizationFuture{Future: future}
 }
 
+func (a *stub) DisableHostedZoneDNSSEC(ctx workflow.Context, input *route53.DisableHostedZoneDNSSECInput) (*route53.DisableHostedZoneDNSSECOutput, error) {
+	var output route53.DisableHostedZoneDNSSECOutput
+	err := workflow.ExecuteActivity(ctx, "aws-route53-DisableHostedZoneDNSSEC", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisableHostedZoneDNSSECAsync(ctx workflow.Context, input *route53.DisableHostedZoneDNSSECInput) *DisableHostedZoneDNSSECFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-route53-DisableHostedZoneDNSSEC", input)
+	return &DisableHostedZoneDNSSECFuture{Future: future}
+}
+
 func (a *stub) DisassociateVPCFromHostedZone(ctx workflow.Context, input *route53.DisassociateVPCFromHostedZoneInput) (*route53.DisassociateVPCFromHostedZoneOutput, error) {
 	var output route53.DisassociateVPCFromHostedZoneOutput
 	err := workflow.ExecuteActivity(ctx, "aws-route53-DisassociateVPCFromHostedZone", input).Get(ctx, &output)
@@ -849,6 +981,17 @@ func (a *stub) DisassociateVPCFromHostedZone(ctx workflow.Context, input *route5
 func (a *stub) DisassociateVPCFromHostedZoneAsync(ctx workflow.Context, input *route53.DisassociateVPCFromHostedZoneInput) *DisassociateVPCFromHostedZoneFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-route53-DisassociateVPCFromHostedZone", input)
 	return &DisassociateVPCFromHostedZoneFuture{Future: future}
+}
+
+func (a *stub) EnableHostedZoneDNSSEC(ctx workflow.Context, input *route53.EnableHostedZoneDNSSECInput) (*route53.EnableHostedZoneDNSSECOutput, error) {
+	var output route53.EnableHostedZoneDNSSECOutput
+	err := workflow.ExecuteActivity(ctx, "aws-route53-EnableHostedZoneDNSSEC", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) EnableHostedZoneDNSSECAsync(ctx workflow.Context, input *route53.EnableHostedZoneDNSSECInput) *EnableHostedZoneDNSSECFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-route53-EnableHostedZoneDNSSEC", input)
+	return &EnableHostedZoneDNSSECFuture{Future: future}
 }
 
 func (a *stub) GetAccountLimit(ctx workflow.Context, input *route53.GetAccountLimitInput) (*route53.GetAccountLimitOutput, error) {
@@ -882,6 +1025,17 @@ func (a *stub) GetCheckerIpRanges(ctx workflow.Context, input *route53.GetChecke
 func (a *stub) GetCheckerIpRangesAsync(ctx workflow.Context, input *route53.GetCheckerIpRangesInput) *GetCheckerIpRangesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-route53-GetCheckerIpRanges", input)
 	return &GetCheckerIpRangesFuture{Future: future}
+}
+
+func (a *stub) GetDNSSEC(ctx workflow.Context, input *route53.GetDNSSECInput) (*route53.GetDNSSECOutput, error) {
+	var output route53.GetDNSSECOutput
+	err := workflow.ExecuteActivity(ctx, "aws-route53-GetDNSSEC", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetDNSSECAsync(ctx workflow.Context, input *route53.GetDNSSECInput) *GetDNSSECFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-route53-GetDNSSEC", input)
+	return &GetDNSSECFuture{Future: future}
 }
 
 func (a *stub) GetGeoLocation(ctx workflow.Context, input *route53.GetGeoLocationInput) (*route53.GetGeoLocationOutput, error) {

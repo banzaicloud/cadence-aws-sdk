@@ -153,12 +153,42 @@ func (a *Activities) ListRepositoryAssociations(ctx context.Context, input *code
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListTagsForResource(ctx context.Context, input *codegurureviewer.ListTagsForResourceInput) (*codegurureviewer.ListTagsForResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListTagsForResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) PutRecommendationFeedback(ctx context.Context, input *codegurureviewer.PutRecommendationFeedbackInput) (*codegurureviewer.PutRecommendationFeedbackOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.PutRecommendationFeedbackWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) TagResource(ctx context.Context, input *codegurureviewer.TagResourceInput) (*codegurureviewer.TagResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.TagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UntagResource(ctx context.Context, input *codegurureviewer.UntagResourceInput) (*codegurureviewer.UntagResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UntagResourceWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

@@ -93,6 +93,16 @@ func (a *Activities) GetAutoScalingGroupRecommendations(ctx context.Context, inp
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetEBSVolumeRecommendations(ctx context.Context, input *computeoptimizer.GetEBSVolumeRecommendationsInput) (*computeoptimizer.GetEBSVolumeRecommendationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetEBSVolumeRecommendationsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetEC2InstanceRecommendations(ctx context.Context, input *computeoptimizer.GetEC2InstanceRecommendationsInput) (*computeoptimizer.GetEC2InstanceRecommendationsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -119,6 +129,16 @@ func (a *Activities) GetEnrollmentStatus(ctx context.Context, input *computeopti
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetEnrollmentStatusWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetLambdaFunctionRecommendations(ctx context.Context, input *computeoptimizer.GetLambdaFunctionRecommendationsInput) (*computeoptimizer.GetLambdaFunctionRecommendationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetLambdaFunctionRecommendationsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

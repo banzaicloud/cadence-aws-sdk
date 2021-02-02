@@ -20,6 +20,12 @@ type Client interface {
 	AssociateLink(ctx workflow.Context, input *networkmanager.AssociateLinkInput) (*networkmanager.AssociateLinkOutput, error)
 	AssociateLinkAsync(ctx workflow.Context, input *networkmanager.AssociateLinkInput) *AssociateLinkFuture
 
+	AssociateTransitGatewayConnectPeer(ctx workflow.Context, input *networkmanager.AssociateTransitGatewayConnectPeerInput) (*networkmanager.AssociateTransitGatewayConnectPeerOutput, error)
+	AssociateTransitGatewayConnectPeerAsync(ctx workflow.Context, input *networkmanager.AssociateTransitGatewayConnectPeerInput) *AssociateTransitGatewayConnectPeerFuture
+
+	CreateConnection(ctx workflow.Context, input *networkmanager.CreateConnectionInput) (*networkmanager.CreateConnectionOutput, error)
+	CreateConnectionAsync(ctx workflow.Context, input *networkmanager.CreateConnectionInput) *CreateConnectionFuture
+
 	CreateDevice(ctx workflow.Context, input *networkmanager.CreateDeviceInput) (*networkmanager.CreateDeviceOutput, error)
 	CreateDeviceAsync(ctx workflow.Context, input *networkmanager.CreateDeviceInput) *CreateDeviceFuture
 
@@ -31,6 +37,9 @@ type Client interface {
 
 	CreateSite(ctx workflow.Context, input *networkmanager.CreateSiteInput) (*networkmanager.CreateSiteOutput, error)
 	CreateSiteAsync(ctx workflow.Context, input *networkmanager.CreateSiteInput) *CreateSiteFuture
+
+	DeleteConnection(ctx workflow.Context, input *networkmanager.DeleteConnectionInput) (*networkmanager.DeleteConnectionOutput, error)
+	DeleteConnectionAsync(ctx workflow.Context, input *networkmanager.DeleteConnectionInput) *DeleteConnectionFuture
 
 	DeleteDevice(ctx workflow.Context, input *networkmanager.DeleteDeviceInput) (*networkmanager.DeleteDeviceOutput, error)
 	DeleteDeviceAsync(ctx workflow.Context, input *networkmanager.DeleteDeviceInput) *DeleteDeviceFuture
@@ -56,6 +65,12 @@ type Client interface {
 	DisassociateLink(ctx workflow.Context, input *networkmanager.DisassociateLinkInput) (*networkmanager.DisassociateLinkOutput, error)
 	DisassociateLinkAsync(ctx workflow.Context, input *networkmanager.DisassociateLinkInput) *DisassociateLinkFuture
 
+	DisassociateTransitGatewayConnectPeer(ctx workflow.Context, input *networkmanager.DisassociateTransitGatewayConnectPeerInput) (*networkmanager.DisassociateTransitGatewayConnectPeerOutput, error)
+	DisassociateTransitGatewayConnectPeerAsync(ctx workflow.Context, input *networkmanager.DisassociateTransitGatewayConnectPeerInput) *DisassociateTransitGatewayConnectPeerFuture
+
+	GetConnections(ctx workflow.Context, input *networkmanager.GetConnectionsInput) (*networkmanager.GetConnectionsOutput, error)
+	GetConnectionsAsync(ctx workflow.Context, input *networkmanager.GetConnectionsInput) *GetConnectionsFuture
+
 	GetCustomerGatewayAssociations(ctx workflow.Context, input *networkmanager.GetCustomerGatewayAssociationsInput) (*networkmanager.GetCustomerGatewayAssociationsOutput, error)
 	GetCustomerGatewayAssociationsAsync(ctx workflow.Context, input *networkmanager.GetCustomerGatewayAssociationsInput) *GetCustomerGatewayAssociationsFuture
 
@@ -71,6 +86,9 @@ type Client interface {
 	GetSites(ctx workflow.Context, input *networkmanager.GetSitesInput) (*networkmanager.GetSitesOutput, error)
 	GetSitesAsync(ctx workflow.Context, input *networkmanager.GetSitesInput) *GetSitesFuture
 
+	GetTransitGatewayConnectPeerAssociations(ctx workflow.Context, input *networkmanager.GetTransitGatewayConnectPeerAssociationsInput) (*networkmanager.GetTransitGatewayConnectPeerAssociationsOutput, error)
+	GetTransitGatewayConnectPeerAssociationsAsync(ctx workflow.Context, input *networkmanager.GetTransitGatewayConnectPeerAssociationsInput) *GetTransitGatewayConnectPeerAssociationsFuture
+
 	GetTransitGatewayRegistrations(ctx workflow.Context, input *networkmanager.GetTransitGatewayRegistrationsInput) (*networkmanager.GetTransitGatewayRegistrationsOutput, error)
 	GetTransitGatewayRegistrationsAsync(ctx workflow.Context, input *networkmanager.GetTransitGatewayRegistrationsInput) *GetTransitGatewayRegistrationsFuture
 
@@ -85,6 +103,9 @@ type Client interface {
 
 	UntagResource(ctx workflow.Context, input *networkmanager.UntagResourceInput) (*networkmanager.UntagResourceOutput, error)
 	UntagResourceAsync(ctx workflow.Context, input *networkmanager.UntagResourceInput) *UntagResourceFuture
+
+	UpdateConnection(ctx workflow.Context, input *networkmanager.UpdateConnectionInput) (*networkmanager.UpdateConnectionOutput, error)
+	UpdateConnectionAsync(ctx workflow.Context, input *networkmanager.UpdateConnectionInput) *UpdateConnectionFuture
 
 	UpdateDevice(ctx workflow.Context, input *networkmanager.UpdateDeviceInput) (*networkmanager.UpdateDeviceOutput, error)
 	UpdateDeviceAsync(ctx workflow.Context, input *networkmanager.UpdateDeviceInput) *UpdateDeviceFuture

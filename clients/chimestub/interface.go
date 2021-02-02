@@ -50,14 +50,38 @@ type Client interface {
 	CreateAccount(ctx workflow.Context, input *chime.CreateAccountInput) (*chime.CreateAccountOutput, error)
 	CreateAccountAsync(ctx workflow.Context, input *chime.CreateAccountInput) *CreateAccountFuture
 
+	CreateAppInstance(ctx workflow.Context, input *chime.CreateAppInstanceInput) (*chime.CreateAppInstanceOutput, error)
+	CreateAppInstanceAsync(ctx workflow.Context, input *chime.CreateAppInstanceInput) *CreateAppInstanceFuture
+
+	CreateAppInstanceAdmin(ctx workflow.Context, input *chime.CreateAppInstanceAdminInput) (*chime.CreateAppInstanceAdminOutput, error)
+	CreateAppInstanceAdminAsync(ctx workflow.Context, input *chime.CreateAppInstanceAdminInput) *CreateAppInstanceAdminFuture
+
+	CreateAppInstanceUser(ctx workflow.Context, input *chime.CreateAppInstanceUserInput) (*chime.CreateAppInstanceUserOutput, error)
+	CreateAppInstanceUserAsync(ctx workflow.Context, input *chime.CreateAppInstanceUserInput) *CreateAppInstanceUserFuture
+
 	CreateAttendee(ctx workflow.Context, input *chime.CreateAttendeeInput) (*chime.CreateAttendeeOutput, error)
 	CreateAttendeeAsync(ctx workflow.Context, input *chime.CreateAttendeeInput) *CreateAttendeeFuture
 
 	CreateBot(ctx workflow.Context, input *chime.CreateBotInput) (*chime.CreateBotOutput, error)
 	CreateBotAsync(ctx workflow.Context, input *chime.CreateBotInput) *CreateBotFuture
 
+	CreateChannel(ctx workflow.Context, input *chime.CreateChannelInput) (*chime.CreateChannelOutput, error)
+	CreateChannelAsync(ctx workflow.Context, input *chime.CreateChannelInput) *CreateChannelFuture
+
+	CreateChannelBan(ctx workflow.Context, input *chime.CreateChannelBanInput) (*chime.CreateChannelBanOutput, error)
+	CreateChannelBanAsync(ctx workflow.Context, input *chime.CreateChannelBanInput) *CreateChannelBanFuture
+
+	CreateChannelMembership(ctx workflow.Context, input *chime.CreateChannelMembershipInput) (*chime.CreateChannelMembershipOutput, error)
+	CreateChannelMembershipAsync(ctx workflow.Context, input *chime.CreateChannelMembershipInput) *CreateChannelMembershipFuture
+
+	CreateChannelModerator(ctx workflow.Context, input *chime.CreateChannelModeratorInput) (*chime.CreateChannelModeratorOutput, error)
+	CreateChannelModeratorAsync(ctx workflow.Context, input *chime.CreateChannelModeratorInput) *CreateChannelModeratorFuture
+
 	CreateMeeting(ctx workflow.Context, input *chime.CreateMeetingInput) (*chime.CreateMeetingOutput, error)
 	CreateMeetingAsync(ctx workflow.Context, input *chime.CreateMeetingInput) *CreateMeetingFuture
+
+	CreateMeetingDialOut(ctx workflow.Context, input *chime.CreateMeetingDialOutInput) (*chime.CreateMeetingDialOutOutput, error)
+	CreateMeetingDialOutAsync(ctx workflow.Context, input *chime.CreateMeetingDialOutInput) *CreateMeetingDialOutFuture
 
 	CreateMeetingWithAttendees(ctx workflow.Context, input *chime.CreateMeetingWithAttendeesInput) (*chime.CreateMeetingWithAttendeesOutput, error)
 	CreateMeetingWithAttendeesAsync(ctx workflow.Context, input *chime.CreateMeetingWithAttendeesInput) *CreateMeetingWithAttendeesFuture
@@ -74,6 +98,15 @@ type Client interface {
 	CreateRoomMembership(ctx workflow.Context, input *chime.CreateRoomMembershipInput) (*chime.CreateRoomMembershipOutput, error)
 	CreateRoomMembershipAsync(ctx workflow.Context, input *chime.CreateRoomMembershipInput) *CreateRoomMembershipFuture
 
+	CreateSipMediaApplication(ctx workflow.Context, input *chime.CreateSipMediaApplicationInput) (*chime.CreateSipMediaApplicationOutput, error)
+	CreateSipMediaApplicationAsync(ctx workflow.Context, input *chime.CreateSipMediaApplicationInput) *CreateSipMediaApplicationFuture
+
+	CreateSipMediaApplicationCall(ctx workflow.Context, input *chime.CreateSipMediaApplicationCallInput) (*chime.CreateSipMediaApplicationCallOutput, error)
+	CreateSipMediaApplicationCallAsync(ctx workflow.Context, input *chime.CreateSipMediaApplicationCallInput) *CreateSipMediaApplicationCallFuture
+
+	CreateSipRule(ctx workflow.Context, input *chime.CreateSipRuleInput) (*chime.CreateSipRuleOutput, error)
+	CreateSipRuleAsync(ctx workflow.Context, input *chime.CreateSipRuleInput) *CreateSipRuleFuture
+
 	CreateUser(ctx workflow.Context, input *chime.CreateUserInput) (*chime.CreateUserOutput, error)
 	CreateUserAsync(ctx workflow.Context, input *chime.CreateUserInput) *CreateUserFuture
 
@@ -86,8 +119,35 @@ type Client interface {
 	DeleteAccount(ctx workflow.Context, input *chime.DeleteAccountInput) (*chime.DeleteAccountOutput, error)
 	DeleteAccountAsync(ctx workflow.Context, input *chime.DeleteAccountInput) *DeleteAccountFuture
 
+	DeleteAppInstance(ctx workflow.Context, input *chime.DeleteAppInstanceInput) (*chime.DeleteAppInstanceOutput, error)
+	DeleteAppInstanceAsync(ctx workflow.Context, input *chime.DeleteAppInstanceInput) *DeleteAppInstanceFuture
+
+	DeleteAppInstanceAdmin(ctx workflow.Context, input *chime.DeleteAppInstanceAdminInput) (*chime.DeleteAppInstanceAdminOutput, error)
+	DeleteAppInstanceAdminAsync(ctx workflow.Context, input *chime.DeleteAppInstanceAdminInput) *DeleteAppInstanceAdminFuture
+
+	DeleteAppInstanceStreamingConfigurations(ctx workflow.Context, input *chime.DeleteAppInstanceStreamingConfigurationsInput) (*chime.DeleteAppInstanceStreamingConfigurationsOutput, error)
+	DeleteAppInstanceStreamingConfigurationsAsync(ctx workflow.Context, input *chime.DeleteAppInstanceStreamingConfigurationsInput) *DeleteAppInstanceStreamingConfigurationsFuture
+
+	DeleteAppInstanceUser(ctx workflow.Context, input *chime.DeleteAppInstanceUserInput) (*chime.DeleteAppInstanceUserOutput, error)
+	DeleteAppInstanceUserAsync(ctx workflow.Context, input *chime.DeleteAppInstanceUserInput) *DeleteAppInstanceUserFuture
+
 	DeleteAttendee(ctx workflow.Context, input *chime.DeleteAttendeeInput) (*chime.DeleteAttendeeOutput, error)
 	DeleteAttendeeAsync(ctx workflow.Context, input *chime.DeleteAttendeeInput) *DeleteAttendeeFuture
+
+	DeleteChannel(ctx workflow.Context, input *chime.DeleteChannelInput) (*chime.DeleteChannelOutput, error)
+	DeleteChannelAsync(ctx workflow.Context, input *chime.DeleteChannelInput) *DeleteChannelFuture
+
+	DeleteChannelBan(ctx workflow.Context, input *chime.DeleteChannelBanInput) (*chime.DeleteChannelBanOutput, error)
+	DeleteChannelBanAsync(ctx workflow.Context, input *chime.DeleteChannelBanInput) *DeleteChannelBanFuture
+
+	DeleteChannelMembership(ctx workflow.Context, input *chime.DeleteChannelMembershipInput) (*chime.DeleteChannelMembershipOutput, error)
+	DeleteChannelMembershipAsync(ctx workflow.Context, input *chime.DeleteChannelMembershipInput) *DeleteChannelMembershipFuture
+
+	DeleteChannelMessage(ctx workflow.Context, input *chime.DeleteChannelMessageInput) (*chime.DeleteChannelMessageOutput, error)
+	DeleteChannelMessageAsync(ctx workflow.Context, input *chime.DeleteChannelMessageInput) *DeleteChannelMessageFuture
+
+	DeleteChannelModerator(ctx workflow.Context, input *chime.DeleteChannelModeratorInput) (*chime.DeleteChannelModeratorOutput, error)
+	DeleteChannelModeratorAsync(ctx workflow.Context, input *chime.DeleteChannelModeratorInput) *DeleteChannelModeratorFuture
 
 	DeleteEventsConfiguration(ctx workflow.Context, input *chime.DeleteEventsConfigurationInput) (*chime.DeleteEventsConfigurationOutput, error)
 	DeleteEventsConfigurationAsync(ctx workflow.Context, input *chime.DeleteEventsConfigurationInput) *DeleteEventsConfigurationFuture
@@ -106,6 +166,12 @@ type Client interface {
 
 	DeleteRoomMembership(ctx workflow.Context, input *chime.DeleteRoomMembershipInput) (*chime.DeleteRoomMembershipOutput, error)
 	DeleteRoomMembershipAsync(ctx workflow.Context, input *chime.DeleteRoomMembershipInput) *DeleteRoomMembershipFuture
+
+	DeleteSipMediaApplication(ctx workflow.Context, input *chime.DeleteSipMediaApplicationInput) (*chime.DeleteSipMediaApplicationOutput, error)
+	DeleteSipMediaApplicationAsync(ctx workflow.Context, input *chime.DeleteSipMediaApplicationInput) *DeleteSipMediaApplicationFuture
+
+	DeleteSipRule(ctx workflow.Context, input *chime.DeleteSipRuleInput) (*chime.DeleteSipRuleOutput, error)
+	DeleteSipRuleAsync(ctx workflow.Context, input *chime.DeleteSipRuleInput) *DeleteSipRuleFuture
 
 	DeleteVoiceConnector(ctx workflow.Context, input *chime.DeleteVoiceConnectorInput) (*chime.DeleteVoiceConnectorOutput, error)
 	DeleteVoiceConnectorAsync(ctx workflow.Context, input *chime.DeleteVoiceConnectorInput) *DeleteVoiceConnectorFuture
@@ -131,6 +197,33 @@ type Client interface {
 	DeleteVoiceConnectorTerminationCredentials(ctx workflow.Context, input *chime.DeleteVoiceConnectorTerminationCredentialsInput) (*chime.DeleteVoiceConnectorTerminationCredentialsOutput, error)
 	DeleteVoiceConnectorTerminationCredentialsAsync(ctx workflow.Context, input *chime.DeleteVoiceConnectorTerminationCredentialsInput) *DeleteVoiceConnectorTerminationCredentialsFuture
 
+	DescribeAppInstance(ctx workflow.Context, input *chime.DescribeAppInstanceInput) (*chime.DescribeAppInstanceOutput, error)
+	DescribeAppInstanceAsync(ctx workflow.Context, input *chime.DescribeAppInstanceInput) *DescribeAppInstanceFuture
+
+	DescribeAppInstanceAdmin(ctx workflow.Context, input *chime.DescribeAppInstanceAdminInput) (*chime.DescribeAppInstanceAdminOutput, error)
+	DescribeAppInstanceAdminAsync(ctx workflow.Context, input *chime.DescribeAppInstanceAdminInput) *DescribeAppInstanceAdminFuture
+
+	DescribeAppInstanceUser(ctx workflow.Context, input *chime.DescribeAppInstanceUserInput) (*chime.DescribeAppInstanceUserOutput, error)
+	DescribeAppInstanceUserAsync(ctx workflow.Context, input *chime.DescribeAppInstanceUserInput) *DescribeAppInstanceUserFuture
+
+	DescribeChannel(ctx workflow.Context, input *chime.DescribeChannelInput) (*chime.DescribeChannelOutput, error)
+	DescribeChannelAsync(ctx workflow.Context, input *chime.DescribeChannelInput) *DescribeChannelFuture
+
+	DescribeChannelBan(ctx workflow.Context, input *chime.DescribeChannelBanInput) (*chime.DescribeChannelBanOutput, error)
+	DescribeChannelBanAsync(ctx workflow.Context, input *chime.DescribeChannelBanInput) *DescribeChannelBanFuture
+
+	DescribeChannelMembership(ctx workflow.Context, input *chime.DescribeChannelMembershipInput) (*chime.DescribeChannelMembershipOutput, error)
+	DescribeChannelMembershipAsync(ctx workflow.Context, input *chime.DescribeChannelMembershipInput) *DescribeChannelMembershipFuture
+
+	DescribeChannelMembershipForAppInstanceUser(ctx workflow.Context, input *chime.DescribeChannelMembershipForAppInstanceUserInput) (*chime.DescribeChannelMembershipForAppInstanceUserOutput, error)
+	DescribeChannelMembershipForAppInstanceUserAsync(ctx workflow.Context, input *chime.DescribeChannelMembershipForAppInstanceUserInput) *DescribeChannelMembershipForAppInstanceUserFuture
+
+	DescribeChannelModeratedByAppInstanceUser(ctx workflow.Context, input *chime.DescribeChannelModeratedByAppInstanceUserInput) (*chime.DescribeChannelModeratedByAppInstanceUserOutput, error)
+	DescribeChannelModeratedByAppInstanceUserAsync(ctx workflow.Context, input *chime.DescribeChannelModeratedByAppInstanceUserInput) *DescribeChannelModeratedByAppInstanceUserFuture
+
+	DescribeChannelModerator(ctx workflow.Context, input *chime.DescribeChannelModeratorInput) (*chime.DescribeChannelModeratorOutput, error)
+	DescribeChannelModeratorAsync(ctx workflow.Context, input *chime.DescribeChannelModeratorInput) *DescribeChannelModeratorFuture
+
 	DisassociatePhoneNumberFromUser(ctx workflow.Context, input *chime.DisassociatePhoneNumberFromUserInput) (*chime.DisassociatePhoneNumberFromUserOutput, error)
 	DisassociatePhoneNumberFromUserAsync(ctx workflow.Context, input *chime.DisassociatePhoneNumberFromUserInput) *DisassociatePhoneNumberFromUserFuture
 
@@ -149,11 +242,20 @@ type Client interface {
 	GetAccountSettings(ctx workflow.Context, input *chime.GetAccountSettingsInput) (*chime.GetAccountSettingsOutput, error)
 	GetAccountSettingsAsync(ctx workflow.Context, input *chime.GetAccountSettingsInput) *GetAccountSettingsFuture
 
+	GetAppInstanceRetentionSettings(ctx workflow.Context, input *chime.GetAppInstanceRetentionSettingsInput) (*chime.GetAppInstanceRetentionSettingsOutput, error)
+	GetAppInstanceRetentionSettingsAsync(ctx workflow.Context, input *chime.GetAppInstanceRetentionSettingsInput) *GetAppInstanceRetentionSettingsFuture
+
+	GetAppInstanceStreamingConfigurations(ctx workflow.Context, input *chime.GetAppInstanceStreamingConfigurationsInput) (*chime.GetAppInstanceStreamingConfigurationsOutput, error)
+	GetAppInstanceStreamingConfigurationsAsync(ctx workflow.Context, input *chime.GetAppInstanceStreamingConfigurationsInput) *GetAppInstanceStreamingConfigurationsFuture
+
 	GetAttendee(ctx workflow.Context, input *chime.GetAttendeeInput) (*chime.GetAttendeeOutput, error)
 	GetAttendeeAsync(ctx workflow.Context, input *chime.GetAttendeeInput) *GetAttendeeFuture
 
 	GetBot(ctx workflow.Context, input *chime.GetBotInput) (*chime.GetBotOutput, error)
 	GetBotAsync(ctx workflow.Context, input *chime.GetBotInput) *GetBotFuture
+
+	GetChannelMessage(ctx workflow.Context, input *chime.GetChannelMessageInput) (*chime.GetChannelMessageOutput, error)
+	GetChannelMessageAsync(ctx workflow.Context, input *chime.GetChannelMessageInput) *GetChannelMessageFuture
 
 	GetEventsConfiguration(ctx workflow.Context, input *chime.GetEventsConfigurationInput) (*chime.GetEventsConfigurationOutput, error)
 	GetEventsConfigurationAsync(ctx workflow.Context, input *chime.GetEventsConfigurationInput) *GetEventsConfigurationFuture
@@ -163,6 +265,9 @@ type Client interface {
 
 	GetMeeting(ctx workflow.Context, input *chime.GetMeetingInput) (*chime.GetMeetingOutput, error)
 	GetMeetingAsync(ctx workflow.Context, input *chime.GetMeetingInput) *GetMeetingFuture
+
+	GetMessagingSessionEndpoint(ctx workflow.Context, input *chime.GetMessagingSessionEndpointInput) (*chime.GetMessagingSessionEndpointOutput, error)
+	GetMessagingSessionEndpointAsync(ctx workflow.Context, input *chime.GetMessagingSessionEndpointInput) *GetMessagingSessionEndpointFuture
 
 	GetPhoneNumber(ctx workflow.Context, input *chime.GetPhoneNumberInput) (*chime.GetPhoneNumberOutput, error)
 	GetPhoneNumberAsync(ctx workflow.Context, input *chime.GetPhoneNumberInput) *GetPhoneNumberFuture
@@ -181,6 +286,15 @@ type Client interface {
 
 	GetRoom(ctx workflow.Context, input *chime.GetRoomInput) (*chime.GetRoomOutput, error)
 	GetRoomAsync(ctx workflow.Context, input *chime.GetRoomInput) *GetRoomFuture
+
+	GetSipMediaApplication(ctx workflow.Context, input *chime.GetSipMediaApplicationInput) (*chime.GetSipMediaApplicationOutput, error)
+	GetSipMediaApplicationAsync(ctx workflow.Context, input *chime.GetSipMediaApplicationInput) *GetSipMediaApplicationFuture
+
+	GetSipMediaApplicationLoggingConfiguration(ctx workflow.Context, input *chime.GetSipMediaApplicationLoggingConfigurationInput) (*chime.GetSipMediaApplicationLoggingConfigurationOutput, error)
+	GetSipMediaApplicationLoggingConfigurationAsync(ctx workflow.Context, input *chime.GetSipMediaApplicationLoggingConfigurationInput) *GetSipMediaApplicationLoggingConfigurationFuture
+
+	GetSipRule(ctx workflow.Context, input *chime.GetSipRuleInput) (*chime.GetSipRuleOutput, error)
+	GetSipRuleAsync(ctx workflow.Context, input *chime.GetSipRuleInput) *GetSipRuleFuture
 
 	GetUser(ctx workflow.Context, input *chime.GetUserInput) (*chime.GetUserOutput, error)
 	GetUserAsync(ctx workflow.Context, input *chime.GetUserInput) *GetUserFuture
@@ -221,6 +335,15 @@ type Client interface {
 	ListAccounts(ctx workflow.Context, input *chime.ListAccountsInput) (*chime.ListAccountsOutput, error)
 	ListAccountsAsync(ctx workflow.Context, input *chime.ListAccountsInput) *ListAccountsFuture
 
+	ListAppInstanceAdmins(ctx workflow.Context, input *chime.ListAppInstanceAdminsInput) (*chime.ListAppInstanceAdminsOutput, error)
+	ListAppInstanceAdminsAsync(ctx workflow.Context, input *chime.ListAppInstanceAdminsInput) *ListAppInstanceAdminsFuture
+
+	ListAppInstanceUsers(ctx workflow.Context, input *chime.ListAppInstanceUsersInput) (*chime.ListAppInstanceUsersOutput, error)
+	ListAppInstanceUsersAsync(ctx workflow.Context, input *chime.ListAppInstanceUsersInput) *ListAppInstanceUsersFuture
+
+	ListAppInstances(ctx workflow.Context, input *chime.ListAppInstancesInput) (*chime.ListAppInstancesOutput, error)
+	ListAppInstancesAsync(ctx workflow.Context, input *chime.ListAppInstancesInput) *ListAppInstancesFuture
+
 	ListAttendeeTags(ctx workflow.Context, input *chime.ListAttendeeTagsInput) (*chime.ListAttendeeTagsOutput, error)
 	ListAttendeeTagsAsync(ctx workflow.Context, input *chime.ListAttendeeTagsInput) *ListAttendeeTagsFuture
 
@@ -229,6 +352,27 @@ type Client interface {
 
 	ListBots(ctx workflow.Context, input *chime.ListBotsInput) (*chime.ListBotsOutput, error)
 	ListBotsAsync(ctx workflow.Context, input *chime.ListBotsInput) *ListBotsFuture
+
+	ListChannelBans(ctx workflow.Context, input *chime.ListChannelBansInput) (*chime.ListChannelBansOutput, error)
+	ListChannelBansAsync(ctx workflow.Context, input *chime.ListChannelBansInput) *ListChannelBansFuture
+
+	ListChannelMemberships(ctx workflow.Context, input *chime.ListChannelMembershipsInput) (*chime.ListChannelMembershipsOutput, error)
+	ListChannelMembershipsAsync(ctx workflow.Context, input *chime.ListChannelMembershipsInput) *ListChannelMembershipsFuture
+
+	ListChannelMembershipsForAppInstanceUser(ctx workflow.Context, input *chime.ListChannelMembershipsForAppInstanceUserInput) (*chime.ListChannelMembershipsForAppInstanceUserOutput, error)
+	ListChannelMembershipsForAppInstanceUserAsync(ctx workflow.Context, input *chime.ListChannelMembershipsForAppInstanceUserInput) *ListChannelMembershipsForAppInstanceUserFuture
+
+	ListChannelMessages(ctx workflow.Context, input *chime.ListChannelMessagesInput) (*chime.ListChannelMessagesOutput, error)
+	ListChannelMessagesAsync(ctx workflow.Context, input *chime.ListChannelMessagesInput) *ListChannelMessagesFuture
+
+	ListChannelModerators(ctx workflow.Context, input *chime.ListChannelModeratorsInput) (*chime.ListChannelModeratorsOutput, error)
+	ListChannelModeratorsAsync(ctx workflow.Context, input *chime.ListChannelModeratorsInput) *ListChannelModeratorsFuture
+
+	ListChannels(ctx workflow.Context, input *chime.ListChannelsInput) (*chime.ListChannelsOutput, error)
+	ListChannelsAsync(ctx workflow.Context, input *chime.ListChannelsInput) *ListChannelsFuture
+
+	ListChannelsModeratedByAppInstanceUser(ctx workflow.Context, input *chime.ListChannelsModeratedByAppInstanceUserInput) (*chime.ListChannelsModeratedByAppInstanceUserOutput, error)
+	ListChannelsModeratedByAppInstanceUserAsync(ctx workflow.Context, input *chime.ListChannelsModeratedByAppInstanceUserInput) *ListChannelsModeratedByAppInstanceUserFuture
 
 	ListMeetingTags(ctx workflow.Context, input *chime.ListMeetingTagsInput) (*chime.ListMeetingTagsOutput, error)
 	ListMeetingTagsAsync(ctx workflow.Context, input *chime.ListMeetingTagsInput) *ListMeetingTagsFuture
@@ -251,6 +395,12 @@ type Client interface {
 	ListRooms(ctx workflow.Context, input *chime.ListRoomsInput) (*chime.ListRoomsOutput, error)
 	ListRoomsAsync(ctx workflow.Context, input *chime.ListRoomsInput) *ListRoomsFuture
 
+	ListSipMediaApplications(ctx workflow.Context, input *chime.ListSipMediaApplicationsInput) (*chime.ListSipMediaApplicationsOutput, error)
+	ListSipMediaApplicationsAsync(ctx workflow.Context, input *chime.ListSipMediaApplicationsInput) *ListSipMediaApplicationsFuture
+
+	ListSipRules(ctx workflow.Context, input *chime.ListSipRulesInput) (*chime.ListSipRulesOutput, error)
+	ListSipRulesAsync(ctx workflow.Context, input *chime.ListSipRulesInput) *ListSipRulesFuture
+
 	ListTagsForResource(ctx workflow.Context, input *chime.ListTagsForResourceInput) (*chime.ListTagsForResourceOutput, error)
 	ListTagsForResourceAsync(ctx workflow.Context, input *chime.ListTagsForResourceInput) *ListTagsForResourceFuture
 
@@ -269,11 +419,20 @@ type Client interface {
 	LogoutUser(ctx workflow.Context, input *chime.LogoutUserInput) (*chime.LogoutUserOutput, error)
 	LogoutUserAsync(ctx workflow.Context, input *chime.LogoutUserInput) *LogoutUserFuture
 
+	PutAppInstanceRetentionSettings(ctx workflow.Context, input *chime.PutAppInstanceRetentionSettingsInput) (*chime.PutAppInstanceRetentionSettingsOutput, error)
+	PutAppInstanceRetentionSettingsAsync(ctx workflow.Context, input *chime.PutAppInstanceRetentionSettingsInput) *PutAppInstanceRetentionSettingsFuture
+
+	PutAppInstanceStreamingConfigurations(ctx workflow.Context, input *chime.PutAppInstanceStreamingConfigurationsInput) (*chime.PutAppInstanceStreamingConfigurationsOutput, error)
+	PutAppInstanceStreamingConfigurationsAsync(ctx workflow.Context, input *chime.PutAppInstanceStreamingConfigurationsInput) *PutAppInstanceStreamingConfigurationsFuture
+
 	PutEventsConfiguration(ctx workflow.Context, input *chime.PutEventsConfigurationInput) (*chime.PutEventsConfigurationOutput, error)
 	PutEventsConfigurationAsync(ctx workflow.Context, input *chime.PutEventsConfigurationInput) *PutEventsConfigurationFuture
 
 	PutRetentionSettings(ctx workflow.Context, input *chime.PutRetentionSettingsInput) (*chime.PutRetentionSettingsOutput, error)
 	PutRetentionSettingsAsync(ctx workflow.Context, input *chime.PutRetentionSettingsInput) *PutRetentionSettingsFuture
+
+	PutSipMediaApplicationLoggingConfiguration(ctx workflow.Context, input *chime.PutSipMediaApplicationLoggingConfigurationInput) (*chime.PutSipMediaApplicationLoggingConfigurationOutput, error)
+	PutSipMediaApplicationLoggingConfigurationAsync(ctx workflow.Context, input *chime.PutSipMediaApplicationLoggingConfigurationInput) *PutSipMediaApplicationLoggingConfigurationFuture
 
 	PutVoiceConnectorEmergencyCallingConfiguration(ctx workflow.Context, input *chime.PutVoiceConnectorEmergencyCallingConfigurationInput) (*chime.PutVoiceConnectorEmergencyCallingConfigurationOutput, error)
 	PutVoiceConnectorEmergencyCallingConfigurationAsync(ctx workflow.Context, input *chime.PutVoiceConnectorEmergencyCallingConfigurationInput) *PutVoiceConnectorEmergencyCallingConfigurationFuture
@@ -296,6 +455,9 @@ type Client interface {
 	PutVoiceConnectorTerminationCredentials(ctx workflow.Context, input *chime.PutVoiceConnectorTerminationCredentialsInput) (*chime.PutVoiceConnectorTerminationCredentialsOutput, error)
 	PutVoiceConnectorTerminationCredentialsAsync(ctx workflow.Context, input *chime.PutVoiceConnectorTerminationCredentialsInput) *PutVoiceConnectorTerminationCredentialsFuture
 
+	RedactChannelMessage(ctx workflow.Context, input *chime.RedactChannelMessageInput) (*chime.RedactChannelMessageOutput, error)
+	RedactChannelMessageAsync(ctx workflow.Context, input *chime.RedactChannelMessageInput) *RedactChannelMessageFuture
+
 	RedactConversationMessage(ctx workflow.Context, input *chime.RedactConversationMessageInput) (*chime.RedactConversationMessageOutput, error)
 	RedactConversationMessageAsync(ctx workflow.Context, input *chime.RedactConversationMessageInput) *RedactConversationMessageFuture
 
@@ -313,6 +475,9 @@ type Client interface {
 
 	SearchAvailablePhoneNumbers(ctx workflow.Context, input *chime.SearchAvailablePhoneNumbersInput) (*chime.SearchAvailablePhoneNumbersOutput, error)
 	SearchAvailablePhoneNumbersAsync(ctx workflow.Context, input *chime.SearchAvailablePhoneNumbersInput) *SearchAvailablePhoneNumbersFuture
+
+	SendChannelMessage(ctx workflow.Context, input *chime.SendChannelMessageInput) (*chime.SendChannelMessageOutput, error)
+	SendChannelMessageAsync(ctx workflow.Context, input *chime.SendChannelMessageInput) *SendChannelMessageFuture
 
 	TagAttendee(ctx workflow.Context, input *chime.TagAttendeeInput) (*chime.TagAttendeeOutput, error)
 	TagAttendeeAsync(ctx workflow.Context, input *chime.TagAttendeeInput) *TagAttendeeFuture
@@ -338,8 +503,23 @@ type Client interface {
 	UpdateAccountSettings(ctx workflow.Context, input *chime.UpdateAccountSettingsInput) (*chime.UpdateAccountSettingsOutput, error)
 	UpdateAccountSettingsAsync(ctx workflow.Context, input *chime.UpdateAccountSettingsInput) *UpdateAccountSettingsFuture
 
+	UpdateAppInstance(ctx workflow.Context, input *chime.UpdateAppInstanceInput) (*chime.UpdateAppInstanceOutput, error)
+	UpdateAppInstanceAsync(ctx workflow.Context, input *chime.UpdateAppInstanceInput) *UpdateAppInstanceFuture
+
+	UpdateAppInstanceUser(ctx workflow.Context, input *chime.UpdateAppInstanceUserInput) (*chime.UpdateAppInstanceUserOutput, error)
+	UpdateAppInstanceUserAsync(ctx workflow.Context, input *chime.UpdateAppInstanceUserInput) *UpdateAppInstanceUserFuture
+
 	UpdateBot(ctx workflow.Context, input *chime.UpdateBotInput) (*chime.UpdateBotOutput, error)
 	UpdateBotAsync(ctx workflow.Context, input *chime.UpdateBotInput) *UpdateBotFuture
+
+	UpdateChannel(ctx workflow.Context, input *chime.UpdateChannelInput) (*chime.UpdateChannelOutput, error)
+	UpdateChannelAsync(ctx workflow.Context, input *chime.UpdateChannelInput) *UpdateChannelFuture
+
+	UpdateChannelMessage(ctx workflow.Context, input *chime.UpdateChannelMessageInput) (*chime.UpdateChannelMessageOutput, error)
+	UpdateChannelMessageAsync(ctx workflow.Context, input *chime.UpdateChannelMessageInput) *UpdateChannelMessageFuture
+
+	UpdateChannelReadMarker(ctx workflow.Context, input *chime.UpdateChannelReadMarkerInput) (*chime.UpdateChannelReadMarkerOutput, error)
+	UpdateChannelReadMarkerAsync(ctx workflow.Context, input *chime.UpdateChannelReadMarkerInput) *UpdateChannelReadMarkerFuture
 
 	UpdateGlobalSettings(ctx workflow.Context, input *chime.UpdateGlobalSettingsInput) (*chime.UpdateGlobalSettingsOutput, error)
 	UpdateGlobalSettingsAsync(ctx workflow.Context, input *chime.UpdateGlobalSettingsInput) *UpdateGlobalSettingsFuture
@@ -358,6 +538,12 @@ type Client interface {
 
 	UpdateRoomMembership(ctx workflow.Context, input *chime.UpdateRoomMembershipInput) (*chime.UpdateRoomMembershipOutput, error)
 	UpdateRoomMembershipAsync(ctx workflow.Context, input *chime.UpdateRoomMembershipInput) *UpdateRoomMembershipFuture
+
+	UpdateSipMediaApplication(ctx workflow.Context, input *chime.UpdateSipMediaApplicationInput) (*chime.UpdateSipMediaApplicationOutput, error)
+	UpdateSipMediaApplicationAsync(ctx workflow.Context, input *chime.UpdateSipMediaApplicationInput) *UpdateSipMediaApplicationFuture
+
+	UpdateSipRule(ctx workflow.Context, input *chime.UpdateSipRuleInput) (*chime.UpdateSipRuleOutput, error)
+	UpdateSipRuleAsync(ctx workflow.Context, input *chime.UpdateSipRuleInput) *UpdateSipRuleFuture
 
 	UpdateUser(ctx workflow.Context, input *chime.UpdateUserInput) (*chime.UpdateUserOutput, error)
 	UpdateUserAsync(ctx workflow.Context, input *chime.UpdateUserInput) *UpdateUserFuture

@@ -53,6 +53,17 @@ func (a *Activities) getClient(ctx context.Context) (connectparticipantiface.Con
 	return connectparticipant.New(sess), nil
 }
 
+func (a *Activities) CompleteAttachmentUpload(ctx context.Context, input *connectparticipant.CompleteAttachmentUploadInput) (*connectparticipant.CompleteAttachmentUploadOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CompleteAttachmentUploadWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateParticipantConnection(ctx context.Context, input *connectparticipant.CreateParticipantConnectionInput) (*connectparticipant.CreateParticipantConnectionOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -70,6 +81,16 @@ func (a *Activities) DisconnectParticipant(ctx context.Context, input *connectpa
 	}
 	internal.SetClientToken(ctx, &input.ClientToken)
 	output, err := client.DisconnectParticipantWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetAttachment(ctx context.Context, input *connectparticipant.GetAttachmentInput) (*connectparticipant.GetAttachmentOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetAttachmentWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -102,6 +123,17 @@ func (a *Activities) SendMessage(ctx context.Context, input *connectparticipant.
 	}
 	internal.SetClientToken(ctx, &input.ClientToken)
 	output, err := client.SendMessageWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) StartAttachmentUpload(ctx context.Context, input *connectparticipant.StartAttachmentUploadInput) (*connectparticipant.StartAttachmentUploadOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.StartAttachmentUploadWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

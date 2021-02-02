@@ -32,6 +32,9 @@ type Client interface {
 	DeleteLifecyclePolicy(ctx workflow.Context, input *ecr.DeleteLifecyclePolicyInput) (*ecr.DeleteLifecyclePolicyOutput, error)
 	DeleteLifecyclePolicyAsync(ctx workflow.Context, input *ecr.DeleteLifecyclePolicyInput) *DeleteLifecyclePolicyFuture
 
+	DeleteRegistryPolicy(ctx workflow.Context, input *ecr.DeleteRegistryPolicyInput) (*ecr.DeleteRegistryPolicyOutput, error)
+	DeleteRegistryPolicyAsync(ctx workflow.Context, input *ecr.DeleteRegistryPolicyInput) *DeleteRegistryPolicyFuture
+
 	DeleteRepository(ctx workflow.Context, input *ecr.DeleteRepositoryInput) (*ecr.DeleteRepositoryOutput, error)
 	DeleteRepositoryAsync(ctx workflow.Context, input *ecr.DeleteRepositoryInput) *DeleteRepositoryFuture
 
@@ -43,6 +46,9 @@ type Client interface {
 
 	DescribeImages(ctx workflow.Context, input *ecr.DescribeImagesInput) (*ecr.DescribeImagesOutput, error)
 	DescribeImagesAsync(ctx workflow.Context, input *ecr.DescribeImagesInput) *DescribeImagesFuture
+
+	DescribeRegistry(ctx workflow.Context, input *ecr.DescribeRegistryInput) (*ecr.DescribeRegistryOutput, error)
+	DescribeRegistryAsync(ctx workflow.Context, input *ecr.DescribeRegistryInput) *DescribeRegistryFuture
 
 	DescribeRepositories(ctx workflow.Context, input *ecr.DescribeRepositoriesInput) (*ecr.DescribeRepositoriesOutput, error)
 	DescribeRepositoriesAsync(ctx workflow.Context, input *ecr.DescribeRepositoriesInput) *DescribeRepositoriesFuture
@@ -58,6 +64,9 @@ type Client interface {
 
 	GetLifecyclePolicyPreview(ctx workflow.Context, input *ecr.GetLifecyclePolicyPreviewInput) (*ecr.GetLifecyclePolicyPreviewOutput, error)
 	GetLifecyclePolicyPreviewAsync(ctx workflow.Context, input *ecr.GetLifecyclePolicyPreviewInput) *GetLifecyclePolicyPreviewFuture
+
+	GetRegistryPolicy(ctx workflow.Context, input *ecr.GetRegistryPolicyInput) (*ecr.GetRegistryPolicyOutput, error)
+	GetRegistryPolicyAsync(ctx workflow.Context, input *ecr.GetRegistryPolicyInput) *GetRegistryPolicyFuture
 
 	GetRepositoryPolicy(ctx workflow.Context, input *ecr.GetRepositoryPolicyInput) (*ecr.GetRepositoryPolicyOutput, error)
 	GetRepositoryPolicyAsync(ctx workflow.Context, input *ecr.GetRepositoryPolicyInput) *GetRepositoryPolicyFuture
@@ -82,6 +91,12 @@ type Client interface {
 
 	PutLifecyclePolicy(ctx workflow.Context, input *ecr.PutLifecyclePolicyInput) (*ecr.PutLifecyclePolicyOutput, error)
 	PutLifecyclePolicyAsync(ctx workflow.Context, input *ecr.PutLifecyclePolicyInput) *PutLifecyclePolicyFuture
+
+	PutRegistryPolicy(ctx workflow.Context, input *ecr.PutRegistryPolicyInput) (*ecr.PutRegistryPolicyOutput, error)
+	PutRegistryPolicyAsync(ctx workflow.Context, input *ecr.PutRegistryPolicyInput) *PutRegistryPolicyFuture
+
+	PutReplicationConfiguration(ctx workflow.Context, input *ecr.PutReplicationConfigurationInput) (*ecr.PutReplicationConfigurationOutput, error)
+	PutReplicationConfigurationAsync(ctx workflow.Context, input *ecr.PutReplicationConfigurationInput) *PutReplicationConfigurationFuture
 
 	SetRepositoryPolicy(ctx workflow.Context, input *ecr.SetRepositoryPolicyInput) (*ecr.SetRepositoryPolicyOutput, error)
 	SetRepositoryPolicyAsync(ctx workflow.Context, input *ecr.SetRepositoryPolicyInput) *SetRepositoryPolicyFuture

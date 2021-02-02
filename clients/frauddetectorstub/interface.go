@@ -41,11 +41,35 @@ type Client interface {
 	DeleteDetectorVersion(ctx workflow.Context, input *frauddetector.DeleteDetectorVersionInput) (*frauddetector.DeleteDetectorVersionOutput, error)
 	DeleteDetectorVersionAsync(ctx workflow.Context, input *frauddetector.DeleteDetectorVersionInput) *DeleteDetectorVersionFuture
 
+	DeleteEntityType(ctx workflow.Context, input *frauddetector.DeleteEntityTypeInput) (*frauddetector.DeleteEntityTypeOutput, error)
+	DeleteEntityTypeAsync(ctx workflow.Context, input *frauddetector.DeleteEntityTypeInput) *DeleteEntityTypeFuture
+
 	DeleteEvent(ctx workflow.Context, input *frauddetector.DeleteEventInput) (*frauddetector.DeleteEventOutput, error)
 	DeleteEventAsync(ctx workflow.Context, input *frauddetector.DeleteEventInput) *DeleteEventFuture
 
+	DeleteEventType(ctx workflow.Context, input *frauddetector.DeleteEventTypeInput) (*frauddetector.DeleteEventTypeOutput, error)
+	DeleteEventTypeAsync(ctx workflow.Context, input *frauddetector.DeleteEventTypeInput) *DeleteEventTypeFuture
+
+	DeleteExternalModel(ctx workflow.Context, input *frauddetector.DeleteExternalModelInput) (*frauddetector.DeleteExternalModelOutput, error)
+	DeleteExternalModelAsync(ctx workflow.Context, input *frauddetector.DeleteExternalModelInput) *DeleteExternalModelFuture
+
+	DeleteLabel(ctx workflow.Context, input *frauddetector.DeleteLabelInput) (*frauddetector.DeleteLabelOutput, error)
+	DeleteLabelAsync(ctx workflow.Context, input *frauddetector.DeleteLabelInput) *DeleteLabelFuture
+
+	DeleteModel(ctx workflow.Context, input *frauddetector.DeleteModelInput) (*frauddetector.DeleteModelOutput, error)
+	DeleteModelAsync(ctx workflow.Context, input *frauddetector.DeleteModelInput) *DeleteModelFuture
+
+	DeleteModelVersion(ctx workflow.Context, input *frauddetector.DeleteModelVersionInput) (*frauddetector.DeleteModelVersionOutput, error)
+	DeleteModelVersionAsync(ctx workflow.Context, input *frauddetector.DeleteModelVersionInput) *DeleteModelVersionFuture
+
+	DeleteOutcome(ctx workflow.Context, input *frauddetector.DeleteOutcomeInput) (*frauddetector.DeleteOutcomeOutput, error)
+	DeleteOutcomeAsync(ctx workflow.Context, input *frauddetector.DeleteOutcomeInput) *DeleteOutcomeFuture
+
 	DeleteRule(ctx workflow.Context, input *frauddetector.DeleteRuleInput) (*frauddetector.DeleteRuleOutput, error)
 	DeleteRuleAsync(ctx workflow.Context, input *frauddetector.DeleteRuleInput) *DeleteRuleFuture
+
+	DeleteVariable(ctx workflow.Context, input *frauddetector.DeleteVariableInput) (*frauddetector.DeleteVariableOutput, error)
+	DeleteVariableAsync(ctx workflow.Context, input *frauddetector.DeleteVariableInput) *DeleteVariableFuture
 
 	DescribeDetector(ctx workflow.Context, input *frauddetector.DescribeDetectorInput) (*frauddetector.DescribeDetectorOutput, error)
 	DescribeDetectorAsync(ctx workflow.Context, input *frauddetector.DescribeDetectorInput) *DescribeDetectorFuture

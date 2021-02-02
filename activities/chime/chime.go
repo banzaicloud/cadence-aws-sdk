@@ -173,6 +173,36 @@ func (a *Activities) CreateAccount(ctx context.Context, input *chime.CreateAccou
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateAppInstance(ctx context.Context, input *chime.CreateAppInstanceInput) (*chime.CreateAppInstanceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateAppInstanceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateAppInstanceAdmin(ctx context.Context, input *chime.CreateAppInstanceAdminInput) (*chime.CreateAppInstanceAdminOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateAppInstanceAdminWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateAppInstanceUser(ctx context.Context, input *chime.CreateAppInstanceUserInput) (*chime.CreateAppInstanceUserOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateAppInstanceUserWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateAttendee(ctx context.Context, input *chime.CreateAttendeeInput) (*chime.CreateAttendeeOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -193,12 +223,62 @@ func (a *Activities) CreateBot(ctx context.Context, input *chime.CreateBotInput)
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateChannel(ctx context.Context, input *chime.CreateChannelInput) (*chime.CreateChannelOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateChannelWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateChannelBan(ctx context.Context, input *chime.CreateChannelBanInput) (*chime.CreateChannelBanOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateChannelBanWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateChannelMembership(ctx context.Context, input *chime.CreateChannelMembershipInput) (*chime.CreateChannelMembershipOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateChannelMembershipWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateChannelModerator(ctx context.Context, input *chime.CreateChannelModeratorInput) (*chime.CreateChannelModeratorOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateChannelModeratorWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateMeeting(ctx context.Context, input *chime.CreateMeetingInput) (*chime.CreateMeetingOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreateMeetingWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateMeetingDialOut(ctx context.Context, input *chime.CreateMeetingDialOutInput) (*chime.CreateMeetingDialOutOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateMeetingDialOutWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -253,6 +333,36 @@ func (a *Activities) CreateRoomMembership(ctx context.Context, input *chime.Crea
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateSipMediaApplication(ctx context.Context, input *chime.CreateSipMediaApplicationInput) (*chime.CreateSipMediaApplicationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateSipMediaApplicationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateSipMediaApplicationCall(ctx context.Context, input *chime.CreateSipMediaApplicationCallInput) (*chime.CreateSipMediaApplicationCallOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateSipMediaApplicationCallWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateSipRule(ctx context.Context, input *chime.CreateSipRuleInput) (*chime.CreateSipRuleOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateSipRuleWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateUser(ctx context.Context, input *chime.CreateUserInput) (*chime.CreateUserOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -293,12 +403,102 @@ func (a *Activities) DeleteAccount(ctx context.Context, input *chime.DeleteAccou
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteAppInstance(ctx context.Context, input *chime.DeleteAppInstanceInput) (*chime.DeleteAppInstanceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteAppInstanceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteAppInstanceAdmin(ctx context.Context, input *chime.DeleteAppInstanceAdminInput) (*chime.DeleteAppInstanceAdminOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteAppInstanceAdminWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteAppInstanceStreamingConfigurations(ctx context.Context, input *chime.DeleteAppInstanceStreamingConfigurationsInput) (*chime.DeleteAppInstanceStreamingConfigurationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteAppInstanceStreamingConfigurationsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteAppInstanceUser(ctx context.Context, input *chime.DeleteAppInstanceUserInput) (*chime.DeleteAppInstanceUserOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteAppInstanceUserWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteAttendee(ctx context.Context, input *chime.DeleteAttendeeInput) (*chime.DeleteAttendeeOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteAttendeeWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteChannel(ctx context.Context, input *chime.DeleteChannelInput) (*chime.DeleteChannelOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteChannelWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteChannelBan(ctx context.Context, input *chime.DeleteChannelBanInput) (*chime.DeleteChannelBanOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteChannelBanWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteChannelMembership(ctx context.Context, input *chime.DeleteChannelMembershipInput) (*chime.DeleteChannelMembershipOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteChannelMembershipWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteChannelMessage(ctx context.Context, input *chime.DeleteChannelMessageInput) (*chime.DeleteChannelMessageOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteChannelMessageWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteChannelModerator(ctx context.Context, input *chime.DeleteChannelModeratorInput) (*chime.DeleteChannelModeratorOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteChannelModeratorWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -359,6 +559,26 @@ func (a *Activities) DeleteRoomMembership(ctx context.Context, input *chime.Dele
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteRoomMembershipWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteSipMediaApplication(ctx context.Context, input *chime.DeleteSipMediaApplicationInput) (*chime.DeleteSipMediaApplicationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteSipMediaApplicationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteSipRule(ctx context.Context, input *chime.DeleteSipRuleInput) (*chime.DeleteSipRuleOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteSipRuleWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -443,6 +663,96 @@ func (a *Activities) DeleteVoiceConnectorTerminationCredentials(ctx context.Cont
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeAppInstance(ctx context.Context, input *chime.DescribeAppInstanceInput) (*chime.DescribeAppInstanceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeAppInstanceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeAppInstanceAdmin(ctx context.Context, input *chime.DescribeAppInstanceAdminInput) (*chime.DescribeAppInstanceAdminOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeAppInstanceAdminWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeAppInstanceUser(ctx context.Context, input *chime.DescribeAppInstanceUserInput) (*chime.DescribeAppInstanceUserOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeAppInstanceUserWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeChannel(ctx context.Context, input *chime.DescribeChannelInput) (*chime.DescribeChannelOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeChannelWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeChannelBan(ctx context.Context, input *chime.DescribeChannelBanInput) (*chime.DescribeChannelBanOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeChannelBanWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeChannelMembership(ctx context.Context, input *chime.DescribeChannelMembershipInput) (*chime.DescribeChannelMembershipOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeChannelMembershipWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeChannelMembershipForAppInstanceUser(ctx context.Context, input *chime.DescribeChannelMembershipForAppInstanceUserInput) (*chime.DescribeChannelMembershipForAppInstanceUserOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeChannelMembershipForAppInstanceUserWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeChannelModeratedByAppInstanceUser(ctx context.Context, input *chime.DescribeChannelModeratedByAppInstanceUserInput) (*chime.DescribeChannelModeratedByAppInstanceUserOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeChannelModeratedByAppInstanceUserWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeChannelModerator(ctx context.Context, input *chime.DescribeChannelModeratorInput) (*chime.DescribeChannelModeratorOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeChannelModeratorWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DisassociatePhoneNumberFromUser(ctx context.Context, input *chime.DisassociatePhoneNumberFromUserInput) (*chime.DisassociatePhoneNumberFromUserOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -503,6 +813,26 @@ func (a *Activities) GetAccountSettings(ctx context.Context, input *chime.GetAcc
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetAppInstanceRetentionSettings(ctx context.Context, input *chime.GetAppInstanceRetentionSettingsInput) (*chime.GetAppInstanceRetentionSettingsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetAppInstanceRetentionSettingsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetAppInstanceStreamingConfigurations(ctx context.Context, input *chime.GetAppInstanceStreamingConfigurationsInput) (*chime.GetAppInstanceStreamingConfigurationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetAppInstanceStreamingConfigurationsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetAttendee(ctx context.Context, input *chime.GetAttendeeInput) (*chime.GetAttendeeOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -519,6 +849,16 @@ func (a *Activities) GetBot(ctx context.Context, input *chime.GetBotInput) (*chi
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetBotWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetChannelMessage(ctx context.Context, input *chime.GetChannelMessageInput) (*chime.GetChannelMessageOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetChannelMessageWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -549,6 +889,16 @@ func (a *Activities) GetMeeting(ctx context.Context, input *chime.GetMeetingInpu
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetMeetingWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetMessagingSessionEndpoint(ctx context.Context, input *chime.GetMessagingSessionEndpointInput) (*chime.GetMessagingSessionEndpointOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetMessagingSessionEndpointWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -609,6 +959,36 @@ func (a *Activities) GetRoom(ctx context.Context, input *chime.GetRoomInput) (*c
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetRoomWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetSipMediaApplication(ctx context.Context, input *chime.GetSipMediaApplicationInput) (*chime.GetSipMediaApplicationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetSipMediaApplicationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetSipMediaApplicationLoggingConfiguration(ctx context.Context, input *chime.GetSipMediaApplicationLoggingConfigurationInput) (*chime.GetSipMediaApplicationLoggingConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetSipMediaApplicationLoggingConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetSipRule(ctx context.Context, input *chime.GetSipRuleInput) (*chime.GetSipRuleOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetSipRuleWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -743,6 +1123,36 @@ func (a *Activities) ListAccounts(ctx context.Context, input *chime.ListAccounts
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListAppInstanceAdmins(ctx context.Context, input *chime.ListAppInstanceAdminsInput) (*chime.ListAppInstanceAdminsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListAppInstanceAdminsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListAppInstanceUsers(ctx context.Context, input *chime.ListAppInstanceUsersInput) (*chime.ListAppInstanceUsersOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListAppInstanceUsersWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListAppInstances(ctx context.Context, input *chime.ListAppInstancesInput) (*chime.ListAppInstancesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListAppInstancesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListAttendeeTags(ctx context.Context, input *chime.ListAttendeeTagsInput) (*chime.ListAttendeeTagsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -769,6 +1179,76 @@ func (a *Activities) ListBots(ctx context.Context, input *chime.ListBotsInput) (
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListBotsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListChannelBans(ctx context.Context, input *chime.ListChannelBansInput) (*chime.ListChannelBansOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListChannelBansWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListChannelMemberships(ctx context.Context, input *chime.ListChannelMembershipsInput) (*chime.ListChannelMembershipsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListChannelMembershipsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListChannelMembershipsForAppInstanceUser(ctx context.Context, input *chime.ListChannelMembershipsForAppInstanceUserInput) (*chime.ListChannelMembershipsForAppInstanceUserOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListChannelMembershipsForAppInstanceUserWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListChannelMessages(ctx context.Context, input *chime.ListChannelMessagesInput) (*chime.ListChannelMessagesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListChannelMessagesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListChannelModerators(ctx context.Context, input *chime.ListChannelModeratorsInput) (*chime.ListChannelModeratorsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListChannelModeratorsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListChannels(ctx context.Context, input *chime.ListChannelsInput) (*chime.ListChannelsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListChannelsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListChannelsModeratedByAppInstanceUser(ctx context.Context, input *chime.ListChannelsModeratedByAppInstanceUserInput) (*chime.ListChannelsModeratedByAppInstanceUserOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListChannelsModeratedByAppInstanceUserWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -843,6 +1323,26 @@ func (a *Activities) ListRooms(ctx context.Context, input *chime.ListRoomsInput)
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListSipMediaApplications(ctx context.Context, input *chime.ListSipMediaApplicationsInput) (*chime.ListSipMediaApplicationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListSipMediaApplicationsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListSipRules(ctx context.Context, input *chime.ListSipRulesInput) (*chime.ListSipRulesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListSipRulesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListTagsForResource(ctx context.Context, input *chime.ListTagsForResourceInput) (*chime.ListTagsForResourceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -903,6 +1403,26 @@ func (a *Activities) LogoutUser(ctx context.Context, input *chime.LogoutUserInpu
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) PutAppInstanceRetentionSettings(ctx context.Context, input *chime.PutAppInstanceRetentionSettingsInput) (*chime.PutAppInstanceRetentionSettingsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutAppInstanceRetentionSettingsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutAppInstanceStreamingConfigurations(ctx context.Context, input *chime.PutAppInstanceStreamingConfigurationsInput) (*chime.PutAppInstanceStreamingConfigurationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutAppInstanceStreamingConfigurationsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) PutEventsConfiguration(ctx context.Context, input *chime.PutEventsConfigurationInput) (*chime.PutEventsConfigurationOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -919,6 +1439,16 @@ func (a *Activities) PutRetentionSettings(ctx context.Context, input *chime.PutR
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.PutRetentionSettingsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutSipMediaApplicationLoggingConfiguration(ctx context.Context, input *chime.PutSipMediaApplicationLoggingConfigurationInput) (*chime.PutSipMediaApplicationLoggingConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutSipMediaApplicationLoggingConfigurationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -993,6 +1523,16 @@ func (a *Activities) PutVoiceConnectorTerminationCredentials(ctx context.Context
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) RedactChannelMessage(ctx context.Context, input *chime.RedactChannelMessageInput) (*chime.RedactChannelMessageOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RedactChannelMessageWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) RedactConversationMessage(ctx context.Context, input *chime.RedactConversationMessageInput) (*chime.RedactConversationMessageOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1049,6 +1589,16 @@ func (a *Activities) SearchAvailablePhoneNumbers(ctx context.Context, input *chi
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.SearchAvailablePhoneNumbersWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) SendChannelMessage(ctx context.Context, input *chime.SendChannelMessageInput) (*chime.SendChannelMessageOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.SendChannelMessageWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1133,12 +1683,62 @@ func (a *Activities) UpdateAccountSettings(ctx context.Context, input *chime.Upd
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) UpdateAppInstance(ctx context.Context, input *chime.UpdateAppInstanceInput) (*chime.UpdateAppInstanceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateAppInstanceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateAppInstanceUser(ctx context.Context, input *chime.UpdateAppInstanceUserInput) (*chime.UpdateAppInstanceUserOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateAppInstanceUserWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) UpdateBot(ctx context.Context, input *chime.UpdateBotInput) (*chime.UpdateBotOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateBotWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateChannel(ctx context.Context, input *chime.UpdateChannelInput) (*chime.UpdateChannelOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateChannelWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateChannelMessage(ctx context.Context, input *chime.UpdateChannelMessageInput) (*chime.UpdateChannelMessageOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateChannelMessageWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateChannelReadMarker(ctx context.Context, input *chime.UpdateChannelReadMarkerInput) (*chime.UpdateChannelReadMarkerOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateChannelReadMarkerWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1199,6 +1799,26 @@ func (a *Activities) UpdateRoomMembership(ctx context.Context, input *chime.Upda
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateRoomMembershipWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateSipMediaApplication(ctx context.Context, input *chime.UpdateSipMediaApplicationInput) (*chime.UpdateSipMediaApplicationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateSipMediaApplicationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateSipRule(ctx context.Context, input *chime.UpdateSipRuleInput) (*chime.UpdateSipRuleOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateSipRuleWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

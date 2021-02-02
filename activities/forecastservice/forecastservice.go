@@ -113,6 +113,16 @@ func (a *Activities) CreatePredictor(ctx context.Context, input *forecastservice
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreatePredictorBacktestExportJob(ctx context.Context, input *forecastservice.CreatePredictorBacktestExportJobInput) (*forecastservice.CreatePredictorBacktestExportJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreatePredictorBacktestExportJobWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteDataset(ctx context.Context, input *forecastservice.DeleteDatasetInput) (*forecastservice.DeleteDatasetOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -169,6 +179,16 @@ func (a *Activities) DeletePredictor(ctx context.Context, input *forecastservice
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeletePredictorWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeletePredictorBacktestExportJob(ctx context.Context, input *forecastservice.DeletePredictorBacktestExportJobInput) (*forecastservice.DeletePredictorBacktestExportJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeletePredictorBacktestExportJobWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -233,6 +253,16 @@ func (a *Activities) DescribePredictor(ctx context.Context, input *forecastservi
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribePredictorBacktestExportJob(ctx context.Context, input *forecastservice.DescribePredictorBacktestExportJobInput) (*forecastservice.DescribePredictorBacktestExportJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribePredictorBacktestExportJobWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetAccuracyMetrics(ctx context.Context, input *forecastservice.GetAccuracyMetricsInput) (*forecastservice.GetAccuracyMetricsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -289,6 +319,16 @@ func (a *Activities) ListForecasts(ctx context.Context, input *forecastservice.L
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListForecastsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListPredictorBacktestExportJobs(ctx context.Context, input *forecastservice.ListPredictorBacktestExportJobsInput) (*forecastservice.ListPredictorBacktestExportJobsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListPredictorBacktestExportJobsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

@@ -213,6 +213,17 @@ func (r *StartExecutionFuture) Get(ctx workflow.Context) (*sfn.StartExecutionOut
 	return &output, err
 }
 
+type StartSyncExecutionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartSyncExecutionFuture) Get(ctx workflow.Context) (*sfn.StartSyncExecutionOutput, error) {
+	var output sfn.StartSyncExecutionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type StopExecutionFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -453,6 +464,17 @@ func (a *stub) StartExecution(ctx workflow.Context, input *sfn.StartExecutionInp
 func (a *stub) StartExecutionAsync(ctx workflow.Context, input *sfn.StartExecutionInput) *StartExecutionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sfn-StartExecution", input)
 	return &StartExecutionFuture{Future: future}
+}
+
+func (a *stub) StartSyncExecution(ctx workflow.Context, input *sfn.StartSyncExecutionInput) (*sfn.StartSyncExecutionOutput, error) {
+	var output sfn.StartSyncExecutionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sfn-StartSyncExecution", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartSyncExecutionAsync(ctx workflow.Context, input *sfn.StartSyncExecutionInput) *StartSyncExecutionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sfn-StartSyncExecution", input)
+	return &StartSyncExecutionFuture{Future: future}
 }
 
 func (a *stub) StopExecution(ctx workflow.Context, input *sfn.StopExecutionInput) (*sfn.StopExecutionOutput, error) {

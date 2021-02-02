@@ -73,6 +73,16 @@ func (a *Activities) CreateAccountAssignment(ctx context.Context, input *ssoadmi
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateInstanceAccessControlAttributeConfiguration(ctx context.Context, input *ssoadmin.CreateInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.CreateInstanceAccessControlAttributeConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateInstanceAccessControlAttributeConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreatePermissionSet(ctx context.Context, input *ssoadmin.CreatePermissionSetInput) (*ssoadmin.CreatePermissionSetOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -103,6 +113,16 @@ func (a *Activities) DeleteInlinePolicyFromPermissionSet(ctx context.Context, in
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteInstanceAccessControlAttributeConfiguration(ctx context.Context, input *ssoadmin.DeleteInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.DeleteInstanceAccessControlAttributeConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteInstanceAccessControlAttributeConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeletePermissionSet(ctx context.Context, input *ssoadmin.DeletePermissionSetInput) (*ssoadmin.DeletePermissionSetOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -129,6 +149,16 @@ func (a *Activities) DescribeAccountAssignmentDeletionStatus(ctx context.Context
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeAccountAssignmentDeletionStatusWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeInstanceAccessControlAttributeConfiguration(ctx context.Context, input *ssoadmin.DescribeInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.DescribeInstanceAccessControlAttributeConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeInstanceAccessControlAttributeConfigurationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -309,6 +339,16 @@ func (a *Activities) UntagResource(ctx context.Context, input *ssoadmin.UntagRes
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UntagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateInstanceAccessControlAttributeConfiguration(ctx context.Context, input *ssoadmin.UpdateInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.UpdateInstanceAccessControlAttributeConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateInstanceAccessControlAttributeConfigurationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

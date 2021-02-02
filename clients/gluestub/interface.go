@@ -56,6 +56,9 @@ type Client interface {
 	CancelMLTaskRun(ctx workflow.Context, input *glue.CancelMLTaskRunInput) (*glue.CancelMLTaskRunOutput, error)
 	CancelMLTaskRunAsync(ctx workflow.Context, input *glue.CancelMLTaskRunInput) *CancelMLTaskRunFuture
 
+	CheckSchemaVersionValidity(ctx workflow.Context, input *glue.CheckSchemaVersionValidityInput) (*glue.CheckSchemaVersionValidityOutput, error)
+	CheckSchemaVersionValidityAsync(ctx workflow.Context, input *glue.CheckSchemaVersionValidityInput) *CheckSchemaVersionValidityFuture
+
 	CreateClassifier(ctx workflow.Context, input *glue.CreateClassifierInput) (*glue.CreateClassifierOutput, error)
 	CreateClassifierAsync(ctx workflow.Context, input *glue.CreateClassifierInput) *CreateClassifierFuture
 
@@ -79,6 +82,15 @@ type Client interface {
 
 	CreatePartition(ctx workflow.Context, input *glue.CreatePartitionInput) (*glue.CreatePartitionOutput, error)
 	CreatePartitionAsync(ctx workflow.Context, input *glue.CreatePartitionInput) *CreatePartitionFuture
+
+	CreatePartitionIndex(ctx workflow.Context, input *glue.CreatePartitionIndexInput) (*glue.CreatePartitionIndexOutput, error)
+	CreatePartitionIndexAsync(ctx workflow.Context, input *glue.CreatePartitionIndexInput) *CreatePartitionIndexFuture
+
+	CreateRegistry(ctx workflow.Context, input *glue.CreateRegistryInput) (*glue.CreateRegistryOutput, error)
+	CreateRegistryAsync(ctx workflow.Context, input *glue.CreateRegistryInput) *CreateRegistryFuture
+
+	CreateSchema(ctx workflow.Context, input *glue.CreateSchemaInput) (*glue.CreateSchemaOutput, error)
+	CreateSchemaAsync(ctx workflow.Context, input *glue.CreateSchemaInput) *CreateSchemaFuture
 
 	CreateScript(ctx workflow.Context, input *glue.CreateScriptInput) (*glue.CreateScriptOutput, error)
 	CreateScriptAsync(ctx workflow.Context, input *glue.CreateScriptInput) *CreateScriptFuture
@@ -128,8 +140,20 @@ type Client interface {
 	DeletePartition(ctx workflow.Context, input *glue.DeletePartitionInput) (*glue.DeletePartitionOutput, error)
 	DeletePartitionAsync(ctx workflow.Context, input *glue.DeletePartitionInput) *DeletePartitionFuture
 
+	DeletePartitionIndex(ctx workflow.Context, input *glue.DeletePartitionIndexInput) (*glue.DeletePartitionIndexOutput, error)
+	DeletePartitionIndexAsync(ctx workflow.Context, input *glue.DeletePartitionIndexInput) *DeletePartitionIndexFuture
+
+	DeleteRegistry(ctx workflow.Context, input *glue.DeleteRegistryInput) (*glue.DeleteRegistryOutput, error)
+	DeleteRegistryAsync(ctx workflow.Context, input *glue.DeleteRegistryInput) *DeleteRegistryFuture
+
 	DeleteResourcePolicy(ctx workflow.Context, input *glue.DeleteResourcePolicyInput) (*glue.DeleteResourcePolicyOutput, error)
 	DeleteResourcePolicyAsync(ctx workflow.Context, input *glue.DeleteResourcePolicyInput) *DeleteResourcePolicyFuture
+
+	DeleteSchema(ctx workflow.Context, input *glue.DeleteSchemaInput) (*glue.DeleteSchemaOutput, error)
+	DeleteSchemaAsync(ctx workflow.Context, input *glue.DeleteSchemaInput) *DeleteSchemaFuture
+
+	DeleteSchemaVersions(ctx workflow.Context, input *glue.DeleteSchemaVersionsInput) (*glue.DeleteSchemaVersionsOutput, error)
+	DeleteSchemaVersionsAsync(ctx workflow.Context, input *glue.DeleteSchemaVersionsInput) *DeleteSchemaVersionsFuture
 
 	DeleteSecurityConfiguration(ctx workflow.Context, input *glue.DeleteSecurityConfigurationInput) (*glue.DeleteSecurityConfigurationOutput, error)
 	DeleteSecurityConfigurationAsync(ctx workflow.Context, input *glue.DeleteSecurityConfigurationInput) *DeleteSecurityConfigurationFuture
@@ -239,11 +263,26 @@ type Client interface {
 	GetPlan(ctx workflow.Context, input *glue.GetPlanInput) (*glue.GetPlanOutput, error)
 	GetPlanAsync(ctx workflow.Context, input *glue.GetPlanInput) *GetPlanFuture
 
+	GetRegistry(ctx workflow.Context, input *glue.GetRegistryInput) (*glue.GetRegistryOutput, error)
+	GetRegistryAsync(ctx workflow.Context, input *glue.GetRegistryInput) *GetRegistryFuture
+
 	GetResourcePolicies(ctx workflow.Context, input *glue.GetResourcePoliciesInput) (*glue.GetResourcePoliciesOutput, error)
 	GetResourcePoliciesAsync(ctx workflow.Context, input *glue.GetResourcePoliciesInput) *GetResourcePoliciesFuture
 
 	GetResourcePolicy(ctx workflow.Context, input *glue.GetResourcePolicyInput) (*glue.GetResourcePolicyOutput, error)
 	GetResourcePolicyAsync(ctx workflow.Context, input *glue.GetResourcePolicyInput) *GetResourcePolicyFuture
+
+	GetSchema(ctx workflow.Context, input *glue.GetSchemaInput) (*glue.GetSchemaOutput, error)
+	GetSchemaAsync(ctx workflow.Context, input *glue.GetSchemaInput) *GetSchemaFuture
+
+	GetSchemaByDefinition(ctx workflow.Context, input *glue.GetSchemaByDefinitionInput) (*glue.GetSchemaByDefinitionOutput, error)
+	GetSchemaByDefinitionAsync(ctx workflow.Context, input *glue.GetSchemaByDefinitionInput) *GetSchemaByDefinitionFuture
+
+	GetSchemaVersion(ctx workflow.Context, input *glue.GetSchemaVersionInput) (*glue.GetSchemaVersionOutput, error)
+	GetSchemaVersionAsync(ctx workflow.Context, input *glue.GetSchemaVersionInput) *GetSchemaVersionFuture
+
+	GetSchemaVersionsDiff(ctx workflow.Context, input *glue.GetSchemaVersionsDiffInput) (*glue.GetSchemaVersionsDiffOutput, error)
+	GetSchemaVersionsDiffAsync(ctx workflow.Context, input *glue.GetSchemaVersionsDiffInput) *GetSchemaVersionsDiffFuture
 
 	GetSecurityConfiguration(ctx workflow.Context, input *glue.GetSecurityConfigurationInput) (*glue.GetSecurityConfigurationOutput, error)
 	GetSecurityConfigurationAsync(ctx workflow.Context, input *glue.GetSecurityConfigurationInput) *GetSecurityConfigurationFuture
@@ -305,6 +344,15 @@ type Client interface {
 	ListMLTransforms(ctx workflow.Context, input *glue.ListMLTransformsInput) (*glue.ListMLTransformsOutput, error)
 	ListMLTransformsAsync(ctx workflow.Context, input *glue.ListMLTransformsInput) *ListMLTransformsFuture
 
+	ListRegistries(ctx workflow.Context, input *glue.ListRegistriesInput) (*glue.ListRegistriesOutput, error)
+	ListRegistriesAsync(ctx workflow.Context, input *glue.ListRegistriesInput) *ListRegistriesFuture
+
+	ListSchemaVersions(ctx workflow.Context, input *glue.ListSchemaVersionsInput) (*glue.ListSchemaVersionsOutput, error)
+	ListSchemaVersionsAsync(ctx workflow.Context, input *glue.ListSchemaVersionsInput) *ListSchemaVersionsFuture
+
+	ListSchemas(ctx workflow.Context, input *glue.ListSchemasInput) (*glue.ListSchemasOutput, error)
+	ListSchemasAsync(ctx workflow.Context, input *glue.ListSchemasInput) *ListSchemasFuture
+
 	ListTriggers(ctx workflow.Context, input *glue.ListTriggersInput) (*glue.ListTriggersOutput, error)
 	ListTriggersAsync(ctx workflow.Context, input *glue.ListTriggersInput) *ListTriggersFuture
 
@@ -317,8 +365,20 @@ type Client interface {
 	PutResourcePolicy(ctx workflow.Context, input *glue.PutResourcePolicyInput) (*glue.PutResourcePolicyOutput, error)
 	PutResourcePolicyAsync(ctx workflow.Context, input *glue.PutResourcePolicyInput) *PutResourcePolicyFuture
 
+	PutSchemaVersionMetadata(ctx workflow.Context, input *glue.PutSchemaVersionMetadataInput) (*glue.PutSchemaVersionMetadataOutput, error)
+	PutSchemaVersionMetadataAsync(ctx workflow.Context, input *glue.PutSchemaVersionMetadataInput) *PutSchemaVersionMetadataFuture
+
 	PutWorkflowRunProperties(ctx workflow.Context, input *glue.PutWorkflowRunPropertiesInput) (*glue.PutWorkflowRunPropertiesOutput, error)
 	PutWorkflowRunPropertiesAsync(ctx workflow.Context, input *glue.PutWorkflowRunPropertiesInput) *PutWorkflowRunPropertiesFuture
+
+	QuerySchemaVersionMetadata(ctx workflow.Context, input *glue.QuerySchemaVersionMetadataInput) (*glue.QuerySchemaVersionMetadataOutput, error)
+	QuerySchemaVersionMetadataAsync(ctx workflow.Context, input *glue.QuerySchemaVersionMetadataInput) *QuerySchemaVersionMetadataFuture
+
+	RegisterSchemaVersion(ctx workflow.Context, input *glue.RegisterSchemaVersionInput) (*glue.RegisterSchemaVersionOutput, error)
+	RegisterSchemaVersionAsync(ctx workflow.Context, input *glue.RegisterSchemaVersionInput) *RegisterSchemaVersionFuture
+
+	RemoveSchemaVersionMetadata(ctx workflow.Context, input *glue.RemoveSchemaVersionMetadataInput) (*glue.RemoveSchemaVersionMetadataOutput, error)
+	RemoveSchemaVersionMetadataAsync(ctx workflow.Context, input *glue.RemoveSchemaVersionMetadataInput) *RemoveSchemaVersionMetadataFuture
 
 	ResetJobBookmark(ctx workflow.Context, input *glue.ResetJobBookmarkInput) (*glue.ResetJobBookmarkOutput, error)
 	ResetJobBookmarkAsync(ctx workflow.Context, input *glue.ResetJobBookmarkInput) *ResetJobBookmarkFuture
@@ -406,6 +466,12 @@ type Client interface {
 
 	UpdatePartition(ctx workflow.Context, input *glue.UpdatePartitionInput) (*glue.UpdatePartitionOutput, error)
 	UpdatePartitionAsync(ctx workflow.Context, input *glue.UpdatePartitionInput) *UpdatePartitionFuture
+
+	UpdateRegistry(ctx workflow.Context, input *glue.UpdateRegistryInput) (*glue.UpdateRegistryOutput, error)
+	UpdateRegistryAsync(ctx workflow.Context, input *glue.UpdateRegistryInput) *UpdateRegistryFuture
+
+	UpdateSchema(ctx workflow.Context, input *glue.UpdateSchemaInput) (*glue.UpdateSchemaOutput, error)
+	UpdateSchemaAsync(ctx workflow.Context, input *glue.UpdateSchemaInput) *UpdateSchemaFuture
 
 	UpdateTable(ctx workflow.Context, input *glue.UpdateTableInput) (*glue.UpdateTableOutput, error)
 	UpdateTableAsync(ctx workflow.Context, input *glue.UpdateTableInput) *UpdateTableFuture

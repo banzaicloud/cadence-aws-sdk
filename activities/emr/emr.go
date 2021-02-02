@@ -113,12 +113,52 @@ func (a *Activities) CreateSecurityConfiguration(ctx context.Context, input *emr
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateStudio(ctx context.Context, input *emr.CreateStudioInput) (*emr.CreateStudioOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateStudioWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateStudioSessionMapping(ctx context.Context, input *emr.CreateStudioSessionMappingInput) (*emr.CreateStudioSessionMappingOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateStudioSessionMappingWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteSecurityConfiguration(ctx context.Context, input *emr.DeleteSecurityConfigurationInput) (*emr.DeleteSecurityConfigurationOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteSecurityConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteStudio(ctx context.Context, input *emr.DeleteStudioInput) (*emr.DeleteStudioOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteStudioWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteStudioSessionMapping(ctx context.Context, input *emr.DeleteStudioSessionMappingInput) (*emr.DeleteStudioSessionMappingOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteStudioSessionMappingWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -173,6 +213,16 @@ func (a *Activities) DescribeStep(ctx context.Context, input *emr.DescribeStepIn
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeStudio(ctx context.Context, input *emr.DescribeStudioInput) (*emr.DescribeStudioOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeStudioWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetBlockPublicAccessConfiguration(ctx context.Context, input *emr.GetBlockPublicAccessConfigurationInput) (*emr.GetBlockPublicAccessConfigurationOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -189,6 +239,16 @@ func (a *Activities) GetManagedScalingPolicy(ctx context.Context, input *emr.Get
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetManagedScalingPolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetStudioSessionMapping(ctx context.Context, input *emr.GetStudioSessionMappingInput) (*emr.GetStudioSessionMappingOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetStudioSessionMappingWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -269,6 +329,26 @@ func (a *Activities) ListSteps(ctx context.Context, input *emr.ListStepsInput) (
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListStepsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListStudioSessionMappings(ctx context.Context, input *emr.ListStudioSessionMappingsInput) (*emr.ListStudioSessionMappingsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListStudioSessionMappingsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListStudios(ctx context.Context, input *emr.ListStudiosInput) (*emr.ListStudiosOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListStudiosWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -419,6 +499,16 @@ func (a *Activities) TerminateJobFlows(ctx context.Context, input *emr.Terminate
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.TerminateJobFlowsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateStudioSessionMapping(ctx context.Context, input *emr.UpdateStudioSessionMappingInput) (*emr.UpdateStudioSessionMappingOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateStudioSessionMappingWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

@@ -62,8 +62,17 @@ type Client interface {
 	ListProposals(ctx workflow.Context, input *managedblockchain.ListProposalsInput) (*managedblockchain.ListProposalsOutput, error)
 	ListProposalsAsync(ctx workflow.Context, input *managedblockchain.ListProposalsInput) *ListProposalsFuture
 
+	ListTagsForResource(ctx workflow.Context, input *managedblockchain.ListTagsForResourceInput) (*managedblockchain.ListTagsForResourceOutput, error)
+	ListTagsForResourceAsync(ctx workflow.Context, input *managedblockchain.ListTagsForResourceInput) *ListTagsForResourceFuture
+
 	RejectInvitation(ctx workflow.Context, input *managedblockchain.RejectInvitationInput) (*managedblockchain.RejectInvitationOutput, error)
 	RejectInvitationAsync(ctx workflow.Context, input *managedblockchain.RejectInvitationInput) *RejectInvitationFuture
+
+	TagResource(ctx workflow.Context, input *managedblockchain.TagResourceInput) (*managedblockchain.TagResourceOutput, error)
+	TagResourceAsync(ctx workflow.Context, input *managedblockchain.TagResourceInput) *TagResourceFuture
+
+	UntagResource(ctx workflow.Context, input *managedblockchain.UntagResourceInput) (*managedblockchain.UntagResourceOutput, error)
+	UntagResourceAsync(ctx workflow.Context, input *managedblockchain.UntagResourceInput) *UntagResourceFuture
 
 	UpdateMember(ctx workflow.Context, input *managedblockchain.UpdateMemberInput) (*managedblockchain.UpdateMemberOutput, error)
 	UpdateMemberAsync(ctx workflow.Context, input *managedblockchain.UpdateMemberInput) *UpdateMemberFuture

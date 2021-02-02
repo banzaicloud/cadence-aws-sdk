@@ -59,6 +59,9 @@ type Client interface {
 	DescribeHub(ctx workflow.Context, input *securityhub.DescribeHubInput) (*securityhub.DescribeHubOutput, error)
 	DescribeHubAsync(ctx workflow.Context, input *securityhub.DescribeHubInput) *DescribeHubFuture
 
+	DescribeOrganizationConfiguration(ctx workflow.Context, input *securityhub.DescribeOrganizationConfigurationInput) (*securityhub.DescribeOrganizationConfigurationOutput, error)
+	DescribeOrganizationConfigurationAsync(ctx workflow.Context, input *securityhub.DescribeOrganizationConfigurationInput) *DescribeOrganizationConfigurationFuture
+
 	DescribeProducts(ctx workflow.Context, input *securityhub.DescribeProductsInput) (*securityhub.DescribeProductsOutput, error)
 	DescribeProductsAsync(ctx workflow.Context, input *securityhub.DescribeProductsInput) *DescribeProductsFuture
 
@@ -71,6 +74,9 @@ type Client interface {
 	DisableImportFindingsForProduct(ctx workflow.Context, input *securityhub.DisableImportFindingsForProductInput) (*securityhub.DisableImportFindingsForProductOutput, error)
 	DisableImportFindingsForProductAsync(ctx workflow.Context, input *securityhub.DisableImportFindingsForProductInput) *DisableImportFindingsForProductFuture
 
+	DisableOrganizationAdminAccount(ctx workflow.Context, input *securityhub.DisableOrganizationAdminAccountInput) (*securityhub.DisableOrganizationAdminAccountOutput, error)
+	DisableOrganizationAdminAccountAsync(ctx workflow.Context, input *securityhub.DisableOrganizationAdminAccountInput) *DisableOrganizationAdminAccountFuture
+
 	DisableSecurityHub(ctx workflow.Context, input *securityhub.DisableSecurityHubInput) (*securityhub.DisableSecurityHubOutput, error)
 	DisableSecurityHubAsync(ctx workflow.Context, input *securityhub.DisableSecurityHubInput) *DisableSecurityHubFuture
 
@@ -82,6 +88,9 @@ type Client interface {
 
 	EnableImportFindingsForProduct(ctx workflow.Context, input *securityhub.EnableImportFindingsForProductInput) (*securityhub.EnableImportFindingsForProductOutput, error)
 	EnableImportFindingsForProductAsync(ctx workflow.Context, input *securityhub.EnableImportFindingsForProductInput) *EnableImportFindingsForProductFuture
+
+	EnableOrganizationAdminAccount(ctx workflow.Context, input *securityhub.EnableOrganizationAdminAccountInput) (*securityhub.EnableOrganizationAdminAccountOutput, error)
+	EnableOrganizationAdminAccountAsync(ctx workflow.Context, input *securityhub.EnableOrganizationAdminAccountInput) *EnableOrganizationAdminAccountFuture
 
 	EnableSecurityHub(ctx workflow.Context, input *securityhub.EnableSecurityHubInput) (*securityhub.EnableSecurityHubOutput, error)
 	EnableSecurityHubAsync(ctx workflow.Context, input *securityhub.EnableSecurityHubInput) *EnableSecurityHubFuture
@@ -119,6 +128,9 @@ type Client interface {
 	ListMembers(ctx workflow.Context, input *securityhub.ListMembersInput) (*securityhub.ListMembersOutput, error)
 	ListMembersAsync(ctx workflow.Context, input *securityhub.ListMembersInput) *ListMembersFuture
 
+	ListOrganizationAdminAccounts(ctx workflow.Context, input *securityhub.ListOrganizationAdminAccountsInput) (*securityhub.ListOrganizationAdminAccountsOutput, error)
+	ListOrganizationAdminAccountsAsync(ctx workflow.Context, input *securityhub.ListOrganizationAdminAccountsInput) *ListOrganizationAdminAccountsFuture
+
 	ListTagsForResource(ctx workflow.Context, input *securityhub.ListTagsForResourceInput) (*securityhub.ListTagsForResourceOutput, error)
 	ListTagsForResourceAsync(ctx workflow.Context, input *securityhub.ListTagsForResourceInput) *ListTagsForResourceFuture
 
@@ -136,6 +148,9 @@ type Client interface {
 
 	UpdateInsight(ctx workflow.Context, input *securityhub.UpdateInsightInput) (*securityhub.UpdateInsightOutput, error)
 	UpdateInsightAsync(ctx workflow.Context, input *securityhub.UpdateInsightInput) *UpdateInsightFuture
+
+	UpdateOrganizationConfiguration(ctx workflow.Context, input *securityhub.UpdateOrganizationConfigurationInput) (*securityhub.UpdateOrganizationConfigurationOutput, error)
+	UpdateOrganizationConfigurationAsync(ctx workflow.Context, input *securityhub.UpdateOrganizationConfigurationInput) *UpdateOrganizationConfigurationFuture
 
 	UpdateSecurityHubConfiguration(ctx workflow.Context, input *securityhub.UpdateSecurityHubConfigurationInput) (*securityhub.UpdateSecurityHubConfigurationOutput, error)
 	UpdateSecurityHubConfigurationAsync(ctx workflow.Context, input *securityhub.UpdateSecurityHubConfigurationInput) *UpdateSecurityHubConfigurationFuture

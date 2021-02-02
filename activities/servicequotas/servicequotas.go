@@ -193,6 +193,16 @@ func (a *Activities) ListServices(ctx context.Context, input *servicequotas.List
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListTagsForResource(ctx context.Context, input *servicequotas.ListTagsForResourceInput) (*servicequotas.ListTagsForResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListTagsForResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) PutServiceQuotaIncreaseRequestIntoTemplate(ctx context.Context, input *servicequotas.PutServiceQuotaIncreaseRequestIntoTemplateInput) (*servicequotas.PutServiceQuotaIncreaseRequestIntoTemplateOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -209,6 +219,26 @@ func (a *Activities) RequestServiceQuotaIncrease(ctx context.Context, input *ser
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.RequestServiceQuotaIncreaseWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) TagResource(ctx context.Context, input *servicequotas.TagResourceInput) (*servicequotas.TagResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.TagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UntagResource(ctx context.Context, input *servicequotas.UntagResourceInput) (*servicequotas.UntagResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UntagResourceWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

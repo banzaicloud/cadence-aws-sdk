@@ -114,6 +114,17 @@ func (r *CreateOpsItemFuture) Get(ctx workflow.Context) (*ssm.CreateOpsItemOutpu
 	return &output, err
 }
 
+type CreateOpsMetadataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateOpsMetadataFuture) Get(ctx workflow.Context) (*ssm.CreateOpsMetadataOutput, error) {
+	var output ssm.CreateOpsMetadataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreatePatchBaselineFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -187,6 +198,17 @@ type DeleteMaintenanceWindowFuture struct {
 
 func (r *DeleteMaintenanceWindowFuture) Get(ctx workflow.Context) (*ssm.DeleteMaintenanceWindowOutput, error) {
 	var output ssm.DeleteMaintenanceWindowOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteOpsMetadataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteOpsMetadataFuture) Get(ctx workflow.Context) (*ssm.DeleteOpsMetadataOutput, error) {
+	var output ssm.DeleteOpsMetadataOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -796,6 +818,17 @@ func (r *GetOpsItemFuture) Get(ctx workflow.Context) (*ssm.GetOpsItemOutput, err
 	return &output, err
 }
 
+type GetOpsMetadataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetOpsMetadataFuture) Get(ctx workflow.Context) (*ssm.GetOpsMetadataOutput, error) {
+	var output ssm.GetOpsMetadataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetOpsSummaryFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -961,6 +994,17 @@ func (r *ListComplianceSummariesFuture) Get(ctx workflow.Context) (*ssm.ListComp
 	return &output, err
 }
 
+type ListDocumentMetadataHistoryFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListDocumentMetadataHistoryFuture) Get(ctx workflow.Context) (*ssm.ListDocumentMetadataHistoryOutput, error) {
+	var output ssm.ListDocumentMetadataHistoryOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListDocumentVersionsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -990,6 +1034,28 @@ type ListInventoryEntriesFuture struct {
 
 func (r *ListInventoryEntriesFuture) Get(ctx workflow.Context) (*ssm.ListInventoryEntriesOutput, error) {
 	var output ssm.ListInventoryEntriesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListOpsItemEventsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListOpsItemEventsFuture) Get(ctx workflow.Context) (*ssm.ListOpsItemEventsOutput, error) {
+	var output ssm.ListOpsItemEventsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListOpsMetadataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListOpsMetadataFuture) Get(ctx workflow.Context) (*ssm.ListOpsMetadataOutput, error) {
+	var output ssm.ListOpsMetadataOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1192,6 +1258,17 @@ func (r *StartAutomationExecutionFuture) Get(ctx workflow.Context) (*ssm.StartAu
 	return &output, err
 }
 
+type StartChangeRequestExecutionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartChangeRequestExecutionFuture) Get(ctx workflow.Context) (*ssm.StartChangeRequestExecutionOutput, error) {
+	var output ssm.StartChangeRequestExecutionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type StartSessionFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1269,6 +1346,17 @@ func (r *UpdateDocumentDefaultVersionFuture) Get(ctx workflow.Context) (*ssm.Upd
 	return &output, err
 }
 
+type UpdateDocumentMetadataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateDocumentMetadataFuture) Get(ctx workflow.Context) (*ssm.UpdateDocumentMetadataOutput, error) {
+	var output ssm.UpdateDocumentMetadataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateMaintenanceWindowFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1320,6 +1408,17 @@ type UpdateOpsItemFuture struct {
 
 func (r *UpdateOpsItemFuture) Get(ctx workflow.Context) (*ssm.UpdateOpsItemOutput, error) {
 	var output ssm.UpdateOpsItemOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateOpsMetadataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateOpsMetadataFuture) Get(ctx workflow.Context) (*ssm.UpdateOpsMetadataOutput, error) {
+	var output ssm.UpdateOpsMetadataOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1456,6 +1555,17 @@ func (a *stub) CreateOpsItemAsync(ctx workflow.Context, input *ssm.CreateOpsItem
 	return &CreateOpsItemFuture{Future: future}
 }
 
+func (a *stub) CreateOpsMetadata(ctx workflow.Context, input *ssm.CreateOpsMetadataInput) (*ssm.CreateOpsMetadataOutput, error) {
+	var output ssm.CreateOpsMetadataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssm-CreateOpsMetadata", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateOpsMetadataAsync(ctx workflow.Context, input *ssm.CreateOpsMetadataInput) *CreateOpsMetadataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssm-CreateOpsMetadata", input)
+	return &CreateOpsMetadataFuture{Future: future}
+}
+
 func (a *stub) CreatePatchBaseline(ctx workflow.Context, input *ssm.CreatePatchBaselineInput) (*ssm.CreatePatchBaselineOutput, error) {
 	var output ssm.CreatePatchBaselineOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ssm-CreatePatchBaseline", input).Get(ctx, &output)
@@ -1531,6 +1641,17 @@ func (a *stub) DeleteMaintenanceWindow(ctx workflow.Context, input *ssm.DeleteMa
 func (a *stub) DeleteMaintenanceWindowAsync(ctx workflow.Context, input *ssm.DeleteMaintenanceWindowInput) *DeleteMaintenanceWindowFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ssm-DeleteMaintenanceWindow", input)
 	return &DeleteMaintenanceWindowFuture{Future: future}
+}
+
+func (a *stub) DeleteOpsMetadata(ctx workflow.Context, input *ssm.DeleteOpsMetadataInput) (*ssm.DeleteOpsMetadataOutput, error) {
+	var output ssm.DeleteOpsMetadataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssm-DeleteOpsMetadata", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteOpsMetadataAsync(ctx workflow.Context, input *ssm.DeleteOpsMetadataInput) *DeleteOpsMetadataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssm-DeleteOpsMetadata", input)
+	return &DeleteOpsMetadataFuture{Future: future}
 }
 
 func (a *stub) DeleteParameter(ctx workflow.Context, input *ssm.DeleteParameterInput) (*ssm.DeleteParameterOutput, error) {
@@ -2138,6 +2259,17 @@ func (a *stub) GetOpsItemAsync(ctx workflow.Context, input *ssm.GetOpsItemInput)
 	return &GetOpsItemFuture{Future: future}
 }
 
+func (a *stub) GetOpsMetadata(ctx workflow.Context, input *ssm.GetOpsMetadataInput) (*ssm.GetOpsMetadataOutput, error) {
+	var output ssm.GetOpsMetadataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssm-GetOpsMetadata", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetOpsMetadataAsync(ctx workflow.Context, input *ssm.GetOpsMetadataInput) *GetOpsMetadataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssm-GetOpsMetadata", input)
+	return &GetOpsMetadataFuture{Future: future}
+}
+
 func (a *stub) GetOpsSummary(ctx workflow.Context, input *ssm.GetOpsSummaryInput) (*ssm.GetOpsSummaryOutput, error) {
 	var output ssm.GetOpsSummaryOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ssm-GetOpsSummary", input).Get(ctx, &output)
@@ -2303,6 +2435,17 @@ func (a *stub) ListComplianceSummariesAsync(ctx workflow.Context, input *ssm.Lis
 	return &ListComplianceSummariesFuture{Future: future}
 }
 
+func (a *stub) ListDocumentMetadataHistory(ctx workflow.Context, input *ssm.ListDocumentMetadataHistoryInput) (*ssm.ListDocumentMetadataHistoryOutput, error) {
+	var output ssm.ListDocumentMetadataHistoryOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssm-ListDocumentMetadataHistory", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListDocumentMetadataHistoryAsync(ctx workflow.Context, input *ssm.ListDocumentMetadataHistoryInput) *ListDocumentMetadataHistoryFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssm-ListDocumentMetadataHistory", input)
+	return &ListDocumentMetadataHistoryFuture{Future: future}
+}
+
 func (a *stub) ListDocumentVersions(ctx workflow.Context, input *ssm.ListDocumentVersionsInput) (*ssm.ListDocumentVersionsOutput, error) {
 	var output ssm.ListDocumentVersionsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ssm-ListDocumentVersions", input).Get(ctx, &output)
@@ -2334,6 +2477,28 @@ func (a *stub) ListInventoryEntries(ctx workflow.Context, input *ssm.ListInvento
 func (a *stub) ListInventoryEntriesAsync(ctx workflow.Context, input *ssm.ListInventoryEntriesInput) *ListInventoryEntriesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ssm-ListInventoryEntries", input)
 	return &ListInventoryEntriesFuture{Future: future}
+}
+
+func (a *stub) ListOpsItemEvents(ctx workflow.Context, input *ssm.ListOpsItemEventsInput) (*ssm.ListOpsItemEventsOutput, error) {
+	var output ssm.ListOpsItemEventsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssm-ListOpsItemEvents", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListOpsItemEventsAsync(ctx workflow.Context, input *ssm.ListOpsItemEventsInput) *ListOpsItemEventsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssm-ListOpsItemEvents", input)
+	return &ListOpsItemEventsFuture{Future: future}
+}
+
+func (a *stub) ListOpsMetadata(ctx workflow.Context, input *ssm.ListOpsMetadataInput) (*ssm.ListOpsMetadataOutput, error) {
+	var output ssm.ListOpsMetadataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssm-ListOpsMetadata", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListOpsMetadataAsync(ctx workflow.Context, input *ssm.ListOpsMetadataInput) *ListOpsMetadataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssm-ListOpsMetadata", input)
+	return &ListOpsMetadataFuture{Future: future}
 }
 
 func (a *stub) ListResourceComplianceSummaries(ctx workflow.Context, input *ssm.ListResourceComplianceSummariesInput) (*ssm.ListResourceComplianceSummariesOutput, error) {
@@ -2534,6 +2699,17 @@ func (a *stub) StartAutomationExecutionAsync(ctx workflow.Context, input *ssm.St
 	return &StartAutomationExecutionFuture{Future: future}
 }
 
+func (a *stub) StartChangeRequestExecution(ctx workflow.Context, input *ssm.StartChangeRequestExecutionInput) (*ssm.StartChangeRequestExecutionOutput, error) {
+	var output ssm.StartChangeRequestExecutionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssm-StartChangeRequestExecution", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartChangeRequestExecutionAsync(ctx workflow.Context, input *ssm.StartChangeRequestExecutionInput) *StartChangeRequestExecutionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssm-StartChangeRequestExecution", input)
+	return &StartChangeRequestExecutionFuture{Future: future}
+}
+
 func (a *stub) StartSession(ctx workflow.Context, input *ssm.StartSessionInput) (*ssm.StartSessionOutput, error) {
 	var output ssm.StartSessionOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ssm-StartSession", input).Get(ctx, &output)
@@ -2611,6 +2787,17 @@ func (a *stub) UpdateDocumentDefaultVersionAsync(ctx workflow.Context, input *ss
 	return &UpdateDocumentDefaultVersionFuture{Future: future}
 }
 
+func (a *stub) UpdateDocumentMetadata(ctx workflow.Context, input *ssm.UpdateDocumentMetadataInput) (*ssm.UpdateDocumentMetadataOutput, error) {
+	var output ssm.UpdateDocumentMetadataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssm-UpdateDocumentMetadata", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateDocumentMetadataAsync(ctx workflow.Context, input *ssm.UpdateDocumentMetadataInput) *UpdateDocumentMetadataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssm-UpdateDocumentMetadata", input)
+	return &UpdateDocumentMetadataFuture{Future: future}
+}
+
 func (a *stub) UpdateMaintenanceWindow(ctx workflow.Context, input *ssm.UpdateMaintenanceWindowInput) (*ssm.UpdateMaintenanceWindowOutput, error) {
 	var output ssm.UpdateMaintenanceWindowOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ssm-UpdateMaintenanceWindow", input).Get(ctx, &output)
@@ -2664,6 +2851,17 @@ func (a *stub) UpdateOpsItem(ctx workflow.Context, input *ssm.UpdateOpsItemInput
 func (a *stub) UpdateOpsItemAsync(ctx workflow.Context, input *ssm.UpdateOpsItemInput) *UpdateOpsItemFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ssm-UpdateOpsItem", input)
 	return &UpdateOpsItemFuture{Future: future}
+}
+
+func (a *stub) UpdateOpsMetadata(ctx workflow.Context, input *ssm.UpdateOpsMetadataInput) (*ssm.UpdateOpsMetadataOutput, error) {
+	var output ssm.UpdateOpsMetadataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssm-UpdateOpsMetadata", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateOpsMetadataAsync(ctx workflow.Context, input *ssm.UpdateOpsMetadataInput) *UpdateOpsMetadataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssm-UpdateOpsMetadata", input)
+	return &UpdateOpsMetadataFuture{Future: future}
 }
 
 func (a *stub) UpdatePatchBaseline(ctx workflow.Context, input *ssm.UpdatePatchBaselineInput) (*ssm.UpdatePatchBaselineOutput, error) {

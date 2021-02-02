@@ -50,6 +50,9 @@ type Client interface {
 	DisassociateResolverRule(ctx workflow.Context, input *route53resolver.DisassociateResolverRuleInput) (*route53resolver.DisassociateResolverRuleOutput, error)
 	DisassociateResolverRuleAsync(ctx workflow.Context, input *route53resolver.DisassociateResolverRuleInput) *DisassociateResolverRuleFuture
 
+	GetResolverDnssecConfig(ctx workflow.Context, input *route53resolver.GetResolverDnssecConfigInput) (*route53resolver.GetResolverDnssecConfigOutput, error)
+	GetResolverDnssecConfigAsync(ctx workflow.Context, input *route53resolver.GetResolverDnssecConfigInput) *GetResolverDnssecConfigFuture
+
 	GetResolverEndpoint(ctx workflow.Context, input *route53resolver.GetResolverEndpointInput) (*route53resolver.GetResolverEndpointOutput, error)
 	GetResolverEndpointAsync(ctx workflow.Context, input *route53resolver.GetResolverEndpointInput) *GetResolverEndpointFuture
 
@@ -70,6 +73,9 @@ type Client interface {
 
 	GetResolverRulePolicy(ctx workflow.Context, input *route53resolver.GetResolverRulePolicyInput) (*route53resolver.GetResolverRulePolicyOutput, error)
 	GetResolverRulePolicyAsync(ctx workflow.Context, input *route53resolver.GetResolverRulePolicyInput) *GetResolverRulePolicyFuture
+
+	ListResolverDnssecConfigs(ctx workflow.Context, input *route53resolver.ListResolverDnssecConfigsInput) (*route53resolver.ListResolverDnssecConfigsOutput, error)
+	ListResolverDnssecConfigsAsync(ctx workflow.Context, input *route53resolver.ListResolverDnssecConfigsInput) *ListResolverDnssecConfigsFuture
 
 	ListResolverEndpointIpAddresses(ctx workflow.Context, input *route53resolver.ListResolverEndpointIpAddressesInput) (*route53resolver.ListResolverEndpointIpAddressesOutput, error)
 	ListResolverEndpointIpAddressesAsync(ctx workflow.Context, input *route53resolver.ListResolverEndpointIpAddressesInput) *ListResolverEndpointIpAddressesFuture
@@ -103,6 +109,9 @@ type Client interface {
 
 	UntagResource(ctx workflow.Context, input *route53resolver.UntagResourceInput) (*route53resolver.UntagResourceOutput, error)
 	UntagResourceAsync(ctx workflow.Context, input *route53resolver.UntagResourceInput) *UntagResourceFuture
+
+	UpdateResolverDnssecConfig(ctx workflow.Context, input *route53resolver.UpdateResolverDnssecConfigInput) (*route53resolver.UpdateResolverDnssecConfigOutput, error)
+	UpdateResolverDnssecConfigAsync(ctx workflow.Context, input *route53resolver.UpdateResolverDnssecConfigInput) *UpdateResolverDnssecConfigFuture
 
 	UpdateResolverEndpoint(ctx workflow.Context, input *route53resolver.UpdateResolverEndpointInput) (*route53resolver.UpdateResolverEndpointOutput, error)
 	UpdateResolverEndpointAsync(ctx workflow.Context, input *route53resolver.UpdateResolverEndpointInput) *UpdateResolverEndpointFuture

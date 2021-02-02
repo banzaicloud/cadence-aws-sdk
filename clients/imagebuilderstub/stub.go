@@ -37,6 +37,17 @@ func (r *CreateComponentFuture) Get(ctx workflow.Context) (*imagebuilder.CreateC
 	return &output, err
 }
 
+type CreateContainerRecipeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateContainerRecipeFuture) Get(ctx workflow.Context) (*imagebuilder.CreateContainerRecipeOutput, error) {
+	var output imagebuilder.CreateContainerRecipeOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateDistributionConfigurationFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -99,6 +110,17 @@ type DeleteComponentFuture struct {
 
 func (r *DeleteComponentFuture) Get(ctx workflow.Context) (*imagebuilder.DeleteComponentOutput, error) {
 	var output imagebuilder.DeleteComponentOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteContainerRecipeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteContainerRecipeFuture) Get(ctx workflow.Context) (*imagebuilder.DeleteContainerRecipeOutput, error) {
+	var output imagebuilder.DeleteContainerRecipeOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -176,6 +198,28 @@ type GetComponentPolicyFuture struct {
 
 func (r *GetComponentPolicyFuture) Get(ctx workflow.Context) (*imagebuilder.GetComponentPolicyOutput, error) {
 	var output imagebuilder.GetComponentPolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetContainerRecipeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetContainerRecipeFuture) Get(ctx workflow.Context) (*imagebuilder.GetContainerRecipeOutput, error) {
+	var output imagebuilder.GetContainerRecipeOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetContainerRecipePolicyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetContainerRecipePolicyFuture) Get(ctx workflow.Context) (*imagebuilder.GetContainerRecipePolicyOutput, error) {
+	var output imagebuilder.GetContainerRecipePolicyOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -290,6 +334,17 @@ func (r *ListComponentsFuture) Get(ctx workflow.Context) (*imagebuilder.ListComp
 	return &output, err
 }
 
+type ListContainerRecipesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListContainerRecipesFuture) Get(ctx workflow.Context) (*imagebuilder.ListContainerRecipesOutput, error) {
+	var output imagebuilder.ListContainerRecipesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListDistributionConfigurationsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -385,6 +440,17 @@ type PutComponentPolicyFuture struct {
 
 func (r *PutComponentPolicyFuture) Get(ctx workflow.Context) (*imagebuilder.PutComponentPolicyOutput, error) {
 	var output imagebuilder.PutComponentPolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type PutContainerRecipePolicyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutContainerRecipePolicyFuture) Get(ctx workflow.Context) (*imagebuilder.PutContainerRecipePolicyOutput, error) {
+	var output imagebuilder.PutContainerRecipePolicyOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -499,6 +565,17 @@ func (a *stub) CreateComponentAsync(ctx workflow.Context, input *imagebuilder.Cr
 	return &CreateComponentFuture{Future: future}
 }
 
+func (a *stub) CreateContainerRecipe(ctx workflow.Context, input *imagebuilder.CreateContainerRecipeInput) (*imagebuilder.CreateContainerRecipeOutput, error) {
+	var output imagebuilder.CreateContainerRecipeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-imagebuilder-CreateContainerRecipe", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateContainerRecipeAsync(ctx workflow.Context, input *imagebuilder.CreateContainerRecipeInput) *CreateContainerRecipeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-imagebuilder-CreateContainerRecipe", input)
+	return &CreateContainerRecipeFuture{Future: future}
+}
+
 func (a *stub) CreateDistributionConfiguration(ctx workflow.Context, input *imagebuilder.CreateDistributionConfigurationInput) (*imagebuilder.CreateDistributionConfigurationOutput, error) {
 	var output imagebuilder.CreateDistributionConfigurationOutput
 	err := workflow.ExecuteActivity(ctx, "aws-imagebuilder-CreateDistributionConfiguration", input).Get(ctx, &output)
@@ -563,6 +640,17 @@ func (a *stub) DeleteComponent(ctx workflow.Context, input *imagebuilder.DeleteC
 func (a *stub) DeleteComponentAsync(ctx workflow.Context, input *imagebuilder.DeleteComponentInput) *DeleteComponentFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-imagebuilder-DeleteComponent", input)
 	return &DeleteComponentFuture{Future: future}
+}
+
+func (a *stub) DeleteContainerRecipe(ctx workflow.Context, input *imagebuilder.DeleteContainerRecipeInput) (*imagebuilder.DeleteContainerRecipeOutput, error) {
+	var output imagebuilder.DeleteContainerRecipeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-imagebuilder-DeleteContainerRecipe", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteContainerRecipeAsync(ctx workflow.Context, input *imagebuilder.DeleteContainerRecipeInput) *DeleteContainerRecipeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-imagebuilder-DeleteContainerRecipe", input)
+	return &DeleteContainerRecipeFuture{Future: future}
 }
 
 func (a *stub) DeleteDistributionConfiguration(ctx workflow.Context, input *imagebuilder.DeleteDistributionConfigurationInput) (*imagebuilder.DeleteDistributionConfigurationOutput, error) {
@@ -640,6 +728,28 @@ func (a *stub) GetComponentPolicy(ctx workflow.Context, input *imagebuilder.GetC
 func (a *stub) GetComponentPolicyAsync(ctx workflow.Context, input *imagebuilder.GetComponentPolicyInput) *GetComponentPolicyFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-imagebuilder-GetComponentPolicy", input)
 	return &GetComponentPolicyFuture{Future: future}
+}
+
+func (a *stub) GetContainerRecipe(ctx workflow.Context, input *imagebuilder.GetContainerRecipeInput) (*imagebuilder.GetContainerRecipeOutput, error) {
+	var output imagebuilder.GetContainerRecipeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-imagebuilder-GetContainerRecipe", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetContainerRecipeAsync(ctx workflow.Context, input *imagebuilder.GetContainerRecipeInput) *GetContainerRecipeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-imagebuilder-GetContainerRecipe", input)
+	return &GetContainerRecipeFuture{Future: future}
+}
+
+func (a *stub) GetContainerRecipePolicy(ctx workflow.Context, input *imagebuilder.GetContainerRecipePolicyInput) (*imagebuilder.GetContainerRecipePolicyOutput, error) {
+	var output imagebuilder.GetContainerRecipePolicyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-imagebuilder-GetContainerRecipePolicy", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetContainerRecipePolicyAsync(ctx workflow.Context, input *imagebuilder.GetContainerRecipePolicyInput) *GetContainerRecipePolicyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-imagebuilder-GetContainerRecipePolicy", input)
+	return &GetContainerRecipePolicyFuture{Future: future}
 }
 
 func (a *stub) GetDistributionConfiguration(ctx workflow.Context, input *imagebuilder.GetDistributionConfigurationInput) (*imagebuilder.GetDistributionConfigurationOutput, error) {
@@ -752,6 +862,17 @@ func (a *stub) ListComponentsAsync(ctx workflow.Context, input *imagebuilder.Lis
 	return &ListComponentsFuture{Future: future}
 }
 
+func (a *stub) ListContainerRecipes(ctx workflow.Context, input *imagebuilder.ListContainerRecipesInput) (*imagebuilder.ListContainerRecipesOutput, error) {
+	var output imagebuilder.ListContainerRecipesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-imagebuilder-ListContainerRecipes", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListContainerRecipesAsync(ctx workflow.Context, input *imagebuilder.ListContainerRecipesInput) *ListContainerRecipesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-imagebuilder-ListContainerRecipes", input)
+	return &ListContainerRecipesFuture{Future: future}
+}
+
 func (a *stub) ListDistributionConfigurations(ctx workflow.Context, input *imagebuilder.ListDistributionConfigurationsInput) (*imagebuilder.ListDistributionConfigurationsOutput, error) {
 	var output imagebuilder.ListDistributionConfigurationsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-imagebuilder-ListDistributionConfigurations", input).Get(ctx, &output)
@@ -849,6 +970,17 @@ func (a *stub) PutComponentPolicy(ctx workflow.Context, input *imagebuilder.PutC
 func (a *stub) PutComponentPolicyAsync(ctx workflow.Context, input *imagebuilder.PutComponentPolicyInput) *PutComponentPolicyFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-imagebuilder-PutComponentPolicy", input)
 	return &PutComponentPolicyFuture{Future: future}
+}
+
+func (a *stub) PutContainerRecipePolicy(ctx workflow.Context, input *imagebuilder.PutContainerRecipePolicyInput) (*imagebuilder.PutContainerRecipePolicyOutput, error) {
+	var output imagebuilder.PutContainerRecipePolicyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-imagebuilder-PutContainerRecipePolicy", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutContainerRecipePolicyAsync(ctx workflow.Context, input *imagebuilder.PutContainerRecipePolicyInput) *PutContainerRecipePolicyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-imagebuilder-PutContainerRecipePolicy", input)
+	return &PutContainerRecipePolicyFuture{Future: future}
 }
 
 func (a *stub) PutImagePolicy(ctx workflow.Context, input *imagebuilder.PutImagePolicyInput) (*imagebuilder.PutImagePolicyOutput, error) {

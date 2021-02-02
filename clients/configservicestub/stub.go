@@ -180,6 +180,17 @@ func (r *DeleteRetentionConfigurationFuture) Get(ctx workflow.Context) (*configs
 	return &output, err
 }
 
+type DeleteStoredQueryFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteStoredQueryFuture) Get(ctx workflow.Context) (*configservice.DeleteStoredQueryOutput, error) {
+	var output configservice.DeleteStoredQueryOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeliverConfigSnapshotFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -609,6 +620,17 @@ func (r *GetResourceConfigHistoryFuture) Get(ctx workflow.Context) (*configservi
 	return &output, err
 }
 
+type GetStoredQueryFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetStoredQueryFuture) Get(ctx workflow.Context) (*configservice.GetStoredQueryOutput, error) {
+	var output configservice.GetStoredQueryOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListAggregateDiscoveredResourcesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -627,6 +649,17 @@ type ListDiscoveredResourcesFuture struct {
 
 func (r *ListDiscoveredResourcesFuture) Get(ctx workflow.Context) (*configservice.ListDiscoveredResourcesOutput, error) {
 	var output configservice.ListDiscoveredResourcesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListStoredQueriesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListStoredQueriesFuture) Get(ctx workflow.Context) (*configservice.ListStoredQueriesOutput, error) {
+	var output configservice.ListStoredQueriesOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -719,6 +752,17 @@ func (r *PutEvaluationsFuture) Get(ctx workflow.Context) (*configservice.PutEval
 	return &output, err
 }
 
+type PutExternalEvaluationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutExternalEvaluationFuture) Get(ctx workflow.Context) (*configservice.PutExternalEvaluationOutput, error) {
+	var output configservice.PutExternalEvaluationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type PutOrganizationConfigRuleFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -781,6 +825,17 @@ type PutRetentionConfigurationFuture struct {
 
 func (r *PutRetentionConfigurationFuture) Get(ctx workflow.Context) (*configservice.PutRetentionConfigurationOutput, error) {
 	var output configservice.PutRetentionConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type PutStoredQueryFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutStoredQueryFuture) Get(ctx workflow.Context) (*configservice.PutStoredQueryOutput, error) {
+	var output configservice.PutStoredQueryOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1036,6 +1091,17 @@ func (a *stub) DeleteRetentionConfiguration(ctx workflow.Context, input *configs
 func (a *stub) DeleteRetentionConfigurationAsync(ctx workflow.Context, input *configservice.DeleteRetentionConfigurationInput) *DeleteRetentionConfigurationFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-configservice-DeleteRetentionConfiguration", input)
 	return &DeleteRetentionConfigurationFuture{Future: future}
+}
+
+func (a *stub) DeleteStoredQuery(ctx workflow.Context, input *configservice.DeleteStoredQueryInput) (*configservice.DeleteStoredQueryOutput, error) {
+	var output configservice.DeleteStoredQueryOutput
+	err := workflow.ExecuteActivity(ctx, "aws-configservice-DeleteStoredQuery", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteStoredQueryAsync(ctx workflow.Context, input *configservice.DeleteStoredQueryInput) *DeleteStoredQueryFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-configservice-DeleteStoredQuery", input)
+	return &DeleteStoredQueryFuture{Future: future}
 }
 
 func (a *stub) DeliverConfigSnapshot(ctx workflow.Context, input *configservice.DeliverConfigSnapshotInput) (*configservice.DeliverConfigSnapshotOutput, error) {
@@ -1467,6 +1533,17 @@ func (a *stub) GetResourceConfigHistoryAsync(ctx workflow.Context, input *config
 	return &GetResourceConfigHistoryFuture{Future: future}
 }
 
+func (a *stub) GetStoredQuery(ctx workflow.Context, input *configservice.GetStoredQueryInput) (*configservice.GetStoredQueryOutput, error) {
+	var output configservice.GetStoredQueryOutput
+	err := workflow.ExecuteActivity(ctx, "aws-configservice-GetStoredQuery", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetStoredQueryAsync(ctx workflow.Context, input *configservice.GetStoredQueryInput) *GetStoredQueryFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-configservice-GetStoredQuery", input)
+	return &GetStoredQueryFuture{Future: future}
+}
+
 func (a *stub) ListAggregateDiscoveredResources(ctx workflow.Context, input *configservice.ListAggregateDiscoveredResourcesInput) (*configservice.ListAggregateDiscoveredResourcesOutput, error) {
 	var output configservice.ListAggregateDiscoveredResourcesOutput
 	err := workflow.ExecuteActivity(ctx, "aws-configservice-ListAggregateDiscoveredResources", input).Get(ctx, &output)
@@ -1487,6 +1564,17 @@ func (a *stub) ListDiscoveredResources(ctx workflow.Context, input *configservic
 func (a *stub) ListDiscoveredResourcesAsync(ctx workflow.Context, input *configservice.ListDiscoveredResourcesInput) *ListDiscoveredResourcesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-configservice-ListDiscoveredResources", input)
 	return &ListDiscoveredResourcesFuture{Future: future}
+}
+
+func (a *stub) ListStoredQueries(ctx workflow.Context, input *configservice.ListStoredQueriesInput) (*configservice.ListStoredQueriesOutput, error) {
+	var output configservice.ListStoredQueriesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-configservice-ListStoredQueries", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListStoredQueriesAsync(ctx workflow.Context, input *configservice.ListStoredQueriesInput) *ListStoredQueriesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-configservice-ListStoredQueries", input)
+	return &ListStoredQueriesFuture{Future: future}
 }
 
 func (a *stub) ListTagsForResource(ctx workflow.Context, input *configservice.ListTagsForResourceInput) (*configservice.ListTagsForResourceOutput, error) {
@@ -1577,6 +1665,17 @@ func (a *stub) PutEvaluationsAsync(ctx workflow.Context, input *configservice.Pu
 	return &PutEvaluationsFuture{Future: future}
 }
 
+func (a *stub) PutExternalEvaluation(ctx workflow.Context, input *configservice.PutExternalEvaluationInput) (*configservice.PutExternalEvaluationOutput, error) {
+	var output configservice.PutExternalEvaluationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-configservice-PutExternalEvaluation", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutExternalEvaluationAsync(ctx workflow.Context, input *configservice.PutExternalEvaluationInput) *PutExternalEvaluationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-configservice-PutExternalEvaluation", input)
+	return &PutExternalEvaluationFuture{Future: future}
+}
+
 func (a *stub) PutOrganizationConfigRule(ctx workflow.Context, input *configservice.PutOrganizationConfigRuleInput) (*configservice.PutOrganizationConfigRuleOutput, error) {
 	var output configservice.PutOrganizationConfigRuleOutput
 	err := workflow.ExecuteActivity(ctx, "aws-configservice-PutOrganizationConfigRule", input).Get(ctx, &output)
@@ -1641,6 +1740,17 @@ func (a *stub) PutRetentionConfiguration(ctx workflow.Context, input *configserv
 func (a *stub) PutRetentionConfigurationAsync(ctx workflow.Context, input *configservice.PutRetentionConfigurationInput) *PutRetentionConfigurationFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-configservice-PutRetentionConfiguration", input)
 	return &PutRetentionConfigurationFuture{Future: future}
+}
+
+func (a *stub) PutStoredQuery(ctx workflow.Context, input *configservice.PutStoredQueryInput) (*configservice.PutStoredQueryOutput, error) {
+	var output configservice.PutStoredQueryOutput
+	err := workflow.ExecuteActivity(ctx, "aws-configservice-PutStoredQuery", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutStoredQueryAsync(ctx workflow.Context, input *configservice.PutStoredQueryInput) *PutStoredQueryFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-configservice-PutStoredQuery", input)
+	return &PutStoredQueryFuture{Future: future}
 }
 
 func (a *stub) SelectAggregateResourceConfig(ctx workflow.Context, input *configservice.SelectAggregateResourceConfigInput) (*configservice.SelectAggregateResourceConfigOutput, error) {

@@ -356,6 +356,17 @@ func (r *UpdateTaskFuture) Get(ctx workflow.Context) (*datasync.UpdateTaskOutput
 	return &output, err
 }
 
+type UpdateTaskExecutionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateTaskExecutionFuture) Get(ctx workflow.Context) (*datasync.UpdateTaskExecutionOutput, error) {
+	var output datasync.UpdateTaskExecutionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 func (a *stub) CancelTaskExecution(ctx workflow.Context, input *datasync.CancelTaskExecutionInput) (*datasync.CancelTaskExecutionOutput, error) {
 	var output datasync.CancelTaskExecutionOutput
 	err := workflow.ExecuteActivity(ctx, "aws-datasync-CancelTaskExecution", input).Get(ctx, &output)
@@ -695,4 +706,15 @@ func (a *stub) UpdateTask(ctx workflow.Context, input *datasync.UpdateTaskInput)
 func (a *stub) UpdateTaskAsync(ctx workflow.Context, input *datasync.UpdateTaskInput) *UpdateTaskFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-datasync-UpdateTask", input)
 	return &UpdateTaskFuture{Future: future}
+}
+
+func (a *stub) UpdateTaskExecution(ctx workflow.Context, input *datasync.UpdateTaskExecutionInput) (*datasync.UpdateTaskExecutionOutput, error) {
+	var output datasync.UpdateTaskExecutionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-datasync-UpdateTaskExecution", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateTaskExecutionAsync(ctx workflow.Context, input *datasync.UpdateTaskExecutionInput) *UpdateTaskExecutionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-datasync-UpdateTaskExecution", input)
+	return &UpdateTaskExecutionFuture{Future: future}
 }

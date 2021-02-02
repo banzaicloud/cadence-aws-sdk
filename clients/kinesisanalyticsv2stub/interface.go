@@ -35,6 +35,9 @@ type Client interface {
 	CreateApplication(ctx workflow.Context, input *kinesisanalyticsv2.CreateApplicationInput) (*kinesisanalyticsv2.CreateApplicationOutput, error)
 	CreateApplicationAsync(ctx workflow.Context, input *kinesisanalyticsv2.CreateApplicationInput) *CreateApplicationFuture
 
+	CreateApplicationPresignedUrl(ctx workflow.Context, input *kinesisanalyticsv2.CreateApplicationPresignedUrlInput) (*kinesisanalyticsv2.CreateApplicationPresignedUrlOutput, error)
+	CreateApplicationPresignedUrlAsync(ctx workflow.Context, input *kinesisanalyticsv2.CreateApplicationPresignedUrlInput) *CreateApplicationPresignedUrlFuture
+
 	CreateApplicationSnapshot(ctx workflow.Context, input *kinesisanalyticsv2.CreateApplicationSnapshotInput) (*kinesisanalyticsv2.CreateApplicationSnapshotOutput, error)
 	CreateApplicationSnapshotAsync(ctx workflow.Context, input *kinesisanalyticsv2.CreateApplicationSnapshotInput) *CreateApplicationSnapshotFuture
 

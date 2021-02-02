@@ -41,6 +41,9 @@ type Client interface {
 	DeleteBucketEncryption(ctx workflow.Context, input *s3.DeleteBucketEncryptionInput) (*s3.DeleteBucketEncryptionOutput, error)
 	DeleteBucketEncryptionAsync(ctx workflow.Context, input *s3.DeleteBucketEncryptionInput) *DeleteBucketEncryptionFuture
 
+	DeleteBucketIntelligentTieringConfiguration(ctx workflow.Context, input *s3.DeleteBucketIntelligentTieringConfigurationInput) (*s3.DeleteBucketIntelligentTieringConfigurationOutput, error)
+	DeleteBucketIntelligentTieringConfigurationAsync(ctx workflow.Context, input *s3.DeleteBucketIntelligentTieringConfigurationInput) *DeleteBucketIntelligentTieringConfigurationFuture
+
 	DeleteBucketInventoryConfiguration(ctx workflow.Context, input *s3.DeleteBucketInventoryConfigurationInput) (*s3.DeleteBucketInventoryConfigurationOutput, error)
 	DeleteBucketInventoryConfigurationAsync(ctx workflow.Context, input *s3.DeleteBucketInventoryConfigurationInput) *DeleteBucketInventoryConfigurationFuture
 
@@ -91,6 +94,9 @@ type Client interface {
 
 	GetBucketEncryption(ctx workflow.Context, input *s3.GetBucketEncryptionInput) (*s3.GetBucketEncryptionOutput, error)
 	GetBucketEncryptionAsync(ctx workflow.Context, input *s3.GetBucketEncryptionInput) *GetBucketEncryptionFuture
+
+	GetBucketIntelligentTieringConfiguration(ctx workflow.Context, input *s3.GetBucketIntelligentTieringConfigurationInput) (*s3.GetBucketIntelligentTieringConfigurationOutput, error)
+	GetBucketIntelligentTieringConfigurationAsync(ctx workflow.Context, input *s3.GetBucketIntelligentTieringConfigurationInput) *GetBucketIntelligentTieringConfigurationFuture
 
 	GetBucketInventoryConfiguration(ctx workflow.Context, input *s3.GetBucketInventoryConfigurationInput) (*s3.GetBucketInventoryConfigurationOutput, error)
 	GetBucketInventoryConfigurationAsync(ctx workflow.Context, input *s3.GetBucketInventoryConfigurationInput) *GetBucketInventoryConfigurationFuture
@@ -173,6 +179,9 @@ type Client interface {
 	ListBucketAnalyticsConfigurations(ctx workflow.Context, input *s3.ListBucketAnalyticsConfigurationsInput) (*s3.ListBucketAnalyticsConfigurationsOutput, error)
 	ListBucketAnalyticsConfigurationsAsync(ctx workflow.Context, input *s3.ListBucketAnalyticsConfigurationsInput) *ListBucketAnalyticsConfigurationsFuture
 
+	ListBucketIntelligentTieringConfigurations(ctx workflow.Context, input *s3.ListBucketIntelligentTieringConfigurationsInput) (*s3.ListBucketIntelligentTieringConfigurationsOutput, error)
+	ListBucketIntelligentTieringConfigurationsAsync(ctx workflow.Context, input *s3.ListBucketIntelligentTieringConfigurationsInput) *ListBucketIntelligentTieringConfigurationsFuture
+
 	ListBucketInventoryConfigurations(ctx workflow.Context, input *s3.ListBucketInventoryConfigurationsInput) (*s3.ListBucketInventoryConfigurationsOutput, error)
 	ListBucketInventoryConfigurationsAsync(ctx workflow.Context, input *s3.ListBucketInventoryConfigurationsInput) *ListBucketInventoryConfigurationsFuture
 
@@ -211,6 +220,9 @@ type Client interface {
 
 	PutBucketEncryption(ctx workflow.Context, input *s3.PutBucketEncryptionInput) (*s3.PutBucketEncryptionOutput, error)
 	PutBucketEncryptionAsync(ctx workflow.Context, input *s3.PutBucketEncryptionInput) *PutBucketEncryptionFuture
+
+	PutBucketIntelligentTieringConfiguration(ctx workflow.Context, input *s3.PutBucketIntelligentTieringConfigurationInput) (*s3.PutBucketIntelligentTieringConfigurationOutput, error)
+	PutBucketIntelligentTieringConfigurationAsync(ctx workflow.Context, input *s3.PutBucketIntelligentTieringConfigurationInput) *PutBucketIntelligentTieringConfigurationFuture
 
 	PutBucketInventoryConfiguration(ctx workflow.Context, input *s3.PutBucketInventoryConfigurationInput) (*s3.PutBucketInventoryConfigurationOutput, error)
 	PutBucketInventoryConfigurationAsync(ctx workflow.Context, input *s3.PutBucketInventoryConfigurationInput) *PutBucketInventoryConfigurationFuture

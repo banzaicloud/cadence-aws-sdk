@@ -485,6 +485,16 @@ func (a *Activities) UntagResource(ctx context.Context, input *ecs.UntagResource
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) UpdateCapacityProvider(ctx context.Context, input *ecs.UpdateCapacityProviderInput) (*ecs.UpdateCapacityProviderOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateCapacityProviderWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) UpdateClusterSettings(ctx context.Context, input *ecs.UpdateClusterSettingsInput) (*ecs.UpdateClusterSettingsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

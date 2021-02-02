@@ -493,6 +493,16 @@ func (a *Activities) ModifyReplicationTask(ctx context.Context, input *databasem
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) MoveReplicationTask(ctx context.Context, input *databasemigrationservice.MoveReplicationTaskInput) (*databasemigrationservice.MoveReplicationTaskOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.MoveReplicationTaskWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) RebootReplicationInstance(ctx context.Context, input *databasemigrationservice.RebootReplicationInstanceInput) (*databasemigrationservice.RebootReplicationInstanceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

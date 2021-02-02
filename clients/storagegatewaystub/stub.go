@@ -345,6 +345,17 @@ func (r *DescribeBandwidthRateLimitFuture) Get(ctx workflow.Context) (*storagega
 	return &output, err
 }
 
+type DescribeBandwidthRateLimitScheduleFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeBandwidthRateLimitScheduleFuture) Get(ctx workflow.Context) (*storagegateway.DescribeBandwidthRateLimitScheduleOutput, error) {
+	var output storagegateway.DescribeBandwidthRateLimitScheduleOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeCacheFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -807,6 +818,17 @@ func (r *UpdateBandwidthRateLimitFuture) Get(ctx workflow.Context) (*storagegate
 	return &output, err
 }
 
+type UpdateBandwidthRateLimitScheduleFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateBandwidthRateLimitScheduleFuture) Get(ctx workflow.Context) (*storagegateway.UpdateBandwidthRateLimitScheduleOutput, error) {
+	var output storagegateway.UpdateBandwidthRateLimitScheduleOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateChapCredentialsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1245,6 +1267,17 @@ func (a *stub) DescribeBandwidthRateLimit(ctx workflow.Context, input *storagega
 func (a *stub) DescribeBandwidthRateLimitAsync(ctx workflow.Context, input *storagegateway.DescribeBandwidthRateLimitInput) *DescribeBandwidthRateLimitFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-storagegateway-DescribeBandwidthRateLimit", input)
 	return &DescribeBandwidthRateLimitFuture{Future: future}
+}
+
+func (a *stub) DescribeBandwidthRateLimitSchedule(ctx workflow.Context, input *storagegateway.DescribeBandwidthRateLimitScheduleInput) (*storagegateway.DescribeBandwidthRateLimitScheduleOutput, error) {
+	var output storagegateway.DescribeBandwidthRateLimitScheduleOutput
+	err := workflow.ExecuteActivity(ctx, "aws-storagegateway-DescribeBandwidthRateLimitSchedule", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeBandwidthRateLimitScheduleAsync(ctx workflow.Context, input *storagegateway.DescribeBandwidthRateLimitScheduleInput) *DescribeBandwidthRateLimitScheduleFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-storagegateway-DescribeBandwidthRateLimitSchedule", input)
+	return &DescribeBandwidthRateLimitScheduleFuture{Future: future}
 }
 
 func (a *stub) DescribeCache(ctx workflow.Context, input *storagegateway.DescribeCacheInput) (*storagegateway.DescribeCacheOutput, error) {
@@ -1707,6 +1740,17 @@ func (a *stub) UpdateBandwidthRateLimit(ctx workflow.Context, input *storagegate
 func (a *stub) UpdateBandwidthRateLimitAsync(ctx workflow.Context, input *storagegateway.UpdateBandwidthRateLimitInput) *UpdateBandwidthRateLimitFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-storagegateway-UpdateBandwidthRateLimit", input)
 	return &UpdateBandwidthRateLimitFuture{Future: future}
+}
+
+func (a *stub) UpdateBandwidthRateLimitSchedule(ctx workflow.Context, input *storagegateway.UpdateBandwidthRateLimitScheduleInput) (*storagegateway.UpdateBandwidthRateLimitScheduleOutput, error) {
+	var output storagegateway.UpdateBandwidthRateLimitScheduleOutput
+	err := workflow.ExecuteActivity(ctx, "aws-storagegateway-UpdateBandwidthRateLimitSchedule", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateBandwidthRateLimitScheduleAsync(ctx workflow.Context, input *storagegateway.UpdateBandwidthRateLimitScheduleInput) *UpdateBandwidthRateLimitScheduleFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-storagegateway-UpdateBandwidthRateLimitSchedule", input)
+	return &UpdateBandwidthRateLimitScheduleFuture{Future: future}
 }
 
 func (a *stub) UpdateChapCredentials(ctx workflow.Context, input *storagegateway.UpdateChapCredentialsInput) (*storagegateway.UpdateChapCredentialsOutput, error) {

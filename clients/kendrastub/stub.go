@@ -70,6 +70,17 @@ func (r *CreateIndexFuture) Get(ctx workflow.Context) (*kendra.CreateIndexOutput
 	return &output, err
 }
 
+type CreateThesaurusFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateThesaurusFuture) Get(ctx workflow.Context) (*kendra.CreateThesaurusOutput, error) {
+	var output kendra.CreateThesaurusOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteDataSourceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -103,6 +114,17 @@ func (r *DeleteIndexFuture) Get(ctx workflow.Context) (*kendra.DeleteIndexOutput
 	return &output, err
 }
 
+type DeleteThesaurusFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteThesaurusFuture) Get(ctx workflow.Context) (*kendra.DeleteThesaurusOutput, error) {
+	var output kendra.DeleteThesaurusOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeDataSourceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -132,6 +154,17 @@ type DescribeIndexFuture struct {
 
 func (r *DescribeIndexFuture) Get(ctx workflow.Context) (*kendra.DescribeIndexOutput, error) {
 	var output kendra.DescribeIndexOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeThesaurusFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeThesaurusFuture) Get(ctx workflow.Context) (*kendra.DescribeThesaurusOutput, error) {
+	var output kendra.DescribeThesaurusOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -187,6 +220,17 @@ type ListTagsForResourceFuture struct {
 
 func (r *ListTagsForResourceFuture) Get(ctx workflow.Context) (*kendra.ListTagsForResourceOutput, error) {
 	var output kendra.ListTagsForResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListThesauriFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListThesauriFuture) Get(ctx workflow.Context) (*kendra.ListThesauriOutput, error) {
+	var output kendra.ListThesauriOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -279,6 +323,17 @@ func (r *UpdateIndexFuture) Get(ctx workflow.Context) (*kendra.UpdateIndexOutput
 	return &output, err
 }
 
+type UpdateThesaurusFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateThesaurusFuture) Get(ctx workflow.Context) (*kendra.UpdateThesaurusOutput, error) {
+	var output kendra.UpdateThesaurusOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 func (a *stub) BatchDeleteDocument(ctx workflow.Context, input *kendra.BatchDeleteDocumentInput) (*kendra.BatchDeleteDocumentOutput, error) {
 	var output kendra.BatchDeleteDocumentOutput
 	err := workflow.ExecuteActivity(ctx, "aws-kendra-BatchDeleteDocument", input).Get(ctx, &output)
@@ -334,6 +389,17 @@ func (a *stub) CreateIndexAsync(ctx workflow.Context, input *kendra.CreateIndexI
 	return &CreateIndexFuture{Future: future}
 }
 
+func (a *stub) CreateThesaurus(ctx workflow.Context, input *kendra.CreateThesaurusInput) (*kendra.CreateThesaurusOutput, error) {
+	var output kendra.CreateThesaurusOutput
+	err := workflow.ExecuteActivity(ctx, "aws-kendra-CreateThesaurus", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateThesaurusAsync(ctx workflow.Context, input *kendra.CreateThesaurusInput) *CreateThesaurusFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-kendra-CreateThesaurus", input)
+	return &CreateThesaurusFuture{Future: future}
+}
+
 func (a *stub) DeleteDataSource(ctx workflow.Context, input *kendra.DeleteDataSourceInput) (*kendra.DeleteDataSourceOutput, error) {
 	var output kendra.DeleteDataSourceOutput
 	err := workflow.ExecuteActivity(ctx, "aws-kendra-DeleteDataSource", input).Get(ctx, &output)
@@ -367,6 +433,17 @@ func (a *stub) DeleteIndexAsync(ctx workflow.Context, input *kendra.DeleteIndexI
 	return &DeleteIndexFuture{Future: future}
 }
 
+func (a *stub) DeleteThesaurus(ctx workflow.Context, input *kendra.DeleteThesaurusInput) (*kendra.DeleteThesaurusOutput, error) {
+	var output kendra.DeleteThesaurusOutput
+	err := workflow.ExecuteActivity(ctx, "aws-kendra-DeleteThesaurus", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteThesaurusAsync(ctx workflow.Context, input *kendra.DeleteThesaurusInput) *DeleteThesaurusFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-kendra-DeleteThesaurus", input)
+	return &DeleteThesaurusFuture{Future: future}
+}
+
 func (a *stub) DescribeDataSource(ctx workflow.Context, input *kendra.DescribeDataSourceInput) (*kendra.DescribeDataSourceOutput, error) {
 	var output kendra.DescribeDataSourceOutput
 	err := workflow.ExecuteActivity(ctx, "aws-kendra-DescribeDataSource", input).Get(ctx, &output)
@@ -398,6 +475,17 @@ func (a *stub) DescribeIndex(ctx workflow.Context, input *kendra.DescribeIndexIn
 func (a *stub) DescribeIndexAsync(ctx workflow.Context, input *kendra.DescribeIndexInput) *DescribeIndexFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-kendra-DescribeIndex", input)
 	return &DescribeIndexFuture{Future: future}
+}
+
+func (a *stub) DescribeThesaurus(ctx workflow.Context, input *kendra.DescribeThesaurusInput) (*kendra.DescribeThesaurusOutput, error) {
+	var output kendra.DescribeThesaurusOutput
+	err := workflow.ExecuteActivity(ctx, "aws-kendra-DescribeThesaurus", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeThesaurusAsync(ctx workflow.Context, input *kendra.DescribeThesaurusInput) *DescribeThesaurusFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-kendra-DescribeThesaurus", input)
+	return &DescribeThesaurusFuture{Future: future}
 }
 
 func (a *stub) ListDataSourceSyncJobs(ctx workflow.Context, input *kendra.ListDataSourceSyncJobsInput) (*kendra.ListDataSourceSyncJobsOutput, error) {
@@ -453,6 +541,17 @@ func (a *stub) ListTagsForResource(ctx workflow.Context, input *kendra.ListTagsF
 func (a *stub) ListTagsForResourceAsync(ctx workflow.Context, input *kendra.ListTagsForResourceInput) *ListTagsForResourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-kendra-ListTagsForResource", input)
 	return &ListTagsForResourceFuture{Future: future}
+}
+
+func (a *stub) ListThesauri(ctx workflow.Context, input *kendra.ListThesauriInput) (*kendra.ListThesauriOutput, error) {
+	var output kendra.ListThesauriOutput
+	err := workflow.ExecuteActivity(ctx, "aws-kendra-ListThesauri", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListThesauriAsync(ctx workflow.Context, input *kendra.ListThesauriInput) *ListThesauriFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-kendra-ListThesauri", input)
+	return &ListThesauriFuture{Future: future}
 }
 
 func (a *stub) Query(ctx workflow.Context, input *kendra.QueryInput) (*kendra.QueryOutput, error) {
@@ -541,4 +640,15 @@ func (a *stub) UpdateIndex(ctx workflow.Context, input *kendra.UpdateIndexInput)
 func (a *stub) UpdateIndexAsync(ctx workflow.Context, input *kendra.UpdateIndexInput) *UpdateIndexFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-kendra-UpdateIndex", input)
 	return &UpdateIndexFuture{Future: future}
+}
+
+func (a *stub) UpdateThesaurus(ctx workflow.Context, input *kendra.UpdateThesaurusInput) (*kendra.UpdateThesaurusOutput, error) {
+	var output kendra.UpdateThesaurusOutput
+	err := workflow.ExecuteActivity(ctx, "aws-kendra-UpdateThesaurus", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateThesaurusAsync(ctx workflow.Context, input *kendra.UpdateThesaurusInput) *UpdateThesaurusFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-kendra-UpdateThesaurus", input)
+	return &UpdateThesaurusFuture{Future: future}
 }

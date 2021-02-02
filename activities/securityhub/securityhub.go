@@ -203,6 +203,16 @@ func (a *Activities) DescribeHub(ctx context.Context, input *securityhub.Describ
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeOrganizationConfiguration(ctx context.Context, input *securityhub.DescribeOrganizationConfigurationInput) (*securityhub.DescribeOrganizationConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeOrganizationConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeProducts(ctx context.Context, input *securityhub.DescribeProductsInput) (*securityhub.DescribeProductsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -243,6 +253,16 @@ func (a *Activities) DisableImportFindingsForProduct(ctx context.Context, input 
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DisableOrganizationAdminAccount(ctx context.Context, input *securityhub.DisableOrganizationAdminAccountInput) (*securityhub.DisableOrganizationAdminAccountOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DisableOrganizationAdminAccountWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DisableSecurityHub(ctx context.Context, input *securityhub.DisableSecurityHubInput) (*securityhub.DisableSecurityHubOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -279,6 +299,16 @@ func (a *Activities) EnableImportFindingsForProduct(ctx context.Context, input *
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.EnableImportFindingsForProductWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) EnableOrganizationAdminAccount(ctx context.Context, input *securityhub.EnableOrganizationAdminAccountInput) (*securityhub.EnableOrganizationAdminAccountOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.EnableOrganizationAdminAccountWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -403,6 +433,16 @@ func (a *Activities) ListMembers(ctx context.Context, input *securityhub.ListMem
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListOrganizationAdminAccounts(ctx context.Context, input *securityhub.ListOrganizationAdminAccountsInput) (*securityhub.ListOrganizationAdminAccountsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListOrganizationAdminAccountsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListTagsForResource(ctx context.Context, input *securityhub.ListTagsForResourceInput) (*securityhub.ListTagsForResourceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -459,6 +499,16 @@ func (a *Activities) UpdateInsight(ctx context.Context, input *securityhub.Updat
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateInsightWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateOrganizationConfiguration(ctx context.Context, input *securityhub.UpdateOrganizationConfigurationInput) (*securityhub.UpdateOrganizationConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateOrganizationConfigurationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

@@ -14,11 +14,17 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	AddAssociation(ctx workflow.Context, input *sagemaker.AddAssociationInput) (*sagemaker.AddAssociationOutput, error)
+	AddAssociationAsync(ctx workflow.Context, input *sagemaker.AddAssociationInput) *AddAssociationFuture
+
 	AddTags(ctx workflow.Context, input *sagemaker.AddTagsInput) (*sagemaker.AddTagsOutput, error)
 	AddTagsAsync(ctx workflow.Context, input *sagemaker.AddTagsInput) *AddTagsFuture
 
 	AssociateTrialComponent(ctx workflow.Context, input *sagemaker.AssociateTrialComponentInput) (*sagemaker.AssociateTrialComponentOutput, error)
 	AssociateTrialComponentAsync(ctx workflow.Context, input *sagemaker.AssociateTrialComponentInput) *AssociateTrialComponentFuture
+
+	CreateAction(ctx workflow.Context, input *sagemaker.CreateActionInput) (*sagemaker.CreateActionOutput, error)
+	CreateActionAsync(ctx workflow.Context, input *sagemaker.CreateActionInput) *CreateActionFuture
 
 	CreateAlgorithm(ctx workflow.Context, input *sagemaker.CreateAlgorithmInput) (*sagemaker.CreateAlgorithmOutput, error)
 	CreateAlgorithmAsync(ctx workflow.Context, input *sagemaker.CreateAlgorithmInput) *CreateAlgorithmFuture
@@ -29,6 +35,9 @@ type Client interface {
 	CreateAppImageConfig(ctx workflow.Context, input *sagemaker.CreateAppImageConfigInput) (*sagemaker.CreateAppImageConfigOutput, error)
 	CreateAppImageConfigAsync(ctx workflow.Context, input *sagemaker.CreateAppImageConfigInput) *CreateAppImageConfigFuture
 
+	CreateArtifact(ctx workflow.Context, input *sagemaker.CreateArtifactInput) (*sagemaker.CreateArtifactOutput, error)
+	CreateArtifactAsync(ctx workflow.Context, input *sagemaker.CreateArtifactInput) *CreateArtifactFuture
+
 	CreateAutoMLJob(ctx workflow.Context, input *sagemaker.CreateAutoMLJobInput) (*sagemaker.CreateAutoMLJobOutput, error)
 	CreateAutoMLJobAsync(ctx workflow.Context, input *sagemaker.CreateAutoMLJobInput) *CreateAutoMLJobFuture
 
@@ -38,8 +47,20 @@ type Client interface {
 	CreateCompilationJob(ctx workflow.Context, input *sagemaker.CreateCompilationJobInput) (*sagemaker.CreateCompilationJobOutput, error)
 	CreateCompilationJobAsync(ctx workflow.Context, input *sagemaker.CreateCompilationJobInput) *CreateCompilationJobFuture
 
+	CreateContext(ctx workflow.Context, input *sagemaker.CreateContextInput) (*sagemaker.CreateContextOutput, error)
+	CreateContextAsync(ctx workflow.Context, input *sagemaker.CreateContextInput) *CreateContextFuture
+
+	CreateDataQualityJobDefinition(ctx workflow.Context, input *sagemaker.CreateDataQualityJobDefinitionInput) (*sagemaker.CreateDataQualityJobDefinitionOutput, error)
+	CreateDataQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.CreateDataQualityJobDefinitionInput) *CreateDataQualityJobDefinitionFuture
+
+	CreateDeviceFleet(ctx workflow.Context, input *sagemaker.CreateDeviceFleetInput) (*sagemaker.CreateDeviceFleetOutput, error)
+	CreateDeviceFleetAsync(ctx workflow.Context, input *sagemaker.CreateDeviceFleetInput) *CreateDeviceFleetFuture
+
 	CreateDomain(ctx workflow.Context, input *sagemaker.CreateDomainInput) (*sagemaker.CreateDomainOutput, error)
 	CreateDomainAsync(ctx workflow.Context, input *sagemaker.CreateDomainInput) *CreateDomainFuture
+
+	CreateEdgePackagingJob(ctx workflow.Context, input *sagemaker.CreateEdgePackagingJobInput) (*sagemaker.CreateEdgePackagingJobOutput, error)
+	CreateEdgePackagingJobAsync(ctx workflow.Context, input *sagemaker.CreateEdgePackagingJobInput) *CreateEdgePackagingJobFuture
 
 	CreateEndpoint(ctx workflow.Context, input *sagemaker.CreateEndpointInput) (*sagemaker.CreateEndpointOutput, error)
 	CreateEndpointAsync(ctx workflow.Context, input *sagemaker.CreateEndpointInput) *CreateEndpointFuture
@@ -49,6 +70,9 @@ type Client interface {
 
 	CreateExperiment(ctx workflow.Context, input *sagemaker.CreateExperimentInput) (*sagemaker.CreateExperimentOutput, error)
 	CreateExperimentAsync(ctx workflow.Context, input *sagemaker.CreateExperimentInput) *CreateExperimentFuture
+
+	CreateFeatureGroup(ctx workflow.Context, input *sagemaker.CreateFeatureGroupInput) (*sagemaker.CreateFeatureGroupOutput, error)
+	CreateFeatureGroupAsync(ctx workflow.Context, input *sagemaker.CreateFeatureGroupInput) *CreateFeatureGroupFuture
 
 	CreateFlowDefinition(ctx workflow.Context, input *sagemaker.CreateFlowDefinitionInput) (*sagemaker.CreateFlowDefinitionOutput, error)
 	CreateFlowDefinitionAsync(ctx workflow.Context, input *sagemaker.CreateFlowDefinitionInput) *CreateFlowDefinitionFuture
@@ -71,8 +95,20 @@ type Client interface {
 	CreateModel(ctx workflow.Context, input *sagemaker.CreateModelInput) (*sagemaker.CreateModelOutput, error)
 	CreateModelAsync(ctx workflow.Context, input *sagemaker.CreateModelInput) *CreateModelFuture
 
+	CreateModelBiasJobDefinition(ctx workflow.Context, input *sagemaker.CreateModelBiasJobDefinitionInput) (*sagemaker.CreateModelBiasJobDefinitionOutput, error)
+	CreateModelBiasJobDefinitionAsync(ctx workflow.Context, input *sagemaker.CreateModelBiasJobDefinitionInput) *CreateModelBiasJobDefinitionFuture
+
+	CreateModelExplainabilityJobDefinition(ctx workflow.Context, input *sagemaker.CreateModelExplainabilityJobDefinitionInput) (*sagemaker.CreateModelExplainabilityJobDefinitionOutput, error)
+	CreateModelExplainabilityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.CreateModelExplainabilityJobDefinitionInput) *CreateModelExplainabilityJobDefinitionFuture
+
 	CreateModelPackage(ctx workflow.Context, input *sagemaker.CreateModelPackageInput) (*sagemaker.CreateModelPackageOutput, error)
 	CreateModelPackageAsync(ctx workflow.Context, input *sagemaker.CreateModelPackageInput) *CreateModelPackageFuture
+
+	CreateModelPackageGroup(ctx workflow.Context, input *sagemaker.CreateModelPackageGroupInput) (*sagemaker.CreateModelPackageGroupOutput, error)
+	CreateModelPackageGroupAsync(ctx workflow.Context, input *sagemaker.CreateModelPackageGroupInput) *CreateModelPackageGroupFuture
+
+	CreateModelQualityJobDefinition(ctx workflow.Context, input *sagemaker.CreateModelQualityJobDefinitionInput) (*sagemaker.CreateModelQualityJobDefinitionOutput, error)
+	CreateModelQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.CreateModelQualityJobDefinitionInput) *CreateModelQualityJobDefinitionFuture
 
 	CreateMonitoringSchedule(ctx workflow.Context, input *sagemaker.CreateMonitoringScheduleInput) (*sagemaker.CreateMonitoringScheduleOutput, error)
 	CreateMonitoringScheduleAsync(ctx workflow.Context, input *sagemaker.CreateMonitoringScheduleInput) *CreateMonitoringScheduleFuture
@@ -83,6 +119,9 @@ type Client interface {
 	CreateNotebookInstanceLifecycleConfig(ctx workflow.Context, input *sagemaker.CreateNotebookInstanceLifecycleConfigInput) (*sagemaker.CreateNotebookInstanceLifecycleConfigOutput, error)
 	CreateNotebookInstanceLifecycleConfigAsync(ctx workflow.Context, input *sagemaker.CreateNotebookInstanceLifecycleConfigInput) *CreateNotebookInstanceLifecycleConfigFuture
 
+	CreatePipeline(ctx workflow.Context, input *sagemaker.CreatePipelineInput) (*sagemaker.CreatePipelineOutput, error)
+	CreatePipelineAsync(ctx workflow.Context, input *sagemaker.CreatePipelineInput) *CreatePipelineFuture
+
 	CreatePresignedDomainUrl(ctx workflow.Context, input *sagemaker.CreatePresignedDomainUrlInput) (*sagemaker.CreatePresignedDomainUrlOutput, error)
 	CreatePresignedDomainUrlAsync(ctx workflow.Context, input *sagemaker.CreatePresignedDomainUrlInput) *CreatePresignedDomainUrlFuture
 
@@ -91,6 +130,9 @@ type Client interface {
 
 	CreateProcessingJob(ctx workflow.Context, input *sagemaker.CreateProcessingJobInput) (*sagemaker.CreateProcessingJobOutput, error)
 	CreateProcessingJobAsync(ctx workflow.Context, input *sagemaker.CreateProcessingJobInput) *CreateProcessingJobFuture
+
+	CreateProject(ctx workflow.Context, input *sagemaker.CreateProjectInput) (*sagemaker.CreateProjectOutput, error)
+	CreateProjectAsync(ctx workflow.Context, input *sagemaker.CreateProjectInput) *CreateProjectFuture
 
 	CreateTrainingJob(ctx workflow.Context, input *sagemaker.CreateTrainingJobInput) (*sagemaker.CreateTrainingJobOutput, error)
 	CreateTrainingJobAsync(ctx workflow.Context, input *sagemaker.CreateTrainingJobInput) *CreateTrainingJobFuture
@@ -113,6 +155,9 @@ type Client interface {
 	CreateWorkteam(ctx workflow.Context, input *sagemaker.CreateWorkteamInput) (*sagemaker.CreateWorkteamOutput, error)
 	CreateWorkteamAsync(ctx workflow.Context, input *sagemaker.CreateWorkteamInput) *CreateWorkteamFuture
 
+	DeleteAction(ctx workflow.Context, input *sagemaker.DeleteActionInput) (*sagemaker.DeleteActionOutput, error)
+	DeleteActionAsync(ctx workflow.Context, input *sagemaker.DeleteActionInput) *DeleteActionFuture
+
 	DeleteAlgorithm(ctx workflow.Context, input *sagemaker.DeleteAlgorithmInput) (*sagemaker.DeleteAlgorithmOutput, error)
 	DeleteAlgorithmAsync(ctx workflow.Context, input *sagemaker.DeleteAlgorithmInput) *DeleteAlgorithmFuture
 
@@ -122,8 +167,23 @@ type Client interface {
 	DeleteAppImageConfig(ctx workflow.Context, input *sagemaker.DeleteAppImageConfigInput) (*sagemaker.DeleteAppImageConfigOutput, error)
 	DeleteAppImageConfigAsync(ctx workflow.Context, input *sagemaker.DeleteAppImageConfigInput) *DeleteAppImageConfigFuture
 
+	DeleteArtifact(ctx workflow.Context, input *sagemaker.DeleteArtifactInput) (*sagemaker.DeleteArtifactOutput, error)
+	DeleteArtifactAsync(ctx workflow.Context, input *sagemaker.DeleteArtifactInput) *DeleteArtifactFuture
+
+	DeleteAssociation(ctx workflow.Context, input *sagemaker.DeleteAssociationInput) (*sagemaker.DeleteAssociationOutput, error)
+	DeleteAssociationAsync(ctx workflow.Context, input *sagemaker.DeleteAssociationInput) *DeleteAssociationFuture
+
 	DeleteCodeRepository(ctx workflow.Context, input *sagemaker.DeleteCodeRepositoryInput) (*sagemaker.DeleteCodeRepositoryOutput, error)
 	DeleteCodeRepositoryAsync(ctx workflow.Context, input *sagemaker.DeleteCodeRepositoryInput) *DeleteCodeRepositoryFuture
+
+	DeleteContext(ctx workflow.Context, input *sagemaker.DeleteContextInput) (*sagemaker.DeleteContextOutput, error)
+	DeleteContextAsync(ctx workflow.Context, input *sagemaker.DeleteContextInput) *DeleteContextFuture
+
+	DeleteDataQualityJobDefinition(ctx workflow.Context, input *sagemaker.DeleteDataQualityJobDefinitionInput) (*sagemaker.DeleteDataQualityJobDefinitionOutput, error)
+	DeleteDataQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DeleteDataQualityJobDefinitionInput) *DeleteDataQualityJobDefinitionFuture
+
+	DeleteDeviceFleet(ctx workflow.Context, input *sagemaker.DeleteDeviceFleetInput) (*sagemaker.DeleteDeviceFleetOutput, error)
+	DeleteDeviceFleetAsync(ctx workflow.Context, input *sagemaker.DeleteDeviceFleetInput) *DeleteDeviceFleetFuture
 
 	DeleteDomain(ctx workflow.Context, input *sagemaker.DeleteDomainInput) (*sagemaker.DeleteDomainOutput, error)
 	DeleteDomainAsync(ctx workflow.Context, input *sagemaker.DeleteDomainInput) *DeleteDomainFuture
@@ -136,6 +196,9 @@ type Client interface {
 
 	DeleteExperiment(ctx workflow.Context, input *sagemaker.DeleteExperimentInput) (*sagemaker.DeleteExperimentOutput, error)
 	DeleteExperimentAsync(ctx workflow.Context, input *sagemaker.DeleteExperimentInput) *DeleteExperimentFuture
+
+	DeleteFeatureGroup(ctx workflow.Context, input *sagemaker.DeleteFeatureGroupInput) (*sagemaker.DeleteFeatureGroupOutput, error)
+	DeleteFeatureGroupAsync(ctx workflow.Context, input *sagemaker.DeleteFeatureGroupInput) *DeleteFeatureGroupFuture
 
 	DeleteFlowDefinition(ctx workflow.Context, input *sagemaker.DeleteFlowDefinitionInput) (*sagemaker.DeleteFlowDefinitionOutput, error)
 	DeleteFlowDefinitionAsync(ctx workflow.Context, input *sagemaker.DeleteFlowDefinitionInput) *DeleteFlowDefinitionFuture
@@ -152,8 +215,23 @@ type Client interface {
 	DeleteModel(ctx workflow.Context, input *sagemaker.DeleteModelInput) (*sagemaker.DeleteModelOutput, error)
 	DeleteModelAsync(ctx workflow.Context, input *sagemaker.DeleteModelInput) *DeleteModelFuture
 
+	DeleteModelBiasJobDefinition(ctx workflow.Context, input *sagemaker.DeleteModelBiasJobDefinitionInput) (*sagemaker.DeleteModelBiasJobDefinitionOutput, error)
+	DeleteModelBiasJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DeleteModelBiasJobDefinitionInput) *DeleteModelBiasJobDefinitionFuture
+
+	DeleteModelExplainabilityJobDefinition(ctx workflow.Context, input *sagemaker.DeleteModelExplainabilityJobDefinitionInput) (*sagemaker.DeleteModelExplainabilityJobDefinitionOutput, error)
+	DeleteModelExplainabilityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DeleteModelExplainabilityJobDefinitionInput) *DeleteModelExplainabilityJobDefinitionFuture
+
 	DeleteModelPackage(ctx workflow.Context, input *sagemaker.DeleteModelPackageInput) (*sagemaker.DeleteModelPackageOutput, error)
 	DeleteModelPackageAsync(ctx workflow.Context, input *sagemaker.DeleteModelPackageInput) *DeleteModelPackageFuture
+
+	DeleteModelPackageGroup(ctx workflow.Context, input *sagemaker.DeleteModelPackageGroupInput) (*sagemaker.DeleteModelPackageGroupOutput, error)
+	DeleteModelPackageGroupAsync(ctx workflow.Context, input *sagemaker.DeleteModelPackageGroupInput) *DeleteModelPackageGroupFuture
+
+	DeleteModelPackageGroupPolicy(ctx workflow.Context, input *sagemaker.DeleteModelPackageGroupPolicyInput) (*sagemaker.DeleteModelPackageGroupPolicyOutput, error)
+	DeleteModelPackageGroupPolicyAsync(ctx workflow.Context, input *sagemaker.DeleteModelPackageGroupPolicyInput) *DeleteModelPackageGroupPolicyFuture
+
+	DeleteModelQualityJobDefinition(ctx workflow.Context, input *sagemaker.DeleteModelQualityJobDefinitionInput) (*sagemaker.DeleteModelQualityJobDefinitionOutput, error)
+	DeleteModelQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DeleteModelQualityJobDefinitionInput) *DeleteModelQualityJobDefinitionFuture
 
 	DeleteMonitoringSchedule(ctx workflow.Context, input *sagemaker.DeleteMonitoringScheduleInput) (*sagemaker.DeleteMonitoringScheduleOutput, error)
 	DeleteMonitoringScheduleAsync(ctx workflow.Context, input *sagemaker.DeleteMonitoringScheduleInput) *DeleteMonitoringScheduleFuture
@@ -163,6 +241,12 @@ type Client interface {
 
 	DeleteNotebookInstanceLifecycleConfig(ctx workflow.Context, input *sagemaker.DeleteNotebookInstanceLifecycleConfigInput) (*sagemaker.DeleteNotebookInstanceLifecycleConfigOutput, error)
 	DeleteNotebookInstanceLifecycleConfigAsync(ctx workflow.Context, input *sagemaker.DeleteNotebookInstanceLifecycleConfigInput) *DeleteNotebookInstanceLifecycleConfigFuture
+
+	DeletePipeline(ctx workflow.Context, input *sagemaker.DeletePipelineInput) (*sagemaker.DeletePipelineOutput, error)
+	DeletePipelineAsync(ctx workflow.Context, input *sagemaker.DeletePipelineInput) *DeletePipelineFuture
+
+	DeleteProject(ctx workflow.Context, input *sagemaker.DeleteProjectInput) (*sagemaker.DeleteProjectOutput, error)
+	DeleteProjectAsync(ctx workflow.Context, input *sagemaker.DeleteProjectInput) *DeleteProjectFuture
 
 	DeleteTags(ctx workflow.Context, input *sagemaker.DeleteTagsInput) (*sagemaker.DeleteTagsOutput, error)
 	DeleteTagsAsync(ctx workflow.Context, input *sagemaker.DeleteTagsInput) *DeleteTagsFuture
@@ -182,6 +266,12 @@ type Client interface {
 	DeleteWorkteam(ctx workflow.Context, input *sagemaker.DeleteWorkteamInput) (*sagemaker.DeleteWorkteamOutput, error)
 	DeleteWorkteamAsync(ctx workflow.Context, input *sagemaker.DeleteWorkteamInput) *DeleteWorkteamFuture
 
+	DeregisterDevices(ctx workflow.Context, input *sagemaker.DeregisterDevicesInput) (*sagemaker.DeregisterDevicesOutput, error)
+	DeregisterDevicesAsync(ctx workflow.Context, input *sagemaker.DeregisterDevicesInput) *DeregisterDevicesFuture
+
+	DescribeAction(ctx workflow.Context, input *sagemaker.DescribeActionInput) (*sagemaker.DescribeActionOutput, error)
+	DescribeActionAsync(ctx workflow.Context, input *sagemaker.DescribeActionInput) *DescribeActionFuture
+
 	DescribeAlgorithm(ctx workflow.Context, input *sagemaker.DescribeAlgorithmInput) (*sagemaker.DescribeAlgorithmOutput, error)
 	DescribeAlgorithmAsync(ctx workflow.Context, input *sagemaker.DescribeAlgorithmInput) *DescribeAlgorithmFuture
 
@@ -190,6 +280,9 @@ type Client interface {
 
 	DescribeAppImageConfig(ctx workflow.Context, input *sagemaker.DescribeAppImageConfigInput) (*sagemaker.DescribeAppImageConfigOutput, error)
 	DescribeAppImageConfigAsync(ctx workflow.Context, input *sagemaker.DescribeAppImageConfigInput) *DescribeAppImageConfigFuture
+
+	DescribeArtifact(ctx workflow.Context, input *sagemaker.DescribeArtifactInput) (*sagemaker.DescribeArtifactOutput, error)
+	DescribeArtifactAsync(ctx workflow.Context, input *sagemaker.DescribeArtifactInput) *DescribeArtifactFuture
 
 	DescribeAutoMLJob(ctx workflow.Context, input *sagemaker.DescribeAutoMLJobInput) (*sagemaker.DescribeAutoMLJobOutput, error)
 	DescribeAutoMLJobAsync(ctx workflow.Context, input *sagemaker.DescribeAutoMLJobInput) *DescribeAutoMLJobFuture
@@ -200,8 +293,23 @@ type Client interface {
 	DescribeCompilationJob(ctx workflow.Context, input *sagemaker.DescribeCompilationJobInput) (*sagemaker.DescribeCompilationJobOutput, error)
 	DescribeCompilationJobAsync(ctx workflow.Context, input *sagemaker.DescribeCompilationJobInput) *DescribeCompilationJobFuture
 
+	DescribeContext(ctx workflow.Context, input *sagemaker.DescribeContextInput) (*sagemaker.DescribeContextOutput, error)
+	DescribeContextAsync(ctx workflow.Context, input *sagemaker.DescribeContextInput) *DescribeContextFuture
+
+	DescribeDataQualityJobDefinition(ctx workflow.Context, input *sagemaker.DescribeDataQualityJobDefinitionInput) (*sagemaker.DescribeDataQualityJobDefinitionOutput, error)
+	DescribeDataQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DescribeDataQualityJobDefinitionInput) *DescribeDataQualityJobDefinitionFuture
+
+	DescribeDevice(ctx workflow.Context, input *sagemaker.DescribeDeviceInput) (*sagemaker.DescribeDeviceOutput, error)
+	DescribeDeviceAsync(ctx workflow.Context, input *sagemaker.DescribeDeviceInput) *DescribeDeviceFuture
+
+	DescribeDeviceFleet(ctx workflow.Context, input *sagemaker.DescribeDeviceFleetInput) (*sagemaker.DescribeDeviceFleetOutput, error)
+	DescribeDeviceFleetAsync(ctx workflow.Context, input *sagemaker.DescribeDeviceFleetInput) *DescribeDeviceFleetFuture
+
 	DescribeDomain(ctx workflow.Context, input *sagemaker.DescribeDomainInput) (*sagemaker.DescribeDomainOutput, error)
 	DescribeDomainAsync(ctx workflow.Context, input *sagemaker.DescribeDomainInput) *DescribeDomainFuture
+
+	DescribeEdgePackagingJob(ctx workflow.Context, input *sagemaker.DescribeEdgePackagingJobInput) (*sagemaker.DescribeEdgePackagingJobOutput, error)
+	DescribeEdgePackagingJobAsync(ctx workflow.Context, input *sagemaker.DescribeEdgePackagingJobInput) *DescribeEdgePackagingJobFuture
 
 	DescribeEndpoint(ctx workflow.Context, input *sagemaker.DescribeEndpointInput) (*sagemaker.DescribeEndpointOutput, error)
 	DescribeEndpointAsync(ctx workflow.Context, input *sagemaker.DescribeEndpointInput) *DescribeEndpointFuture
@@ -211,6 +319,9 @@ type Client interface {
 
 	DescribeExperiment(ctx workflow.Context, input *sagemaker.DescribeExperimentInput) (*sagemaker.DescribeExperimentOutput, error)
 	DescribeExperimentAsync(ctx workflow.Context, input *sagemaker.DescribeExperimentInput) *DescribeExperimentFuture
+
+	DescribeFeatureGroup(ctx workflow.Context, input *sagemaker.DescribeFeatureGroupInput) (*sagemaker.DescribeFeatureGroupOutput, error)
+	DescribeFeatureGroupAsync(ctx workflow.Context, input *sagemaker.DescribeFeatureGroupInput) *DescribeFeatureGroupFuture
 
 	DescribeFlowDefinition(ctx workflow.Context, input *sagemaker.DescribeFlowDefinitionInput) (*sagemaker.DescribeFlowDefinitionOutput, error)
 	DescribeFlowDefinitionAsync(ctx workflow.Context, input *sagemaker.DescribeFlowDefinitionInput) *DescribeFlowDefinitionFuture
@@ -233,8 +344,20 @@ type Client interface {
 	DescribeModel(ctx workflow.Context, input *sagemaker.DescribeModelInput) (*sagemaker.DescribeModelOutput, error)
 	DescribeModelAsync(ctx workflow.Context, input *sagemaker.DescribeModelInput) *DescribeModelFuture
 
+	DescribeModelBiasJobDefinition(ctx workflow.Context, input *sagemaker.DescribeModelBiasJobDefinitionInput) (*sagemaker.DescribeModelBiasJobDefinitionOutput, error)
+	DescribeModelBiasJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DescribeModelBiasJobDefinitionInput) *DescribeModelBiasJobDefinitionFuture
+
+	DescribeModelExplainabilityJobDefinition(ctx workflow.Context, input *sagemaker.DescribeModelExplainabilityJobDefinitionInput) (*sagemaker.DescribeModelExplainabilityJobDefinitionOutput, error)
+	DescribeModelExplainabilityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DescribeModelExplainabilityJobDefinitionInput) *DescribeModelExplainabilityJobDefinitionFuture
+
 	DescribeModelPackage(ctx workflow.Context, input *sagemaker.DescribeModelPackageInput) (*sagemaker.DescribeModelPackageOutput, error)
 	DescribeModelPackageAsync(ctx workflow.Context, input *sagemaker.DescribeModelPackageInput) *DescribeModelPackageFuture
+
+	DescribeModelPackageGroup(ctx workflow.Context, input *sagemaker.DescribeModelPackageGroupInput) (*sagemaker.DescribeModelPackageGroupOutput, error)
+	DescribeModelPackageGroupAsync(ctx workflow.Context, input *sagemaker.DescribeModelPackageGroupInput) *DescribeModelPackageGroupFuture
+
+	DescribeModelQualityJobDefinition(ctx workflow.Context, input *sagemaker.DescribeModelQualityJobDefinitionInput) (*sagemaker.DescribeModelQualityJobDefinitionOutput, error)
+	DescribeModelQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DescribeModelQualityJobDefinitionInput) *DescribeModelQualityJobDefinitionFuture
 
 	DescribeMonitoringSchedule(ctx workflow.Context, input *sagemaker.DescribeMonitoringScheduleInput) (*sagemaker.DescribeMonitoringScheduleOutput, error)
 	DescribeMonitoringScheduleAsync(ctx workflow.Context, input *sagemaker.DescribeMonitoringScheduleInput) *DescribeMonitoringScheduleFuture
@@ -245,8 +368,20 @@ type Client interface {
 	DescribeNotebookInstanceLifecycleConfig(ctx workflow.Context, input *sagemaker.DescribeNotebookInstanceLifecycleConfigInput) (*sagemaker.DescribeNotebookInstanceLifecycleConfigOutput, error)
 	DescribeNotebookInstanceLifecycleConfigAsync(ctx workflow.Context, input *sagemaker.DescribeNotebookInstanceLifecycleConfigInput) *DescribeNotebookInstanceLifecycleConfigFuture
 
+	DescribePipeline(ctx workflow.Context, input *sagemaker.DescribePipelineInput) (*sagemaker.DescribePipelineOutput, error)
+	DescribePipelineAsync(ctx workflow.Context, input *sagemaker.DescribePipelineInput) *DescribePipelineFuture
+
+	DescribePipelineDefinitionForExecution(ctx workflow.Context, input *sagemaker.DescribePipelineDefinitionForExecutionInput) (*sagemaker.DescribePipelineDefinitionForExecutionOutput, error)
+	DescribePipelineDefinitionForExecutionAsync(ctx workflow.Context, input *sagemaker.DescribePipelineDefinitionForExecutionInput) *DescribePipelineDefinitionForExecutionFuture
+
+	DescribePipelineExecution(ctx workflow.Context, input *sagemaker.DescribePipelineExecutionInput) (*sagemaker.DescribePipelineExecutionOutput, error)
+	DescribePipelineExecutionAsync(ctx workflow.Context, input *sagemaker.DescribePipelineExecutionInput) *DescribePipelineExecutionFuture
+
 	DescribeProcessingJob(ctx workflow.Context, input *sagemaker.DescribeProcessingJobInput) (*sagemaker.DescribeProcessingJobOutput, error)
 	DescribeProcessingJobAsync(ctx workflow.Context, input *sagemaker.DescribeProcessingJobInput) *DescribeProcessingJobFuture
+
+	DescribeProject(ctx workflow.Context, input *sagemaker.DescribeProjectInput) (*sagemaker.DescribeProjectOutput, error)
+	DescribeProjectAsync(ctx workflow.Context, input *sagemaker.DescribeProjectInput) *DescribeProjectFuture
 
 	DescribeSubscribedWorkteam(ctx workflow.Context, input *sagemaker.DescribeSubscribedWorkteamInput) (*sagemaker.DescribeSubscribedWorkteamOutput, error)
 	DescribeSubscribedWorkteamAsync(ctx workflow.Context, input *sagemaker.DescribeSubscribedWorkteamInput) *DescribeSubscribedWorkteamFuture
@@ -272,11 +407,29 @@ type Client interface {
 	DescribeWorkteam(ctx workflow.Context, input *sagemaker.DescribeWorkteamInput) (*sagemaker.DescribeWorkteamOutput, error)
 	DescribeWorkteamAsync(ctx workflow.Context, input *sagemaker.DescribeWorkteamInput) *DescribeWorkteamFuture
 
+	DisableSagemakerServicecatalogPortfolio(ctx workflow.Context, input *sagemaker.DisableSagemakerServicecatalogPortfolioInput) (*sagemaker.DisableSagemakerServicecatalogPortfolioOutput, error)
+	DisableSagemakerServicecatalogPortfolioAsync(ctx workflow.Context, input *sagemaker.DisableSagemakerServicecatalogPortfolioInput) *DisableSagemakerServicecatalogPortfolioFuture
+
 	DisassociateTrialComponent(ctx workflow.Context, input *sagemaker.DisassociateTrialComponentInput) (*sagemaker.DisassociateTrialComponentOutput, error)
 	DisassociateTrialComponentAsync(ctx workflow.Context, input *sagemaker.DisassociateTrialComponentInput) *DisassociateTrialComponentFuture
 
+	EnableSagemakerServicecatalogPortfolio(ctx workflow.Context, input *sagemaker.EnableSagemakerServicecatalogPortfolioInput) (*sagemaker.EnableSagemakerServicecatalogPortfolioOutput, error)
+	EnableSagemakerServicecatalogPortfolioAsync(ctx workflow.Context, input *sagemaker.EnableSagemakerServicecatalogPortfolioInput) *EnableSagemakerServicecatalogPortfolioFuture
+
+	GetDeviceFleetReport(ctx workflow.Context, input *sagemaker.GetDeviceFleetReportInput) (*sagemaker.GetDeviceFleetReportOutput, error)
+	GetDeviceFleetReportAsync(ctx workflow.Context, input *sagemaker.GetDeviceFleetReportInput) *GetDeviceFleetReportFuture
+
+	GetModelPackageGroupPolicy(ctx workflow.Context, input *sagemaker.GetModelPackageGroupPolicyInput) (*sagemaker.GetModelPackageGroupPolicyOutput, error)
+	GetModelPackageGroupPolicyAsync(ctx workflow.Context, input *sagemaker.GetModelPackageGroupPolicyInput) *GetModelPackageGroupPolicyFuture
+
+	GetSagemakerServicecatalogPortfolioStatus(ctx workflow.Context, input *sagemaker.GetSagemakerServicecatalogPortfolioStatusInput) (*sagemaker.GetSagemakerServicecatalogPortfolioStatusOutput, error)
+	GetSagemakerServicecatalogPortfolioStatusAsync(ctx workflow.Context, input *sagemaker.GetSagemakerServicecatalogPortfolioStatusInput) *GetSagemakerServicecatalogPortfolioStatusFuture
+
 	GetSearchSuggestions(ctx workflow.Context, input *sagemaker.GetSearchSuggestionsInput) (*sagemaker.GetSearchSuggestionsOutput, error)
 	GetSearchSuggestionsAsync(ctx workflow.Context, input *sagemaker.GetSearchSuggestionsInput) *GetSearchSuggestionsFuture
+
+	ListActions(ctx workflow.Context, input *sagemaker.ListActionsInput) (*sagemaker.ListActionsOutput, error)
+	ListActionsAsync(ctx workflow.Context, input *sagemaker.ListActionsInput) *ListActionsFuture
 
 	ListAlgorithms(ctx workflow.Context, input *sagemaker.ListAlgorithmsInput) (*sagemaker.ListAlgorithmsOutput, error)
 	ListAlgorithmsAsync(ctx workflow.Context, input *sagemaker.ListAlgorithmsInput) *ListAlgorithmsFuture
@@ -286,6 +439,12 @@ type Client interface {
 
 	ListApps(ctx workflow.Context, input *sagemaker.ListAppsInput) (*sagemaker.ListAppsOutput, error)
 	ListAppsAsync(ctx workflow.Context, input *sagemaker.ListAppsInput) *ListAppsFuture
+
+	ListArtifacts(ctx workflow.Context, input *sagemaker.ListArtifactsInput) (*sagemaker.ListArtifactsOutput, error)
+	ListArtifactsAsync(ctx workflow.Context, input *sagemaker.ListArtifactsInput) *ListArtifactsFuture
+
+	ListAssociations(ctx workflow.Context, input *sagemaker.ListAssociationsInput) (*sagemaker.ListAssociationsOutput, error)
+	ListAssociationsAsync(ctx workflow.Context, input *sagemaker.ListAssociationsInput) *ListAssociationsFuture
 
 	ListAutoMLJobs(ctx workflow.Context, input *sagemaker.ListAutoMLJobsInput) (*sagemaker.ListAutoMLJobsOutput, error)
 	ListAutoMLJobsAsync(ctx workflow.Context, input *sagemaker.ListAutoMLJobsInput) *ListAutoMLJobsFuture
@@ -299,8 +458,23 @@ type Client interface {
 	ListCompilationJobs(ctx workflow.Context, input *sagemaker.ListCompilationJobsInput) (*sagemaker.ListCompilationJobsOutput, error)
 	ListCompilationJobsAsync(ctx workflow.Context, input *sagemaker.ListCompilationJobsInput) *ListCompilationJobsFuture
 
+	ListContexts(ctx workflow.Context, input *sagemaker.ListContextsInput) (*sagemaker.ListContextsOutput, error)
+	ListContextsAsync(ctx workflow.Context, input *sagemaker.ListContextsInput) *ListContextsFuture
+
+	ListDataQualityJobDefinitions(ctx workflow.Context, input *sagemaker.ListDataQualityJobDefinitionsInput) (*sagemaker.ListDataQualityJobDefinitionsOutput, error)
+	ListDataQualityJobDefinitionsAsync(ctx workflow.Context, input *sagemaker.ListDataQualityJobDefinitionsInput) *ListDataQualityJobDefinitionsFuture
+
+	ListDeviceFleets(ctx workflow.Context, input *sagemaker.ListDeviceFleetsInput) (*sagemaker.ListDeviceFleetsOutput, error)
+	ListDeviceFleetsAsync(ctx workflow.Context, input *sagemaker.ListDeviceFleetsInput) *ListDeviceFleetsFuture
+
+	ListDevices(ctx workflow.Context, input *sagemaker.ListDevicesInput) (*sagemaker.ListDevicesOutput, error)
+	ListDevicesAsync(ctx workflow.Context, input *sagemaker.ListDevicesInput) *ListDevicesFuture
+
 	ListDomains(ctx workflow.Context, input *sagemaker.ListDomainsInput) (*sagemaker.ListDomainsOutput, error)
 	ListDomainsAsync(ctx workflow.Context, input *sagemaker.ListDomainsInput) *ListDomainsFuture
+
+	ListEdgePackagingJobs(ctx workflow.Context, input *sagemaker.ListEdgePackagingJobsInput) (*sagemaker.ListEdgePackagingJobsOutput, error)
+	ListEdgePackagingJobsAsync(ctx workflow.Context, input *sagemaker.ListEdgePackagingJobsInput) *ListEdgePackagingJobsFuture
 
 	ListEndpointConfigs(ctx workflow.Context, input *sagemaker.ListEndpointConfigsInput) (*sagemaker.ListEndpointConfigsOutput, error)
 	ListEndpointConfigsAsync(ctx workflow.Context, input *sagemaker.ListEndpointConfigsInput) *ListEndpointConfigsFuture
@@ -310,6 +484,9 @@ type Client interface {
 
 	ListExperiments(ctx workflow.Context, input *sagemaker.ListExperimentsInput) (*sagemaker.ListExperimentsOutput, error)
 	ListExperimentsAsync(ctx workflow.Context, input *sagemaker.ListExperimentsInput) *ListExperimentsFuture
+
+	ListFeatureGroups(ctx workflow.Context, input *sagemaker.ListFeatureGroupsInput) (*sagemaker.ListFeatureGroupsOutput, error)
+	ListFeatureGroupsAsync(ctx workflow.Context, input *sagemaker.ListFeatureGroupsInput) *ListFeatureGroupsFuture
 
 	ListFlowDefinitions(ctx workflow.Context, input *sagemaker.ListFlowDefinitionsInput) (*sagemaker.ListFlowDefinitionsOutput, error)
 	ListFlowDefinitionsAsync(ctx workflow.Context, input *sagemaker.ListFlowDefinitionsInput) *ListFlowDefinitionsFuture
@@ -332,8 +509,20 @@ type Client interface {
 	ListLabelingJobsForWorkteam(ctx workflow.Context, input *sagemaker.ListLabelingJobsForWorkteamInput) (*sagemaker.ListLabelingJobsForWorkteamOutput, error)
 	ListLabelingJobsForWorkteamAsync(ctx workflow.Context, input *sagemaker.ListLabelingJobsForWorkteamInput) *ListLabelingJobsForWorkteamFuture
 
+	ListModelBiasJobDefinitions(ctx workflow.Context, input *sagemaker.ListModelBiasJobDefinitionsInput) (*sagemaker.ListModelBiasJobDefinitionsOutput, error)
+	ListModelBiasJobDefinitionsAsync(ctx workflow.Context, input *sagemaker.ListModelBiasJobDefinitionsInput) *ListModelBiasJobDefinitionsFuture
+
+	ListModelExplainabilityJobDefinitions(ctx workflow.Context, input *sagemaker.ListModelExplainabilityJobDefinitionsInput) (*sagemaker.ListModelExplainabilityJobDefinitionsOutput, error)
+	ListModelExplainabilityJobDefinitionsAsync(ctx workflow.Context, input *sagemaker.ListModelExplainabilityJobDefinitionsInput) *ListModelExplainabilityJobDefinitionsFuture
+
+	ListModelPackageGroups(ctx workflow.Context, input *sagemaker.ListModelPackageGroupsInput) (*sagemaker.ListModelPackageGroupsOutput, error)
+	ListModelPackageGroupsAsync(ctx workflow.Context, input *sagemaker.ListModelPackageGroupsInput) *ListModelPackageGroupsFuture
+
 	ListModelPackages(ctx workflow.Context, input *sagemaker.ListModelPackagesInput) (*sagemaker.ListModelPackagesOutput, error)
 	ListModelPackagesAsync(ctx workflow.Context, input *sagemaker.ListModelPackagesInput) *ListModelPackagesFuture
+
+	ListModelQualityJobDefinitions(ctx workflow.Context, input *sagemaker.ListModelQualityJobDefinitionsInput) (*sagemaker.ListModelQualityJobDefinitionsOutput, error)
+	ListModelQualityJobDefinitionsAsync(ctx workflow.Context, input *sagemaker.ListModelQualityJobDefinitionsInput) *ListModelQualityJobDefinitionsFuture
 
 	ListModels(ctx workflow.Context, input *sagemaker.ListModelsInput) (*sagemaker.ListModelsOutput, error)
 	ListModelsAsync(ctx workflow.Context, input *sagemaker.ListModelsInput) *ListModelsFuture
@@ -350,8 +539,23 @@ type Client interface {
 	ListNotebookInstances(ctx workflow.Context, input *sagemaker.ListNotebookInstancesInput) (*sagemaker.ListNotebookInstancesOutput, error)
 	ListNotebookInstancesAsync(ctx workflow.Context, input *sagemaker.ListNotebookInstancesInput) *ListNotebookInstancesFuture
 
+	ListPipelineExecutionSteps(ctx workflow.Context, input *sagemaker.ListPipelineExecutionStepsInput) (*sagemaker.ListPipelineExecutionStepsOutput, error)
+	ListPipelineExecutionStepsAsync(ctx workflow.Context, input *sagemaker.ListPipelineExecutionStepsInput) *ListPipelineExecutionStepsFuture
+
+	ListPipelineExecutions(ctx workflow.Context, input *sagemaker.ListPipelineExecutionsInput) (*sagemaker.ListPipelineExecutionsOutput, error)
+	ListPipelineExecutionsAsync(ctx workflow.Context, input *sagemaker.ListPipelineExecutionsInput) *ListPipelineExecutionsFuture
+
+	ListPipelineParametersForExecution(ctx workflow.Context, input *sagemaker.ListPipelineParametersForExecutionInput) (*sagemaker.ListPipelineParametersForExecutionOutput, error)
+	ListPipelineParametersForExecutionAsync(ctx workflow.Context, input *sagemaker.ListPipelineParametersForExecutionInput) *ListPipelineParametersForExecutionFuture
+
+	ListPipelines(ctx workflow.Context, input *sagemaker.ListPipelinesInput) (*sagemaker.ListPipelinesOutput, error)
+	ListPipelinesAsync(ctx workflow.Context, input *sagemaker.ListPipelinesInput) *ListPipelinesFuture
+
 	ListProcessingJobs(ctx workflow.Context, input *sagemaker.ListProcessingJobsInput) (*sagemaker.ListProcessingJobsOutput, error)
 	ListProcessingJobsAsync(ctx workflow.Context, input *sagemaker.ListProcessingJobsInput) *ListProcessingJobsFuture
+
+	ListProjects(ctx workflow.Context, input *sagemaker.ListProjectsInput) (*sagemaker.ListProjectsOutput, error)
+	ListProjectsAsync(ctx workflow.Context, input *sagemaker.ListProjectsInput) *ListProjectsFuture
 
 	ListSubscribedWorkteams(ctx workflow.Context, input *sagemaker.ListSubscribedWorkteamsInput) (*sagemaker.ListSubscribedWorkteamsOutput, error)
 	ListSubscribedWorkteamsAsync(ctx workflow.Context, input *sagemaker.ListSubscribedWorkteamsInput) *ListSubscribedWorkteamsFuture
@@ -383,6 +587,12 @@ type Client interface {
 	ListWorkteams(ctx workflow.Context, input *sagemaker.ListWorkteamsInput) (*sagemaker.ListWorkteamsOutput, error)
 	ListWorkteamsAsync(ctx workflow.Context, input *sagemaker.ListWorkteamsInput) *ListWorkteamsFuture
 
+	PutModelPackageGroupPolicy(ctx workflow.Context, input *sagemaker.PutModelPackageGroupPolicyInput) (*sagemaker.PutModelPackageGroupPolicyOutput, error)
+	PutModelPackageGroupPolicyAsync(ctx workflow.Context, input *sagemaker.PutModelPackageGroupPolicyInput) *PutModelPackageGroupPolicyFuture
+
+	RegisterDevices(ctx workflow.Context, input *sagemaker.RegisterDevicesInput) (*sagemaker.RegisterDevicesOutput, error)
+	RegisterDevicesAsync(ctx workflow.Context, input *sagemaker.RegisterDevicesInput) *RegisterDevicesFuture
+
 	RenderUiTemplate(ctx workflow.Context, input *sagemaker.RenderUiTemplateInput) (*sagemaker.RenderUiTemplateOutput, error)
 	RenderUiTemplateAsync(ctx workflow.Context, input *sagemaker.RenderUiTemplateInput) *RenderUiTemplateFuture
 
@@ -395,11 +605,17 @@ type Client interface {
 	StartNotebookInstance(ctx workflow.Context, input *sagemaker.StartNotebookInstanceInput) (*sagemaker.StartNotebookInstanceOutput, error)
 	StartNotebookInstanceAsync(ctx workflow.Context, input *sagemaker.StartNotebookInstanceInput) *StartNotebookInstanceFuture
 
+	StartPipelineExecution(ctx workflow.Context, input *sagemaker.StartPipelineExecutionInput) (*sagemaker.StartPipelineExecutionOutput, error)
+	StartPipelineExecutionAsync(ctx workflow.Context, input *sagemaker.StartPipelineExecutionInput) *StartPipelineExecutionFuture
+
 	StopAutoMLJob(ctx workflow.Context, input *sagemaker.StopAutoMLJobInput) (*sagemaker.StopAutoMLJobOutput, error)
 	StopAutoMLJobAsync(ctx workflow.Context, input *sagemaker.StopAutoMLJobInput) *StopAutoMLJobFuture
 
 	StopCompilationJob(ctx workflow.Context, input *sagemaker.StopCompilationJobInput) (*sagemaker.StopCompilationJobOutput, error)
 	StopCompilationJobAsync(ctx workflow.Context, input *sagemaker.StopCompilationJobInput) *StopCompilationJobFuture
+
+	StopEdgePackagingJob(ctx workflow.Context, input *sagemaker.StopEdgePackagingJobInput) (*sagemaker.StopEdgePackagingJobOutput, error)
+	StopEdgePackagingJobAsync(ctx workflow.Context, input *sagemaker.StopEdgePackagingJobInput) *StopEdgePackagingJobFuture
 
 	StopHyperParameterTuningJob(ctx workflow.Context, input *sagemaker.StopHyperParameterTuningJobInput) (*sagemaker.StopHyperParameterTuningJobOutput, error)
 	StopHyperParameterTuningJobAsync(ctx workflow.Context, input *sagemaker.StopHyperParameterTuningJobInput) *StopHyperParameterTuningJobFuture
@@ -413,6 +629,9 @@ type Client interface {
 	StopNotebookInstance(ctx workflow.Context, input *sagemaker.StopNotebookInstanceInput) (*sagemaker.StopNotebookInstanceOutput, error)
 	StopNotebookInstanceAsync(ctx workflow.Context, input *sagemaker.StopNotebookInstanceInput) *StopNotebookInstanceFuture
 
+	StopPipelineExecution(ctx workflow.Context, input *sagemaker.StopPipelineExecutionInput) (*sagemaker.StopPipelineExecutionOutput, error)
+	StopPipelineExecutionAsync(ctx workflow.Context, input *sagemaker.StopPipelineExecutionInput) *StopPipelineExecutionFuture
+
 	StopProcessingJob(ctx workflow.Context, input *sagemaker.StopProcessingJobInput) (*sagemaker.StopProcessingJobOutput, error)
 	StopProcessingJobAsync(ctx workflow.Context, input *sagemaker.StopProcessingJobInput) *StopProcessingJobFuture
 
@@ -422,11 +641,26 @@ type Client interface {
 	StopTransformJob(ctx workflow.Context, input *sagemaker.StopTransformJobInput) (*sagemaker.StopTransformJobOutput, error)
 	StopTransformJobAsync(ctx workflow.Context, input *sagemaker.StopTransformJobInput) *StopTransformJobFuture
 
+	UpdateAction(ctx workflow.Context, input *sagemaker.UpdateActionInput) (*sagemaker.UpdateActionOutput, error)
+	UpdateActionAsync(ctx workflow.Context, input *sagemaker.UpdateActionInput) *UpdateActionFuture
+
 	UpdateAppImageConfig(ctx workflow.Context, input *sagemaker.UpdateAppImageConfigInput) (*sagemaker.UpdateAppImageConfigOutput, error)
 	UpdateAppImageConfigAsync(ctx workflow.Context, input *sagemaker.UpdateAppImageConfigInput) *UpdateAppImageConfigFuture
 
+	UpdateArtifact(ctx workflow.Context, input *sagemaker.UpdateArtifactInput) (*sagemaker.UpdateArtifactOutput, error)
+	UpdateArtifactAsync(ctx workflow.Context, input *sagemaker.UpdateArtifactInput) *UpdateArtifactFuture
+
 	UpdateCodeRepository(ctx workflow.Context, input *sagemaker.UpdateCodeRepositoryInput) (*sagemaker.UpdateCodeRepositoryOutput, error)
 	UpdateCodeRepositoryAsync(ctx workflow.Context, input *sagemaker.UpdateCodeRepositoryInput) *UpdateCodeRepositoryFuture
+
+	UpdateContext(ctx workflow.Context, input *sagemaker.UpdateContextInput) (*sagemaker.UpdateContextOutput, error)
+	UpdateContextAsync(ctx workflow.Context, input *sagemaker.UpdateContextInput) *UpdateContextFuture
+
+	UpdateDeviceFleet(ctx workflow.Context, input *sagemaker.UpdateDeviceFleetInput) (*sagemaker.UpdateDeviceFleetOutput, error)
+	UpdateDeviceFleetAsync(ctx workflow.Context, input *sagemaker.UpdateDeviceFleetInput) *UpdateDeviceFleetFuture
+
+	UpdateDevices(ctx workflow.Context, input *sagemaker.UpdateDevicesInput) (*sagemaker.UpdateDevicesOutput, error)
+	UpdateDevicesAsync(ctx workflow.Context, input *sagemaker.UpdateDevicesInput) *UpdateDevicesFuture
 
 	UpdateDomain(ctx workflow.Context, input *sagemaker.UpdateDomainInput) (*sagemaker.UpdateDomainOutput, error)
 	UpdateDomainAsync(ctx workflow.Context, input *sagemaker.UpdateDomainInput) *UpdateDomainFuture
@@ -443,6 +677,9 @@ type Client interface {
 	UpdateImage(ctx workflow.Context, input *sagemaker.UpdateImageInput) (*sagemaker.UpdateImageOutput, error)
 	UpdateImageAsync(ctx workflow.Context, input *sagemaker.UpdateImageInput) *UpdateImageFuture
 
+	UpdateModelPackage(ctx workflow.Context, input *sagemaker.UpdateModelPackageInput) (*sagemaker.UpdateModelPackageOutput, error)
+	UpdateModelPackageAsync(ctx workflow.Context, input *sagemaker.UpdateModelPackageInput) *UpdateModelPackageFuture
+
 	UpdateMonitoringSchedule(ctx workflow.Context, input *sagemaker.UpdateMonitoringScheduleInput) (*sagemaker.UpdateMonitoringScheduleOutput, error)
 	UpdateMonitoringScheduleAsync(ctx workflow.Context, input *sagemaker.UpdateMonitoringScheduleInput) *UpdateMonitoringScheduleFuture
 
@@ -451,6 +688,15 @@ type Client interface {
 
 	UpdateNotebookInstanceLifecycleConfig(ctx workflow.Context, input *sagemaker.UpdateNotebookInstanceLifecycleConfigInput) (*sagemaker.UpdateNotebookInstanceLifecycleConfigOutput, error)
 	UpdateNotebookInstanceLifecycleConfigAsync(ctx workflow.Context, input *sagemaker.UpdateNotebookInstanceLifecycleConfigInput) *UpdateNotebookInstanceLifecycleConfigFuture
+
+	UpdatePipeline(ctx workflow.Context, input *sagemaker.UpdatePipelineInput) (*sagemaker.UpdatePipelineOutput, error)
+	UpdatePipelineAsync(ctx workflow.Context, input *sagemaker.UpdatePipelineInput) *UpdatePipelineFuture
+
+	UpdatePipelineExecution(ctx workflow.Context, input *sagemaker.UpdatePipelineExecutionInput) (*sagemaker.UpdatePipelineExecutionOutput, error)
+	UpdatePipelineExecutionAsync(ctx workflow.Context, input *sagemaker.UpdatePipelineExecutionInput) *UpdatePipelineExecutionFuture
+
+	UpdateTrainingJob(ctx workflow.Context, input *sagemaker.UpdateTrainingJobInput) (*sagemaker.UpdateTrainingJobOutput, error)
+	UpdateTrainingJobAsync(ctx workflow.Context, input *sagemaker.UpdateTrainingJobInput) *UpdateTrainingJobFuture
 
 	UpdateTrial(ctx workflow.Context, input *sagemaker.UpdateTrialInput) (*sagemaker.UpdateTrialOutput, error)
 	UpdateTrialAsync(ctx workflow.Context, input *sagemaker.UpdateTrialInput) *UpdateTrialFuture

@@ -161,16 +161,6 @@ func (a *Activities) CreatePortal(ctx context.Context, input *iotsitewise.Create
 	return output, internal.EncodeError(err)
 }
 
-func (a *Activities) CreatePresignedPortalUrl(ctx context.Context, input *iotsitewise.CreatePresignedPortalUrlInput) (*iotsitewise.CreatePresignedPortalUrlOutput, error) {
-	client, err := a.getClient(ctx)
-	if err != nil {
-		return nil, internal.EncodeError(err)
-	}
-	output, err := client.CreatePresignedPortalUrlWithContext(ctx, input)
-
-	return output, internal.EncodeError(err)
-}
-
 func (a *Activities) CreateProject(ctx context.Context, input *iotsitewise.CreateProjectInput) (*iotsitewise.CreateProjectOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -308,6 +298,16 @@ func (a *Activities) DescribeDashboard(ctx context.Context, input *iotsitewise.D
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeDefaultEncryptionConfiguration(ctx context.Context, input *iotsitewise.DescribeDefaultEncryptionConfigurationInput) (*iotsitewise.DescribeDefaultEncryptionConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeDefaultEncryptionConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeGateway(ctx context.Context, input *iotsitewise.DescribeGatewayInput) (*iotsitewise.DescribeGatewayOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -419,6 +419,16 @@ func (a *Activities) ListAssetModels(ctx context.Context, input *iotsitewise.Lis
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListAssetRelationships(ctx context.Context, input *iotsitewise.ListAssetRelationshipsInput) (*iotsitewise.ListAssetRelationshipsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListAssetRelationshipsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListAssets(ctx context.Context, input *iotsitewise.ListAssetsInput) (*iotsitewise.ListAssetsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -495,6 +505,16 @@ func (a *Activities) ListTagsForResource(ctx context.Context, input *iotsitewise
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListTagsForResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutDefaultEncryptionConfiguration(ctx context.Context, input *iotsitewise.PutDefaultEncryptionConfigurationInput) (*iotsitewise.PutDefaultEncryptionConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutDefaultEncryptionConfigurationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

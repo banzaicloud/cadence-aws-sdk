@@ -44,8 +44,17 @@ type Client interface {
 	ListRepositoryAssociations(ctx workflow.Context, input *codegurureviewer.ListRepositoryAssociationsInput) (*codegurureviewer.ListRepositoryAssociationsOutput, error)
 	ListRepositoryAssociationsAsync(ctx workflow.Context, input *codegurureviewer.ListRepositoryAssociationsInput) *ListRepositoryAssociationsFuture
 
+	ListTagsForResource(ctx workflow.Context, input *codegurureviewer.ListTagsForResourceInput) (*codegurureviewer.ListTagsForResourceOutput, error)
+	ListTagsForResourceAsync(ctx workflow.Context, input *codegurureviewer.ListTagsForResourceInput) *ListTagsForResourceFuture
+
 	PutRecommendationFeedback(ctx workflow.Context, input *codegurureviewer.PutRecommendationFeedbackInput) (*codegurureviewer.PutRecommendationFeedbackOutput, error)
 	PutRecommendationFeedbackAsync(ctx workflow.Context, input *codegurureviewer.PutRecommendationFeedbackInput) *PutRecommendationFeedbackFuture
+
+	TagResource(ctx workflow.Context, input *codegurureviewer.TagResourceInput) (*codegurureviewer.TagResourceOutput, error)
+	TagResourceAsync(ctx workflow.Context, input *codegurureviewer.TagResourceInput) *TagResourceFuture
+
+	UntagResource(ctx workflow.Context, input *codegurureviewer.UntagResourceInput) (*codegurureviewer.UntagResourceOutput, error)
+	UntagResourceAsync(ctx workflow.Context, input *codegurureviewer.UntagResourceInput) *UntagResourceFuture
 }
 
 func NewClient() Client {

@@ -73,6 +73,16 @@ func (a *Activities) AddIpRoutes(ctx context.Context, input *directoryservice.Ad
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) AddRegion(ctx context.Context, input *directoryservice.AddRegionInput) (*directoryservice.AddRegionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.AddRegionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) AddTagsToResource(ctx context.Context, input *directoryservice.AddTagsToResourceInput) (*directoryservice.AddTagsToResourceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -313,6 +323,16 @@ func (a *Activities) DescribeLDAPSSettings(ctx context.Context, input *directory
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeRegions(ctx context.Context, input *directoryservice.DescribeRegionsInput) (*directoryservice.DescribeRegionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeRegionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeSharedDirectories(ctx context.Context, input *directoryservice.DescribeSharedDirectoriesInput) (*directoryservice.DescribeSharedDirectoriesOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -343,6 +363,16 @@ func (a *Activities) DescribeTrusts(ctx context.Context, input *directoryservice
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DisableClientAuthentication(ctx context.Context, input *directoryservice.DisableClientAuthenticationInput) (*directoryservice.DisableClientAuthenticationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DisableClientAuthenticationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DisableLDAPS(ctx context.Context, input *directoryservice.DisableLDAPSInput) (*directoryservice.DisableLDAPSOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -369,6 +399,16 @@ func (a *Activities) DisableSso(ctx context.Context, input *directoryservice.Dis
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DisableSsoWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) EnableClientAuthentication(ctx context.Context, input *directoryservice.EnableClientAuthenticationInput) (*directoryservice.EnableClientAuthenticationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.EnableClientAuthenticationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -509,6 +549,16 @@ func (a *Activities) RemoveIpRoutes(ctx context.Context, input *directoryservice
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.RemoveIpRoutesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) RemoveRegion(ctx context.Context, input *directoryservice.RemoveRegionInput) (*directoryservice.RemoveRegionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RemoveRegionWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

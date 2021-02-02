@@ -53,6 +53,16 @@ func (a *Activities) getClient(ctx context.Context) (transcribestreamingservicei
 	return transcribestreamingservice.New(sess), nil
 }
 
+func (a *Activities) StartMedicalStreamTranscription(ctx context.Context, input *transcribestreamingservice.StartMedicalStreamTranscriptionInput) (*transcribestreamingservice.StartMedicalStreamTranscriptionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StartMedicalStreamTranscriptionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) StartStreamTranscription(ctx context.Context, input *transcribestreamingservice.StartStreamTranscriptionInput) (*transcribestreamingservice.StartStreamTranscriptionOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

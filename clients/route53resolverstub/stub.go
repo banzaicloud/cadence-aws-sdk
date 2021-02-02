@@ -147,6 +147,17 @@ func (r *DisassociateResolverRuleFuture) Get(ctx workflow.Context) (*route53reso
 	return &output, err
 }
 
+type GetResolverDnssecConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetResolverDnssecConfigFuture) Get(ctx workflow.Context) (*route53resolver.GetResolverDnssecConfigOutput, error) {
+	var output route53resolver.GetResolverDnssecConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetResolverEndpointFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -220,6 +231,17 @@ type GetResolverRulePolicyFuture struct {
 
 func (r *GetResolverRulePolicyFuture) Get(ctx workflow.Context) (*route53resolver.GetResolverRulePolicyOutput, error) {
 	var output route53resolver.GetResolverRulePolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListResolverDnssecConfigsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListResolverDnssecConfigsFuture) Get(ctx workflow.Context) (*route53resolver.ListResolverDnssecConfigsOutput, error) {
+	var output route53resolver.ListResolverDnssecConfigsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -341,6 +363,17 @@ type UntagResourceFuture struct {
 
 func (r *UntagResourceFuture) Get(ctx workflow.Context) (*route53resolver.UntagResourceOutput, error) {
 	var output route53resolver.UntagResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateResolverDnssecConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateResolverDnssecConfigFuture) Get(ctx workflow.Context) (*route53resolver.UpdateResolverDnssecConfigOutput, error) {
+	var output route53resolver.UpdateResolverDnssecConfigOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -499,6 +532,17 @@ func (a *stub) DisassociateResolverRuleAsync(ctx workflow.Context, input *route5
 	return &DisassociateResolverRuleFuture{Future: future}
 }
 
+func (a *stub) GetResolverDnssecConfig(ctx workflow.Context, input *route53resolver.GetResolverDnssecConfigInput) (*route53resolver.GetResolverDnssecConfigOutput, error) {
+	var output route53resolver.GetResolverDnssecConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-route53resolver-GetResolverDnssecConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetResolverDnssecConfigAsync(ctx workflow.Context, input *route53resolver.GetResolverDnssecConfigInput) *GetResolverDnssecConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-route53resolver-GetResolverDnssecConfig", input)
+	return &GetResolverDnssecConfigFuture{Future: future}
+}
+
 func (a *stub) GetResolverEndpoint(ctx workflow.Context, input *route53resolver.GetResolverEndpointInput) (*route53resolver.GetResolverEndpointOutput, error) {
 	var output route53resolver.GetResolverEndpointOutput
 	err := workflow.ExecuteActivity(ctx, "aws-route53resolver-GetResolverEndpoint", input).Get(ctx, &output)
@@ -574,6 +618,17 @@ func (a *stub) GetResolverRulePolicy(ctx workflow.Context, input *route53resolve
 func (a *stub) GetResolverRulePolicyAsync(ctx workflow.Context, input *route53resolver.GetResolverRulePolicyInput) *GetResolverRulePolicyFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-route53resolver-GetResolverRulePolicy", input)
 	return &GetResolverRulePolicyFuture{Future: future}
+}
+
+func (a *stub) ListResolverDnssecConfigs(ctx workflow.Context, input *route53resolver.ListResolverDnssecConfigsInput) (*route53resolver.ListResolverDnssecConfigsOutput, error) {
+	var output route53resolver.ListResolverDnssecConfigsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-route53resolver-ListResolverDnssecConfigs", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListResolverDnssecConfigsAsync(ctx workflow.Context, input *route53resolver.ListResolverDnssecConfigsInput) *ListResolverDnssecConfigsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-route53resolver-ListResolverDnssecConfigs", input)
+	return &ListResolverDnssecConfigsFuture{Future: future}
 }
 
 func (a *stub) ListResolverEndpointIpAddresses(ctx workflow.Context, input *route53resolver.ListResolverEndpointIpAddressesInput) (*route53resolver.ListResolverEndpointIpAddressesOutput, error) {
@@ -695,6 +750,17 @@ func (a *stub) UntagResource(ctx workflow.Context, input *route53resolver.UntagR
 func (a *stub) UntagResourceAsync(ctx workflow.Context, input *route53resolver.UntagResourceInput) *UntagResourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-route53resolver-UntagResource", input)
 	return &UntagResourceFuture{Future: future}
+}
+
+func (a *stub) UpdateResolverDnssecConfig(ctx workflow.Context, input *route53resolver.UpdateResolverDnssecConfigInput) (*route53resolver.UpdateResolverDnssecConfigOutput, error) {
+	var output route53resolver.UpdateResolverDnssecConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-route53resolver-UpdateResolverDnssecConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateResolverDnssecConfigAsync(ctx workflow.Context, input *route53resolver.UpdateResolverDnssecConfigInput) *UpdateResolverDnssecConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-route53resolver-UpdateResolverDnssecConfig", input)
+	return &UpdateResolverDnssecConfigFuture{Future: future}
 }
 
 func (a *stub) UpdateResolverEndpoint(ctx workflow.Context, input *route53resolver.UpdateResolverEndpointInput) (*route53resolver.UpdateResolverEndpointOutput, error) {

@@ -103,6 +103,50 @@ func (r *GetGroupsFuture) Get(ctx workflow.Context) (*xray.GetGroupsOutput, erro
 	return &output, err
 }
 
+type GetInsightFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetInsightFuture) Get(ctx workflow.Context) (*xray.GetInsightOutput, error) {
+	var output xray.GetInsightOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetInsightEventsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetInsightEventsFuture) Get(ctx workflow.Context) (*xray.GetInsightEventsOutput, error) {
+	var output xray.GetInsightEventsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetInsightImpactGraphFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetInsightImpactGraphFuture) Get(ctx workflow.Context) (*xray.GetInsightImpactGraphOutput, error) {
+	var output xray.GetInsightImpactGraphOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetInsightSummariesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetInsightSummariesFuture) Get(ctx workflow.Context) (*xray.GetInsightSummariesOutput, error) {
+	var output xray.GetInsightSummariesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetSamplingRulesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -354,6 +398,50 @@ func (a *stub) GetGroups(ctx workflow.Context, input *xray.GetGroupsInput) (*xra
 func (a *stub) GetGroupsAsync(ctx workflow.Context, input *xray.GetGroupsInput) *GetGroupsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-xray-GetGroups", input)
 	return &GetGroupsFuture{Future: future}
+}
+
+func (a *stub) GetInsight(ctx workflow.Context, input *xray.GetInsightInput) (*xray.GetInsightOutput, error) {
+	var output xray.GetInsightOutput
+	err := workflow.ExecuteActivity(ctx, "aws-xray-GetInsight", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetInsightAsync(ctx workflow.Context, input *xray.GetInsightInput) *GetInsightFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-xray-GetInsight", input)
+	return &GetInsightFuture{Future: future}
+}
+
+func (a *stub) GetInsightEvents(ctx workflow.Context, input *xray.GetInsightEventsInput) (*xray.GetInsightEventsOutput, error) {
+	var output xray.GetInsightEventsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-xray-GetInsightEvents", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetInsightEventsAsync(ctx workflow.Context, input *xray.GetInsightEventsInput) *GetInsightEventsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-xray-GetInsightEvents", input)
+	return &GetInsightEventsFuture{Future: future}
+}
+
+func (a *stub) GetInsightImpactGraph(ctx workflow.Context, input *xray.GetInsightImpactGraphInput) (*xray.GetInsightImpactGraphOutput, error) {
+	var output xray.GetInsightImpactGraphOutput
+	err := workflow.ExecuteActivity(ctx, "aws-xray-GetInsightImpactGraph", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetInsightImpactGraphAsync(ctx workflow.Context, input *xray.GetInsightImpactGraphInput) *GetInsightImpactGraphFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-xray-GetInsightImpactGraph", input)
+	return &GetInsightImpactGraphFuture{Future: future}
+}
+
+func (a *stub) GetInsightSummaries(ctx workflow.Context, input *xray.GetInsightSummariesInput) (*xray.GetInsightSummariesOutput, error) {
+	var output xray.GetInsightSummariesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-xray-GetInsightSummaries", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetInsightSummariesAsync(ctx workflow.Context, input *xray.GetInsightSummariesInput) *GetInsightSummariesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-xray-GetInsightSummaries", input)
+	return &GetInsightSummariesFuture{Future: future}
 }
 
 func (a *stub) GetSamplingRules(ctx workflow.Context, input *xray.GetSamplingRulesInput) (*xray.GetSamplingRulesOutput, error) {

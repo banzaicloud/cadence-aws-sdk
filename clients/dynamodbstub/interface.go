@@ -14,6 +14,9 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	BatchExecuteStatement(ctx workflow.Context, input *dynamodb.BatchExecuteStatementInput) (*dynamodb.BatchExecuteStatementOutput, error)
+	BatchExecuteStatementAsync(ctx workflow.Context, input *dynamodb.BatchExecuteStatementInput) *BatchExecuteStatementFuture
+
 	BatchGetItem(ctx workflow.Context, input *dynamodb.BatchGetItemInput) (*dynamodb.BatchGetItemOutput, error)
 	BatchGetItemAsync(ctx workflow.Context, input *dynamodb.BatchGetItemInput) *BatchGetItemFuture
 
@@ -50,11 +53,17 @@ type Client interface {
 	DescribeEndpoints(ctx workflow.Context, input *dynamodb.DescribeEndpointsInput) (*dynamodb.DescribeEndpointsOutput, error)
 	DescribeEndpointsAsync(ctx workflow.Context, input *dynamodb.DescribeEndpointsInput) *DescribeEndpointsFuture
 
+	DescribeExport(ctx workflow.Context, input *dynamodb.DescribeExportInput) (*dynamodb.DescribeExportOutput, error)
+	DescribeExportAsync(ctx workflow.Context, input *dynamodb.DescribeExportInput) *DescribeExportFuture
+
 	DescribeGlobalTable(ctx workflow.Context, input *dynamodb.DescribeGlobalTableInput) (*dynamodb.DescribeGlobalTableOutput, error)
 	DescribeGlobalTableAsync(ctx workflow.Context, input *dynamodb.DescribeGlobalTableInput) *DescribeGlobalTableFuture
 
 	DescribeGlobalTableSettings(ctx workflow.Context, input *dynamodb.DescribeGlobalTableSettingsInput) (*dynamodb.DescribeGlobalTableSettingsOutput, error)
 	DescribeGlobalTableSettingsAsync(ctx workflow.Context, input *dynamodb.DescribeGlobalTableSettingsInput) *DescribeGlobalTableSettingsFuture
+
+	DescribeKinesisStreamingDestination(ctx workflow.Context, input *dynamodb.DescribeKinesisStreamingDestinationInput) (*dynamodb.DescribeKinesisStreamingDestinationOutput, error)
+	DescribeKinesisStreamingDestinationAsync(ctx workflow.Context, input *dynamodb.DescribeKinesisStreamingDestinationInput) *DescribeKinesisStreamingDestinationFuture
 
 	DescribeLimits(ctx workflow.Context, input *dynamodb.DescribeLimitsInput) (*dynamodb.DescribeLimitsOutput, error)
 	DescribeLimitsAsync(ctx workflow.Context, input *dynamodb.DescribeLimitsInput) *DescribeLimitsFuture
@@ -68,6 +77,21 @@ type Client interface {
 	DescribeTimeToLive(ctx workflow.Context, input *dynamodb.DescribeTimeToLiveInput) (*dynamodb.DescribeTimeToLiveOutput, error)
 	DescribeTimeToLiveAsync(ctx workflow.Context, input *dynamodb.DescribeTimeToLiveInput) *DescribeTimeToLiveFuture
 
+	DisableKinesisStreamingDestination(ctx workflow.Context, input *dynamodb.DisableKinesisStreamingDestinationInput) (*dynamodb.DisableKinesisStreamingDestinationOutput, error)
+	DisableKinesisStreamingDestinationAsync(ctx workflow.Context, input *dynamodb.DisableKinesisStreamingDestinationInput) *DisableKinesisStreamingDestinationFuture
+
+	EnableKinesisStreamingDestination(ctx workflow.Context, input *dynamodb.EnableKinesisStreamingDestinationInput) (*dynamodb.EnableKinesisStreamingDestinationOutput, error)
+	EnableKinesisStreamingDestinationAsync(ctx workflow.Context, input *dynamodb.EnableKinesisStreamingDestinationInput) *EnableKinesisStreamingDestinationFuture
+
+	ExecuteStatement(ctx workflow.Context, input *dynamodb.ExecuteStatementInput) (*dynamodb.ExecuteStatementOutput, error)
+	ExecuteStatementAsync(ctx workflow.Context, input *dynamodb.ExecuteStatementInput) *ExecuteStatementFuture
+
+	ExecuteTransaction(ctx workflow.Context, input *dynamodb.ExecuteTransactionInput) (*dynamodb.ExecuteTransactionOutput, error)
+	ExecuteTransactionAsync(ctx workflow.Context, input *dynamodb.ExecuteTransactionInput) *ExecuteTransactionFuture
+
+	ExportTableToPointInTime(ctx workflow.Context, input *dynamodb.ExportTableToPointInTimeInput) (*dynamodb.ExportTableToPointInTimeOutput, error)
+	ExportTableToPointInTimeAsync(ctx workflow.Context, input *dynamodb.ExportTableToPointInTimeInput) *ExportTableToPointInTimeFuture
+
 	GetItem(ctx workflow.Context, input *dynamodb.GetItemInput) (*dynamodb.GetItemOutput, error)
 	GetItemAsync(ctx workflow.Context, input *dynamodb.GetItemInput) *GetItemFuture
 
@@ -76,6 +100,9 @@ type Client interface {
 
 	ListContributorInsights(ctx workflow.Context, input *dynamodb.ListContributorInsightsInput) (*dynamodb.ListContributorInsightsOutput, error)
 	ListContributorInsightsAsync(ctx workflow.Context, input *dynamodb.ListContributorInsightsInput) *ListContributorInsightsFuture
+
+	ListExports(ctx workflow.Context, input *dynamodb.ListExportsInput) (*dynamodb.ListExportsOutput, error)
+	ListExportsAsync(ctx workflow.Context, input *dynamodb.ListExportsInput) *ListExportsFuture
 
 	ListGlobalTables(ctx workflow.Context, input *dynamodb.ListGlobalTablesInput) (*dynamodb.ListGlobalTablesOutput, error)
 	ListGlobalTablesAsync(ctx workflow.Context, input *dynamodb.ListGlobalTablesInput) *ListGlobalTablesFuture

@@ -357,6 +357,16 @@ func (a *Activities) DescribeBandwidthRateLimit(ctx context.Context, input *stor
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeBandwidthRateLimitSchedule(ctx context.Context, input *storagegateway.DescribeBandwidthRateLimitScheduleInput) (*storagegateway.DescribeBandwidthRateLimitScheduleOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeBandwidthRateLimitScheduleWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeCache(ctx context.Context, input *storagegateway.DescribeCacheInput) (*storagegateway.DescribeCacheOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -773,6 +783,16 @@ func (a *Activities) UpdateBandwidthRateLimit(ctx context.Context, input *storag
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateBandwidthRateLimitWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateBandwidthRateLimitSchedule(ctx context.Context, input *storagegateway.UpdateBandwidthRateLimitScheduleInput) (*storagegateway.UpdateBandwidthRateLimitScheduleOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateBandwidthRateLimitScheduleWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

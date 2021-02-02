@@ -343,6 +343,16 @@ func (a *Activities) DescribePortfolioShareStatus(ctx context.Context, input *se
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribePortfolioShares(ctx context.Context, input *servicecatalog.DescribePortfolioSharesInput) (*servicecatalog.DescribePortfolioSharesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribePortfolioSharesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeProduct(ctx context.Context, input *servicecatalog.DescribeProductInput) (*servicecatalog.DescribeProductOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -559,6 +569,16 @@ func (a *Activities) GetProvisionedProductOutputs(ctx context.Context, input *se
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetProvisionedProductOutputsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ImportAsProvisionedProduct(ctx context.Context, input *servicecatalog.ImportAsProvisionedProductInput) (*servicecatalog.ImportAsProvisionedProductOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ImportAsProvisionedProductWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -829,6 +849,16 @@ func (a *Activities) UpdatePortfolio(ctx context.Context, input *servicecatalog.
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdatePortfolioWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdatePortfolioShare(ctx context.Context, input *servicecatalog.UpdatePortfolioShareInput) (*servicecatalog.UpdatePortfolioShareOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdatePortfolioShareWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

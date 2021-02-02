@@ -50,6 +50,9 @@ type Client interface {
 	DescribeCopyJob(ctx workflow.Context, input *backup.DescribeCopyJobInput) (*backup.DescribeCopyJobOutput, error)
 	DescribeCopyJobAsync(ctx workflow.Context, input *backup.DescribeCopyJobInput) *DescribeCopyJobFuture
 
+	DescribeGlobalSettings(ctx workflow.Context, input *backup.DescribeGlobalSettingsInput) (*backup.DescribeGlobalSettingsOutput, error)
+	DescribeGlobalSettingsAsync(ctx workflow.Context, input *backup.DescribeGlobalSettingsInput) *DescribeGlobalSettingsFuture
+
 	DescribeProtectedResource(ctx workflow.Context, input *backup.DescribeProtectedResourceInput) (*backup.DescribeProtectedResourceOutput, error)
 	DescribeProtectedResourceAsync(ctx workflow.Context, input *backup.DescribeProtectedResourceInput) *DescribeProtectedResourceFuture
 
@@ -151,6 +154,9 @@ type Client interface {
 
 	UpdateBackupPlan(ctx workflow.Context, input *backup.UpdateBackupPlanInput) (*backup.UpdateBackupPlanOutput, error)
 	UpdateBackupPlanAsync(ctx workflow.Context, input *backup.UpdateBackupPlanInput) *UpdateBackupPlanFuture
+
+	UpdateGlobalSettings(ctx workflow.Context, input *backup.UpdateGlobalSettingsInput) (*backup.UpdateGlobalSettingsOutput, error)
+	UpdateGlobalSettingsAsync(ctx workflow.Context, input *backup.UpdateGlobalSettingsInput) *UpdateGlobalSettingsFuture
 
 	UpdateRecoveryPointLifecycle(ctx workflow.Context, input *backup.UpdateRecoveryPointLifecycleInput) (*backup.UpdateRecoveryPointLifecycleOutput, error)
 	UpdateRecoveryPointLifecycleAsync(ctx workflow.Context, input *backup.UpdateRecoveryPointLifecycleInput) *UpdateRecoveryPointLifecycleFuture

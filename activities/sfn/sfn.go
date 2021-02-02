@@ -233,6 +233,16 @@ func (a *Activities) StartExecution(ctx context.Context, input *sfn.StartExecuti
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) StartSyncExecution(ctx context.Context, input *sfn.StartSyncExecutionInput) (*sfn.StartSyncExecutionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StartSyncExecutionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) StopExecution(ctx context.Context, input *sfn.StopExecutionInput) (*sfn.StopExecutionOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

@@ -213,6 +213,17 @@ func (r *DescribeEntityRecognizerFuture) Get(ctx workflow.Context) (*comprehend.
 	return &output, err
 }
 
+type DescribeEventsDetectionJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeEventsDetectionJobFuture) Get(ctx workflow.Context) (*comprehend.DescribeEventsDetectionJobOutput, error) {
+	var output comprehend.DescribeEventsDetectionJobOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeKeyPhrasesDetectionJobFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -389,6 +400,17 @@ func (r *ListEntityRecognizersFuture) Get(ctx workflow.Context) (*comprehend.Lis
 	return &output, err
 }
 
+type ListEventsDetectionJobsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListEventsDetectionJobsFuture) Get(ctx workflow.Context) (*comprehend.ListEventsDetectionJobsOutput, error) {
+	var output comprehend.ListEventsDetectionJobsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListKeyPhrasesDetectionJobsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -477,6 +499,17 @@ func (r *StartEntitiesDetectionJobFuture) Get(ctx workflow.Context) (*comprehend
 	return &output, err
 }
 
+type StartEventsDetectionJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartEventsDetectionJobFuture) Get(ctx workflow.Context) (*comprehend.StartEventsDetectionJobOutput, error) {
+	var output comprehend.StartEventsDetectionJobOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type StartKeyPhrasesDetectionJobFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -539,6 +572,17 @@ type StopEntitiesDetectionJobFuture struct {
 
 func (r *StopEntitiesDetectionJobFuture) Get(ctx workflow.Context) (*comprehend.StopEntitiesDetectionJobOutput, error) {
 	var output comprehend.StopEntitiesDetectionJobOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type StopEventsDetectionJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StopEventsDetectionJobFuture) Get(ctx workflow.Context) (*comprehend.StopEventsDetectionJobOutput, error) {
+	var output comprehend.StopEventsDetectionJobOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -829,6 +873,17 @@ func (a *stub) DescribeEntityRecognizerAsync(ctx workflow.Context, input *compre
 	return &DescribeEntityRecognizerFuture{Future: future}
 }
 
+func (a *stub) DescribeEventsDetectionJob(ctx workflow.Context, input *comprehend.DescribeEventsDetectionJobInput) (*comprehend.DescribeEventsDetectionJobOutput, error) {
+	var output comprehend.DescribeEventsDetectionJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-comprehend-DescribeEventsDetectionJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeEventsDetectionJobAsync(ctx workflow.Context, input *comprehend.DescribeEventsDetectionJobInput) *DescribeEventsDetectionJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-comprehend-DescribeEventsDetectionJob", input)
+	return &DescribeEventsDetectionJobFuture{Future: future}
+}
+
 func (a *stub) DescribeKeyPhrasesDetectionJob(ctx workflow.Context, input *comprehend.DescribeKeyPhrasesDetectionJobInput) (*comprehend.DescribeKeyPhrasesDetectionJobOutput, error) {
 	var output comprehend.DescribeKeyPhrasesDetectionJobOutput
 	err := workflow.ExecuteActivity(ctx, "aws-comprehend-DescribeKeyPhrasesDetectionJob", input).Get(ctx, &output)
@@ -1005,6 +1060,17 @@ func (a *stub) ListEntityRecognizersAsync(ctx workflow.Context, input *comprehen
 	return &ListEntityRecognizersFuture{Future: future}
 }
 
+func (a *stub) ListEventsDetectionJobs(ctx workflow.Context, input *comprehend.ListEventsDetectionJobsInput) (*comprehend.ListEventsDetectionJobsOutput, error) {
+	var output comprehend.ListEventsDetectionJobsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-comprehend-ListEventsDetectionJobs", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListEventsDetectionJobsAsync(ctx workflow.Context, input *comprehend.ListEventsDetectionJobsInput) *ListEventsDetectionJobsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-comprehend-ListEventsDetectionJobs", input)
+	return &ListEventsDetectionJobsFuture{Future: future}
+}
+
 func (a *stub) ListKeyPhrasesDetectionJobs(ctx workflow.Context, input *comprehend.ListKeyPhrasesDetectionJobsInput) (*comprehend.ListKeyPhrasesDetectionJobsOutput, error) {
 	var output comprehend.ListKeyPhrasesDetectionJobsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-comprehend-ListKeyPhrasesDetectionJobs", input).Get(ctx, &output)
@@ -1093,6 +1159,17 @@ func (a *stub) StartEntitiesDetectionJobAsync(ctx workflow.Context, input *compr
 	return &StartEntitiesDetectionJobFuture{Future: future}
 }
 
+func (a *stub) StartEventsDetectionJob(ctx workflow.Context, input *comprehend.StartEventsDetectionJobInput) (*comprehend.StartEventsDetectionJobOutput, error) {
+	var output comprehend.StartEventsDetectionJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-comprehend-StartEventsDetectionJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartEventsDetectionJobAsync(ctx workflow.Context, input *comprehend.StartEventsDetectionJobInput) *StartEventsDetectionJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-comprehend-StartEventsDetectionJob", input)
+	return &StartEventsDetectionJobFuture{Future: future}
+}
+
 func (a *stub) StartKeyPhrasesDetectionJob(ctx workflow.Context, input *comprehend.StartKeyPhrasesDetectionJobInput) (*comprehend.StartKeyPhrasesDetectionJobOutput, error) {
 	var output comprehend.StartKeyPhrasesDetectionJobOutput
 	err := workflow.ExecuteActivity(ctx, "aws-comprehend-StartKeyPhrasesDetectionJob", input).Get(ctx, &output)
@@ -1157,6 +1234,17 @@ func (a *stub) StopEntitiesDetectionJob(ctx workflow.Context, input *comprehend.
 func (a *stub) StopEntitiesDetectionJobAsync(ctx workflow.Context, input *comprehend.StopEntitiesDetectionJobInput) *StopEntitiesDetectionJobFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-comprehend-StopEntitiesDetectionJob", input)
 	return &StopEntitiesDetectionJobFuture{Future: future}
+}
+
+func (a *stub) StopEventsDetectionJob(ctx workflow.Context, input *comprehend.StopEventsDetectionJobInput) (*comprehend.StopEventsDetectionJobOutput, error) {
+	var output comprehend.StopEventsDetectionJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-comprehend-StopEventsDetectionJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StopEventsDetectionJobAsync(ctx workflow.Context, input *comprehend.StopEventsDetectionJobInput) *StopEventsDetectionJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-comprehend-StopEventsDetectionJob", input)
+	return &StopEventsDetectionJobFuture{Future: future}
 }
 
 func (a *stub) StopKeyPhrasesDetectionJob(ctx workflow.Context, input *comprehend.StopKeyPhrasesDetectionJobInput) (*comprehend.StopKeyPhrasesDetectionJobOutput, error) {

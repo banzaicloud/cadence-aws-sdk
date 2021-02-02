@@ -123,6 +123,16 @@ func (a *Activities) CreateApplication(ctx context.Context, input *kinesisanalyt
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateApplicationPresignedUrl(ctx context.Context, input *kinesisanalyticsv2.CreateApplicationPresignedUrlInput) (*kinesisanalyticsv2.CreateApplicationPresignedUrlOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateApplicationPresignedUrlWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateApplicationSnapshot(ctx context.Context, input *kinesisanalyticsv2.CreateApplicationSnapshotInput) (*kinesisanalyticsv2.CreateApplicationSnapshotOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

@@ -53,6 +53,56 @@ func (a *Activities) getClient(ctx context.Context) (honeycodeiface.HoneycodeAPI
 	return honeycode.New(sess), nil
 }
 
+func (a *Activities) BatchCreateTableRows(ctx context.Context, input *honeycode.BatchCreateTableRowsInput) (*honeycode.BatchCreateTableRowsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.BatchCreateTableRowsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) BatchDeleteTableRows(ctx context.Context, input *honeycode.BatchDeleteTableRowsInput) (*honeycode.BatchDeleteTableRowsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.BatchDeleteTableRowsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) BatchUpdateTableRows(ctx context.Context, input *honeycode.BatchUpdateTableRowsInput) (*honeycode.BatchUpdateTableRowsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.BatchUpdateTableRowsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) BatchUpsertTableRows(ctx context.Context, input *honeycode.BatchUpsertTableRowsInput) (*honeycode.BatchUpsertTableRowsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.BatchUpsertTableRowsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeTableDataImportJob(ctx context.Context, input *honeycode.DescribeTableDataImportJobInput) (*honeycode.DescribeTableDataImportJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeTableDataImportJobWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetScreenData(ctx context.Context, input *honeycode.GetScreenDataInput) (*honeycode.GetScreenDataOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -69,6 +119,56 @@ func (a *Activities) InvokeScreenAutomation(ctx context.Context, input *honeycod
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.InvokeScreenAutomationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListTableColumns(ctx context.Context, input *honeycode.ListTableColumnsInput) (*honeycode.ListTableColumnsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListTableColumnsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListTableRows(ctx context.Context, input *honeycode.ListTableRowsInput) (*honeycode.ListTableRowsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListTableRowsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListTables(ctx context.Context, input *honeycode.ListTablesInput) (*honeycode.ListTablesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListTablesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) QueryTableRows(ctx context.Context, input *honeycode.QueryTableRowsInput) (*honeycode.QueryTableRowsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.QueryTableRowsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) StartTableDataImportJob(ctx context.Context, input *honeycode.StartTableDataImportJobInput) (*honeycode.StartTableDataImportJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StartTableDataImportJobWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

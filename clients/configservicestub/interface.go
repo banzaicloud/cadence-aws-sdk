@@ -59,6 +59,9 @@ type Client interface {
 	DeleteRetentionConfiguration(ctx workflow.Context, input *configservice.DeleteRetentionConfigurationInput) (*configservice.DeleteRetentionConfigurationOutput, error)
 	DeleteRetentionConfigurationAsync(ctx workflow.Context, input *configservice.DeleteRetentionConfigurationInput) *DeleteRetentionConfigurationFuture
 
+	DeleteStoredQuery(ctx workflow.Context, input *configservice.DeleteStoredQueryInput) (*configservice.DeleteStoredQueryOutput, error)
+	DeleteStoredQueryAsync(ctx workflow.Context, input *configservice.DeleteStoredQueryInput) *DeleteStoredQueryFuture
+
 	DeliverConfigSnapshot(ctx workflow.Context, input *configservice.DeliverConfigSnapshotInput) (*configservice.DeliverConfigSnapshotOutput, error)
 	DeliverConfigSnapshotAsync(ctx workflow.Context, input *configservice.DeliverConfigSnapshotInput) *DeliverConfigSnapshotFuture
 
@@ -176,11 +179,17 @@ type Client interface {
 	GetResourceConfigHistory(ctx workflow.Context, input *configservice.GetResourceConfigHistoryInput) (*configservice.GetResourceConfigHistoryOutput, error)
 	GetResourceConfigHistoryAsync(ctx workflow.Context, input *configservice.GetResourceConfigHistoryInput) *GetResourceConfigHistoryFuture
 
+	GetStoredQuery(ctx workflow.Context, input *configservice.GetStoredQueryInput) (*configservice.GetStoredQueryOutput, error)
+	GetStoredQueryAsync(ctx workflow.Context, input *configservice.GetStoredQueryInput) *GetStoredQueryFuture
+
 	ListAggregateDiscoveredResources(ctx workflow.Context, input *configservice.ListAggregateDiscoveredResourcesInput) (*configservice.ListAggregateDiscoveredResourcesOutput, error)
 	ListAggregateDiscoveredResourcesAsync(ctx workflow.Context, input *configservice.ListAggregateDiscoveredResourcesInput) *ListAggregateDiscoveredResourcesFuture
 
 	ListDiscoveredResources(ctx workflow.Context, input *configservice.ListDiscoveredResourcesInput) (*configservice.ListDiscoveredResourcesOutput, error)
 	ListDiscoveredResourcesAsync(ctx workflow.Context, input *configservice.ListDiscoveredResourcesInput) *ListDiscoveredResourcesFuture
+
+	ListStoredQueries(ctx workflow.Context, input *configservice.ListStoredQueriesInput) (*configservice.ListStoredQueriesOutput, error)
+	ListStoredQueriesAsync(ctx workflow.Context, input *configservice.ListStoredQueriesInput) *ListStoredQueriesFuture
 
 	ListTagsForResource(ctx workflow.Context, input *configservice.ListTagsForResourceInput) (*configservice.ListTagsForResourceOutput, error)
 	ListTagsForResourceAsync(ctx workflow.Context, input *configservice.ListTagsForResourceInput) *ListTagsForResourceFuture
@@ -206,6 +215,9 @@ type Client interface {
 	PutEvaluations(ctx workflow.Context, input *configservice.PutEvaluationsInput) (*configservice.PutEvaluationsOutput, error)
 	PutEvaluationsAsync(ctx workflow.Context, input *configservice.PutEvaluationsInput) *PutEvaluationsFuture
 
+	PutExternalEvaluation(ctx workflow.Context, input *configservice.PutExternalEvaluationInput) (*configservice.PutExternalEvaluationOutput, error)
+	PutExternalEvaluationAsync(ctx workflow.Context, input *configservice.PutExternalEvaluationInput) *PutExternalEvaluationFuture
+
 	PutOrganizationConfigRule(ctx workflow.Context, input *configservice.PutOrganizationConfigRuleInput) (*configservice.PutOrganizationConfigRuleOutput, error)
 	PutOrganizationConfigRuleAsync(ctx workflow.Context, input *configservice.PutOrganizationConfigRuleInput) *PutOrganizationConfigRuleFuture
 
@@ -223,6 +235,9 @@ type Client interface {
 
 	PutRetentionConfiguration(ctx workflow.Context, input *configservice.PutRetentionConfigurationInput) (*configservice.PutRetentionConfigurationOutput, error)
 	PutRetentionConfigurationAsync(ctx workflow.Context, input *configservice.PutRetentionConfigurationInput) *PutRetentionConfigurationFuture
+
+	PutStoredQuery(ctx workflow.Context, input *configservice.PutStoredQueryInput) (*configservice.PutStoredQueryOutput, error)
+	PutStoredQueryAsync(ctx workflow.Context, input *configservice.PutStoredQueryInput) *PutStoredQueryFuture
 
 	SelectAggregateResourceConfig(ctx workflow.Context, input *configservice.SelectAggregateResourceConfigInput) (*configservice.SelectAggregateResourceConfigOutput, error)
 	SelectAggregateResourceConfigAsync(ctx workflow.Context, input *configservice.SelectAggregateResourceConfigInput) *SelectAggregateResourceConfigFuture

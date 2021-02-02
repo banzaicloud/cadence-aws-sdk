@@ -173,6 +173,16 @@ func (a *Activities) GetCostAndUsageWithResources(ctx context.Context, input *co
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetCostCategories(ctx context.Context, input *costexplorer.GetCostCategoriesInput) (*costexplorer.GetCostCategoriesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetCostCategoriesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetCostForecast(ctx context.Context, input *costexplorer.GetCostForecastInput) (*costexplorer.GetCostForecastOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

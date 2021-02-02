@@ -68,6 +68,9 @@ type Client interface {
 	StartExecution(ctx workflow.Context, input *sfn.StartExecutionInput) (*sfn.StartExecutionOutput, error)
 	StartExecutionAsync(ctx workflow.Context, input *sfn.StartExecutionInput) *StartExecutionFuture
 
+	StartSyncExecution(ctx workflow.Context, input *sfn.StartSyncExecutionInput) (*sfn.StartSyncExecutionOutput, error)
+	StartSyncExecutionAsync(ctx workflow.Context, input *sfn.StartSyncExecutionInput) *StartSyncExecutionFuture
+
 	StopExecution(ctx workflow.Context, input *sfn.StopExecutionInput) (*sfn.StopExecutionOutput, error)
 	StopExecutionAsync(ctx workflow.Context, input *sfn.StopExecutionInput) *StopExecutionFuture
 

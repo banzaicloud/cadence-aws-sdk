@@ -213,12 +213,42 @@ func (a *Activities) ListProposals(ctx context.Context, input *managedblockchain
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListTagsForResource(ctx context.Context, input *managedblockchain.ListTagsForResourceInput) (*managedblockchain.ListTagsForResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListTagsForResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) RejectInvitation(ctx context.Context, input *managedblockchain.RejectInvitationInput) (*managedblockchain.RejectInvitationOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.RejectInvitationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) TagResource(ctx context.Context, input *managedblockchain.TagResourceInput) (*managedblockchain.TagResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.TagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UntagResource(ctx context.Context, input *managedblockchain.UntagResourceInput) (*managedblockchain.UntagResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UntagResourceWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

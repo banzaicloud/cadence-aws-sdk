@@ -392,6 +392,9 @@ type Client interface {
 	StartDBInstance(ctx workflow.Context, input *rds.StartDBInstanceInput) (*rds.StartDBInstanceOutput, error)
 	StartDBInstanceAsync(ctx workflow.Context, input *rds.StartDBInstanceInput) *StartDBInstanceFuture
 
+	StartDBInstanceAutomatedBackupsReplication(ctx workflow.Context, input *rds.StartDBInstanceAutomatedBackupsReplicationInput) (*rds.StartDBInstanceAutomatedBackupsReplicationOutput, error)
+	StartDBInstanceAutomatedBackupsReplicationAsync(ctx workflow.Context, input *rds.StartDBInstanceAutomatedBackupsReplicationInput) *StartDBInstanceAutomatedBackupsReplicationFuture
+
 	StartExportTask(ctx workflow.Context, input *rds.StartExportTaskInput) (*rds.StartExportTaskOutput, error)
 	StartExportTaskAsync(ctx workflow.Context, input *rds.StartExportTaskInput) *StartExportTaskFuture
 
@@ -403,6 +406,9 @@ type Client interface {
 
 	StopDBInstance(ctx workflow.Context, input *rds.StopDBInstanceInput) (*rds.StopDBInstanceOutput, error)
 	StopDBInstanceAsync(ctx workflow.Context, input *rds.StopDBInstanceInput) *StopDBInstanceFuture
+
+	StopDBInstanceAutomatedBackupsReplication(ctx workflow.Context, input *rds.StopDBInstanceAutomatedBackupsReplicationInput) (*rds.StopDBInstanceAutomatedBackupsReplicationOutput, error)
+	StopDBInstanceAutomatedBackupsReplicationAsync(ctx workflow.Context, input *rds.StopDBInstanceAutomatedBackupsReplicationInput) *StopDBInstanceAutomatedBackupsReplicationFuture
 
 	WaitUntilDBClusterSnapshotAvailable(ctx workflow.Context, input *rds.DescribeDBClusterSnapshotsInput) error
 	WaitUntilDBClusterSnapshotAvailableAsync(ctx workflow.Context, input *rds.DescribeDBClusterSnapshotsInput) *clients.VoidFuture

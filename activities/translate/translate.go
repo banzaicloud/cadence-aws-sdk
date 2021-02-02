@@ -53,6 +53,27 @@ func (a *Activities) getClient(ctx context.Context) (translateiface.TranslateAPI
 	return translate.New(sess), nil
 }
 
+func (a *Activities) CreateParallelData(ctx context.Context, input *translate.CreateParallelDataInput) (*translate.CreateParallelDataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CreateParallelDataWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteParallelData(ctx context.Context, input *translate.DeleteParallelDataInput) (*translate.DeleteParallelDataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteParallelDataWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteTerminology(ctx context.Context, input *translate.DeleteTerminologyInput) (*translate.DeleteTerminologyOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -73,6 +94,16 @@ func (a *Activities) DescribeTextTranslationJob(ctx context.Context, input *tran
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetParallelData(ctx context.Context, input *translate.GetParallelDataInput) (*translate.GetParallelDataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetParallelDataWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetTerminology(ctx context.Context, input *translate.GetTerminologyInput) (*translate.GetTerminologyOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -89,6 +120,16 @@ func (a *Activities) ImportTerminology(ctx context.Context, input *translate.Imp
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ImportTerminologyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListParallelData(ctx context.Context, input *translate.ListParallelDataInput) (*translate.ListParallelDataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListParallelDataWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -140,6 +181,17 @@ func (a *Activities) Text(ctx context.Context, input *translate.TextInput) (*tra
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.TextWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateParallelData(ctx context.Context, input *translate.UpdateParallelDataInput) (*translate.UpdateParallelDataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.UpdateParallelDataWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

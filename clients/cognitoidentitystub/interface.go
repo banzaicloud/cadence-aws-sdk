@@ -44,6 +44,9 @@ type Client interface {
 	GetOpenIdTokenForDeveloperIdentity(ctx workflow.Context, input *cognitoidentity.GetOpenIdTokenForDeveloperIdentityInput) (*cognitoidentity.GetOpenIdTokenForDeveloperIdentityOutput, error)
 	GetOpenIdTokenForDeveloperIdentityAsync(ctx workflow.Context, input *cognitoidentity.GetOpenIdTokenForDeveloperIdentityInput) *GetOpenIdTokenForDeveloperIdentityFuture
 
+	GetPrincipalTagAttributeMap(ctx workflow.Context, input *cognitoidentity.GetPrincipalTagAttributeMapInput) (*cognitoidentity.GetPrincipalTagAttributeMapOutput, error)
+	GetPrincipalTagAttributeMapAsync(ctx workflow.Context, input *cognitoidentity.GetPrincipalTagAttributeMapInput) *GetPrincipalTagAttributeMapFuture
+
 	ListIdentities(ctx workflow.Context, input *cognitoidentity.ListIdentitiesInput) (*cognitoidentity.ListIdentitiesOutput, error)
 	ListIdentitiesAsync(ctx workflow.Context, input *cognitoidentity.ListIdentitiesInput) *ListIdentitiesFuture
 
@@ -61,6 +64,9 @@ type Client interface {
 
 	SetIdentityPoolRoles(ctx workflow.Context, input *cognitoidentity.SetIdentityPoolRolesInput) (*cognitoidentity.SetIdentityPoolRolesOutput, error)
 	SetIdentityPoolRolesAsync(ctx workflow.Context, input *cognitoidentity.SetIdentityPoolRolesInput) *SetIdentityPoolRolesFuture
+
+	SetPrincipalTagAttributeMap(ctx workflow.Context, input *cognitoidentity.SetPrincipalTagAttributeMapInput) (*cognitoidentity.SetPrincipalTagAttributeMapOutput, error)
+	SetPrincipalTagAttributeMapAsync(ctx workflow.Context, input *cognitoidentity.SetPrincipalTagAttributeMapInput) *SetPrincipalTagAttributeMapFuture
 
 	TagResource(ctx workflow.Context, input *cognitoidentity.TagResourceInput) (*cognitoidentity.TagResourceOutput, error)
 	TagResourceAsync(ctx workflow.Context, input *cognitoidentity.TagResourceInput) *TagResourceFuture

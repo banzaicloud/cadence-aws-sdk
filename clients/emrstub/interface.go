@@ -32,8 +32,20 @@ type Client interface {
 	CreateSecurityConfiguration(ctx workflow.Context, input *emr.CreateSecurityConfigurationInput) (*emr.CreateSecurityConfigurationOutput, error)
 	CreateSecurityConfigurationAsync(ctx workflow.Context, input *emr.CreateSecurityConfigurationInput) *CreateSecurityConfigurationFuture
 
+	CreateStudio(ctx workflow.Context, input *emr.CreateStudioInput) (*emr.CreateStudioOutput, error)
+	CreateStudioAsync(ctx workflow.Context, input *emr.CreateStudioInput) *CreateStudioFuture
+
+	CreateStudioSessionMapping(ctx workflow.Context, input *emr.CreateStudioSessionMappingInput) (*emr.CreateStudioSessionMappingOutput, error)
+	CreateStudioSessionMappingAsync(ctx workflow.Context, input *emr.CreateStudioSessionMappingInput) *CreateStudioSessionMappingFuture
+
 	DeleteSecurityConfiguration(ctx workflow.Context, input *emr.DeleteSecurityConfigurationInput) (*emr.DeleteSecurityConfigurationOutput, error)
 	DeleteSecurityConfigurationAsync(ctx workflow.Context, input *emr.DeleteSecurityConfigurationInput) *DeleteSecurityConfigurationFuture
+
+	DeleteStudio(ctx workflow.Context, input *emr.DeleteStudioInput) (*emr.DeleteStudioOutput, error)
+	DeleteStudioAsync(ctx workflow.Context, input *emr.DeleteStudioInput) *DeleteStudioFuture
+
+	DeleteStudioSessionMapping(ctx workflow.Context, input *emr.DeleteStudioSessionMappingInput) (*emr.DeleteStudioSessionMappingOutput, error)
+	DeleteStudioSessionMappingAsync(ctx workflow.Context, input *emr.DeleteStudioSessionMappingInput) *DeleteStudioSessionMappingFuture
 
 	DescribeCluster(ctx workflow.Context, input *emr.DescribeClusterInput) (*emr.DescribeClusterOutput, error)
 	DescribeClusterAsync(ctx workflow.Context, input *emr.DescribeClusterInput) *DescribeClusterFuture
@@ -50,11 +62,17 @@ type Client interface {
 	DescribeStep(ctx workflow.Context, input *emr.DescribeStepInput) (*emr.DescribeStepOutput, error)
 	DescribeStepAsync(ctx workflow.Context, input *emr.DescribeStepInput) *DescribeStepFuture
 
+	DescribeStudio(ctx workflow.Context, input *emr.DescribeStudioInput) (*emr.DescribeStudioOutput, error)
+	DescribeStudioAsync(ctx workflow.Context, input *emr.DescribeStudioInput) *DescribeStudioFuture
+
 	GetBlockPublicAccessConfiguration(ctx workflow.Context, input *emr.GetBlockPublicAccessConfigurationInput) (*emr.GetBlockPublicAccessConfigurationOutput, error)
 	GetBlockPublicAccessConfigurationAsync(ctx workflow.Context, input *emr.GetBlockPublicAccessConfigurationInput) *GetBlockPublicAccessConfigurationFuture
 
 	GetManagedScalingPolicy(ctx workflow.Context, input *emr.GetManagedScalingPolicyInput) (*emr.GetManagedScalingPolicyOutput, error)
 	GetManagedScalingPolicyAsync(ctx workflow.Context, input *emr.GetManagedScalingPolicyInput) *GetManagedScalingPolicyFuture
+
+	GetStudioSessionMapping(ctx workflow.Context, input *emr.GetStudioSessionMappingInput) (*emr.GetStudioSessionMappingOutput, error)
+	GetStudioSessionMappingAsync(ctx workflow.Context, input *emr.GetStudioSessionMappingInput) *GetStudioSessionMappingFuture
 
 	ListBootstrapActions(ctx workflow.Context, input *emr.ListBootstrapActionsInput) (*emr.ListBootstrapActionsOutput, error)
 	ListBootstrapActionsAsync(ctx workflow.Context, input *emr.ListBootstrapActionsInput) *ListBootstrapActionsFuture
@@ -79,6 +97,12 @@ type Client interface {
 
 	ListSteps(ctx workflow.Context, input *emr.ListStepsInput) (*emr.ListStepsOutput, error)
 	ListStepsAsync(ctx workflow.Context, input *emr.ListStepsInput) *ListStepsFuture
+
+	ListStudioSessionMappings(ctx workflow.Context, input *emr.ListStudioSessionMappingsInput) (*emr.ListStudioSessionMappingsOutput, error)
+	ListStudioSessionMappingsAsync(ctx workflow.Context, input *emr.ListStudioSessionMappingsInput) *ListStudioSessionMappingsFuture
+
+	ListStudios(ctx workflow.Context, input *emr.ListStudiosInput) (*emr.ListStudiosOutput, error)
+	ListStudiosAsync(ctx workflow.Context, input *emr.ListStudiosInput) *ListStudiosFuture
 
 	ModifyCluster(ctx workflow.Context, input *emr.ModifyClusterInput) (*emr.ModifyClusterOutput, error)
 	ModifyClusterAsync(ctx workflow.Context, input *emr.ModifyClusterInput) *ModifyClusterFuture
@@ -124,6 +148,9 @@ type Client interface {
 
 	TerminateJobFlows(ctx workflow.Context, input *emr.TerminateJobFlowsInput) (*emr.TerminateJobFlowsOutput, error)
 	TerminateJobFlowsAsync(ctx workflow.Context, input *emr.TerminateJobFlowsInput) *TerminateJobFlowsFuture
+
+	UpdateStudioSessionMapping(ctx workflow.Context, input *emr.UpdateStudioSessionMappingInput) (*emr.UpdateStudioSessionMappingOutput, error)
+	UpdateStudioSessionMappingAsync(ctx workflow.Context, input *emr.UpdateStudioSessionMappingInput) *UpdateStudioSessionMappingFuture
 
 	WaitUntilClusterRunning(ctx workflow.Context, input *emr.DescribeClusterInput) error
 	WaitUntilClusterRunningAsync(ctx workflow.Context, input *emr.DescribeClusterInput) *clients.VoidFuture

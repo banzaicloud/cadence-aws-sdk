@@ -143,6 +143,16 @@ func (a *Activities) DeleteDetectorVersion(ctx context.Context, input *frauddete
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteEntityType(ctx context.Context, input *frauddetector.DeleteEntityTypeInput) (*frauddetector.DeleteEntityTypeOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteEntityTypeWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteEvent(ctx context.Context, input *frauddetector.DeleteEventInput) (*frauddetector.DeleteEventOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -153,12 +163,82 @@ func (a *Activities) DeleteEvent(ctx context.Context, input *frauddetector.Delet
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteEventType(ctx context.Context, input *frauddetector.DeleteEventTypeInput) (*frauddetector.DeleteEventTypeOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteEventTypeWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteExternalModel(ctx context.Context, input *frauddetector.DeleteExternalModelInput) (*frauddetector.DeleteExternalModelOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteExternalModelWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteLabel(ctx context.Context, input *frauddetector.DeleteLabelInput) (*frauddetector.DeleteLabelOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteLabelWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteModel(ctx context.Context, input *frauddetector.DeleteModelInput) (*frauddetector.DeleteModelOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteModelWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteModelVersion(ctx context.Context, input *frauddetector.DeleteModelVersionInput) (*frauddetector.DeleteModelVersionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteModelVersionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteOutcome(ctx context.Context, input *frauddetector.DeleteOutcomeInput) (*frauddetector.DeleteOutcomeOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteOutcomeWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteRule(ctx context.Context, input *frauddetector.DeleteRuleInput) (*frauddetector.DeleteRuleOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteRuleWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteVariable(ctx context.Context, input *frauddetector.DeleteVariableInput) (*frauddetector.DeleteVariableOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteVariableWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

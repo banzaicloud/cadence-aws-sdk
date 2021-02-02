@@ -163,6 +163,16 @@ func (a *Activities) CancelCertificateTransfer(ctx context.Context, input *iot.C
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CancelDetectMitigationActionsTask(ctx context.Context, input *iot.CancelDetectMitigationActionsTaskInput) (*iot.CancelDetectMitigationActionsTaskOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CancelDetectMitigationActionsTaskWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CancelJob(ctx context.Context, input *iot.CancelJobInput) (*iot.CancelJobOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -239,6 +249,16 @@ func (a *Activities) CreateCertificateFromCsr(ctx context.Context, input *iot.Cr
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreateCertificateFromCsrWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateCustomMetric(ctx context.Context, input *iot.CreateCustomMetricInput) (*iot.CreateCustomMetricOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateCustomMetricWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -509,6 +529,16 @@ func (a *Activities) DeleteCertificate(ctx context.Context, input *iot.DeleteCer
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteCertificateWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteCustomMetric(ctx context.Context, input *iot.DeleteCustomMetricInput) (*iot.DeleteCustomMetricOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteCustomMetricWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -833,12 +863,32 @@ func (a *Activities) DescribeCertificate(ctx context.Context, input *iot.Describ
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeCustomMetric(ctx context.Context, input *iot.DescribeCustomMetricInput) (*iot.DescribeCustomMetricOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeCustomMetricWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeDefaultAuthorizer(ctx context.Context, input *iot.DescribeDefaultAuthorizerInput) (*iot.DescribeDefaultAuthorizerOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeDefaultAuthorizerWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeDetectMitigationActionsTask(ctx context.Context, input *iot.DescribeDetectMitigationActionsTaskInput) (*iot.DescribeDetectMitigationActionsTaskOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeDetectMitigationActionsTaskWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1079,6 +1129,16 @@ func (a *Activities) EnableTopicRule(ctx context.Context, input *iot.EnableTopic
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.EnableTopicRuleWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetBehaviorModelTrainingSummaries(ctx context.Context, input *iot.GetBehaviorModelTrainingSummariesInput) (*iot.GetBehaviorModelTrainingSummariesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetBehaviorModelTrainingSummariesWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1339,6 +1399,36 @@ func (a *Activities) ListCertificatesByCA(ctx context.Context, input *iot.ListCe
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListCertificatesByCAWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListCustomMetrics(ctx context.Context, input *iot.ListCustomMetricsInput) (*iot.ListCustomMetricsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListCustomMetricsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListDetectMitigationActionsExecutions(ctx context.Context, input *iot.ListDetectMitigationActionsExecutionsInput) (*iot.ListDetectMitigationActionsExecutionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListDetectMitigationActionsExecutionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListDetectMitigationActionsTasks(ctx context.Context, input *iot.ListDetectMitigationActionsTasksInput) (*iot.ListDetectMitigationActionsTasksOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListDetectMitigationActionsTasksWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1863,6 +1953,16 @@ func (a *Activities) StartAuditMitigationActionsTask(ctx context.Context, input 
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) StartDetectMitigationActionsTask(ctx context.Context, input *iot.StartDetectMitigationActionsTaskInput) (*iot.StartDetectMitigationActionsTaskOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StartDetectMitigationActionsTaskWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) StartOnDemandAuditTask(ctx context.Context, input *iot.StartOnDemandAuditTaskInput) (*iot.StartOnDemandAuditTaskOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1999,6 +2099,16 @@ func (a *Activities) UpdateCertificate(ctx context.Context, input *iot.UpdateCer
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateCertificateWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateCustomMetric(ctx context.Context, input *iot.UpdateCustomMetricInput) (*iot.UpdateCustomMetricOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateCustomMetricWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

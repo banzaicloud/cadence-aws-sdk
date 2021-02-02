@@ -47,6 +47,12 @@ type Client interface {
 	DeletePublicAccessBlock(ctx workflow.Context, input *s3control.DeletePublicAccessBlockInput) (*s3control.DeletePublicAccessBlockOutput, error)
 	DeletePublicAccessBlockAsync(ctx workflow.Context, input *s3control.DeletePublicAccessBlockInput) *DeletePublicAccessBlockFuture
 
+	DeleteStorageLensConfiguration(ctx workflow.Context, input *s3control.DeleteStorageLensConfigurationInput) (*s3control.DeleteStorageLensConfigurationOutput, error)
+	DeleteStorageLensConfigurationAsync(ctx workflow.Context, input *s3control.DeleteStorageLensConfigurationInput) *DeleteStorageLensConfigurationFuture
+
+	DeleteStorageLensConfigurationTagging(ctx workflow.Context, input *s3control.DeleteStorageLensConfigurationTaggingInput) (*s3control.DeleteStorageLensConfigurationTaggingOutput, error)
+	DeleteStorageLensConfigurationTaggingAsync(ctx workflow.Context, input *s3control.DeleteStorageLensConfigurationTaggingInput) *DeleteStorageLensConfigurationTaggingFuture
+
 	DescribeJob(ctx workflow.Context, input *s3control.DescribeJobInput) (*s3control.DescribeJobOutput, error)
 	DescribeJobAsync(ctx workflow.Context, input *s3control.DescribeJobInput) *DescribeJobFuture
 
@@ -77,6 +83,12 @@ type Client interface {
 	GetPublicAccessBlock(ctx workflow.Context, input *s3control.GetPublicAccessBlockInput) (*s3control.GetPublicAccessBlockOutput, error)
 	GetPublicAccessBlockAsync(ctx workflow.Context, input *s3control.GetPublicAccessBlockInput) *GetPublicAccessBlockFuture
 
+	GetStorageLensConfiguration(ctx workflow.Context, input *s3control.GetStorageLensConfigurationInput) (*s3control.GetStorageLensConfigurationOutput, error)
+	GetStorageLensConfigurationAsync(ctx workflow.Context, input *s3control.GetStorageLensConfigurationInput) *GetStorageLensConfigurationFuture
+
+	GetStorageLensConfigurationTagging(ctx workflow.Context, input *s3control.GetStorageLensConfigurationTaggingInput) (*s3control.GetStorageLensConfigurationTaggingOutput, error)
+	GetStorageLensConfigurationTaggingAsync(ctx workflow.Context, input *s3control.GetStorageLensConfigurationTaggingInput) *GetStorageLensConfigurationTaggingFuture
+
 	ListAccessPoints(ctx workflow.Context, input *s3control.ListAccessPointsInput) (*s3control.ListAccessPointsOutput, error)
 	ListAccessPointsAsync(ctx workflow.Context, input *s3control.ListAccessPointsInput) *ListAccessPointsFuture
 
@@ -85,6 +97,9 @@ type Client interface {
 
 	ListRegionalBuckets(ctx workflow.Context, input *s3control.ListRegionalBucketsInput) (*s3control.ListRegionalBucketsOutput, error)
 	ListRegionalBucketsAsync(ctx workflow.Context, input *s3control.ListRegionalBucketsInput) *ListRegionalBucketsFuture
+
+	ListStorageLensConfigurations(ctx workflow.Context, input *s3control.ListStorageLensConfigurationsInput) (*s3control.ListStorageLensConfigurationsOutput, error)
+	ListStorageLensConfigurationsAsync(ctx workflow.Context, input *s3control.ListStorageLensConfigurationsInput) *ListStorageLensConfigurationsFuture
 
 	PutAccessPointPolicy(ctx workflow.Context, input *s3control.PutAccessPointPolicyInput) (*s3control.PutAccessPointPolicyOutput, error)
 	PutAccessPointPolicyAsync(ctx workflow.Context, input *s3control.PutAccessPointPolicyInput) *PutAccessPointPolicyFuture
@@ -103,6 +118,12 @@ type Client interface {
 
 	PutPublicAccessBlock(ctx workflow.Context, input *s3control.PutPublicAccessBlockInput) (*s3control.PutPublicAccessBlockOutput, error)
 	PutPublicAccessBlockAsync(ctx workflow.Context, input *s3control.PutPublicAccessBlockInput) *PutPublicAccessBlockFuture
+
+	PutStorageLensConfiguration(ctx workflow.Context, input *s3control.PutStorageLensConfigurationInput) (*s3control.PutStorageLensConfigurationOutput, error)
+	PutStorageLensConfigurationAsync(ctx workflow.Context, input *s3control.PutStorageLensConfigurationInput) *PutStorageLensConfigurationFuture
+
+	PutStorageLensConfigurationTagging(ctx workflow.Context, input *s3control.PutStorageLensConfigurationTaggingInput) (*s3control.PutStorageLensConfigurationTaggingOutput, error)
+	PutStorageLensConfigurationTaggingAsync(ctx workflow.Context, input *s3control.PutStorageLensConfigurationTaggingInput) *PutStorageLensConfigurationTaggingFuture
 
 	UpdateJobPriority(ctx workflow.Context, input *s3control.UpdateJobPriorityInput) (*s3control.UpdateJobPriorityOutput, error)
 	UpdateJobPriorityAsync(ctx workflow.Context, input *s3control.UpdateJobPriorityInput) *UpdateJobPriorityFuture

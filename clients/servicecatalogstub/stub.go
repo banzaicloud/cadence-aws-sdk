@@ -334,6 +334,17 @@ func (r *DescribePortfolioShareStatusFuture) Get(ctx workflow.Context) (*service
 	return &output, err
 }
 
+type DescribePortfolioSharesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribePortfolioSharesFuture) Get(ctx workflow.Context) (*servicecatalog.DescribePortfolioSharesOutput, error) {
+	var output servicecatalog.DescribePortfolioSharesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeProductFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -572,6 +583,17 @@ type GetProvisionedProductOutputsFuture struct {
 
 func (r *GetProvisionedProductOutputsFuture) Get(ctx workflow.Context) (*servicecatalog.GetProvisionedProductOutputsOutput, error) {
 	var output servicecatalog.GetProvisionedProductOutputsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ImportAsProvisionedProductFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ImportAsProvisionedProductFuture) Get(ctx workflow.Context) (*servicecatalog.ImportAsProvisionedProductOutput, error) {
+	var output servicecatalog.ImportAsProvisionedProductOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -869,6 +891,17 @@ type UpdatePortfolioFuture struct {
 
 func (r *UpdatePortfolioFuture) Get(ctx workflow.Context) (*servicecatalog.UpdatePortfolioOutput, error) {
 	var output servicecatalog.UpdatePortfolioOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdatePortfolioShareFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdatePortfolioShareFuture) Get(ctx workflow.Context) (*servicecatalog.UpdatePortfolioShareOutput, error) {
+	var output servicecatalog.UpdatePortfolioShareOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1258,6 +1291,17 @@ func (a *stub) DescribePortfolioShareStatusAsync(ctx workflow.Context, input *se
 	return &DescribePortfolioShareStatusFuture{Future: future}
 }
 
+func (a *stub) DescribePortfolioShares(ctx workflow.Context, input *servicecatalog.DescribePortfolioSharesInput) (*servicecatalog.DescribePortfolioSharesOutput, error) {
+	var output servicecatalog.DescribePortfolioSharesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-servicecatalog-DescribePortfolioShares", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribePortfolioSharesAsync(ctx workflow.Context, input *servicecatalog.DescribePortfolioSharesInput) *DescribePortfolioSharesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-servicecatalog-DescribePortfolioShares", input)
+	return &DescribePortfolioSharesFuture{Future: future}
+}
+
 func (a *stub) DescribeProduct(ctx workflow.Context, input *servicecatalog.DescribeProductInput) (*servicecatalog.DescribeProductOutput, error) {
 	var output servicecatalog.DescribeProductOutput
 	err := workflow.ExecuteActivity(ctx, "aws-servicecatalog-DescribeProduct", input).Get(ctx, &output)
@@ -1498,6 +1542,17 @@ func (a *stub) GetProvisionedProductOutputs(ctx workflow.Context, input *service
 func (a *stub) GetProvisionedProductOutputsAsync(ctx workflow.Context, input *servicecatalog.GetProvisionedProductOutputsInput) *GetProvisionedProductOutputsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-servicecatalog-GetProvisionedProductOutputs", input)
 	return &GetProvisionedProductOutputsFuture{Future: future}
+}
+
+func (a *stub) ImportAsProvisionedProduct(ctx workflow.Context, input *servicecatalog.ImportAsProvisionedProductInput) (*servicecatalog.ImportAsProvisionedProductOutput, error) {
+	var output servicecatalog.ImportAsProvisionedProductOutput
+	err := workflow.ExecuteActivity(ctx, "aws-servicecatalog-ImportAsProvisionedProduct", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ImportAsProvisionedProductAsync(ctx workflow.Context, input *servicecatalog.ImportAsProvisionedProductInput) *ImportAsProvisionedProductFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-servicecatalog-ImportAsProvisionedProduct", input)
+	return &ImportAsProvisionedProductFuture{Future: future}
 }
 
 func (a *stub) ListAcceptedPortfolioShares(ctx workflow.Context, input *servicecatalog.ListAcceptedPortfolioSharesInput) (*servicecatalog.ListAcceptedPortfolioSharesOutput, error) {
@@ -1795,6 +1850,17 @@ func (a *stub) UpdatePortfolio(ctx workflow.Context, input *servicecatalog.Updat
 func (a *stub) UpdatePortfolioAsync(ctx workflow.Context, input *servicecatalog.UpdatePortfolioInput) *UpdatePortfolioFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-servicecatalog-UpdatePortfolio", input)
 	return &UpdatePortfolioFuture{Future: future}
+}
+
+func (a *stub) UpdatePortfolioShare(ctx workflow.Context, input *servicecatalog.UpdatePortfolioShareInput) (*servicecatalog.UpdatePortfolioShareOutput, error) {
+	var output servicecatalog.UpdatePortfolioShareOutput
+	err := workflow.ExecuteActivity(ctx, "aws-servicecatalog-UpdatePortfolioShare", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdatePortfolioShareAsync(ctx workflow.Context, input *servicecatalog.UpdatePortfolioShareInput) *UpdatePortfolioShareFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-servicecatalog-UpdatePortfolioShare", input)
+	return &UpdatePortfolioShareFuture{Future: future}
 }
 
 func (a *stub) UpdateProduct(ctx workflow.Context, input *servicecatalog.UpdateProductInput) (*servicecatalog.UpdateProductOutput, error) {

@@ -1313,6 +1313,16 @@ func (a *Activities) StartDBInstance(ctx context.Context, input *rds.StartDBInst
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) StartDBInstanceAutomatedBackupsReplication(ctx context.Context, input *rds.StartDBInstanceAutomatedBackupsReplicationInput) (*rds.StartDBInstanceAutomatedBackupsReplicationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StartDBInstanceAutomatedBackupsReplicationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) StartExportTask(ctx context.Context, input *rds.StartExportTaskInput) (*rds.StartExportTaskOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1349,6 +1359,16 @@ func (a *Activities) StopDBInstance(ctx context.Context, input *rds.StopDBInstan
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.StopDBInstanceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) StopDBInstanceAutomatedBackupsReplication(ctx context.Context, input *rds.StopDBInstanceAutomatedBackupsReplicationInput) (*rds.StopDBInstanceAutomatedBackupsReplicationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StopDBInstanceAutomatedBackupsReplicationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

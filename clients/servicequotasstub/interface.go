@@ -56,11 +56,20 @@ type Client interface {
 	ListServices(ctx workflow.Context, input *servicequotas.ListServicesInput) (*servicequotas.ListServicesOutput, error)
 	ListServicesAsync(ctx workflow.Context, input *servicequotas.ListServicesInput) *ListServicesFuture
 
+	ListTagsForResource(ctx workflow.Context, input *servicequotas.ListTagsForResourceInput) (*servicequotas.ListTagsForResourceOutput, error)
+	ListTagsForResourceAsync(ctx workflow.Context, input *servicequotas.ListTagsForResourceInput) *ListTagsForResourceFuture
+
 	PutServiceQuotaIncreaseRequestIntoTemplate(ctx workflow.Context, input *servicequotas.PutServiceQuotaIncreaseRequestIntoTemplateInput) (*servicequotas.PutServiceQuotaIncreaseRequestIntoTemplateOutput, error)
 	PutServiceQuotaIncreaseRequestIntoTemplateAsync(ctx workflow.Context, input *servicequotas.PutServiceQuotaIncreaseRequestIntoTemplateInput) *PutServiceQuotaIncreaseRequestIntoTemplateFuture
 
 	RequestServiceQuotaIncrease(ctx workflow.Context, input *servicequotas.RequestServiceQuotaIncreaseInput) (*servicequotas.RequestServiceQuotaIncreaseOutput, error)
 	RequestServiceQuotaIncreaseAsync(ctx workflow.Context, input *servicequotas.RequestServiceQuotaIncreaseInput) *RequestServiceQuotaIncreaseFuture
+
+	TagResource(ctx workflow.Context, input *servicequotas.TagResourceInput) (*servicequotas.TagResourceOutput, error)
+	TagResourceAsync(ctx workflow.Context, input *servicequotas.TagResourceInput) *TagResourceFuture
+
+	UntagResource(ctx workflow.Context, input *servicequotas.UntagResourceInput) (*servicequotas.UntagResourceOutput, error)
+	UntagResourceAsync(ctx workflow.Context, input *servicequotas.UntagResourceInput) *UntagResourceFuture
 }
 
 func NewClient() Client {

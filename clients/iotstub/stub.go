@@ -136,6 +136,17 @@ func (r *CancelCertificateTransferFuture) Get(ctx workflow.Context) (*iot.Cancel
 	return &output, err
 }
 
+type CancelDetectMitigationActionsTaskFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CancelDetectMitigationActionsTaskFuture) Get(ctx workflow.Context) (*iot.CancelDetectMitigationActionsTaskOutput, error) {
+	var output iot.CancelDetectMitigationActionsTaskOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CancelJobFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -220,6 +231,17 @@ type CreateCertificateFromCsrFuture struct {
 
 func (r *CreateCertificateFromCsrFuture) Get(ctx workflow.Context) (*iot.CreateCertificateFromCsrOutput, error) {
 	var output iot.CreateCertificateFromCsrOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateCustomMetricFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateCustomMetricFuture) Get(ctx workflow.Context) (*iot.CreateCustomMetricOutput, error) {
+	var output iot.CreateCustomMetricOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -517,6 +539,17 @@ type DeleteCertificateFuture struct {
 
 func (r *DeleteCertificateFuture) Get(ctx workflow.Context) (*iot.DeleteCertificateOutput, error) {
 	var output iot.DeleteCertificateOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteCustomMetricFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteCustomMetricFuture) Get(ctx workflow.Context) (*iot.DeleteCustomMetricOutput, error) {
+	var output iot.DeleteCustomMetricOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -873,6 +906,17 @@ func (r *DescribeCertificateFuture) Get(ctx workflow.Context) (*iot.DescribeCert
 	return &output, err
 }
 
+type DescribeCustomMetricFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeCustomMetricFuture) Get(ctx workflow.Context) (*iot.DescribeCustomMetricOutput, error) {
+	var output iot.DescribeCustomMetricOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeDefaultAuthorizerFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -880,6 +924,17 @@ type DescribeDefaultAuthorizerFuture struct {
 
 func (r *DescribeDefaultAuthorizerFuture) Get(ctx workflow.Context) (*iot.DescribeDefaultAuthorizerOutput, error) {
 	var output iot.DescribeDefaultAuthorizerOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeDetectMitigationActionsTaskFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeDetectMitigationActionsTaskFuture) Get(ctx workflow.Context) (*iot.DescribeDetectMitigationActionsTaskOutput, error) {
+	var output iot.DescribeDetectMitigationActionsTaskOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1144,6 +1199,17 @@ type EnableTopicRuleFuture struct {
 
 func (r *EnableTopicRuleFuture) Get(ctx workflow.Context) (*iot.EnableTopicRuleOutput, error) {
 	var output iot.EnableTopicRuleOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetBehaviorModelTrainingSummariesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetBehaviorModelTrainingSummariesFuture) Get(ctx workflow.Context) (*iot.GetBehaviorModelTrainingSummariesOutput, error) {
+	var output iot.GetBehaviorModelTrainingSummariesOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1430,6 +1496,39 @@ type ListCertificatesByCAFuture struct {
 
 func (r *ListCertificatesByCAFuture) Get(ctx workflow.Context) (*iot.ListCertificatesByCAOutput, error) {
 	var output iot.ListCertificatesByCAOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListCustomMetricsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListCustomMetricsFuture) Get(ctx workflow.Context) (*iot.ListCustomMetricsOutput, error) {
+	var output iot.ListCustomMetricsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListDetectMitigationActionsExecutionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListDetectMitigationActionsExecutionsFuture) Get(ctx workflow.Context) (*iot.ListDetectMitigationActionsExecutionsOutput, error) {
+	var output iot.ListDetectMitigationActionsExecutionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListDetectMitigationActionsTasksFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListDetectMitigationActionsTasksFuture) Get(ctx workflow.Context) (*iot.ListDetectMitigationActionsTasksOutput, error) {
+	var output iot.ListDetectMitigationActionsTasksOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -2006,6 +2105,17 @@ func (r *StartAuditMitigationActionsTaskFuture) Get(ctx workflow.Context) (*iot.
 	return &output, err
 }
 
+type StartDetectMitigationActionsTaskFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartDetectMitigationActionsTaskFuture) Get(ctx workflow.Context) (*iot.StartDetectMitigationActionsTaskOutput, error) {
+	var output iot.StartDetectMitigationActionsTaskOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type StartOnDemandAuditTaskFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -2156,6 +2266,17 @@ type UpdateCertificateFuture struct {
 
 func (r *UpdateCertificateFuture) Get(ctx workflow.Context) (*iot.UpdateCertificateOutput, error) {
 	var output iot.UpdateCertificateOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateCustomMetricFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateCustomMetricFuture) Get(ctx workflow.Context) (*iot.UpdateCustomMetricOutput, error) {
+	var output iot.UpdateCustomMetricOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -2468,6 +2589,17 @@ func (a *stub) CancelCertificateTransferAsync(ctx workflow.Context, input *iot.C
 	return &CancelCertificateTransferFuture{Future: future}
 }
 
+func (a *stub) CancelDetectMitigationActionsTask(ctx workflow.Context, input *iot.CancelDetectMitigationActionsTaskInput) (*iot.CancelDetectMitigationActionsTaskOutput, error) {
+	var output iot.CancelDetectMitigationActionsTaskOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-CancelDetectMitigationActionsTask", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CancelDetectMitigationActionsTaskAsync(ctx workflow.Context, input *iot.CancelDetectMitigationActionsTaskInput) *CancelDetectMitigationActionsTaskFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-CancelDetectMitigationActionsTask", input)
+	return &CancelDetectMitigationActionsTaskFuture{Future: future}
+}
+
 func (a *stub) CancelJob(ctx workflow.Context, input *iot.CancelJobInput) (*iot.CancelJobOutput, error) {
 	var output iot.CancelJobOutput
 	err := workflow.ExecuteActivity(ctx, "aws-iot-CancelJob", input).Get(ctx, &output)
@@ -2554,6 +2686,17 @@ func (a *stub) CreateCertificateFromCsr(ctx workflow.Context, input *iot.CreateC
 func (a *stub) CreateCertificateFromCsrAsync(ctx workflow.Context, input *iot.CreateCertificateFromCsrInput) *CreateCertificateFromCsrFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-iot-CreateCertificateFromCsr", input)
 	return &CreateCertificateFromCsrFuture{Future: future}
+}
+
+func (a *stub) CreateCustomMetric(ctx workflow.Context, input *iot.CreateCustomMetricInput) (*iot.CreateCustomMetricOutput, error) {
+	var output iot.CreateCustomMetricOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-CreateCustomMetric", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateCustomMetricAsync(ctx workflow.Context, input *iot.CreateCustomMetricInput) *CreateCustomMetricFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-CreateCustomMetric", input)
+	return &CreateCustomMetricFuture{Future: future}
 }
 
 func (a *stub) CreateDimension(ctx workflow.Context, input *iot.CreateDimensionInput) (*iot.CreateDimensionOutput, error) {
@@ -2851,6 +2994,17 @@ func (a *stub) DeleteCertificate(ctx workflow.Context, input *iot.DeleteCertific
 func (a *stub) DeleteCertificateAsync(ctx workflow.Context, input *iot.DeleteCertificateInput) *DeleteCertificateFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-iot-DeleteCertificate", input)
 	return &DeleteCertificateFuture{Future: future}
+}
+
+func (a *stub) DeleteCustomMetric(ctx workflow.Context, input *iot.DeleteCustomMetricInput) (*iot.DeleteCustomMetricOutput, error) {
+	var output iot.DeleteCustomMetricOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-DeleteCustomMetric", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteCustomMetricAsync(ctx workflow.Context, input *iot.DeleteCustomMetricInput) *DeleteCustomMetricFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-DeleteCustomMetric", input)
+	return &DeleteCustomMetricFuture{Future: future}
 }
 
 func (a *stub) DeleteDimension(ctx workflow.Context, input *iot.DeleteDimensionInput) (*iot.DeleteDimensionOutput, error) {
@@ -3205,6 +3359,17 @@ func (a *stub) DescribeCertificateAsync(ctx workflow.Context, input *iot.Describ
 	return &DescribeCertificateFuture{Future: future}
 }
 
+func (a *stub) DescribeCustomMetric(ctx workflow.Context, input *iot.DescribeCustomMetricInput) (*iot.DescribeCustomMetricOutput, error) {
+	var output iot.DescribeCustomMetricOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-DescribeCustomMetric", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeCustomMetricAsync(ctx workflow.Context, input *iot.DescribeCustomMetricInput) *DescribeCustomMetricFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-DescribeCustomMetric", input)
+	return &DescribeCustomMetricFuture{Future: future}
+}
+
 func (a *stub) DescribeDefaultAuthorizer(ctx workflow.Context, input *iot.DescribeDefaultAuthorizerInput) (*iot.DescribeDefaultAuthorizerOutput, error) {
 	var output iot.DescribeDefaultAuthorizerOutput
 	err := workflow.ExecuteActivity(ctx, "aws-iot-DescribeDefaultAuthorizer", input).Get(ctx, &output)
@@ -3214,6 +3379,17 @@ func (a *stub) DescribeDefaultAuthorizer(ctx workflow.Context, input *iot.Descri
 func (a *stub) DescribeDefaultAuthorizerAsync(ctx workflow.Context, input *iot.DescribeDefaultAuthorizerInput) *DescribeDefaultAuthorizerFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-iot-DescribeDefaultAuthorizer", input)
 	return &DescribeDefaultAuthorizerFuture{Future: future}
+}
+
+func (a *stub) DescribeDetectMitigationActionsTask(ctx workflow.Context, input *iot.DescribeDetectMitigationActionsTaskInput) (*iot.DescribeDetectMitigationActionsTaskOutput, error) {
+	var output iot.DescribeDetectMitigationActionsTaskOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-DescribeDetectMitigationActionsTask", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeDetectMitigationActionsTaskAsync(ctx workflow.Context, input *iot.DescribeDetectMitigationActionsTaskInput) *DescribeDetectMitigationActionsTaskFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-DescribeDetectMitigationActionsTask", input)
+	return &DescribeDetectMitigationActionsTaskFuture{Future: future}
 }
 
 func (a *stub) DescribeDimension(ctx workflow.Context, input *iot.DescribeDimensionInput) (*iot.DescribeDimensionOutput, error) {
@@ -3478,6 +3654,17 @@ func (a *stub) EnableTopicRule(ctx workflow.Context, input *iot.EnableTopicRuleI
 func (a *stub) EnableTopicRuleAsync(ctx workflow.Context, input *iot.EnableTopicRuleInput) *EnableTopicRuleFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-iot-EnableTopicRule", input)
 	return &EnableTopicRuleFuture{Future: future}
+}
+
+func (a *stub) GetBehaviorModelTrainingSummaries(ctx workflow.Context, input *iot.GetBehaviorModelTrainingSummariesInput) (*iot.GetBehaviorModelTrainingSummariesOutput, error) {
+	var output iot.GetBehaviorModelTrainingSummariesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-GetBehaviorModelTrainingSummaries", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetBehaviorModelTrainingSummariesAsync(ctx workflow.Context, input *iot.GetBehaviorModelTrainingSummariesInput) *GetBehaviorModelTrainingSummariesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-GetBehaviorModelTrainingSummaries", input)
+	return &GetBehaviorModelTrainingSummariesFuture{Future: future}
 }
 
 func (a *stub) GetCardinality(ctx workflow.Context, input *iot.GetCardinalityInput) (*iot.GetCardinalityOutput, error) {
@@ -3764,6 +3951,39 @@ func (a *stub) ListCertificatesByCA(ctx workflow.Context, input *iot.ListCertifi
 func (a *stub) ListCertificatesByCAAsync(ctx workflow.Context, input *iot.ListCertificatesByCAInput) *ListCertificatesByCAFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-iot-ListCertificatesByCA", input)
 	return &ListCertificatesByCAFuture{Future: future}
+}
+
+func (a *stub) ListCustomMetrics(ctx workflow.Context, input *iot.ListCustomMetricsInput) (*iot.ListCustomMetricsOutput, error) {
+	var output iot.ListCustomMetricsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-ListCustomMetrics", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListCustomMetricsAsync(ctx workflow.Context, input *iot.ListCustomMetricsInput) *ListCustomMetricsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-ListCustomMetrics", input)
+	return &ListCustomMetricsFuture{Future: future}
+}
+
+func (a *stub) ListDetectMitigationActionsExecutions(ctx workflow.Context, input *iot.ListDetectMitigationActionsExecutionsInput) (*iot.ListDetectMitigationActionsExecutionsOutput, error) {
+	var output iot.ListDetectMitigationActionsExecutionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-ListDetectMitigationActionsExecutions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListDetectMitigationActionsExecutionsAsync(ctx workflow.Context, input *iot.ListDetectMitigationActionsExecutionsInput) *ListDetectMitigationActionsExecutionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-ListDetectMitigationActionsExecutions", input)
+	return &ListDetectMitigationActionsExecutionsFuture{Future: future}
+}
+
+func (a *stub) ListDetectMitigationActionsTasks(ctx workflow.Context, input *iot.ListDetectMitigationActionsTasksInput) (*iot.ListDetectMitigationActionsTasksOutput, error) {
+	var output iot.ListDetectMitigationActionsTasksOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-ListDetectMitigationActionsTasks", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListDetectMitigationActionsTasksAsync(ctx workflow.Context, input *iot.ListDetectMitigationActionsTasksInput) *ListDetectMitigationActionsTasksFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-ListDetectMitigationActionsTasks", input)
+	return &ListDetectMitigationActionsTasksFuture{Future: future}
 }
 
 func (a *stub) ListDimensions(ctx workflow.Context, input *iot.ListDimensionsInput) (*iot.ListDimensionsOutput, error) {
@@ -4338,6 +4558,17 @@ func (a *stub) StartAuditMitigationActionsTaskAsync(ctx workflow.Context, input 
 	return &StartAuditMitigationActionsTaskFuture{Future: future}
 }
 
+func (a *stub) StartDetectMitigationActionsTask(ctx workflow.Context, input *iot.StartDetectMitigationActionsTaskInput) (*iot.StartDetectMitigationActionsTaskOutput, error) {
+	var output iot.StartDetectMitigationActionsTaskOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-StartDetectMitigationActionsTask", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartDetectMitigationActionsTaskAsync(ctx workflow.Context, input *iot.StartDetectMitigationActionsTaskInput) *StartDetectMitigationActionsTaskFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-StartDetectMitigationActionsTask", input)
+	return &StartDetectMitigationActionsTaskFuture{Future: future}
+}
+
 func (a *stub) StartOnDemandAuditTask(ctx workflow.Context, input *iot.StartOnDemandAuditTaskInput) (*iot.StartOnDemandAuditTaskOutput, error) {
 	var output iot.StartOnDemandAuditTaskOutput
 	err := workflow.ExecuteActivity(ctx, "aws-iot-StartOnDemandAuditTask", input).Get(ctx, &output)
@@ -4490,6 +4721,17 @@ func (a *stub) UpdateCertificate(ctx workflow.Context, input *iot.UpdateCertific
 func (a *stub) UpdateCertificateAsync(ctx workflow.Context, input *iot.UpdateCertificateInput) *UpdateCertificateFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-iot-UpdateCertificate", input)
 	return &UpdateCertificateFuture{Future: future}
+}
+
+func (a *stub) UpdateCustomMetric(ctx workflow.Context, input *iot.UpdateCustomMetricInput) (*iot.UpdateCustomMetricOutput, error) {
+	var output iot.UpdateCustomMetricOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iot-UpdateCustomMetric", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateCustomMetricAsync(ctx workflow.Context, input *iot.UpdateCustomMetricInput) *UpdateCustomMetricFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iot-UpdateCustomMetric", input)
+	return &UpdateCustomMetricFuture{Future: future}
 }
 
 func (a *stub) UpdateDimension(ctx workflow.Context, input *iot.UpdateDimensionInput) (*iot.UpdateDimensionOutput, error) {

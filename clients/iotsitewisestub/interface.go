@@ -44,9 +44,6 @@ type Client interface {
 	CreatePortal(ctx workflow.Context, input *iotsitewise.CreatePortalInput) (*iotsitewise.CreatePortalOutput, error)
 	CreatePortalAsync(ctx workflow.Context, input *iotsitewise.CreatePortalInput) *CreatePortalFuture
 
-	CreatePresignedPortalUrl(ctx workflow.Context, input *iotsitewise.CreatePresignedPortalUrlInput) (*iotsitewise.CreatePresignedPortalUrlOutput, error)
-	CreatePresignedPortalUrlAsync(ctx workflow.Context, input *iotsitewise.CreatePresignedPortalUrlInput) *CreatePresignedPortalUrlFuture
-
 	CreateProject(ctx workflow.Context, input *iotsitewise.CreateProjectInput) (*iotsitewise.CreateProjectOutput, error)
 	CreateProjectAsync(ctx workflow.Context, input *iotsitewise.CreateProjectInput) *CreateProjectFuture
 
@@ -86,6 +83,9 @@ type Client interface {
 	DescribeDashboard(ctx workflow.Context, input *iotsitewise.DescribeDashboardInput) (*iotsitewise.DescribeDashboardOutput, error)
 	DescribeDashboardAsync(ctx workflow.Context, input *iotsitewise.DescribeDashboardInput) *DescribeDashboardFuture
 
+	DescribeDefaultEncryptionConfiguration(ctx workflow.Context, input *iotsitewise.DescribeDefaultEncryptionConfigurationInput) (*iotsitewise.DescribeDefaultEncryptionConfigurationOutput, error)
+	DescribeDefaultEncryptionConfigurationAsync(ctx workflow.Context, input *iotsitewise.DescribeDefaultEncryptionConfigurationInput) *DescribeDefaultEncryptionConfigurationFuture
+
 	DescribeGateway(ctx workflow.Context, input *iotsitewise.DescribeGatewayInput) (*iotsitewise.DescribeGatewayOutput, error)
 	DescribeGatewayAsync(ctx workflow.Context, input *iotsitewise.DescribeGatewayInput) *DescribeGatewayFuture
 
@@ -119,6 +119,9 @@ type Client interface {
 	ListAssetModels(ctx workflow.Context, input *iotsitewise.ListAssetModelsInput) (*iotsitewise.ListAssetModelsOutput, error)
 	ListAssetModelsAsync(ctx workflow.Context, input *iotsitewise.ListAssetModelsInput) *ListAssetModelsFuture
 
+	ListAssetRelationships(ctx workflow.Context, input *iotsitewise.ListAssetRelationshipsInput) (*iotsitewise.ListAssetRelationshipsOutput, error)
+	ListAssetRelationshipsAsync(ctx workflow.Context, input *iotsitewise.ListAssetRelationshipsInput) *ListAssetRelationshipsFuture
+
 	ListAssets(ctx workflow.Context, input *iotsitewise.ListAssetsInput) (*iotsitewise.ListAssetsOutput, error)
 	ListAssetsAsync(ctx workflow.Context, input *iotsitewise.ListAssetsInput) *ListAssetsFuture
 
@@ -142,6 +145,9 @@ type Client interface {
 
 	ListTagsForResource(ctx workflow.Context, input *iotsitewise.ListTagsForResourceInput) (*iotsitewise.ListTagsForResourceOutput, error)
 	ListTagsForResourceAsync(ctx workflow.Context, input *iotsitewise.ListTagsForResourceInput) *ListTagsForResourceFuture
+
+	PutDefaultEncryptionConfiguration(ctx workflow.Context, input *iotsitewise.PutDefaultEncryptionConfigurationInput) (*iotsitewise.PutDefaultEncryptionConfigurationOutput, error)
+	PutDefaultEncryptionConfigurationAsync(ctx workflow.Context, input *iotsitewise.PutDefaultEncryptionConfigurationInput) *PutDefaultEncryptionConfigurationFuture
 
 	PutLoggingOptions(ctx workflow.Context, input *iotsitewise.PutLoggingOptionsInput) (*iotsitewise.PutLoggingOptionsOutput, error)
 	PutLoggingOptionsAsync(ctx workflow.Context, input *iotsitewise.PutLoggingOptionsInput) *PutLoggingOptionsFuture

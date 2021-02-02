@@ -143,6 +143,9 @@ type Client interface {
 	UntagResource(ctx workflow.Context, input *ecs.UntagResourceInput) (*ecs.UntagResourceOutput, error)
 	UntagResourceAsync(ctx workflow.Context, input *ecs.UntagResourceInput) *UntagResourceFuture
 
+	UpdateCapacityProvider(ctx workflow.Context, input *ecs.UpdateCapacityProviderInput) (*ecs.UpdateCapacityProviderOutput, error)
+	UpdateCapacityProviderAsync(ctx workflow.Context, input *ecs.UpdateCapacityProviderInput) *UpdateCapacityProviderFuture
+
 	UpdateClusterSettings(ctx workflow.Context, input *ecs.UpdateClusterSettingsInput) (*ecs.UpdateClusterSettingsOutput, error)
 	UpdateClusterSettingsAsync(ctx workflow.Context, input *ecs.UpdateClusterSettingsInput) *UpdateClusterSettingsFuture
 

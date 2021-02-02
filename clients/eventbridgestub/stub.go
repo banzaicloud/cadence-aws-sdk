@@ -26,6 +26,28 @@ func (r *ActivateEventSourceFuture) Get(ctx workflow.Context) (*eventbridge.Acti
 	return &output, err
 }
 
+type CancelReplayFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CancelReplayFuture) Get(ctx workflow.Context) (*eventbridge.CancelReplayOutput, error) {
+	var output eventbridge.CancelReplayOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateArchiveFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateArchiveFuture) Get(ctx workflow.Context) (*eventbridge.CreateArchiveOutput, error) {
+	var output eventbridge.CreateArchiveOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateEventBusFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -55,6 +77,17 @@ type DeactivateEventSourceFuture struct {
 
 func (r *DeactivateEventSourceFuture) Get(ctx workflow.Context) (*eventbridge.DeactivateEventSourceOutput, error) {
 	var output eventbridge.DeactivateEventSourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteArchiveFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteArchiveFuture) Get(ctx workflow.Context) (*eventbridge.DeleteArchiveOutput, error) {
+	var output eventbridge.DeleteArchiveOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -92,6 +125,17 @@ func (r *DeleteRuleFuture) Get(ctx workflow.Context) (*eventbridge.DeleteRuleOut
 	return &output, err
 }
 
+type DescribeArchiveFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeArchiveFuture) Get(ctx workflow.Context) (*eventbridge.DescribeArchiveOutput, error) {
+	var output eventbridge.DescribeArchiveOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeEventBusFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -125,6 +169,17 @@ func (r *DescribePartnerEventSourceFuture) Get(ctx workflow.Context) (*eventbrid
 	return &output, err
 }
 
+type DescribeReplayFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeReplayFuture) Get(ctx workflow.Context) (*eventbridge.DescribeReplayOutput, error) {
+	var output eventbridge.DescribeReplayOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeRuleFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -154,6 +209,17 @@ type EnableRuleFuture struct {
 
 func (r *EnableRuleFuture) Get(ctx workflow.Context) (*eventbridge.EnableRuleOutput, error) {
 	var output eventbridge.EnableRuleOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListArchivesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListArchivesFuture) Get(ctx workflow.Context) (*eventbridge.ListArchivesOutput, error) {
+	var output eventbridge.ListArchivesOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -198,6 +264,17 @@ type ListPartnerEventSourcesFuture struct {
 
 func (r *ListPartnerEventSourcesFuture) Get(ctx workflow.Context) (*eventbridge.ListPartnerEventSourcesOutput, error) {
 	var output eventbridge.ListPartnerEventSourcesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListReplaysFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListReplaysFuture) Get(ctx workflow.Context) (*eventbridge.ListReplaysOutput, error) {
+	var output eventbridge.ListReplaysOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -323,6 +400,17 @@ func (r *RemoveTargetsFuture) Get(ctx workflow.Context) (*eventbridge.RemoveTarg
 	return &output, err
 }
 
+type StartReplayFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartReplayFuture) Get(ctx workflow.Context) (*eventbridge.StartReplayOutput, error) {
+	var output eventbridge.StartReplayOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type TagResourceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -356,6 +444,17 @@ func (r *UntagResourceFuture) Get(ctx workflow.Context) (*eventbridge.UntagResou
 	return &output, err
 }
 
+type UpdateArchiveFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateArchiveFuture) Get(ctx workflow.Context) (*eventbridge.UpdateArchiveOutput, error) {
+	var output eventbridge.UpdateArchiveOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 func (a *stub) ActivateEventSource(ctx workflow.Context, input *eventbridge.ActivateEventSourceInput) (*eventbridge.ActivateEventSourceOutput, error) {
 	var output eventbridge.ActivateEventSourceOutput
 	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-ActivateEventSource", input).Get(ctx, &output)
@@ -365,6 +464,28 @@ func (a *stub) ActivateEventSource(ctx workflow.Context, input *eventbridge.Acti
 func (a *stub) ActivateEventSourceAsync(ctx workflow.Context, input *eventbridge.ActivateEventSourceInput) *ActivateEventSourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-ActivateEventSource", input)
 	return &ActivateEventSourceFuture{Future: future}
+}
+
+func (a *stub) CancelReplay(ctx workflow.Context, input *eventbridge.CancelReplayInput) (*eventbridge.CancelReplayOutput, error) {
+	var output eventbridge.CancelReplayOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-CancelReplay", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CancelReplayAsync(ctx workflow.Context, input *eventbridge.CancelReplayInput) *CancelReplayFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-CancelReplay", input)
+	return &CancelReplayFuture{Future: future}
+}
+
+func (a *stub) CreateArchive(ctx workflow.Context, input *eventbridge.CreateArchiveInput) (*eventbridge.CreateArchiveOutput, error) {
+	var output eventbridge.CreateArchiveOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-CreateArchive", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateArchiveAsync(ctx workflow.Context, input *eventbridge.CreateArchiveInput) *CreateArchiveFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-CreateArchive", input)
+	return &CreateArchiveFuture{Future: future}
 }
 
 func (a *stub) CreateEventBus(ctx workflow.Context, input *eventbridge.CreateEventBusInput) (*eventbridge.CreateEventBusOutput, error) {
@@ -400,6 +521,17 @@ func (a *stub) DeactivateEventSourceAsync(ctx workflow.Context, input *eventbrid
 	return &DeactivateEventSourceFuture{Future: future}
 }
 
+func (a *stub) DeleteArchive(ctx workflow.Context, input *eventbridge.DeleteArchiveInput) (*eventbridge.DeleteArchiveOutput, error) {
+	var output eventbridge.DeleteArchiveOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-DeleteArchive", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteArchiveAsync(ctx workflow.Context, input *eventbridge.DeleteArchiveInput) *DeleteArchiveFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-DeleteArchive", input)
+	return &DeleteArchiveFuture{Future: future}
+}
+
 func (a *stub) DeleteEventBus(ctx workflow.Context, input *eventbridge.DeleteEventBusInput) (*eventbridge.DeleteEventBusOutput, error) {
 	var output eventbridge.DeleteEventBusOutput
 	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-DeleteEventBus", input).Get(ctx, &output)
@@ -431,6 +563,17 @@ func (a *stub) DeleteRule(ctx workflow.Context, input *eventbridge.DeleteRuleInp
 func (a *stub) DeleteRuleAsync(ctx workflow.Context, input *eventbridge.DeleteRuleInput) *DeleteRuleFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-DeleteRule", input)
 	return &DeleteRuleFuture{Future: future}
+}
+
+func (a *stub) DescribeArchive(ctx workflow.Context, input *eventbridge.DescribeArchiveInput) (*eventbridge.DescribeArchiveOutput, error) {
+	var output eventbridge.DescribeArchiveOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-DescribeArchive", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeArchiveAsync(ctx workflow.Context, input *eventbridge.DescribeArchiveInput) *DescribeArchiveFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-DescribeArchive", input)
+	return &DescribeArchiveFuture{Future: future}
 }
 
 func (a *stub) DescribeEventBus(ctx workflow.Context, input *eventbridge.DescribeEventBusInput) (*eventbridge.DescribeEventBusOutput, error) {
@@ -466,6 +609,17 @@ func (a *stub) DescribePartnerEventSourceAsync(ctx workflow.Context, input *even
 	return &DescribePartnerEventSourceFuture{Future: future}
 }
 
+func (a *stub) DescribeReplay(ctx workflow.Context, input *eventbridge.DescribeReplayInput) (*eventbridge.DescribeReplayOutput, error) {
+	var output eventbridge.DescribeReplayOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-DescribeReplay", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeReplayAsync(ctx workflow.Context, input *eventbridge.DescribeReplayInput) *DescribeReplayFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-DescribeReplay", input)
+	return &DescribeReplayFuture{Future: future}
+}
+
 func (a *stub) DescribeRule(ctx workflow.Context, input *eventbridge.DescribeRuleInput) (*eventbridge.DescribeRuleOutput, error) {
 	var output eventbridge.DescribeRuleOutput
 	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-DescribeRule", input).Get(ctx, &output)
@@ -497,6 +651,17 @@ func (a *stub) EnableRule(ctx workflow.Context, input *eventbridge.EnableRuleInp
 func (a *stub) EnableRuleAsync(ctx workflow.Context, input *eventbridge.EnableRuleInput) *EnableRuleFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-EnableRule", input)
 	return &EnableRuleFuture{Future: future}
+}
+
+func (a *stub) ListArchives(ctx workflow.Context, input *eventbridge.ListArchivesInput) (*eventbridge.ListArchivesOutput, error) {
+	var output eventbridge.ListArchivesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-ListArchives", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListArchivesAsync(ctx workflow.Context, input *eventbridge.ListArchivesInput) *ListArchivesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-ListArchives", input)
+	return &ListArchivesFuture{Future: future}
 }
 
 func (a *stub) ListEventBuses(ctx workflow.Context, input *eventbridge.ListEventBusesInput) (*eventbridge.ListEventBusesOutput, error) {
@@ -541,6 +706,17 @@ func (a *stub) ListPartnerEventSources(ctx workflow.Context, input *eventbridge.
 func (a *stub) ListPartnerEventSourcesAsync(ctx workflow.Context, input *eventbridge.ListPartnerEventSourcesInput) *ListPartnerEventSourcesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-ListPartnerEventSources", input)
 	return &ListPartnerEventSourcesFuture{Future: future}
+}
+
+func (a *stub) ListReplays(ctx workflow.Context, input *eventbridge.ListReplaysInput) (*eventbridge.ListReplaysOutput, error) {
+	var output eventbridge.ListReplaysOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-ListReplays", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListReplaysAsync(ctx workflow.Context, input *eventbridge.ListReplaysInput) *ListReplaysFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-ListReplays", input)
+	return &ListReplaysFuture{Future: future}
 }
 
 func (a *stub) ListRuleNamesByTarget(ctx workflow.Context, input *eventbridge.ListRuleNamesByTargetInput) (*eventbridge.ListRuleNamesByTargetOutput, error) {
@@ -664,6 +840,17 @@ func (a *stub) RemoveTargetsAsync(ctx workflow.Context, input *eventbridge.Remov
 	return &RemoveTargetsFuture{Future: future}
 }
 
+func (a *stub) StartReplay(ctx workflow.Context, input *eventbridge.StartReplayInput) (*eventbridge.StartReplayOutput, error) {
+	var output eventbridge.StartReplayOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-StartReplay", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartReplayAsync(ctx workflow.Context, input *eventbridge.StartReplayInput) *StartReplayFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-StartReplay", input)
+	return &StartReplayFuture{Future: future}
+}
+
 func (a *stub) TagResource(ctx workflow.Context, input *eventbridge.TagResourceInput) (*eventbridge.TagResourceOutput, error) {
 	var output eventbridge.TagResourceOutput
 	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-TagResource", input).Get(ctx, &output)
@@ -695,4 +882,15 @@ func (a *stub) UntagResource(ctx workflow.Context, input *eventbridge.UntagResou
 func (a *stub) UntagResourceAsync(ctx workflow.Context, input *eventbridge.UntagResourceInput) *UntagResourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-UntagResource", input)
 	return &UntagResourceFuture{Future: future}
+}
+
+func (a *stub) UpdateArchive(ctx workflow.Context, input *eventbridge.UpdateArchiveInput) (*eventbridge.UpdateArchiveOutput, error) {
+	var output eventbridge.UpdateArchiveOutput
+	err := workflow.ExecuteActivity(ctx, "aws-eventbridge-UpdateArchive", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateArchiveAsync(ctx workflow.Context, input *eventbridge.UpdateArchiveInput) *UpdateArchiveFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-eventbridge-UpdateArchive", input)
+	return &UpdateArchiveFuture{Future: future}
 }

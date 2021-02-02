@@ -203,6 +203,16 @@ func (a *Activities) DeleteRetentionConfiguration(ctx context.Context, input *co
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteStoredQuery(ctx context.Context, input *configservice.DeleteStoredQueryInput) (*configservice.DeleteStoredQueryOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteStoredQueryWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeliverConfigSnapshot(ctx context.Context, input *configservice.DeliverConfigSnapshotInput) (*configservice.DeliverConfigSnapshotOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -593,6 +603,16 @@ func (a *Activities) GetResourceConfigHistory(ctx context.Context, input *config
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetStoredQuery(ctx context.Context, input *configservice.GetStoredQueryInput) (*configservice.GetStoredQueryOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetStoredQueryWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListAggregateDiscoveredResources(ctx context.Context, input *configservice.ListAggregateDiscoveredResourcesInput) (*configservice.ListAggregateDiscoveredResourcesOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -609,6 +629,16 @@ func (a *Activities) ListDiscoveredResources(ctx context.Context, input *configs
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListDiscoveredResourcesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListStoredQueries(ctx context.Context, input *configservice.ListStoredQueriesInput) (*configservice.ListStoredQueriesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListStoredQueriesWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -693,6 +723,16 @@ func (a *Activities) PutEvaluations(ctx context.Context, input *configservice.Pu
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) PutExternalEvaluation(ctx context.Context, input *configservice.PutExternalEvaluationInput) (*configservice.PutExternalEvaluationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutExternalEvaluationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) PutOrganizationConfigRule(ctx context.Context, input *configservice.PutOrganizationConfigRuleInput) (*configservice.PutOrganizationConfigRuleOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -749,6 +789,16 @@ func (a *Activities) PutRetentionConfiguration(ctx context.Context, input *confi
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.PutRetentionConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutStoredQuery(ctx context.Context, input *configservice.PutStoredQueryInput) (*configservice.PutStoredQueryOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutStoredQueryWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

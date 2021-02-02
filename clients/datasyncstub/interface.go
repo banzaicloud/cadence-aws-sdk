@@ -106,6 +106,9 @@ type Client interface {
 
 	UpdateTask(ctx workflow.Context, input *datasync.UpdateTaskInput) (*datasync.UpdateTaskOutput, error)
 	UpdateTaskAsync(ctx workflow.Context, input *datasync.UpdateTaskInput) *UpdateTaskFuture
+
+	UpdateTaskExecution(ctx workflow.Context, input *datasync.UpdateTaskExecutionInput) (*datasync.UpdateTaskExecutionOutput, error)
+	UpdateTaskExecutionAsync(ctx workflow.Context, input *datasync.UpdateTaskExecutionInput) *UpdateTaskExecutionFuture
 }
 
 func NewClient() Client {

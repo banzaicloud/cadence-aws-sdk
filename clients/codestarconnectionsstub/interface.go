@@ -46,6 +46,9 @@ type Client interface {
 
 	UntagResource(ctx workflow.Context, input *codestarconnections.UntagResourceInput) (*codestarconnections.UntagResourceOutput, error)
 	UntagResourceAsync(ctx workflow.Context, input *codestarconnections.UntagResourceInput) *UntagResourceFuture
+
+	UpdateHost(ctx workflow.Context, input *codestarconnections.UpdateHostInput) (*codestarconnections.UpdateHostOutput, error)
+	UpdateHostAsync(ctx workflow.Context, input *codestarconnections.UpdateHostInput) *UpdateHostFuture
 }
 
 func NewClient() Client {

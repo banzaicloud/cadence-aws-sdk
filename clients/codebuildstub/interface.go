@@ -68,6 +68,9 @@ type Client interface {
 	DescribeTestCases(ctx workflow.Context, input *codebuild.DescribeTestCasesInput) (*codebuild.DescribeTestCasesOutput, error)
 	DescribeTestCasesAsync(ctx workflow.Context, input *codebuild.DescribeTestCasesInput) *DescribeTestCasesFuture
 
+	GetReportGroupTrend(ctx workflow.Context, input *codebuild.GetReportGroupTrendInput) (*codebuild.GetReportGroupTrendOutput, error)
+	GetReportGroupTrendAsync(ctx workflow.Context, input *codebuild.GetReportGroupTrendInput) *GetReportGroupTrendFuture
+
 	GetResourcePolicy(ctx workflow.Context, input *codebuild.GetResourcePolicyInput) (*codebuild.GetResourcePolicyOutput, error)
 	GetResourcePolicyAsync(ctx workflow.Context, input *codebuild.GetResourcePolicyInput) *GetResourcePolicyFuture
 

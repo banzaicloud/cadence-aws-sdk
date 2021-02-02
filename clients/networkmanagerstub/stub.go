@@ -37,6 +37,28 @@ func (r *AssociateLinkFuture) Get(ctx workflow.Context) (*networkmanager.Associa
 	return &output, err
 }
 
+type AssociateTransitGatewayConnectPeerFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AssociateTransitGatewayConnectPeerFuture) Get(ctx workflow.Context) (*networkmanager.AssociateTransitGatewayConnectPeerOutput, error) {
+	var output networkmanager.AssociateTransitGatewayConnectPeerOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateConnectionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateConnectionFuture) Get(ctx workflow.Context) (*networkmanager.CreateConnectionOutput, error) {
+	var output networkmanager.CreateConnectionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateDeviceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -77,6 +99,17 @@ type CreateSiteFuture struct {
 
 func (r *CreateSiteFuture) Get(ctx workflow.Context) (*networkmanager.CreateSiteOutput, error) {
 	var output networkmanager.CreateSiteOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteConnectionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteConnectionFuture) Get(ctx workflow.Context) (*networkmanager.DeleteConnectionOutput, error) {
+	var output networkmanager.DeleteConnectionOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -169,6 +202,28 @@ func (r *DisassociateLinkFuture) Get(ctx workflow.Context) (*networkmanager.Disa
 	return &output, err
 }
 
+type DisassociateTransitGatewayConnectPeerFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisassociateTransitGatewayConnectPeerFuture) Get(ctx workflow.Context) (*networkmanager.DisassociateTransitGatewayConnectPeerOutput, error) {
+	var output networkmanager.DisassociateTransitGatewayConnectPeerOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetConnectionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetConnectionsFuture) Get(ctx workflow.Context) (*networkmanager.GetConnectionsOutput, error) {
+	var output networkmanager.GetConnectionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetCustomerGatewayAssociationsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -224,6 +279,17 @@ func (r *GetSitesFuture) Get(ctx workflow.Context) (*networkmanager.GetSitesOutp
 	return &output, err
 }
 
+type GetTransitGatewayConnectPeerAssociationsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetTransitGatewayConnectPeerAssociationsFuture) Get(ctx workflow.Context) (*networkmanager.GetTransitGatewayConnectPeerAssociationsOutput, error) {
+	var output networkmanager.GetTransitGatewayConnectPeerAssociationsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetTransitGatewayRegistrationsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -275,6 +341,17 @@ type UntagResourceFuture struct {
 
 func (r *UntagResourceFuture) Get(ctx workflow.Context) (*networkmanager.UntagResourceOutput, error) {
 	var output networkmanager.UntagResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateConnectionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateConnectionFuture) Get(ctx workflow.Context) (*networkmanager.UpdateConnectionOutput, error) {
+	var output networkmanager.UpdateConnectionOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -345,6 +422,28 @@ func (a *stub) AssociateLinkAsync(ctx workflow.Context, input *networkmanager.As
 	return &AssociateLinkFuture{Future: future}
 }
 
+func (a *stub) AssociateTransitGatewayConnectPeer(ctx workflow.Context, input *networkmanager.AssociateTransitGatewayConnectPeerInput) (*networkmanager.AssociateTransitGatewayConnectPeerOutput, error) {
+	var output networkmanager.AssociateTransitGatewayConnectPeerOutput
+	err := workflow.ExecuteActivity(ctx, "aws-networkmanager-AssociateTransitGatewayConnectPeer", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AssociateTransitGatewayConnectPeerAsync(ctx workflow.Context, input *networkmanager.AssociateTransitGatewayConnectPeerInput) *AssociateTransitGatewayConnectPeerFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-networkmanager-AssociateTransitGatewayConnectPeer", input)
+	return &AssociateTransitGatewayConnectPeerFuture{Future: future}
+}
+
+func (a *stub) CreateConnection(ctx workflow.Context, input *networkmanager.CreateConnectionInput) (*networkmanager.CreateConnectionOutput, error) {
+	var output networkmanager.CreateConnectionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-networkmanager-CreateConnection", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateConnectionAsync(ctx workflow.Context, input *networkmanager.CreateConnectionInput) *CreateConnectionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-networkmanager-CreateConnection", input)
+	return &CreateConnectionFuture{Future: future}
+}
+
 func (a *stub) CreateDevice(ctx workflow.Context, input *networkmanager.CreateDeviceInput) (*networkmanager.CreateDeviceOutput, error) {
 	var output networkmanager.CreateDeviceOutput
 	err := workflow.ExecuteActivity(ctx, "aws-networkmanager-CreateDevice", input).Get(ctx, &output)
@@ -387,6 +486,17 @@ func (a *stub) CreateSite(ctx workflow.Context, input *networkmanager.CreateSite
 func (a *stub) CreateSiteAsync(ctx workflow.Context, input *networkmanager.CreateSiteInput) *CreateSiteFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-networkmanager-CreateSite", input)
 	return &CreateSiteFuture{Future: future}
+}
+
+func (a *stub) DeleteConnection(ctx workflow.Context, input *networkmanager.DeleteConnectionInput) (*networkmanager.DeleteConnectionOutput, error) {
+	var output networkmanager.DeleteConnectionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-networkmanager-DeleteConnection", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteConnectionAsync(ctx workflow.Context, input *networkmanager.DeleteConnectionInput) *DeleteConnectionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-networkmanager-DeleteConnection", input)
+	return &DeleteConnectionFuture{Future: future}
 }
 
 func (a *stub) DeleteDevice(ctx workflow.Context, input *networkmanager.DeleteDeviceInput) (*networkmanager.DeleteDeviceOutput, error) {
@@ -477,6 +587,28 @@ func (a *stub) DisassociateLinkAsync(ctx workflow.Context, input *networkmanager
 	return &DisassociateLinkFuture{Future: future}
 }
 
+func (a *stub) DisassociateTransitGatewayConnectPeer(ctx workflow.Context, input *networkmanager.DisassociateTransitGatewayConnectPeerInput) (*networkmanager.DisassociateTransitGatewayConnectPeerOutput, error) {
+	var output networkmanager.DisassociateTransitGatewayConnectPeerOutput
+	err := workflow.ExecuteActivity(ctx, "aws-networkmanager-DisassociateTransitGatewayConnectPeer", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisassociateTransitGatewayConnectPeerAsync(ctx workflow.Context, input *networkmanager.DisassociateTransitGatewayConnectPeerInput) *DisassociateTransitGatewayConnectPeerFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-networkmanager-DisassociateTransitGatewayConnectPeer", input)
+	return &DisassociateTransitGatewayConnectPeerFuture{Future: future}
+}
+
+func (a *stub) GetConnections(ctx workflow.Context, input *networkmanager.GetConnectionsInput) (*networkmanager.GetConnectionsOutput, error) {
+	var output networkmanager.GetConnectionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-networkmanager-GetConnections", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetConnectionsAsync(ctx workflow.Context, input *networkmanager.GetConnectionsInput) *GetConnectionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-networkmanager-GetConnections", input)
+	return &GetConnectionsFuture{Future: future}
+}
+
 func (a *stub) GetCustomerGatewayAssociations(ctx workflow.Context, input *networkmanager.GetCustomerGatewayAssociationsInput) (*networkmanager.GetCustomerGatewayAssociationsOutput, error) {
 	var output networkmanager.GetCustomerGatewayAssociationsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-networkmanager-GetCustomerGatewayAssociations", input).Get(ctx, &output)
@@ -532,6 +664,17 @@ func (a *stub) GetSitesAsync(ctx workflow.Context, input *networkmanager.GetSite
 	return &GetSitesFuture{Future: future}
 }
 
+func (a *stub) GetTransitGatewayConnectPeerAssociations(ctx workflow.Context, input *networkmanager.GetTransitGatewayConnectPeerAssociationsInput) (*networkmanager.GetTransitGatewayConnectPeerAssociationsOutput, error) {
+	var output networkmanager.GetTransitGatewayConnectPeerAssociationsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-networkmanager-GetTransitGatewayConnectPeerAssociations", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetTransitGatewayConnectPeerAssociationsAsync(ctx workflow.Context, input *networkmanager.GetTransitGatewayConnectPeerAssociationsInput) *GetTransitGatewayConnectPeerAssociationsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-networkmanager-GetTransitGatewayConnectPeerAssociations", input)
+	return &GetTransitGatewayConnectPeerAssociationsFuture{Future: future}
+}
+
 func (a *stub) GetTransitGatewayRegistrations(ctx workflow.Context, input *networkmanager.GetTransitGatewayRegistrationsInput) (*networkmanager.GetTransitGatewayRegistrationsOutput, error) {
 	var output networkmanager.GetTransitGatewayRegistrationsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-networkmanager-GetTransitGatewayRegistrations", input).Get(ctx, &output)
@@ -585,6 +728,17 @@ func (a *stub) UntagResource(ctx workflow.Context, input *networkmanager.UntagRe
 func (a *stub) UntagResourceAsync(ctx workflow.Context, input *networkmanager.UntagResourceInput) *UntagResourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-networkmanager-UntagResource", input)
 	return &UntagResourceFuture{Future: future}
+}
+
+func (a *stub) UpdateConnection(ctx workflow.Context, input *networkmanager.UpdateConnectionInput) (*networkmanager.UpdateConnectionOutput, error) {
+	var output networkmanager.UpdateConnectionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-networkmanager-UpdateConnection", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateConnectionAsync(ctx workflow.Context, input *networkmanager.UpdateConnectionInput) *UpdateConnectionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-networkmanager-UpdateConnection", input)
+	return &UpdateConnectionFuture{Future: future}
 }
 
 func (a *stub) UpdateDevice(ctx workflow.Context, input *networkmanager.UpdateDeviceInput) (*networkmanager.UpdateDeviceOutput, error) {
