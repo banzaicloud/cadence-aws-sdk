@@ -3,7 +3,7 @@ module github.com/banzaicloud/cadence-aws-sdk
 go 1.15
 
 require (
-	github.com/aws/aws-sdk-go v1.35.20
+	github.com/aws/aws-sdk-go v1.37.1
 	go.uber.org/cadence v0.13.4
 )
 
