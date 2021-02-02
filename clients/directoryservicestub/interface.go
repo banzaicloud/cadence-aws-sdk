@@ -20,6 +20,9 @@ type Client interface {
 	AddIpRoutes(ctx workflow.Context, input *directoryservice.AddIpRoutesInput) (*directoryservice.AddIpRoutesOutput, error)
 	AddIpRoutesAsync(ctx workflow.Context, input *directoryservice.AddIpRoutesInput) *AddIpRoutesFuture
 
+	AddRegion(ctx workflow.Context, input *directoryservice.AddRegionInput) (*directoryservice.AddRegionOutput, error)
+	AddRegionAsync(ctx workflow.Context, input *directoryservice.AddRegionInput) *AddRegionFuture
+
 	AddTagsToResource(ctx workflow.Context, input *directoryservice.AddTagsToResourceInput) (*directoryservice.AddTagsToResourceOutput, error)
 	AddTagsToResourceAsync(ctx workflow.Context, input *directoryservice.AddTagsToResourceInput) *AddTagsToResourceFuture
 
@@ -92,6 +95,9 @@ type Client interface {
 	DescribeLDAPSSettings(ctx workflow.Context, input *directoryservice.DescribeLDAPSSettingsInput) (*directoryservice.DescribeLDAPSSettingsOutput, error)
 	DescribeLDAPSSettingsAsync(ctx workflow.Context, input *directoryservice.DescribeLDAPSSettingsInput) *DescribeLDAPSSettingsFuture
 
+	DescribeRegions(ctx workflow.Context, input *directoryservice.DescribeRegionsInput) (*directoryservice.DescribeRegionsOutput, error)
+	DescribeRegionsAsync(ctx workflow.Context, input *directoryservice.DescribeRegionsInput) *DescribeRegionsFuture
+
 	DescribeSharedDirectories(ctx workflow.Context, input *directoryservice.DescribeSharedDirectoriesInput) (*directoryservice.DescribeSharedDirectoriesOutput, error)
 	DescribeSharedDirectoriesAsync(ctx workflow.Context, input *directoryservice.DescribeSharedDirectoriesInput) *DescribeSharedDirectoriesFuture
 
@@ -101,6 +107,9 @@ type Client interface {
 	DescribeTrusts(ctx workflow.Context, input *directoryservice.DescribeTrustsInput) (*directoryservice.DescribeTrustsOutput, error)
 	DescribeTrustsAsync(ctx workflow.Context, input *directoryservice.DescribeTrustsInput) *DescribeTrustsFuture
 
+	DisableClientAuthentication(ctx workflow.Context, input *directoryservice.DisableClientAuthenticationInput) (*directoryservice.DisableClientAuthenticationOutput, error)
+	DisableClientAuthenticationAsync(ctx workflow.Context, input *directoryservice.DisableClientAuthenticationInput) *DisableClientAuthenticationFuture
+
 	DisableLDAPS(ctx workflow.Context, input *directoryservice.DisableLDAPSInput) (*directoryservice.DisableLDAPSOutput, error)
 	DisableLDAPSAsync(ctx workflow.Context, input *directoryservice.DisableLDAPSInput) *DisableLDAPSFuture
 
@@ -109,6 +118,9 @@ type Client interface {
 
 	DisableSso(ctx workflow.Context, input *directoryservice.DisableSsoInput) (*directoryservice.DisableSsoOutput, error)
 	DisableSsoAsync(ctx workflow.Context, input *directoryservice.DisableSsoInput) *DisableSsoFuture
+
+	EnableClientAuthentication(ctx workflow.Context, input *directoryservice.EnableClientAuthenticationInput) (*directoryservice.EnableClientAuthenticationOutput, error)
+	EnableClientAuthenticationAsync(ctx workflow.Context, input *directoryservice.EnableClientAuthenticationInput) *EnableClientAuthenticationFuture
 
 	EnableLDAPS(ctx workflow.Context, input *directoryservice.EnableLDAPSInput) (*directoryservice.EnableLDAPSOutput, error)
 	EnableLDAPSAsync(ctx workflow.Context, input *directoryservice.EnableLDAPSInput) *EnableLDAPSFuture
@@ -151,6 +163,9 @@ type Client interface {
 
 	RemoveIpRoutes(ctx workflow.Context, input *directoryservice.RemoveIpRoutesInput) (*directoryservice.RemoveIpRoutesOutput, error)
 	RemoveIpRoutesAsync(ctx workflow.Context, input *directoryservice.RemoveIpRoutesInput) *RemoveIpRoutesFuture
+
+	RemoveRegion(ctx workflow.Context, input *directoryservice.RemoveRegionInput) (*directoryservice.RemoveRegionOutput, error)
+	RemoveRegionAsync(ctx workflow.Context, input *directoryservice.RemoveRegionInput) *RemoveRegionFuture
 
 	RemoveTagsFromResource(ctx workflow.Context, input *directoryservice.RemoveTagsFromResourceInput) (*directoryservice.RemoveTagsFromResourceOutput, error)
 	RemoveTagsFromResourceAsync(ctx workflow.Context, input *directoryservice.RemoveTagsFromResourceInput) *RemoveTagsFromResourceFuture

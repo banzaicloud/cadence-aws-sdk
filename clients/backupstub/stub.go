@@ -147,6 +147,17 @@ func (r *DescribeCopyJobFuture) Get(ctx workflow.Context) (*backup.DescribeCopyJ
 	return &output, err
 }
 
+type DescribeGlobalSettingsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeGlobalSettingsFuture) Get(ctx workflow.Context) (*backup.DescribeGlobalSettingsOutput, error) {
+	var output backup.DescribeGlobalSettingsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeProtectedResourceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -521,6 +532,17 @@ func (r *UpdateBackupPlanFuture) Get(ctx workflow.Context) (*backup.UpdateBackup
 	return &output, err
 }
 
+type UpdateGlobalSettingsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateGlobalSettingsFuture) Get(ctx workflow.Context) (*backup.UpdateGlobalSettingsOutput, error) {
+	var output backup.UpdateGlobalSettingsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateRecoveryPointLifecycleFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -673,6 +695,17 @@ func (a *stub) DescribeCopyJob(ctx workflow.Context, input *backup.DescribeCopyJ
 func (a *stub) DescribeCopyJobAsync(ctx workflow.Context, input *backup.DescribeCopyJobInput) *DescribeCopyJobFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-backup-DescribeCopyJob", input)
 	return &DescribeCopyJobFuture{Future: future}
+}
+
+func (a *stub) DescribeGlobalSettings(ctx workflow.Context, input *backup.DescribeGlobalSettingsInput) (*backup.DescribeGlobalSettingsOutput, error) {
+	var output backup.DescribeGlobalSettingsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-backup-DescribeGlobalSettings", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeGlobalSettingsAsync(ctx workflow.Context, input *backup.DescribeGlobalSettingsInput) *DescribeGlobalSettingsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-backup-DescribeGlobalSettings", input)
+	return &DescribeGlobalSettingsFuture{Future: future}
 }
 
 func (a *stub) DescribeProtectedResource(ctx workflow.Context, input *backup.DescribeProtectedResourceInput) (*backup.DescribeProtectedResourceOutput, error) {
@@ -1047,6 +1080,17 @@ func (a *stub) UpdateBackupPlan(ctx workflow.Context, input *backup.UpdateBackup
 func (a *stub) UpdateBackupPlanAsync(ctx workflow.Context, input *backup.UpdateBackupPlanInput) *UpdateBackupPlanFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-backup-UpdateBackupPlan", input)
 	return &UpdateBackupPlanFuture{Future: future}
+}
+
+func (a *stub) UpdateGlobalSettings(ctx workflow.Context, input *backup.UpdateGlobalSettingsInput) (*backup.UpdateGlobalSettingsOutput, error) {
+	var output backup.UpdateGlobalSettingsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-backup-UpdateGlobalSettings", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateGlobalSettingsAsync(ctx workflow.Context, input *backup.UpdateGlobalSettingsInput) *UpdateGlobalSettingsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-backup-UpdateGlobalSettings", input)
+	return &UpdateGlobalSettingsFuture{Future: future}
 }
 
 func (a *stub) UpdateRecoveryPointLifecycle(ctx workflow.Context, input *backup.UpdateRecoveryPointLifecycleInput) (*backup.UpdateRecoveryPointLifecycleOutput, error) {

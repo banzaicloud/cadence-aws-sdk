@@ -15,6 +15,17 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type AddProfilePermissionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AddProfilePermissionFuture) Get(ctx workflow.Context) (*signer.AddProfilePermissionOutput, error) {
+	var output signer.AddProfilePermissionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CancelSigningProfileFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -55,6 +66,17 @@ type GetSigningProfileFuture struct {
 
 func (r *GetSigningProfileFuture) Get(ctx workflow.Context) (*signer.GetSigningProfileOutput, error) {
 	var output signer.GetSigningProfileOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListProfilePermissionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListProfilePermissionsFuture) Get(ctx workflow.Context) (*signer.ListProfilePermissionsOutput, error) {
+	var output signer.ListProfilePermissionsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -114,6 +136,39 @@ func (r *PutSigningProfileFuture) Get(ctx workflow.Context) (*signer.PutSigningP
 	return &output, err
 }
 
+type RemoveProfilePermissionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *RemoveProfilePermissionFuture) Get(ctx workflow.Context) (*signer.RemoveProfilePermissionOutput, error) {
+	var output signer.RemoveProfilePermissionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type RevokeSignatureFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *RevokeSignatureFuture) Get(ctx workflow.Context) (*signer.RevokeSignatureOutput, error) {
+	var output signer.RevokeSignatureOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type RevokeSigningProfileFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *RevokeSigningProfileFuture) Get(ctx workflow.Context) (*signer.RevokeSigningProfileOutput, error) {
+	var output signer.RevokeSigningProfileOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type StartSigningJobFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -145,6 +200,17 @@ func (r *UntagResourceFuture) Get(ctx workflow.Context) (*signer.UntagResourceOu
 	var output signer.UntagResourceOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
+}
+
+func (a *stub) AddProfilePermission(ctx workflow.Context, input *signer.AddProfilePermissionInput) (*signer.AddProfilePermissionOutput, error) {
+	var output signer.AddProfilePermissionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-signer-AddProfilePermission", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AddProfilePermissionAsync(ctx workflow.Context, input *signer.AddProfilePermissionInput) *AddProfilePermissionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-signer-AddProfilePermission", input)
+	return &AddProfilePermissionFuture{Future: future}
 }
 
 func (a *stub) CancelSigningProfile(ctx workflow.Context, input *signer.CancelSigningProfileInput) (*signer.CancelSigningProfileOutput, error) {
@@ -189,6 +255,17 @@ func (a *stub) GetSigningProfile(ctx workflow.Context, input *signer.GetSigningP
 func (a *stub) GetSigningProfileAsync(ctx workflow.Context, input *signer.GetSigningProfileInput) *GetSigningProfileFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-signer-GetSigningProfile", input)
 	return &GetSigningProfileFuture{Future: future}
+}
+
+func (a *stub) ListProfilePermissions(ctx workflow.Context, input *signer.ListProfilePermissionsInput) (*signer.ListProfilePermissionsOutput, error) {
+	var output signer.ListProfilePermissionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-signer-ListProfilePermissions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListProfilePermissionsAsync(ctx workflow.Context, input *signer.ListProfilePermissionsInput) *ListProfilePermissionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-signer-ListProfilePermissions", input)
+	return &ListProfilePermissionsFuture{Future: future}
 }
 
 func (a *stub) ListSigningJobs(ctx workflow.Context, input *signer.ListSigningJobsInput) (*signer.ListSigningJobsOutput, error) {
@@ -244,6 +321,39 @@ func (a *stub) PutSigningProfile(ctx workflow.Context, input *signer.PutSigningP
 func (a *stub) PutSigningProfileAsync(ctx workflow.Context, input *signer.PutSigningProfileInput) *PutSigningProfileFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-signer-PutSigningProfile", input)
 	return &PutSigningProfileFuture{Future: future}
+}
+
+func (a *stub) RemoveProfilePermission(ctx workflow.Context, input *signer.RemoveProfilePermissionInput) (*signer.RemoveProfilePermissionOutput, error) {
+	var output signer.RemoveProfilePermissionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-signer-RemoveProfilePermission", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) RemoveProfilePermissionAsync(ctx workflow.Context, input *signer.RemoveProfilePermissionInput) *RemoveProfilePermissionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-signer-RemoveProfilePermission", input)
+	return &RemoveProfilePermissionFuture{Future: future}
+}
+
+func (a *stub) RevokeSignature(ctx workflow.Context, input *signer.RevokeSignatureInput) (*signer.RevokeSignatureOutput, error) {
+	var output signer.RevokeSignatureOutput
+	err := workflow.ExecuteActivity(ctx, "aws-signer-RevokeSignature", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) RevokeSignatureAsync(ctx workflow.Context, input *signer.RevokeSignatureInput) *RevokeSignatureFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-signer-RevokeSignature", input)
+	return &RevokeSignatureFuture{Future: future}
+}
+
+func (a *stub) RevokeSigningProfile(ctx workflow.Context, input *signer.RevokeSigningProfileInput) (*signer.RevokeSigningProfileOutput, error) {
+	var output signer.RevokeSigningProfileOutput
+	err := workflow.ExecuteActivity(ctx, "aws-signer-RevokeSigningProfile", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) RevokeSigningProfileAsync(ctx workflow.Context, input *signer.RevokeSigningProfileInput) *RevokeSigningProfileFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-signer-RevokeSigningProfile", input)
+	return &RevokeSigningProfileFuture{Future: future}
 }
 
 func (a *stub) StartSigningJob(ctx workflow.Context, input *signer.StartSigningJobInput) (*signer.StartSigningJobOutput, error) {

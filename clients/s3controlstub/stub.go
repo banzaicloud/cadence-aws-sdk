@@ -136,6 +136,28 @@ func (r *DeletePublicAccessBlockFuture) Get(ctx workflow.Context) (*s3control.De
 	return &output, err
 }
 
+type DeleteStorageLensConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteStorageLensConfigurationFuture) Get(ctx workflow.Context) (*s3control.DeleteStorageLensConfigurationOutput, error) {
+	var output s3control.DeleteStorageLensConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteStorageLensConfigurationTaggingFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteStorageLensConfigurationTaggingFuture) Get(ctx workflow.Context) (*s3control.DeleteStorageLensConfigurationTaggingOutput, error) {
+	var output s3control.DeleteStorageLensConfigurationTaggingOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeJobFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -246,6 +268,28 @@ func (r *GetPublicAccessBlockFuture) Get(ctx workflow.Context) (*s3control.GetPu
 	return &output, err
 }
 
+type GetStorageLensConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetStorageLensConfigurationFuture) Get(ctx workflow.Context) (*s3control.GetStorageLensConfigurationOutput, error) {
+	var output s3control.GetStorageLensConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetStorageLensConfigurationTaggingFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetStorageLensConfigurationTaggingFuture) Get(ctx workflow.Context) (*s3control.GetStorageLensConfigurationTaggingOutput, error) {
+	var output s3control.GetStorageLensConfigurationTaggingOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListAccessPointsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -275,6 +319,17 @@ type ListRegionalBucketsFuture struct {
 
 func (r *ListRegionalBucketsFuture) Get(ctx workflow.Context) (*s3control.ListRegionalBucketsOutput, error) {
 	var output s3control.ListRegionalBucketsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListStorageLensConfigurationsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListStorageLensConfigurationsFuture) Get(ctx workflow.Context) (*s3control.ListStorageLensConfigurationsOutput, error) {
+	var output s3control.ListStorageLensConfigurationsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -341,6 +396,28 @@ type PutPublicAccessBlockFuture struct {
 
 func (r *PutPublicAccessBlockFuture) Get(ctx workflow.Context) (*s3control.PutPublicAccessBlockOutput, error) {
 	var output s3control.PutPublicAccessBlockOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type PutStorageLensConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutStorageLensConfigurationFuture) Get(ctx workflow.Context) (*s3control.PutStorageLensConfigurationOutput, error) {
+	var output s3control.PutStorageLensConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type PutStorageLensConfigurationTaggingFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutStorageLensConfigurationTaggingFuture) Get(ctx workflow.Context) (*s3control.PutStorageLensConfigurationTaggingOutput, error) {
+	var output s3control.PutStorageLensConfigurationTaggingOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -488,6 +565,28 @@ func (a *stub) DeletePublicAccessBlockAsync(ctx workflow.Context, input *s3contr
 	return &DeletePublicAccessBlockFuture{Future: future}
 }
 
+func (a *stub) DeleteStorageLensConfiguration(ctx workflow.Context, input *s3control.DeleteStorageLensConfigurationInput) (*s3control.DeleteStorageLensConfigurationOutput, error) {
+	var output s3control.DeleteStorageLensConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3control-DeleteStorageLensConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteStorageLensConfigurationAsync(ctx workflow.Context, input *s3control.DeleteStorageLensConfigurationInput) *DeleteStorageLensConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3control-DeleteStorageLensConfiguration", input)
+	return &DeleteStorageLensConfigurationFuture{Future: future}
+}
+
+func (a *stub) DeleteStorageLensConfigurationTagging(ctx workflow.Context, input *s3control.DeleteStorageLensConfigurationTaggingInput) (*s3control.DeleteStorageLensConfigurationTaggingOutput, error) {
+	var output s3control.DeleteStorageLensConfigurationTaggingOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3control-DeleteStorageLensConfigurationTagging", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteStorageLensConfigurationTaggingAsync(ctx workflow.Context, input *s3control.DeleteStorageLensConfigurationTaggingInput) *DeleteStorageLensConfigurationTaggingFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3control-DeleteStorageLensConfigurationTagging", input)
+	return &DeleteStorageLensConfigurationTaggingFuture{Future: future}
+}
+
 func (a *stub) DescribeJob(ctx workflow.Context, input *s3control.DescribeJobInput) (*s3control.DescribeJobOutput, error) {
 	var output s3control.DescribeJobOutput
 	err := workflow.ExecuteActivity(ctx, "aws-s3control-DescribeJob", input).Get(ctx, &output)
@@ -598,6 +697,28 @@ func (a *stub) GetPublicAccessBlockAsync(ctx workflow.Context, input *s3control.
 	return &GetPublicAccessBlockFuture{Future: future}
 }
 
+func (a *stub) GetStorageLensConfiguration(ctx workflow.Context, input *s3control.GetStorageLensConfigurationInput) (*s3control.GetStorageLensConfigurationOutput, error) {
+	var output s3control.GetStorageLensConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3control-GetStorageLensConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetStorageLensConfigurationAsync(ctx workflow.Context, input *s3control.GetStorageLensConfigurationInput) *GetStorageLensConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3control-GetStorageLensConfiguration", input)
+	return &GetStorageLensConfigurationFuture{Future: future}
+}
+
+func (a *stub) GetStorageLensConfigurationTagging(ctx workflow.Context, input *s3control.GetStorageLensConfigurationTaggingInput) (*s3control.GetStorageLensConfigurationTaggingOutput, error) {
+	var output s3control.GetStorageLensConfigurationTaggingOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3control-GetStorageLensConfigurationTagging", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetStorageLensConfigurationTaggingAsync(ctx workflow.Context, input *s3control.GetStorageLensConfigurationTaggingInput) *GetStorageLensConfigurationTaggingFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3control-GetStorageLensConfigurationTagging", input)
+	return &GetStorageLensConfigurationTaggingFuture{Future: future}
+}
+
 func (a *stub) ListAccessPoints(ctx workflow.Context, input *s3control.ListAccessPointsInput) (*s3control.ListAccessPointsOutput, error) {
 	var output s3control.ListAccessPointsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-s3control-ListAccessPoints", input).Get(ctx, &output)
@@ -629,6 +750,17 @@ func (a *stub) ListRegionalBuckets(ctx workflow.Context, input *s3control.ListRe
 func (a *stub) ListRegionalBucketsAsync(ctx workflow.Context, input *s3control.ListRegionalBucketsInput) *ListRegionalBucketsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-s3control-ListRegionalBuckets", input)
 	return &ListRegionalBucketsFuture{Future: future}
+}
+
+func (a *stub) ListStorageLensConfigurations(ctx workflow.Context, input *s3control.ListStorageLensConfigurationsInput) (*s3control.ListStorageLensConfigurationsOutput, error) {
+	var output s3control.ListStorageLensConfigurationsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3control-ListStorageLensConfigurations", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListStorageLensConfigurationsAsync(ctx workflow.Context, input *s3control.ListStorageLensConfigurationsInput) *ListStorageLensConfigurationsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3control-ListStorageLensConfigurations", input)
+	return &ListStorageLensConfigurationsFuture{Future: future}
 }
 
 func (a *stub) PutAccessPointPolicy(ctx workflow.Context, input *s3control.PutAccessPointPolicyInput) (*s3control.PutAccessPointPolicyOutput, error) {
@@ -695,6 +827,28 @@ func (a *stub) PutPublicAccessBlock(ctx workflow.Context, input *s3control.PutPu
 func (a *stub) PutPublicAccessBlockAsync(ctx workflow.Context, input *s3control.PutPublicAccessBlockInput) *PutPublicAccessBlockFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-s3control-PutPublicAccessBlock", input)
 	return &PutPublicAccessBlockFuture{Future: future}
+}
+
+func (a *stub) PutStorageLensConfiguration(ctx workflow.Context, input *s3control.PutStorageLensConfigurationInput) (*s3control.PutStorageLensConfigurationOutput, error) {
+	var output s3control.PutStorageLensConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3control-PutStorageLensConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutStorageLensConfigurationAsync(ctx workflow.Context, input *s3control.PutStorageLensConfigurationInput) *PutStorageLensConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3control-PutStorageLensConfiguration", input)
+	return &PutStorageLensConfigurationFuture{Future: future}
+}
+
+func (a *stub) PutStorageLensConfigurationTagging(ctx workflow.Context, input *s3control.PutStorageLensConfigurationTaggingInput) (*s3control.PutStorageLensConfigurationTaggingOutput, error) {
+	var output s3control.PutStorageLensConfigurationTaggingOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3control-PutStorageLensConfigurationTagging", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutStorageLensConfigurationTaggingAsync(ctx workflow.Context, input *s3control.PutStorageLensConfigurationTaggingInput) *PutStorageLensConfigurationTaggingFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3control-PutStorageLensConfigurationTagging", input)
+	return &PutStorageLensConfigurationTaggingFuture{Future: future}
 }
 
 func (a *stub) UpdateJobPriority(ctx workflow.Context, input *s3control.UpdateJobPriorityInput) (*s3control.UpdateJobPriorityOutput, error) {

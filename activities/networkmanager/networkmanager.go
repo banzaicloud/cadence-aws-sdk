@@ -73,6 +73,26 @@ func (a *Activities) AssociateLink(ctx context.Context, input *networkmanager.As
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) AssociateTransitGatewayConnectPeer(ctx context.Context, input *networkmanager.AssociateTransitGatewayConnectPeerInput) (*networkmanager.AssociateTransitGatewayConnectPeerOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.AssociateTransitGatewayConnectPeerWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateConnection(ctx context.Context, input *networkmanager.CreateConnectionInput) (*networkmanager.CreateConnectionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateConnectionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateDevice(ctx context.Context, input *networkmanager.CreateDeviceInput) (*networkmanager.CreateDeviceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -109,6 +129,16 @@ func (a *Activities) CreateSite(ctx context.Context, input *networkmanager.Creat
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreateSiteWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteConnection(ctx context.Context, input *networkmanager.DeleteConnectionInput) (*networkmanager.DeleteConnectionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteConnectionWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -193,6 +223,26 @@ func (a *Activities) DisassociateLink(ctx context.Context, input *networkmanager
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DisassociateTransitGatewayConnectPeer(ctx context.Context, input *networkmanager.DisassociateTransitGatewayConnectPeerInput) (*networkmanager.DisassociateTransitGatewayConnectPeerOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DisassociateTransitGatewayConnectPeerWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetConnections(ctx context.Context, input *networkmanager.GetConnectionsInput) (*networkmanager.GetConnectionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetConnectionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetCustomerGatewayAssociations(ctx context.Context, input *networkmanager.GetCustomerGatewayAssociationsInput) (*networkmanager.GetCustomerGatewayAssociationsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -243,6 +293,16 @@ func (a *Activities) GetSites(ctx context.Context, input *networkmanager.GetSite
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetTransitGatewayConnectPeerAssociations(ctx context.Context, input *networkmanager.GetTransitGatewayConnectPeerAssociationsInput) (*networkmanager.GetTransitGatewayConnectPeerAssociationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetTransitGatewayConnectPeerAssociationsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetTransitGatewayRegistrations(ctx context.Context, input *networkmanager.GetTransitGatewayRegistrationsInput) (*networkmanager.GetTransitGatewayRegistrationsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -289,6 +349,16 @@ func (a *Activities) UntagResource(ctx context.Context, input *networkmanager.Un
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UntagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateConnection(ctx context.Context, input *networkmanager.UpdateConnectionInput) (*networkmanager.UpdateConnectionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateConnectionWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

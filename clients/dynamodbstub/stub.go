@@ -15,6 +15,17 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type BatchExecuteStatementFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *BatchExecuteStatementFuture) Get(ctx workflow.Context) (*dynamodb.BatchExecuteStatementOutput, error) {
+	var output dynamodb.BatchExecuteStatementOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type BatchGetItemFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -147,6 +158,17 @@ func (r *DescribeEndpointsFuture) Get(ctx workflow.Context) (*dynamodb.DescribeE
 	return &output, err
 }
 
+type DescribeExportFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeExportFuture) Get(ctx workflow.Context) (*dynamodb.DescribeExportOutput, error) {
+	var output dynamodb.DescribeExportOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeGlobalTableFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -165,6 +187,17 @@ type DescribeGlobalTableSettingsFuture struct {
 
 func (r *DescribeGlobalTableSettingsFuture) Get(ctx workflow.Context) (*dynamodb.DescribeGlobalTableSettingsOutput, error) {
 	var output dynamodb.DescribeGlobalTableSettingsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeKinesisStreamingDestinationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeKinesisStreamingDestinationFuture) Get(ctx workflow.Context) (*dynamodb.DescribeKinesisStreamingDestinationOutput, error) {
+	var output dynamodb.DescribeKinesisStreamingDestinationOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -213,6 +246,61 @@ func (r *DescribeTimeToLiveFuture) Get(ctx workflow.Context) (*dynamodb.Describe
 	return &output, err
 }
 
+type DisableKinesisStreamingDestinationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisableKinesisStreamingDestinationFuture) Get(ctx workflow.Context) (*dynamodb.DisableKinesisStreamingDestinationOutput, error) {
+	var output dynamodb.DisableKinesisStreamingDestinationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type EnableKinesisStreamingDestinationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *EnableKinesisStreamingDestinationFuture) Get(ctx workflow.Context) (*dynamodb.EnableKinesisStreamingDestinationOutput, error) {
+	var output dynamodb.EnableKinesisStreamingDestinationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ExecuteStatementFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ExecuteStatementFuture) Get(ctx workflow.Context) (*dynamodb.ExecuteStatementOutput, error) {
+	var output dynamodb.ExecuteStatementOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ExecuteTransactionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ExecuteTransactionFuture) Get(ctx workflow.Context) (*dynamodb.ExecuteTransactionOutput, error) {
+	var output dynamodb.ExecuteTransactionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ExportTableToPointInTimeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ExportTableToPointInTimeFuture) Get(ctx workflow.Context) (*dynamodb.ExportTableToPointInTimeOutput, error) {
+	var output dynamodb.ExportTableToPointInTimeOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetItemFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -242,6 +330,17 @@ type ListContributorInsightsFuture struct {
 
 func (r *ListContributorInsightsFuture) Get(ctx workflow.Context) (*dynamodb.ListContributorInsightsOutput, error) {
 	var output dynamodb.ListContributorInsightsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListExportsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListExportsFuture) Get(ctx workflow.Context) (*dynamodb.ListExportsOutput, error) {
+	var output dynamodb.ListExportsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -466,6 +565,17 @@ func (r *UpdateTimeToLiveFuture) Get(ctx workflow.Context) (*dynamodb.UpdateTime
 	return &output, err
 }
 
+func (a *stub) BatchExecuteStatement(ctx workflow.Context, input *dynamodb.BatchExecuteStatementInput) (*dynamodb.BatchExecuteStatementOutput, error) {
+	var output dynamodb.BatchExecuteStatementOutput
+	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-BatchExecuteStatement", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) BatchExecuteStatementAsync(ctx workflow.Context, input *dynamodb.BatchExecuteStatementInput) *BatchExecuteStatementFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-BatchExecuteStatement", input)
+	return &BatchExecuteStatementFuture{Future: future}
+}
+
 func (a *stub) BatchGetItem(ctx workflow.Context, input *dynamodb.BatchGetItemInput) (*dynamodb.BatchGetItemOutput, error) {
 	var output dynamodb.BatchGetItemOutput
 	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-BatchGetItem", input).Get(ctx, &output)
@@ -598,6 +708,17 @@ func (a *stub) DescribeEndpointsAsync(ctx workflow.Context, input *dynamodb.Desc
 	return &DescribeEndpointsFuture{Future: future}
 }
 
+func (a *stub) DescribeExport(ctx workflow.Context, input *dynamodb.DescribeExportInput) (*dynamodb.DescribeExportOutput, error) {
+	var output dynamodb.DescribeExportOutput
+	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-DescribeExport", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeExportAsync(ctx workflow.Context, input *dynamodb.DescribeExportInput) *DescribeExportFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-DescribeExport", input)
+	return &DescribeExportFuture{Future: future}
+}
+
 func (a *stub) DescribeGlobalTable(ctx workflow.Context, input *dynamodb.DescribeGlobalTableInput) (*dynamodb.DescribeGlobalTableOutput, error) {
 	var output dynamodb.DescribeGlobalTableOutput
 	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-DescribeGlobalTable", input).Get(ctx, &output)
@@ -618,6 +739,17 @@ func (a *stub) DescribeGlobalTableSettings(ctx workflow.Context, input *dynamodb
 func (a *stub) DescribeGlobalTableSettingsAsync(ctx workflow.Context, input *dynamodb.DescribeGlobalTableSettingsInput) *DescribeGlobalTableSettingsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-DescribeGlobalTableSettings", input)
 	return &DescribeGlobalTableSettingsFuture{Future: future}
+}
+
+func (a *stub) DescribeKinesisStreamingDestination(ctx workflow.Context, input *dynamodb.DescribeKinesisStreamingDestinationInput) (*dynamodb.DescribeKinesisStreamingDestinationOutput, error) {
+	var output dynamodb.DescribeKinesisStreamingDestinationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-DescribeKinesisStreamingDestination", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeKinesisStreamingDestinationAsync(ctx workflow.Context, input *dynamodb.DescribeKinesisStreamingDestinationInput) *DescribeKinesisStreamingDestinationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-DescribeKinesisStreamingDestination", input)
+	return &DescribeKinesisStreamingDestinationFuture{Future: future}
 }
 
 func (a *stub) DescribeLimits(ctx workflow.Context, input *dynamodb.DescribeLimitsInput) (*dynamodb.DescribeLimitsOutput, error) {
@@ -664,6 +796,61 @@ func (a *stub) DescribeTimeToLiveAsync(ctx workflow.Context, input *dynamodb.Des
 	return &DescribeTimeToLiveFuture{Future: future}
 }
 
+func (a *stub) DisableKinesisStreamingDestination(ctx workflow.Context, input *dynamodb.DisableKinesisStreamingDestinationInput) (*dynamodb.DisableKinesisStreamingDestinationOutput, error) {
+	var output dynamodb.DisableKinesisStreamingDestinationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-DisableKinesisStreamingDestination", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisableKinesisStreamingDestinationAsync(ctx workflow.Context, input *dynamodb.DisableKinesisStreamingDestinationInput) *DisableKinesisStreamingDestinationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-DisableKinesisStreamingDestination", input)
+	return &DisableKinesisStreamingDestinationFuture{Future: future}
+}
+
+func (a *stub) EnableKinesisStreamingDestination(ctx workflow.Context, input *dynamodb.EnableKinesisStreamingDestinationInput) (*dynamodb.EnableKinesisStreamingDestinationOutput, error) {
+	var output dynamodb.EnableKinesisStreamingDestinationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-EnableKinesisStreamingDestination", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) EnableKinesisStreamingDestinationAsync(ctx workflow.Context, input *dynamodb.EnableKinesisStreamingDestinationInput) *EnableKinesisStreamingDestinationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-EnableKinesisStreamingDestination", input)
+	return &EnableKinesisStreamingDestinationFuture{Future: future}
+}
+
+func (a *stub) ExecuteStatement(ctx workflow.Context, input *dynamodb.ExecuteStatementInput) (*dynamodb.ExecuteStatementOutput, error) {
+	var output dynamodb.ExecuteStatementOutput
+	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-ExecuteStatement", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ExecuteStatementAsync(ctx workflow.Context, input *dynamodb.ExecuteStatementInput) *ExecuteStatementFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-ExecuteStatement", input)
+	return &ExecuteStatementFuture{Future: future}
+}
+
+func (a *stub) ExecuteTransaction(ctx workflow.Context, input *dynamodb.ExecuteTransactionInput) (*dynamodb.ExecuteTransactionOutput, error) {
+	var output dynamodb.ExecuteTransactionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-ExecuteTransaction", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ExecuteTransactionAsync(ctx workflow.Context, input *dynamodb.ExecuteTransactionInput) *ExecuteTransactionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-ExecuteTransaction", input)
+	return &ExecuteTransactionFuture{Future: future}
+}
+
+func (a *stub) ExportTableToPointInTime(ctx workflow.Context, input *dynamodb.ExportTableToPointInTimeInput) (*dynamodb.ExportTableToPointInTimeOutput, error) {
+	var output dynamodb.ExportTableToPointInTimeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-ExportTableToPointInTime", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ExportTableToPointInTimeAsync(ctx workflow.Context, input *dynamodb.ExportTableToPointInTimeInput) *ExportTableToPointInTimeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-ExportTableToPointInTime", input)
+	return &ExportTableToPointInTimeFuture{Future: future}
+}
+
 func (a *stub) GetItem(ctx workflow.Context, input *dynamodb.GetItemInput) (*dynamodb.GetItemOutput, error) {
 	var output dynamodb.GetItemOutput
 	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-GetItem", input).Get(ctx, &output)
@@ -695,6 +882,17 @@ func (a *stub) ListContributorInsights(ctx workflow.Context, input *dynamodb.Lis
 func (a *stub) ListContributorInsightsAsync(ctx workflow.Context, input *dynamodb.ListContributorInsightsInput) *ListContributorInsightsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-ListContributorInsights", input)
 	return &ListContributorInsightsFuture{Future: future}
+}
+
+func (a *stub) ListExports(ctx workflow.Context, input *dynamodb.ListExportsInput) (*dynamodb.ListExportsOutput, error) {
+	var output dynamodb.ListExportsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-dynamodb-ListExports", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListExportsAsync(ctx workflow.Context, input *dynamodb.ListExportsInput) *ListExportsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-dynamodb-ListExports", input)
+	return &ListExportsFuture{Future: future}
 }
 
 func (a *stub) ListGlobalTables(ctx workflow.Context, input *dynamodb.ListGlobalTablesInput) (*dynamodb.ListGlobalTablesOutput, error) {

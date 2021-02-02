@@ -15,6 +15,17 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type AddAssociationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AddAssociationFuture) Get(ctx workflow.Context) (*sagemaker.AddAssociationOutput, error) {
+	var output sagemaker.AddAssociationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type AddTagsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -33,6 +44,17 @@ type AssociateTrialComponentFuture struct {
 
 func (r *AssociateTrialComponentFuture) Get(ctx workflow.Context) (*sagemaker.AssociateTrialComponentOutput, error) {
 	var output sagemaker.AssociateTrialComponentOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateActionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateActionFuture) Get(ctx workflow.Context) (*sagemaker.CreateActionOutput, error) {
+	var output sagemaker.CreateActionOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -70,6 +92,17 @@ func (r *CreateAppImageConfigFuture) Get(ctx workflow.Context) (*sagemaker.Creat
 	return &output, err
 }
 
+type CreateArtifactFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateArtifactFuture) Get(ctx workflow.Context) (*sagemaker.CreateArtifactOutput, error) {
+	var output sagemaker.CreateArtifactOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateAutoMLJobFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -103,6 +136,39 @@ func (r *CreateCompilationJobFuture) Get(ctx workflow.Context) (*sagemaker.Creat
 	return &output, err
 }
 
+type CreateContextFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateContextFuture) Get(ctx workflow.Context) (*sagemaker.CreateContextOutput, error) {
+	var output sagemaker.CreateContextOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateDataQualityJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateDataQualityJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.CreateDataQualityJobDefinitionOutput, error) {
+	var output sagemaker.CreateDataQualityJobDefinitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateDeviceFleetFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateDeviceFleetFuture) Get(ctx workflow.Context) (*sagemaker.CreateDeviceFleetOutput, error) {
+	var output sagemaker.CreateDeviceFleetOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateDomainFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -110,6 +176,17 @@ type CreateDomainFuture struct {
 
 func (r *CreateDomainFuture) Get(ctx workflow.Context) (*sagemaker.CreateDomainOutput, error) {
 	var output sagemaker.CreateDomainOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateEdgePackagingJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateEdgePackagingJobFuture) Get(ctx workflow.Context) (*sagemaker.CreateEdgePackagingJobOutput, error) {
+	var output sagemaker.CreateEdgePackagingJobOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -143,6 +220,17 @@ type CreateExperimentFuture struct {
 
 func (r *CreateExperimentFuture) Get(ctx workflow.Context) (*sagemaker.CreateExperimentOutput, error) {
 	var output sagemaker.CreateExperimentOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateFeatureGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateFeatureGroupFuture) Get(ctx workflow.Context) (*sagemaker.CreateFeatureGroupOutput, error) {
+	var output sagemaker.CreateFeatureGroupOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -224,6 +312,28 @@ func (r *CreateModelFuture) Get(ctx workflow.Context) (*sagemaker.CreateModelOut
 	return &output, err
 }
 
+type CreateModelBiasJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateModelBiasJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.CreateModelBiasJobDefinitionOutput, error) {
+	var output sagemaker.CreateModelBiasJobDefinitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateModelExplainabilityJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateModelExplainabilityJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.CreateModelExplainabilityJobDefinitionOutput, error) {
+	var output sagemaker.CreateModelExplainabilityJobDefinitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateModelPackageFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -231,6 +341,28 @@ type CreateModelPackageFuture struct {
 
 func (r *CreateModelPackageFuture) Get(ctx workflow.Context) (*sagemaker.CreateModelPackageOutput, error) {
 	var output sagemaker.CreateModelPackageOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateModelPackageGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateModelPackageGroupFuture) Get(ctx workflow.Context) (*sagemaker.CreateModelPackageGroupOutput, error) {
+	var output sagemaker.CreateModelPackageGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateModelQualityJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateModelQualityJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.CreateModelQualityJobDefinitionOutput, error) {
+	var output sagemaker.CreateModelQualityJobDefinitionOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -268,6 +400,17 @@ func (r *CreateNotebookInstanceLifecycleConfigFuture) Get(ctx workflow.Context) 
 	return &output, err
 }
 
+type CreatePipelineFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreatePipelineFuture) Get(ctx workflow.Context) (*sagemaker.CreatePipelineOutput, error) {
+	var output sagemaker.CreatePipelineOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreatePresignedDomainUrlFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -297,6 +440,17 @@ type CreateProcessingJobFuture struct {
 
 func (r *CreateProcessingJobFuture) Get(ctx workflow.Context) (*sagemaker.CreateProcessingJobOutput, error) {
 	var output sagemaker.CreateProcessingJobOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateProjectFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateProjectFuture) Get(ctx workflow.Context) (*sagemaker.CreateProjectOutput, error) {
+	var output sagemaker.CreateProjectOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -378,6 +532,17 @@ func (r *CreateWorkteamFuture) Get(ctx workflow.Context) (*sagemaker.CreateWorkt
 	return &output, err
 }
 
+type DeleteActionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteActionFuture) Get(ctx workflow.Context) (*sagemaker.DeleteActionOutput, error) {
+	var output sagemaker.DeleteActionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteAlgorithmFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -411,6 +576,28 @@ func (r *DeleteAppImageConfigFuture) Get(ctx workflow.Context) (*sagemaker.Delet
 	return &output, err
 }
 
+type DeleteArtifactFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteArtifactFuture) Get(ctx workflow.Context) (*sagemaker.DeleteArtifactOutput, error) {
+	var output sagemaker.DeleteArtifactOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteAssociationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteAssociationFuture) Get(ctx workflow.Context) (*sagemaker.DeleteAssociationOutput, error) {
+	var output sagemaker.DeleteAssociationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteCodeRepositoryFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -418,6 +605,39 @@ type DeleteCodeRepositoryFuture struct {
 
 func (r *DeleteCodeRepositoryFuture) Get(ctx workflow.Context) (*sagemaker.DeleteCodeRepositoryOutput, error) {
 	var output sagemaker.DeleteCodeRepositoryOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteContextFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteContextFuture) Get(ctx workflow.Context) (*sagemaker.DeleteContextOutput, error) {
+	var output sagemaker.DeleteContextOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteDataQualityJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteDataQualityJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.DeleteDataQualityJobDefinitionOutput, error) {
+	var output sagemaker.DeleteDataQualityJobDefinitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteDeviceFleetFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteDeviceFleetFuture) Get(ctx workflow.Context) (*sagemaker.DeleteDeviceFleetOutput, error) {
+	var output sagemaker.DeleteDeviceFleetOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -462,6 +682,17 @@ type DeleteExperimentFuture struct {
 
 func (r *DeleteExperimentFuture) Get(ctx workflow.Context) (*sagemaker.DeleteExperimentOutput, error) {
 	var output sagemaker.DeleteExperimentOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteFeatureGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteFeatureGroupFuture) Get(ctx workflow.Context) (*sagemaker.DeleteFeatureGroupOutput, error) {
+	var output sagemaker.DeleteFeatureGroupOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -521,6 +752,28 @@ func (r *DeleteModelFuture) Get(ctx workflow.Context) (*sagemaker.DeleteModelOut
 	return &output, err
 }
 
+type DeleteModelBiasJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteModelBiasJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.DeleteModelBiasJobDefinitionOutput, error) {
+	var output sagemaker.DeleteModelBiasJobDefinitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteModelExplainabilityJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteModelExplainabilityJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.DeleteModelExplainabilityJobDefinitionOutput, error) {
+	var output sagemaker.DeleteModelExplainabilityJobDefinitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteModelPackageFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -528,6 +781,39 @@ type DeleteModelPackageFuture struct {
 
 func (r *DeleteModelPackageFuture) Get(ctx workflow.Context) (*sagemaker.DeleteModelPackageOutput, error) {
 	var output sagemaker.DeleteModelPackageOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteModelPackageGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteModelPackageGroupFuture) Get(ctx workflow.Context) (*sagemaker.DeleteModelPackageGroupOutput, error) {
+	var output sagemaker.DeleteModelPackageGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteModelPackageGroupPolicyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteModelPackageGroupPolicyFuture) Get(ctx workflow.Context) (*sagemaker.DeleteModelPackageGroupPolicyOutput, error) {
+	var output sagemaker.DeleteModelPackageGroupPolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteModelQualityJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteModelQualityJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.DeleteModelQualityJobDefinitionOutput, error) {
+	var output sagemaker.DeleteModelQualityJobDefinitionOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -561,6 +847,28 @@ type DeleteNotebookInstanceLifecycleConfigFuture struct {
 
 func (r *DeleteNotebookInstanceLifecycleConfigFuture) Get(ctx workflow.Context) (*sagemaker.DeleteNotebookInstanceLifecycleConfigOutput, error) {
 	var output sagemaker.DeleteNotebookInstanceLifecycleConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeletePipelineFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeletePipelineFuture) Get(ctx workflow.Context) (*sagemaker.DeletePipelineOutput, error) {
+	var output sagemaker.DeletePipelineOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteProjectFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteProjectFuture) Get(ctx workflow.Context) (*sagemaker.DeleteProjectOutput, error) {
+	var output sagemaker.DeleteProjectOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -631,6 +939,28 @@ func (r *DeleteWorkteamFuture) Get(ctx workflow.Context) (*sagemaker.DeleteWorkt
 	return &output, err
 }
 
+type DeregisterDevicesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeregisterDevicesFuture) Get(ctx workflow.Context) (*sagemaker.DeregisterDevicesOutput, error) {
+	var output sagemaker.DeregisterDevicesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeActionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeActionFuture) Get(ctx workflow.Context) (*sagemaker.DescribeActionOutput, error) {
+	var output sagemaker.DescribeActionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeAlgorithmFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -660,6 +990,17 @@ type DescribeAppImageConfigFuture struct {
 
 func (r *DescribeAppImageConfigFuture) Get(ctx workflow.Context) (*sagemaker.DescribeAppImageConfigOutput, error) {
 	var output sagemaker.DescribeAppImageConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeArtifactFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeArtifactFuture) Get(ctx workflow.Context) (*sagemaker.DescribeArtifactOutput, error) {
+	var output sagemaker.DescribeArtifactOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -697,6 +1038,50 @@ func (r *DescribeCompilationJobFuture) Get(ctx workflow.Context) (*sagemaker.Des
 	return &output, err
 }
 
+type DescribeContextFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeContextFuture) Get(ctx workflow.Context) (*sagemaker.DescribeContextOutput, error) {
+	var output sagemaker.DescribeContextOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeDataQualityJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeDataQualityJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.DescribeDataQualityJobDefinitionOutput, error) {
+	var output sagemaker.DescribeDataQualityJobDefinitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeDeviceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeDeviceFuture) Get(ctx workflow.Context) (*sagemaker.DescribeDeviceOutput, error) {
+	var output sagemaker.DescribeDeviceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeDeviceFleetFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeDeviceFleetFuture) Get(ctx workflow.Context) (*sagemaker.DescribeDeviceFleetOutput, error) {
+	var output sagemaker.DescribeDeviceFleetOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeDomainFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -704,6 +1089,17 @@ type DescribeDomainFuture struct {
 
 func (r *DescribeDomainFuture) Get(ctx workflow.Context) (*sagemaker.DescribeDomainOutput, error) {
 	var output sagemaker.DescribeDomainOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeEdgePackagingJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeEdgePackagingJobFuture) Get(ctx workflow.Context) (*sagemaker.DescribeEdgePackagingJobOutput, error) {
+	var output sagemaker.DescribeEdgePackagingJobOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -737,6 +1133,17 @@ type DescribeExperimentFuture struct {
 
 func (r *DescribeExperimentFuture) Get(ctx workflow.Context) (*sagemaker.DescribeExperimentOutput, error) {
 	var output sagemaker.DescribeExperimentOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeFeatureGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeFeatureGroupFuture) Get(ctx workflow.Context) (*sagemaker.DescribeFeatureGroupOutput, error) {
+	var output sagemaker.DescribeFeatureGroupOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -818,6 +1225,28 @@ func (r *DescribeModelFuture) Get(ctx workflow.Context) (*sagemaker.DescribeMode
 	return &output, err
 }
 
+type DescribeModelBiasJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeModelBiasJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.DescribeModelBiasJobDefinitionOutput, error) {
+	var output sagemaker.DescribeModelBiasJobDefinitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeModelExplainabilityJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeModelExplainabilityJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.DescribeModelExplainabilityJobDefinitionOutput, error) {
+	var output sagemaker.DescribeModelExplainabilityJobDefinitionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeModelPackageFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -825,6 +1254,28 @@ type DescribeModelPackageFuture struct {
 
 func (r *DescribeModelPackageFuture) Get(ctx workflow.Context) (*sagemaker.DescribeModelPackageOutput, error) {
 	var output sagemaker.DescribeModelPackageOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeModelPackageGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeModelPackageGroupFuture) Get(ctx workflow.Context) (*sagemaker.DescribeModelPackageGroupOutput, error) {
+	var output sagemaker.DescribeModelPackageGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeModelQualityJobDefinitionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeModelQualityJobDefinitionFuture) Get(ctx workflow.Context) (*sagemaker.DescribeModelQualityJobDefinitionOutput, error) {
+	var output sagemaker.DescribeModelQualityJobDefinitionOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -862,6 +1313,39 @@ func (r *DescribeNotebookInstanceLifecycleConfigFuture) Get(ctx workflow.Context
 	return &output, err
 }
 
+type DescribePipelineFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribePipelineFuture) Get(ctx workflow.Context) (*sagemaker.DescribePipelineOutput, error) {
+	var output sagemaker.DescribePipelineOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribePipelineDefinitionForExecutionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribePipelineDefinitionForExecutionFuture) Get(ctx workflow.Context) (*sagemaker.DescribePipelineDefinitionForExecutionOutput, error) {
+	var output sagemaker.DescribePipelineDefinitionForExecutionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribePipelineExecutionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribePipelineExecutionFuture) Get(ctx workflow.Context) (*sagemaker.DescribePipelineExecutionOutput, error) {
+	var output sagemaker.DescribePipelineExecutionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeProcessingJobFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -869,6 +1353,17 @@ type DescribeProcessingJobFuture struct {
 
 func (r *DescribeProcessingJobFuture) Get(ctx workflow.Context) (*sagemaker.DescribeProcessingJobOutput, error) {
 	var output sagemaker.DescribeProcessingJobOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeProjectFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeProjectFuture) Get(ctx workflow.Context) (*sagemaker.DescribeProjectOutput, error) {
+	var output sagemaker.DescribeProjectOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -961,6 +1456,17 @@ func (r *DescribeWorkteamFuture) Get(ctx workflow.Context) (*sagemaker.DescribeW
 	return &output, err
 }
 
+type DisableSagemakerServicecatalogPortfolioFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisableSagemakerServicecatalogPortfolioFuture) Get(ctx workflow.Context) (*sagemaker.DisableSagemakerServicecatalogPortfolioOutput, error) {
+	var output sagemaker.DisableSagemakerServicecatalogPortfolioOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DisassociateTrialComponentFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -972,6 +1478,50 @@ func (r *DisassociateTrialComponentFuture) Get(ctx workflow.Context) (*sagemaker
 	return &output, err
 }
 
+type EnableSagemakerServicecatalogPortfolioFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *EnableSagemakerServicecatalogPortfolioFuture) Get(ctx workflow.Context) (*sagemaker.EnableSagemakerServicecatalogPortfolioOutput, error) {
+	var output sagemaker.EnableSagemakerServicecatalogPortfolioOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetDeviceFleetReportFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetDeviceFleetReportFuture) Get(ctx workflow.Context) (*sagemaker.GetDeviceFleetReportOutput, error) {
+	var output sagemaker.GetDeviceFleetReportOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetModelPackageGroupPolicyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetModelPackageGroupPolicyFuture) Get(ctx workflow.Context) (*sagemaker.GetModelPackageGroupPolicyOutput, error) {
+	var output sagemaker.GetModelPackageGroupPolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetSagemakerServicecatalogPortfolioStatusFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetSagemakerServicecatalogPortfolioStatusFuture) Get(ctx workflow.Context) (*sagemaker.GetSagemakerServicecatalogPortfolioStatusOutput, error) {
+	var output sagemaker.GetSagemakerServicecatalogPortfolioStatusOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetSearchSuggestionsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -979,6 +1529,17 @@ type GetSearchSuggestionsFuture struct {
 
 func (r *GetSearchSuggestionsFuture) Get(ctx workflow.Context) (*sagemaker.GetSearchSuggestionsOutput, error) {
 	var output sagemaker.GetSearchSuggestionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListActionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListActionsFuture) Get(ctx workflow.Context) (*sagemaker.ListActionsOutput, error) {
+	var output sagemaker.ListActionsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1012,6 +1573,28 @@ type ListAppsFuture struct {
 
 func (r *ListAppsFuture) Get(ctx workflow.Context) (*sagemaker.ListAppsOutput, error) {
 	var output sagemaker.ListAppsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListArtifactsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListArtifactsFuture) Get(ctx workflow.Context) (*sagemaker.ListArtifactsOutput, error) {
+	var output sagemaker.ListArtifactsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListAssociationsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListAssociationsFuture) Get(ctx workflow.Context) (*sagemaker.ListAssociationsOutput, error) {
+	var output sagemaker.ListAssociationsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1060,6 +1643,50 @@ func (r *ListCompilationJobsFuture) Get(ctx workflow.Context) (*sagemaker.ListCo
 	return &output, err
 }
 
+type ListContextsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListContextsFuture) Get(ctx workflow.Context) (*sagemaker.ListContextsOutput, error) {
+	var output sagemaker.ListContextsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListDataQualityJobDefinitionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListDataQualityJobDefinitionsFuture) Get(ctx workflow.Context) (*sagemaker.ListDataQualityJobDefinitionsOutput, error) {
+	var output sagemaker.ListDataQualityJobDefinitionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListDeviceFleetsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListDeviceFleetsFuture) Get(ctx workflow.Context) (*sagemaker.ListDeviceFleetsOutput, error) {
+	var output sagemaker.ListDeviceFleetsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListDevicesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListDevicesFuture) Get(ctx workflow.Context) (*sagemaker.ListDevicesOutput, error) {
+	var output sagemaker.ListDevicesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListDomainsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1067,6 +1694,17 @@ type ListDomainsFuture struct {
 
 func (r *ListDomainsFuture) Get(ctx workflow.Context) (*sagemaker.ListDomainsOutput, error) {
 	var output sagemaker.ListDomainsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListEdgePackagingJobsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListEdgePackagingJobsFuture) Get(ctx workflow.Context) (*sagemaker.ListEdgePackagingJobsOutput, error) {
+	var output sagemaker.ListEdgePackagingJobsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1100,6 +1738,17 @@ type ListExperimentsFuture struct {
 
 func (r *ListExperimentsFuture) Get(ctx workflow.Context) (*sagemaker.ListExperimentsOutput, error) {
 	var output sagemaker.ListExperimentsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListFeatureGroupsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListFeatureGroupsFuture) Get(ctx workflow.Context) (*sagemaker.ListFeatureGroupsOutput, error) {
+	var output sagemaker.ListFeatureGroupsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1181,6 +1830,39 @@ func (r *ListLabelingJobsForWorkteamFuture) Get(ctx workflow.Context) (*sagemake
 	return &output, err
 }
 
+type ListModelBiasJobDefinitionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListModelBiasJobDefinitionsFuture) Get(ctx workflow.Context) (*sagemaker.ListModelBiasJobDefinitionsOutput, error) {
+	var output sagemaker.ListModelBiasJobDefinitionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListModelExplainabilityJobDefinitionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListModelExplainabilityJobDefinitionsFuture) Get(ctx workflow.Context) (*sagemaker.ListModelExplainabilityJobDefinitionsOutput, error) {
+	var output sagemaker.ListModelExplainabilityJobDefinitionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListModelPackageGroupsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListModelPackageGroupsFuture) Get(ctx workflow.Context) (*sagemaker.ListModelPackageGroupsOutput, error) {
+	var output sagemaker.ListModelPackageGroupsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListModelPackagesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1188,6 +1870,17 @@ type ListModelPackagesFuture struct {
 
 func (r *ListModelPackagesFuture) Get(ctx workflow.Context) (*sagemaker.ListModelPackagesOutput, error) {
 	var output sagemaker.ListModelPackagesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListModelQualityJobDefinitionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListModelQualityJobDefinitionsFuture) Get(ctx workflow.Context) (*sagemaker.ListModelQualityJobDefinitionsOutput, error) {
+	var output sagemaker.ListModelQualityJobDefinitionsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1247,6 +1940,50 @@ func (r *ListNotebookInstancesFuture) Get(ctx workflow.Context) (*sagemaker.List
 	return &output, err
 }
 
+type ListPipelineExecutionStepsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListPipelineExecutionStepsFuture) Get(ctx workflow.Context) (*sagemaker.ListPipelineExecutionStepsOutput, error) {
+	var output sagemaker.ListPipelineExecutionStepsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListPipelineExecutionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListPipelineExecutionsFuture) Get(ctx workflow.Context) (*sagemaker.ListPipelineExecutionsOutput, error) {
+	var output sagemaker.ListPipelineExecutionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListPipelineParametersForExecutionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListPipelineParametersForExecutionFuture) Get(ctx workflow.Context) (*sagemaker.ListPipelineParametersForExecutionOutput, error) {
+	var output sagemaker.ListPipelineParametersForExecutionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListPipelinesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListPipelinesFuture) Get(ctx workflow.Context) (*sagemaker.ListPipelinesOutput, error) {
+	var output sagemaker.ListPipelinesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListProcessingJobsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1254,6 +1991,17 @@ type ListProcessingJobsFuture struct {
 
 func (r *ListProcessingJobsFuture) Get(ctx workflow.Context) (*sagemaker.ListProcessingJobsOutput, error) {
 	var output sagemaker.ListProcessingJobsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListProjectsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListProjectsFuture) Get(ctx workflow.Context) (*sagemaker.ListProjectsOutput, error) {
+	var output sagemaker.ListProjectsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1368,6 +2116,28 @@ func (r *ListWorkteamsFuture) Get(ctx workflow.Context) (*sagemaker.ListWorkteam
 	return &output, err
 }
 
+type PutModelPackageGroupPolicyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutModelPackageGroupPolicyFuture) Get(ctx workflow.Context) (*sagemaker.PutModelPackageGroupPolicyOutput, error) {
+	var output sagemaker.PutModelPackageGroupPolicyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type RegisterDevicesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *RegisterDevicesFuture) Get(ctx workflow.Context) (*sagemaker.RegisterDevicesOutput, error) {
+	var output sagemaker.RegisterDevicesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type RenderUiTemplateFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1412,6 +2182,17 @@ func (r *StartNotebookInstanceFuture) Get(ctx workflow.Context) (*sagemaker.Star
 	return &output, err
 }
 
+type StartPipelineExecutionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartPipelineExecutionFuture) Get(ctx workflow.Context) (*sagemaker.StartPipelineExecutionOutput, error) {
+	var output sagemaker.StartPipelineExecutionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type StopAutoMLJobFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1430,6 +2211,17 @@ type StopCompilationJobFuture struct {
 
 func (r *StopCompilationJobFuture) Get(ctx workflow.Context) (*sagemaker.StopCompilationJobOutput, error) {
 	var output sagemaker.StopCompilationJobOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type StopEdgePackagingJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StopEdgePackagingJobFuture) Get(ctx workflow.Context) (*sagemaker.StopEdgePackagingJobOutput, error) {
+	var output sagemaker.StopEdgePackagingJobOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1478,6 +2270,17 @@ func (r *StopNotebookInstanceFuture) Get(ctx workflow.Context) (*sagemaker.StopN
 	return &output, err
 }
 
+type StopPipelineExecutionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StopPipelineExecutionFuture) Get(ctx workflow.Context) (*sagemaker.StopPipelineExecutionOutput, error) {
+	var output sagemaker.StopPipelineExecutionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type StopProcessingJobFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1511,6 +2314,17 @@ func (r *StopTransformJobFuture) Get(ctx workflow.Context) (*sagemaker.StopTrans
 	return &output, err
 }
 
+type UpdateActionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateActionFuture) Get(ctx workflow.Context) (*sagemaker.UpdateActionOutput, error) {
+	var output sagemaker.UpdateActionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateAppImageConfigFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1522,6 +2336,17 @@ func (r *UpdateAppImageConfigFuture) Get(ctx workflow.Context) (*sagemaker.Updat
 	return &output, err
 }
 
+type UpdateArtifactFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateArtifactFuture) Get(ctx workflow.Context) (*sagemaker.UpdateArtifactOutput, error) {
+	var output sagemaker.UpdateArtifactOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateCodeRepositoryFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1529,6 +2354,39 @@ type UpdateCodeRepositoryFuture struct {
 
 func (r *UpdateCodeRepositoryFuture) Get(ctx workflow.Context) (*sagemaker.UpdateCodeRepositoryOutput, error) {
 	var output sagemaker.UpdateCodeRepositoryOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateContextFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateContextFuture) Get(ctx workflow.Context) (*sagemaker.UpdateContextOutput, error) {
+	var output sagemaker.UpdateContextOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateDeviceFleetFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateDeviceFleetFuture) Get(ctx workflow.Context) (*sagemaker.UpdateDeviceFleetOutput, error) {
+	var output sagemaker.UpdateDeviceFleetOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateDevicesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateDevicesFuture) Get(ctx workflow.Context) (*sagemaker.UpdateDevicesOutput, error) {
+	var output sagemaker.UpdateDevicesOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1588,6 +2446,17 @@ func (r *UpdateImageFuture) Get(ctx workflow.Context) (*sagemaker.UpdateImageOut
 	return &output, err
 }
 
+type UpdateModelPackageFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateModelPackageFuture) Get(ctx workflow.Context) (*sagemaker.UpdateModelPackageOutput, error) {
+	var output sagemaker.UpdateModelPackageOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateMonitoringScheduleFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1617,6 +2486,39 @@ type UpdateNotebookInstanceLifecycleConfigFuture struct {
 
 func (r *UpdateNotebookInstanceLifecycleConfigFuture) Get(ctx workflow.Context) (*sagemaker.UpdateNotebookInstanceLifecycleConfigOutput, error) {
 	var output sagemaker.UpdateNotebookInstanceLifecycleConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdatePipelineFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdatePipelineFuture) Get(ctx workflow.Context) (*sagemaker.UpdatePipelineOutput, error) {
+	var output sagemaker.UpdatePipelineOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdatePipelineExecutionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdatePipelineExecutionFuture) Get(ctx workflow.Context) (*sagemaker.UpdatePipelineExecutionOutput, error) {
+	var output sagemaker.UpdatePipelineExecutionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateTrainingJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateTrainingJobFuture) Get(ctx workflow.Context) (*sagemaker.UpdateTrainingJobOutput, error) {
+	var output sagemaker.UpdateTrainingJobOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1676,6 +2578,17 @@ func (r *UpdateWorkteamFuture) Get(ctx workflow.Context) (*sagemaker.UpdateWorkt
 	return &output, err
 }
 
+func (a *stub) AddAssociation(ctx workflow.Context, input *sagemaker.AddAssociationInput) (*sagemaker.AddAssociationOutput, error) {
+	var output sagemaker.AddAssociationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-AddAssociation", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AddAssociationAsync(ctx workflow.Context, input *sagemaker.AddAssociationInput) *AddAssociationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-AddAssociation", input)
+	return &AddAssociationFuture{Future: future}
+}
+
 func (a *stub) AddTags(ctx workflow.Context, input *sagemaker.AddTagsInput) (*sagemaker.AddTagsOutput, error) {
 	var output sagemaker.AddTagsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-AddTags", input).Get(ctx, &output)
@@ -1696,6 +2609,17 @@ func (a *stub) AssociateTrialComponent(ctx workflow.Context, input *sagemaker.As
 func (a *stub) AssociateTrialComponentAsync(ctx workflow.Context, input *sagemaker.AssociateTrialComponentInput) *AssociateTrialComponentFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-AssociateTrialComponent", input)
 	return &AssociateTrialComponentFuture{Future: future}
+}
+
+func (a *stub) CreateAction(ctx workflow.Context, input *sagemaker.CreateActionInput) (*sagemaker.CreateActionOutput, error) {
+	var output sagemaker.CreateActionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateAction", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateActionAsync(ctx workflow.Context, input *sagemaker.CreateActionInput) *CreateActionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateAction", input)
+	return &CreateActionFuture{Future: future}
 }
 
 func (a *stub) CreateAlgorithm(ctx workflow.Context, input *sagemaker.CreateAlgorithmInput) (*sagemaker.CreateAlgorithmOutput, error) {
@@ -1731,6 +2655,17 @@ func (a *stub) CreateAppImageConfigAsync(ctx workflow.Context, input *sagemaker.
 	return &CreateAppImageConfigFuture{Future: future}
 }
 
+func (a *stub) CreateArtifact(ctx workflow.Context, input *sagemaker.CreateArtifactInput) (*sagemaker.CreateArtifactOutput, error) {
+	var output sagemaker.CreateArtifactOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateArtifact", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateArtifactAsync(ctx workflow.Context, input *sagemaker.CreateArtifactInput) *CreateArtifactFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateArtifact", input)
+	return &CreateArtifactFuture{Future: future}
+}
+
 func (a *stub) CreateAutoMLJob(ctx workflow.Context, input *sagemaker.CreateAutoMLJobInput) (*sagemaker.CreateAutoMLJobOutput, error) {
 	var output sagemaker.CreateAutoMLJobOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateAutoMLJob", input).Get(ctx, &output)
@@ -1764,6 +2699,39 @@ func (a *stub) CreateCompilationJobAsync(ctx workflow.Context, input *sagemaker.
 	return &CreateCompilationJobFuture{Future: future}
 }
 
+func (a *stub) CreateContext(ctx workflow.Context, input *sagemaker.CreateContextInput) (*sagemaker.CreateContextOutput, error) {
+	var output sagemaker.CreateContextOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateContext", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateContextAsync(ctx workflow.Context, input *sagemaker.CreateContextInput) *CreateContextFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateContext", input)
+	return &CreateContextFuture{Future: future}
+}
+
+func (a *stub) CreateDataQualityJobDefinition(ctx workflow.Context, input *sagemaker.CreateDataQualityJobDefinitionInput) (*sagemaker.CreateDataQualityJobDefinitionOutput, error) {
+	var output sagemaker.CreateDataQualityJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateDataQualityJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateDataQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.CreateDataQualityJobDefinitionInput) *CreateDataQualityJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateDataQualityJobDefinition", input)
+	return &CreateDataQualityJobDefinitionFuture{Future: future}
+}
+
+func (a *stub) CreateDeviceFleet(ctx workflow.Context, input *sagemaker.CreateDeviceFleetInput) (*sagemaker.CreateDeviceFleetOutput, error) {
+	var output sagemaker.CreateDeviceFleetOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateDeviceFleet", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateDeviceFleetAsync(ctx workflow.Context, input *sagemaker.CreateDeviceFleetInput) *CreateDeviceFleetFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateDeviceFleet", input)
+	return &CreateDeviceFleetFuture{Future: future}
+}
+
 func (a *stub) CreateDomain(ctx workflow.Context, input *sagemaker.CreateDomainInput) (*sagemaker.CreateDomainOutput, error) {
 	var output sagemaker.CreateDomainOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateDomain", input).Get(ctx, &output)
@@ -1773,6 +2741,17 @@ func (a *stub) CreateDomain(ctx workflow.Context, input *sagemaker.CreateDomainI
 func (a *stub) CreateDomainAsync(ctx workflow.Context, input *sagemaker.CreateDomainInput) *CreateDomainFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateDomain", input)
 	return &CreateDomainFuture{Future: future}
+}
+
+func (a *stub) CreateEdgePackagingJob(ctx workflow.Context, input *sagemaker.CreateEdgePackagingJobInput) (*sagemaker.CreateEdgePackagingJobOutput, error) {
+	var output sagemaker.CreateEdgePackagingJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateEdgePackagingJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateEdgePackagingJobAsync(ctx workflow.Context, input *sagemaker.CreateEdgePackagingJobInput) *CreateEdgePackagingJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateEdgePackagingJob", input)
+	return &CreateEdgePackagingJobFuture{Future: future}
 }
 
 func (a *stub) CreateEndpoint(ctx workflow.Context, input *sagemaker.CreateEndpointInput) (*sagemaker.CreateEndpointOutput, error) {
@@ -1806,6 +2785,17 @@ func (a *stub) CreateExperiment(ctx workflow.Context, input *sagemaker.CreateExp
 func (a *stub) CreateExperimentAsync(ctx workflow.Context, input *sagemaker.CreateExperimentInput) *CreateExperimentFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateExperiment", input)
 	return &CreateExperimentFuture{Future: future}
+}
+
+func (a *stub) CreateFeatureGroup(ctx workflow.Context, input *sagemaker.CreateFeatureGroupInput) (*sagemaker.CreateFeatureGroupOutput, error) {
+	var output sagemaker.CreateFeatureGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateFeatureGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateFeatureGroupAsync(ctx workflow.Context, input *sagemaker.CreateFeatureGroupInput) *CreateFeatureGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateFeatureGroup", input)
+	return &CreateFeatureGroupFuture{Future: future}
 }
 
 func (a *stub) CreateFlowDefinition(ctx workflow.Context, input *sagemaker.CreateFlowDefinitionInput) (*sagemaker.CreateFlowDefinitionOutput, error) {
@@ -1885,6 +2875,28 @@ func (a *stub) CreateModelAsync(ctx workflow.Context, input *sagemaker.CreateMod
 	return &CreateModelFuture{Future: future}
 }
 
+func (a *stub) CreateModelBiasJobDefinition(ctx workflow.Context, input *sagemaker.CreateModelBiasJobDefinitionInput) (*sagemaker.CreateModelBiasJobDefinitionOutput, error) {
+	var output sagemaker.CreateModelBiasJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateModelBiasJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateModelBiasJobDefinitionAsync(ctx workflow.Context, input *sagemaker.CreateModelBiasJobDefinitionInput) *CreateModelBiasJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateModelBiasJobDefinition", input)
+	return &CreateModelBiasJobDefinitionFuture{Future: future}
+}
+
+func (a *stub) CreateModelExplainabilityJobDefinition(ctx workflow.Context, input *sagemaker.CreateModelExplainabilityJobDefinitionInput) (*sagemaker.CreateModelExplainabilityJobDefinitionOutput, error) {
+	var output sagemaker.CreateModelExplainabilityJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateModelExplainabilityJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateModelExplainabilityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.CreateModelExplainabilityJobDefinitionInput) *CreateModelExplainabilityJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateModelExplainabilityJobDefinition", input)
+	return &CreateModelExplainabilityJobDefinitionFuture{Future: future}
+}
+
 func (a *stub) CreateModelPackage(ctx workflow.Context, input *sagemaker.CreateModelPackageInput) (*sagemaker.CreateModelPackageOutput, error) {
 	var output sagemaker.CreateModelPackageOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateModelPackage", input).Get(ctx, &output)
@@ -1894,6 +2906,28 @@ func (a *stub) CreateModelPackage(ctx workflow.Context, input *sagemaker.CreateM
 func (a *stub) CreateModelPackageAsync(ctx workflow.Context, input *sagemaker.CreateModelPackageInput) *CreateModelPackageFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateModelPackage", input)
 	return &CreateModelPackageFuture{Future: future}
+}
+
+func (a *stub) CreateModelPackageGroup(ctx workflow.Context, input *sagemaker.CreateModelPackageGroupInput) (*sagemaker.CreateModelPackageGroupOutput, error) {
+	var output sagemaker.CreateModelPackageGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateModelPackageGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateModelPackageGroupAsync(ctx workflow.Context, input *sagemaker.CreateModelPackageGroupInput) *CreateModelPackageGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateModelPackageGroup", input)
+	return &CreateModelPackageGroupFuture{Future: future}
+}
+
+func (a *stub) CreateModelQualityJobDefinition(ctx workflow.Context, input *sagemaker.CreateModelQualityJobDefinitionInput) (*sagemaker.CreateModelQualityJobDefinitionOutput, error) {
+	var output sagemaker.CreateModelQualityJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateModelQualityJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateModelQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.CreateModelQualityJobDefinitionInput) *CreateModelQualityJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateModelQualityJobDefinition", input)
+	return &CreateModelQualityJobDefinitionFuture{Future: future}
 }
 
 func (a *stub) CreateMonitoringSchedule(ctx workflow.Context, input *sagemaker.CreateMonitoringScheduleInput) (*sagemaker.CreateMonitoringScheduleOutput, error) {
@@ -1929,6 +2963,17 @@ func (a *stub) CreateNotebookInstanceLifecycleConfigAsync(ctx workflow.Context, 
 	return &CreateNotebookInstanceLifecycleConfigFuture{Future: future}
 }
 
+func (a *stub) CreatePipeline(ctx workflow.Context, input *sagemaker.CreatePipelineInput) (*sagemaker.CreatePipelineOutput, error) {
+	var output sagemaker.CreatePipelineOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreatePipeline", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreatePipelineAsync(ctx workflow.Context, input *sagemaker.CreatePipelineInput) *CreatePipelineFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreatePipeline", input)
+	return &CreatePipelineFuture{Future: future}
+}
+
 func (a *stub) CreatePresignedDomainUrl(ctx workflow.Context, input *sagemaker.CreatePresignedDomainUrlInput) (*sagemaker.CreatePresignedDomainUrlOutput, error) {
 	var output sagemaker.CreatePresignedDomainUrlOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreatePresignedDomainUrl", input).Get(ctx, &output)
@@ -1960,6 +3005,17 @@ func (a *stub) CreateProcessingJob(ctx workflow.Context, input *sagemaker.Create
 func (a *stub) CreateProcessingJobAsync(ctx workflow.Context, input *sagemaker.CreateProcessingJobInput) *CreateProcessingJobFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateProcessingJob", input)
 	return &CreateProcessingJobFuture{Future: future}
+}
+
+func (a *stub) CreateProject(ctx workflow.Context, input *sagemaker.CreateProjectInput) (*sagemaker.CreateProjectOutput, error) {
+	var output sagemaker.CreateProjectOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateProject", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateProjectAsync(ctx workflow.Context, input *sagemaker.CreateProjectInput) *CreateProjectFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-CreateProject", input)
+	return &CreateProjectFuture{Future: future}
 }
 
 func (a *stub) CreateTrainingJob(ctx workflow.Context, input *sagemaker.CreateTrainingJobInput) (*sagemaker.CreateTrainingJobOutput, error) {
@@ -2039,6 +3095,17 @@ func (a *stub) CreateWorkteamAsync(ctx workflow.Context, input *sagemaker.Create
 	return &CreateWorkteamFuture{Future: future}
 }
 
+func (a *stub) DeleteAction(ctx workflow.Context, input *sagemaker.DeleteActionInput) (*sagemaker.DeleteActionOutput, error) {
+	var output sagemaker.DeleteActionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteAction", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteActionAsync(ctx workflow.Context, input *sagemaker.DeleteActionInput) *DeleteActionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteAction", input)
+	return &DeleteActionFuture{Future: future}
+}
+
 func (a *stub) DeleteAlgorithm(ctx workflow.Context, input *sagemaker.DeleteAlgorithmInput) (*sagemaker.DeleteAlgorithmOutput, error) {
 	var output sagemaker.DeleteAlgorithmOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteAlgorithm", input).Get(ctx, &output)
@@ -2072,6 +3139,28 @@ func (a *stub) DeleteAppImageConfigAsync(ctx workflow.Context, input *sagemaker.
 	return &DeleteAppImageConfigFuture{Future: future}
 }
 
+func (a *stub) DeleteArtifact(ctx workflow.Context, input *sagemaker.DeleteArtifactInput) (*sagemaker.DeleteArtifactOutput, error) {
+	var output sagemaker.DeleteArtifactOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteArtifact", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteArtifactAsync(ctx workflow.Context, input *sagemaker.DeleteArtifactInput) *DeleteArtifactFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteArtifact", input)
+	return &DeleteArtifactFuture{Future: future}
+}
+
+func (a *stub) DeleteAssociation(ctx workflow.Context, input *sagemaker.DeleteAssociationInput) (*sagemaker.DeleteAssociationOutput, error) {
+	var output sagemaker.DeleteAssociationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteAssociation", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteAssociationAsync(ctx workflow.Context, input *sagemaker.DeleteAssociationInput) *DeleteAssociationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteAssociation", input)
+	return &DeleteAssociationFuture{Future: future}
+}
+
 func (a *stub) DeleteCodeRepository(ctx workflow.Context, input *sagemaker.DeleteCodeRepositoryInput) (*sagemaker.DeleteCodeRepositoryOutput, error) {
 	var output sagemaker.DeleteCodeRepositoryOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteCodeRepository", input).Get(ctx, &output)
@@ -2081,6 +3170,39 @@ func (a *stub) DeleteCodeRepository(ctx workflow.Context, input *sagemaker.Delet
 func (a *stub) DeleteCodeRepositoryAsync(ctx workflow.Context, input *sagemaker.DeleteCodeRepositoryInput) *DeleteCodeRepositoryFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteCodeRepository", input)
 	return &DeleteCodeRepositoryFuture{Future: future}
+}
+
+func (a *stub) DeleteContext(ctx workflow.Context, input *sagemaker.DeleteContextInput) (*sagemaker.DeleteContextOutput, error) {
+	var output sagemaker.DeleteContextOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteContext", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteContextAsync(ctx workflow.Context, input *sagemaker.DeleteContextInput) *DeleteContextFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteContext", input)
+	return &DeleteContextFuture{Future: future}
+}
+
+func (a *stub) DeleteDataQualityJobDefinition(ctx workflow.Context, input *sagemaker.DeleteDataQualityJobDefinitionInput) (*sagemaker.DeleteDataQualityJobDefinitionOutput, error) {
+	var output sagemaker.DeleteDataQualityJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteDataQualityJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteDataQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DeleteDataQualityJobDefinitionInput) *DeleteDataQualityJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteDataQualityJobDefinition", input)
+	return &DeleteDataQualityJobDefinitionFuture{Future: future}
+}
+
+func (a *stub) DeleteDeviceFleet(ctx workflow.Context, input *sagemaker.DeleteDeviceFleetInput) (*sagemaker.DeleteDeviceFleetOutput, error) {
+	var output sagemaker.DeleteDeviceFleetOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteDeviceFleet", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteDeviceFleetAsync(ctx workflow.Context, input *sagemaker.DeleteDeviceFleetInput) *DeleteDeviceFleetFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteDeviceFleet", input)
+	return &DeleteDeviceFleetFuture{Future: future}
 }
 
 func (a *stub) DeleteDomain(ctx workflow.Context, input *sagemaker.DeleteDomainInput) (*sagemaker.DeleteDomainOutput, error) {
@@ -2125,6 +3247,17 @@ func (a *stub) DeleteExperiment(ctx workflow.Context, input *sagemaker.DeleteExp
 func (a *stub) DeleteExperimentAsync(ctx workflow.Context, input *sagemaker.DeleteExperimentInput) *DeleteExperimentFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteExperiment", input)
 	return &DeleteExperimentFuture{Future: future}
+}
+
+func (a *stub) DeleteFeatureGroup(ctx workflow.Context, input *sagemaker.DeleteFeatureGroupInput) (*sagemaker.DeleteFeatureGroupOutput, error) {
+	var output sagemaker.DeleteFeatureGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteFeatureGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteFeatureGroupAsync(ctx workflow.Context, input *sagemaker.DeleteFeatureGroupInput) *DeleteFeatureGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteFeatureGroup", input)
+	return &DeleteFeatureGroupFuture{Future: future}
 }
 
 func (a *stub) DeleteFlowDefinition(ctx workflow.Context, input *sagemaker.DeleteFlowDefinitionInput) (*sagemaker.DeleteFlowDefinitionOutput, error) {
@@ -2182,6 +3315,28 @@ func (a *stub) DeleteModelAsync(ctx workflow.Context, input *sagemaker.DeleteMod
 	return &DeleteModelFuture{Future: future}
 }
 
+func (a *stub) DeleteModelBiasJobDefinition(ctx workflow.Context, input *sagemaker.DeleteModelBiasJobDefinitionInput) (*sagemaker.DeleteModelBiasJobDefinitionOutput, error) {
+	var output sagemaker.DeleteModelBiasJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelBiasJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteModelBiasJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DeleteModelBiasJobDefinitionInput) *DeleteModelBiasJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelBiasJobDefinition", input)
+	return &DeleteModelBiasJobDefinitionFuture{Future: future}
+}
+
+func (a *stub) DeleteModelExplainabilityJobDefinition(ctx workflow.Context, input *sagemaker.DeleteModelExplainabilityJobDefinitionInput) (*sagemaker.DeleteModelExplainabilityJobDefinitionOutput, error) {
+	var output sagemaker.DeleteModelExplainabilityJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelExplainabilityJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteModelExplainabilityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DeleteModelExplainabilityJobDefinitionInput) *DeleteModelExplainabilityJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelExplainabilityJobDefinition", input)
+	return &DeleteModelExplainabilityJobDefinitionFuture{Future: future}
+}
+
 func (a *stub) DeleteModelPackage(ctx workflow.Context, input *sagemaker.DeleteModelPackageInput) (*sagemaker.DeleteModelPackageOutput, error) {
 	var output sagemaker.DeleteModelPackageOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelPackage", input).Get(ctx, &output)
@@ -2191,6 +3346,39 @@ func (a *stub) DeleteModelPackage(ctx workflow.Context, input *sagemaker.DeleteM
 func (a *stub) DeleteModelPackageAsync(ctx workflow.Context, input *sagemaker.DeleteModelPackageInput) *DeleteModelPackageFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelPackage", input)
 	return &DeleteModelPackageFuture{Future: future}
+}
+
+func (a *stub) DeleteModelPackageGroup(ctx workflow.Context, input *sagemaker.DeleteModelPackageGroupInput) (*sagemaker.DeleteModelPackageGroupOutput, error) {
+	var output sagemaker.DeleteModelPackageGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelPackageGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteModelPackageGroupAsync(ctx workflow.Context, input *sagemaker.DeleteModelPackageGroupInput) *DeleteModelPackageGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelPackageGroup", input)
+	return &DeleteModelPackageGroupFuture{Future: future}
+}
+
+func (a *stub) DeleteModelPackageGroupPolicy(ctx workflow.Context, input *sagemaker.DeleteModelPackageGroupPolicyInput) (*sagemaker.DeleteModelPackageGroupPolicyOutput, error) {
+	var output sagemaker.DeleteModelPackageGroupPolicyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelPackageGroupPolicy", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteModelPackageGroupPolicyAsync(ctx workflow.Context, input *sagemaker.DeleteModelPackageGroupPolicyInput) *DeleteModelPackageGroupPolicyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelPackageGroupPolicy", input)
+	return &DeleteModelPackageGroupPolicyFuture{Future: future}
+}
+
+func (a *stub) DeleteModelQualityJobDefinition(ctx workflow.Context, input *sagemaker.DeleteModelQualityJobDefinitionInput) (*sagemaker.DeleteModelQualityJobDefinitionOutput, error) {
+	var output sagemaker.DeleteModelQualityJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelQualityJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteModelQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DeleteModelQualityJobDefinitionInput) *DeleteModelQualityJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteModelQualityJobDefinition", input)
+	return &DeleteModelQualityJobDefinitionFuture{Future: future}
 }
 
 func (a *stub) DeleteMonitoringSchedule(ctx workflow.Context, input *sagemaker.DeleteMonitoringScheduleInput) (*sagemaker.DeleteMonitoringScheduleOutput, error) {
@@ -2224,6 +3412,28 @@ func (a *stub) DeleteNotebookInstanceLifecycleConfig(ctx workflow.Context, input
 func (a *stub) DeleteNotebookInstanceLifecycleConfigAsync(ctx workflow.Context, input *sagemaker.DeleteNotebookInstanceLifecycleConfigInput) *DeleteNotebookInstanceLifecycleConfigFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteNotebookInstanceLifecycleConfig", input)
 	return &DeleteNotebookInstanceLifecycleConfigFuture{Future: future}
+}
+
+func (a *stub) DeletePipeline(ctx workflow.Context, input *sagemaker.DeletePipelineInput) (*sagemaker.DeletePipelineOutput, error) {
+	var output sagemaker.DeletePipelineOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeletePipeline", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeletePipelineAsync(ctx workflow.Context, input *sagemaker.DeletePipelineInput) *DeletePipelineFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeletePipeline", input)
+	return &DeletePipelineFuture{Future: future}
+}
+
+func (a *stub) DeleteProject(ctx workflow.Context, input *sagemaker.DeleteProjectInput) (*sagemaker.DeleteProjectOutput, error) {
+	var output sagemaker.DeleteProjectOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteProject", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteProjectAsync(ctx workflow.Context, input *sagemaker.DeleteProjectInput) *DeleteProjectFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeleteProject", input)
+	return &DeleteProjectFuture{Future: future}
 }
 
 func (a *stub) DeleteTags(ctx workflow.Context, input *sagemaker.DeleteTagsInput) (*sagemaker.DeleteTagsOutput, error) {
@@ -2292,6 +3502,28 @@ func (a *stub) DeleteWorkteamAsync(ctx workflow.Context, input *sagemaker.Delete
 	return &DeleteWorkteamFuture{Future: future}
 }
 
+func (a *stub) DeregisterDevices(ctx workflow.Context, input *sagemaker.DeregisterDevicesInput) (*sagemaker.DeregisterDevicesOutput, error) {
+	var output sagemaker.DeregisterDevicesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeregisterDevices", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeregisterDevicesAsync(ctx workflow.Context, input *sagemaker.DeregisterDevicesInput) *DeregisterDevicesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DeregisterDevices", input)
+	return &DeregisterDevicesFuture{Future: future}
+}
+
+func (a *stub) DescribeAction(ctx workflow.Context, input *sagemaker.DescribeActionInput) (*sagemaker.DescribeActionOutput, error) {
+	var output sagemaker.DescribeActionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeAction", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeActionAsync(ctx workflow.Context, input *sagemaker.DescribeActionInput) *DescribeActionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeAction", input)
+	return &DescribeActionFuture{Future: future}
+}
+
 func (a *stub) DescribeAlgorithm(ctx workflow.Context, input *sagemaker.DescribeAlgorithmInput) (*sagemaker.DescribeAlgorithmOutput, error) {
 	var output sagemaker.DescribeAlgorithmOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeAlgorithm", input).Get(ctx, &output)
@@ -2323,6 +3555,17 @@ func (a *stub) DescribeAppImageConfig(ctx workflow.Context, input *sagemaker.Des
 func (a *stub) DescribeAppImageConfigAsync(ctx workflow.Context, input *sagemaker.DescribeAppImageConfigInput) *DescribeAppImageConfigFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeAppImageConfig", input)
 	return &DescribeAppImageConfigFuture{Future: future}
+}
+
+func (a *stub) DescribeArtifact(ctx workflow.Context, input *sagemaker.DescribeArtifactInput) (*sagemaker.DescribeArtifactOutput, error) {
+	var output sagemaker.DescribeArtifactOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeArtifact", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeArtifactAsync(ctx workflow.Context, input *sagemaker.DescribeArtifactInput) *DescribeArtifactFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeArtifact", input)
+	return &DescribeArtifactFuture{Future: future}
 }
 
 func (a *stub) DescribeAutoMLJob(ctx workflow.Context, input *sagemaker.DescribeAutoMLJobInput) (*sagemaker.DescribeAutoMLJobOutput, error) {
@@ -2358,6 +3601,50 @@ func (a *stub) DescribeCompilationJobAsync(ctx workflow.Context, input *sagemake
 	return &DescribeCompilationJobFuture{Future: future}
 }
 
+func (a *stub) DescribeContext(ctx workflow.Context, input *sagemaker.DescribeContextInput) (*sagemaker.DescribeContextOutput, error) {
+	var output sagemaker.DescribeContextOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeContext", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeContextAsync(ctx workflow.Context, input *sagemaker.DescribeContextInput) *DescribeContextFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeContext", input)
+	return &DescribeContextFuture{Future: future}
+}
+
+func (a *stub) DescribeDataQualityJobDefinition(ctx workflow.Context, input *sagemaker.DescribeDataQualityJobDefinitionInput) (*sagemaker.DescribeDataQualityJobDefinitionOutput, error) {
+	var output sagemaker.DescribeDataQualityJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeDataQualityJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeDataQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DescribeDataQualityJobDefinitionInput) *DescribeDataQualityJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeDataQualityJobDefinition", input)
+	return &DescribeDataQualityJobDefinitionFuture{Future: future}
+}
+
+func (a *stub) DescribeDevice(ctx workflow.Context, input *sagemaker.DescribeDeviceInput) (*sagemaker.DescribeDeviceOutput, error) {
+	var output sagemaker.DescribeDeviceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeDevice", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeDeviceAsync(ctx workflow.Context, input *sagemaker.DescribeDeviceInput) *DescribeDeviceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeDevice", input)
+	return &DescribeDeviceFuture{Future: future}
+}
+
+func (a *stub) DescribeDeviceFleet(ctx workflow.Context, input *sagemaker.DescribeDeviceFleetInput) (*sagemaker.DescribeDeviceFleetOutput, error) {
+	var output sagemaker.DescribeDeviceFleetOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeDeviceFleet", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeDeviceFleetAsync(ctx workflow.Context, input *sagemaker.DescribeDeviceFleetInput) *DescribeDeviceFleetFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeDeviceFleet", input)
+	return &DescribeDeviceFleetFuture{Future: future}
+}
+
 func (a *stub) DescribeDomain(ctx workflow.Context, input *sagemaker.DescribeDomainInput) (*sagemaker.DescribeDomainOutput, error) {
 	var output sagemaker.DescribeDomainOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeDomain", input).Get(ctx, &output)
@@ -2367,6 +3654,17 @@ func (a *stub) DescribeDomain(ctx workflow.Context, input *sagemaker.DescribeDom
 func (a *stub) DescribeDomainAsync(ctx workflow.Context, input *sagemaker.DescribeDomainInput) *DescribeDomainFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeDomain", input)
 	return &DescribeDomainFuture{Future: future}
+}
+
+func (a *stub) DescribeEdgePackagingJob(ctx workflow.Context, input *sagemaker.DescribeEdgePackagingJobInput) (*sagemaker.DescribeEdgePackagingJobOutput, error) {
+	var output sagemaker.DescribeEdgePackagingJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeEdgePackagingJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeEdgePackagingJobAsync(ctx workflow.Context, input *sagemaker.DescribeEdgePackagingJobInput) *DescribeEdgePackagingJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeEdgePackagingJob", input)
+	return &DescribeEdgePackagingJobFuture{Future: future}
 }
 
 func (a *stub) DescribeEndpoint(ctx workflow.Context, input *sagemaker.DescribeEndpointInput) (*sagemaker.DescribeEndpointOutput, error) {
@@ -2400,6 +3698,17 @@ func (a *stub) DescribeExperiment(ctx workflow.Context, input *sagemaker.Describ
 func (a *stub) DescribeExperimentAsync(ctx workflow.Context, input *sagemaker.DescribeExperimentInput) *DescribeExperimentFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeExperiment", input)
 	return &DescribeExperimentFuture{Future: future}
+}
+
+func (a *stub) DescribeFeatureGroup(ctx workflow.Context, input *sagemaker.DescribeFeatureGroupInput) (*sagemaker.DescribeFeatureGroupOutput, error) {
+	var output sagemaker.DescribeFeatureGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeFeatureGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeFeatureGroupAsync(ctx workflow.Context, input *sagemaker.DescribeFeatureGroupInput) *DescribeFeatureGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeFeatureGroup", input)
+	return &DescribeFeatureGroupFuture{Future: future}
 }
 
 func (a *stub) DescribeFlowDefinition(ctx workflow.Context, input *sagemaker.DescribeFlowDefinitionInput) (*sagemaker.DescribeFlowDefinitionOutput, error) {
@@ -2479,6 +3788,28 @@ func (a *stub) DescribeModelAsync(ctx workflow.Context, input *sagemaker.Describ
 	return &DescribeModelFuture{Future: future}
 }
 
+func (a *stub) DescribeModelBiasJobDefinition(ctx workflow.Context, input *sagemaker.DescribeModelBiasJobDefinitionInput) (*sagemaker.DescribeModelBiasJobDefinitionOutput, error) {
+	var output sagemaker.DescribeModelBiasJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeModelBiasJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeModelBiasJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DescribeModelBiasJobDefinitionInput) *DescribeModelBiasJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeModelBiasJobDefinition", input)
+	return &DescribeModelBiasJobDefinitionFuture{Future: future}
+}
+
+func (a *stub) DescribeModelExplainabilityJobDefinition(ctx workflow.Context, input *sagemaker.DescribeModelExplainabilityJobDefinitionInput) (*sagemaker.DescribeModelExplainabilityJobDefinitionOutput, error) {
+	var output sagemaker.DescribeModelExplainabilityJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeModelExplainabilityJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeModelExplainabilityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DescribeModelExplainabilityJobDefinitionInput) *DescribeModelExplainabilityJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeModelExplainabilityJobDefinition", input)
+	return &DescribeModelExplainabilityJobDefinitionFuture{Future: future}
+}
+
 func (a *stub) DescribeModelPackage(ctx workflow.Context, input *sagemaker.DescribeModelPackageInput) (*sagemaker.DescribeModelPackageOutput, error) {
 	var output sagemaker.DescribeModelPackageOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeModelPackage", input).Get(ctx, &output)
@@ -2488,6 +3819,28 @@ func (a *stub) DescribeModelPackage(ctx workflow.Context, input *sagemaker.Descr
 func (a *stub) DescribeModelPackageAsync(ctx workflow.Context, input *sagemaker.DescribeModelPackageInput) *DescribeModelPackageFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeModelPackage", input)
 	return &DescribeModelPackageFuture{Future: future}
+}
+
+func (a *stub) DescribeModelPackageGroup(ctx workflow.Context, input *sagemaker.DescribeModelPackageGroupInput) (*sagemaker.DescribeModelPackageGroupOutput, error) {
+	var output sagemaker.DescribeModelPackageGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeModelPackageGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeModelPackageGroupAsync(ctx workflow.Context, input *sagemaker.DescribeModelPackageGroupInput) *DescribeModelPackageGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeModelPackageGroup", input)
+	return &DescribeModelPackageGroupFuture{Future: future}
+}
+
+func (a *stub) DescribeModelQualityJobDefinition(ctx workflow.Context, input *sagemaker.DescribeModelQualityJobDefinitionInput) (*sagemaker.DescribeModelQualityJobDefinitionOutput, error) {
+	var output sagemaker.DescribeModelQualityJobDefinitionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeModelQualityJobDefinition", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeModelQualityJobDefinitionAsync(ctx workflow.Context, input *sagemaker.DescribeModelQualityJobDefinitionInput) *DescribeModelQualityJobDefinitionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeModelQualityJobDefinition", input)
+	return &DescribeModelQualityJobDefinitionFuture{Future: future}
 }
 
 func (a *stub) DescribeMonitoringSchedule(ctx workflow.Context, input *sagemaker.DescribeMonitoringScheduleInput) (*sagemaker.DescribeMonitoringScheduleOutput, error) {
@@ -2523,6 +3876,39 @@ func (a *stub) DescribeNotebookInstanceLifecycleConfigAsync(ctx workflow.Context
 	return &DescribeNotebookInstanceLifecycleConfigFuture{Future: future}
 }
 
+func (a *stub) DescribePipeline(ctx workflow.Context, input *sagemaker.DescribePipelineInput) (*sagemaker.DescribePipelineOutput, error) {
+	var output sagemaker.DescribePipelineOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribePipeline", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribePipelineAsync(ctx workflow.Context, input *sagemaker.DescribePipelineInput) *DescribePipelineFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribePipeline", input)
+	return &DescribePipelineFuture{Future: future}
+}
+
+func (a *stub) DescribePipelineDefinitionForExecution(ctx workflow.Context, input *sagemaker.DescribePipelineDefinitionForExecutionInput) (*sagemaker.DescribePipelineDefinitionForExecutionOutput, error) {
+	var output sagemaker.DescribePipelineDefinitionForExecutionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribePipelineDefinitionForExecution", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribePipelineDefinitionForExecutionAsync(ctx workflow.Context, input *sagemaker.DescribePipelineDefinitionForExecutionInput) *DescribePipelineDefinitionForExecutionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribePipelineDefinitionForExecution", input)
+	return &DescribePipelineDefinitionForExecutionFuture{Future: future}
+}
+
+func (a *stub) DescribePipelineExecution(ctx workflow.Context, input *sagemaker.DescribePipelineExecutionInput) (*sagemaker.DescribePipelineExecutionOutput, error) {
+	var output sagemaker.DescribePipelineExecutionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribePipelineExecution", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribePipelineExecutionAsync(ctx workflow.Context, input *sagemaker.DescribePipelineExecutionInput) *DescribePipelineExecutionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribePipelineExecution", input)
+	return &DescribePipelineExecutionFuture{Future: future}
+}
+
 func (a *stub) DescribeProcessingJob(ctx workflow.Context, input *sagemaker.DescribeProcessingJobInput) (*sagemaker.DescribeProcessingJobOutput, error) {
 	var output sagemaker.DescribeProcessingJobOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeProcessingJob", input).Get(ctx, &output)
@@ -2532,6 +3918,17 @@ func (a *stub) DescribeProcessingJob(ctx workflow.Context, input *sagemaker.Desc
 func (a *stub) DescribeProcessingJobAsync(ctx workflow.Context, input *sagemaker.DescribeProcessingJobInput) *DescribeProcessingJobFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeProcessingJob", input)
 	return &DescribeProcessingJobFuture{Future: future}
+}
+
+func (a *stub) DescribeProject(ctx workflow.Context, input *sagemaker.DescribeProjectInput) (*sagemaker.DescribeProjectOutput, error) {
+	var output sagemaker.DescribeProjectOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeProject", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeProjectAsync(ctx workflow.Context, input *sagemaker.DescribeProjectInput) *DescribeProjectFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DescribeProject", input)
+	return &DescribeProjectFuture{Future: future}
 }
 
 func (a *stub) DescribeSubscribedWorkteam(ctx workflow.Context, input *sagemaker.DescribeSubscribedWorkteamInput) (*sagemaker.DescribeSubscribedWorkteamOutput, error) {
@@ -2622,6 +4019,17 @@ func (a *stub) DescribeWorkteamAsync(ctx workflow.Context, input *sagemaker.Desc
 	return &DescribeWorkteamFuture{Future: future}
 }
 
+func (a *stub) DisableSagemakerServicecatalogPortfolio(ctx workflow.Context, input *sagemaker.DisableSagemakerServicecatalogPortfolioInput) (*sagemaker.DisableSagemakerServicecatalogPortfolioOutput, error) {
+	var output sagemaker.DisableSagemakerServicecatalogPortfolioOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DisableSagemakerServicecatalogPortfolio", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisableSagemakerServicecatalogPortfolioAsync(ctx workflow.Context, input *sagemaker.DisableSagemakerServicecatalogPortfolioInput) *DisableSagemakerServicecatalogPortfolioFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-DisableSagemakerServicecatalogPortfolio", input)
+	return &DisableSagemakerServicecatalogPortfolioFuture{Future: future}
+}
+
 func (a *stub) DisassociateTrialComponent(ctx workflow.Context, input *sagemaker.DisassociateTrialComponentInput) (*sagemaker.DisassociateTrialComponentOutput, error) {
 	var output sagemaker.DisassociateTrialComponentOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-DisassociateTrialComponent", input).Get(ctx, &output)
@@ -2633,6 +4041,50 @@ func (a *stub) DisassociateTrialComponentAsync(ctx workflow.Context, input *sage
 	return &DisassociateTrialComponentFuture{Future: future}
 }
 
+func (a *stub) EnableSagemakerServicecatalogPortfolio(ctx workflow.Context, input *sagemaker.EnableSagemakerServicecatalogPortfolioInput) (*sagemaker.EnableSagemakerServicecatalogPortfolioOutput, error) {
+	var output sagemaker.EnableSagemakerServicecatalogPortfolioOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-EnableSagemakerServicecatalogPortfolio", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) EnableSagemakerServicecatalogPortfolioAsync(ctx workflow.Context, input *sagemaker.EnableSagemakerServicecatalogPortfolioInput) *EnableSagemakerServicecatalogPortfolioFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-EnableSagemakerServicecatalogPortfolio", input)
+	return &EnableSagemakerServicecatalogPortfolioFuture{Future: future}
+}
+
+func (a *stub) GetDeviceFleetReport(ctx workflow.Context, input *sagemaker.GetDeviceFleetReportInput) (*sagemaker.GetDeviceFleetReportOutput, error) {
+	var output sagemaker.GetDeviceFleetReportOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-GetDeviceFleetReport", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetDeviceFleetReportAsync(ctx workflow.Context, input *sagemaker.GetDeviceFleetReportInput) *GetDeviceFleetReportFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-GetDeviceFleetReport", input)
+	return &GetDeviceFleetReportFuture{Future: future}
+}
+
+func (a *stub) GetModelPackageGroupPolicy(ctx workflow.Context, input *sagemaker.GetModelPackageGroupPolicyInput) (*sagemaker.GetModelPackageGroupPolicyOutput, error) {
+	var output sagemaker.GetModelPackageGroupPolicyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-GetModelPackageGroupPolicy", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetModelPackageGroupPolicyAsync(ctx workflow.Context, input *sagemaker.GetModelPackageGroupPolicyInput) *GetModelPackageGroupPolicyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-GetModelPackageGroupPolicy", input)
+	return &GetModelPackageGroupPolicyFuture{Future: future}
+}
+
+func (a *stub) GetSagemakerServicecatalogPortfolioStatus(ctx workflow.Context, input *sagemaker.GetSagemakerServicecatalogPortfolioStatusInput) (*sagemaker.GetSagemakerServicecatalogPortfolioStatusOutput, error) {
+	var output sagemaker.GetSagemakerServicecatalogPortfolioStatusOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-GetSagemakerServicecatalogPortfolioStatus", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetSagemakerServicecatalogPortfolioStatusAsync(ctx workflow.Context, input *sagemaker.GetSagemakerServicecatalogPortfolioStatusInput) *GetSagemakerServicecatalogPortfolioStatusFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-GetSagemakerServicecatalogPortfolioStatus", input)
+	return &GetSagemakerServicecatalogPortfolioStatusFuture{Future: future}
+}
+
 func (a *stub) GetSearchSuggestions(ctx workflow.Context, input *sagemaker.GetSearchSuggestionsInput) (*sagemaker.GetSearchSuggestionsOutput, error) {
 	var output sagemaker.GetSearchSuggestionsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-GetSearchSuggestions", input).Get(ctx, &output)
@@ -2642,6 +4094,17 @@ func (a *stub) GetSearchSuggestions(ctx workflow.Context, input *sagemaker.GetSe
 func (a *stub) GetSearchSuggestionsAsync(ctx workflow.Context, input *sagemaker.GetSearchSuggestionsInput) *GetSearchSuggestionsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-GetSearchSuggestions", input)
 	return &GetSearchSuggestionsFuture{Future: future}
+}
+
+func (a *stub) ListActions(ctx workflow.Context, input *sagemaker.ListActionsInput) (*sagemaker.ListActionsOutput, error) {
+	var output sagemaker.ListActionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListActions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListActionsAsync(ctx workflow.Context, input *sagemaker.ListActionsInput) *ListActionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListActions", input)
+	return &ListActionsFuture{Future: future}
 }
 
 func (a *stub) ListAlgorithms(ctx workflow.Context, input *sagemaker.ListAlgorithmsInput) (*sagemaker.ListAlgorithmsOutput, error) {
@@ -2675,6 +4138,28 @@ func (a *stub) ListApps(ctx workflow.Context, input *sagemaker.ListAppsInput) (*
 func (a *stub) ListAppsAsync(ctx workflow.Context, input *sagemaker.ListAppsInput) *ListAppsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListApps", input)
 	return &ListAppsFuture{Future: future}
+}
+
+func (a *stub) ListArtifacts(ctx workflow.Context, input *sagemaker.ListArtifactsInput) (*sagemaker.ListArtifactsOutput, error) {
+	var output sagemaker.ListArtifactsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListArtifacts", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListArtifactsAsync(ctx workflow.Context, input *sagemaker.ListArtifactsInput) *ListArtifactsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListArtifacts", input)
+	return &ListArtifactsFuture{Future: future}
+}
+
+func (a *stub) ListAssociations(ctx workflow.Context, input *sagemaker.ListAssociationsInput) (*sagemaker.ListAssociationsOutput, error) {
+	var output sagemaker.ListAssociationsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListAssociations", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListAssociationsAsync(ctx workflow.Context, input *sagemaker.ListAssociationsInput) *ListAssociationsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListAssociations", input)
+	return &ListAssociationsFuture{Future: future}
 }
 
 func (a *stub) ListAutoMLJobs(ctx workflow.Context, input *sagemaker.ListAutoMLJobsInput) (*sagemaker.ListAutoMLJobsOutput, error) {
@@ -2721,6 +4206,50 @@ func (a *stub) ListCompilationJobsAsync(ctx workflow.Context, input *sagemaker.L
 	return &ListCompilationJobsFuture{Future: future}
 }
 
+func (a *stub) ListContexts(ctx workflow.Context, input *sagemaker.ListContextsInput) (*sagemaker.ListContextsOutput, error) {
+	var output sagemaker.ListContextsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListContexts", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListContextsAsync(ctx workflow.Context, input *sagemaker.ListContextsInput) *ListContextsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListContexts", input)
+	return &ListContextsFuture{Future: future}
+}
+
+func (a *stub) ListDataQualityJobDefinitions(ctx workflow.Context, input *sagemaker.ListDataQualityJobDefinitionsInput) (*sagemaker.ListDataQualityJobDefinitionsOutput, error) {
+	var output sagemaker.ListDataQualityJobDefinitionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListDataQualityJobDefinitions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListDataQualityJobDefinitionsAsync(ctx workflow.Context, input *sagemaker.ListDataQualityJobDefinitionsInput) *ListDataQualityJobDefinitionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListDataQualityJobDefinitions", input)
+	return &ListDataQualityJobDefinitionsFuture{Future: future}
+}
+
+func (a *stub) ListDeviceFleets(ctx workflow.Context, input *sagemaker.ListDeviceFleetsInput) (*sagemaker.ListDeviceFleetsOutput, error) {
+	var output sagemaker.ListDeviceFleetsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListDeviceFleets", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListDeviceFleetsAsync(ctx workflow.Context, input *sagemaker.ListDeviceFleetsInput) *ListDeviceFleetsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListDeviceFleets", input)
+	return &ListDeviceFleetsFuture{Future: future}
+}
+
+func (a *stub) ListDevices(ctx workflow.Context, input *sagemaker.ListDevicesInput) (*sagemaker.ListDevicesOutput, error) {
+	var output sagemaker.ListDevicesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListDevices", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListDevicesAsync(ctx workflow.Context, input *sagemaker.ListDevicesInput) *ListDevicesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListDevices", input)
+	return &ListDevicesFuture{Future: future}
+}
+
 func (a *stub) ListDomains(ctx workflow.Context, input *sagemaker.ListDomainsInput) (*sagemaker.ListDomainsOutput, error) {
 	var output sagemaker.ListDomainsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListDomains", input).Get(ctx, &output)
@@ -2730,6 +4259,17 @@ func (a *stub) ListDomains(ctx workflow.Context, input *sagemaker.ListDomainsInp
 func (a *stub) ListDomainsAsync(ctx workflow.Context, input *sagemaker.ListDomainsInput) *ListDomainsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListDomains", input)
 	return &ListDomainsFuture{Future: future}
+}
+
+func (a *stub) ListEdgePackagingJobs(ctx workflow.Context, input *sagemaker.ListEdgePackagingJobsInput) (*sagemaker.ListEdgePackagingJobsOutput, error) {
+	var output sagemaker.ListEdgePackagingJobsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListEdgePackagingJobs", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListEdgePackagingJobsAsync(ctx workflow.Context, input *sagemaker.ListEdgePackagingJobsInput) *ListEdgePackagingJobsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListEdgePackagingJobs", input)
+	return &ListEdgePackagingJobsFuture{Future: future}
 }
 
 func (a *stub) ListEndpointConfigs(ctx workflow.Context, input *sagemaker.ListEndpointConfigsInput) (*sagemaker.ListEndpointConfigsOutput, error) {
@@ -2763,6 +4303,17 @@ func (a *stub) ListExperiments(ctx workflow.Context, input *sagemaker.ListExperi
 func (a *stub) ListExperimentsAsync(ctx workflow.Context, input *sagemaker.ListExperimentsInput) *ListExperimentsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListExperiments", input)
 	return &ListExperimentsFuture{Future: future}
+}
+
+func (a *stub) ListFeatureGroups(ctx workflow.Context, input *sagemaker.ListFeatureGroupsInput) (*sagemaker.ListFeatureGroupsOutput, error) {
+	var output sagemaker.ListFeatureGroupsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListFeatureGroups", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListFeatureGroupsAsync(ctx workflow.Context, input *sagemaker.ListFeatureGroupsInput) *ListFeatureGroupsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListFeatureGroups", input)
+	return &ListFeatureGroupsFuture{Future: future}
 }
 
 func (a *stub) ListFlowDefinitions(ctx workflow.Context, input *sagemaker.ListFlowDefinitionsInput) (*sagemaker.ListFlowDefinitionsOutput, error) {
@@ -2842,6 +4393,39 @@ func (a *stub) ListLabelingJobsForWorkteamAsync(ctx workflow.Context, input *sag
 	return &ListLabelingJobsForWorkteamFuture{Future: future}
 }
 
+func (a *stub) ListModelBiasJobDefinitions(ctx workflow.Context, input *sagemaker.ListModelBiasJobDefinitionsInput) (*sagemaker.ListModelBiasJobDefinitionsOutput, error) {
+	var output sagemaker.ListModelBiasJobDefinitionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListModelBiasJobDefinitions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListModelBiasJobDefinitionsAsync(ctx workflow.Context, input *sagemaker.ListModelBiasJobDefinitionsInput) *ListModelBiasJobDefinitionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListModelBiasJobDefinitions", input)
+	return &ListModelBiasJobDefinitionsFuture{Future: future}
+}
+
+func (a *stub) ListModelExplainabilityJobDefinitions(ctx workflow.Context, input *sagemaker.ListModelExplainabilityJobDefinitionsInput) (*sagemaker.ListModelExplainabilityJobDefinitionsOutput, error) {
+	var output sagemaker.ListModelExplainabilityJobDefinitionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListModelExplainabilityJobDefinitions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListModelExplainabilityJobDefinitionsAsync(ctx workflow.Context, input *sagemaker.ListModelExplainabilityJobDefinitionsInput) *ListModelExplainabilityJobDefinitionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListModelExplainabilityJobDefinitions", input)
+	return &ListModelExplainabilityJobDefinitionsFuture{Future: future}
+}
+
+func (a *stub) ListModelPackageGroups(ctx workflow.Context, input *sagemaker.ListModelPackageGroupsInput) (*sagemaker.ListModelPackageGroupsOutput, error) {
+	var output sagemaker.ListModelPackageGroupsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListModelPackageGroups", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListModelPackageGroupsAsync(ctx workflow.Context, input *sagemaker.ListModelPackageGroupsInput) *ListModelPackageGroupsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListModelPackageGroups", input)
+	return &ListModelPackageGroupsFuture{Future: future}
+}
+
 func (a *stub) ListModelPackages(ctx workflow.Context, input *sagemaker.ListModelPackagesInput) (*sagemaker.ListModelPackagesOutput, error) {
 	var output sagemaker.ListModelPackagesOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListModelPackages", input).Get(ctx, &output)
@@ -2851,6 +4435,17 @@ func (a *stub) ListModelPackages(ctx workflow.Context, input *sagemaker.ListMode
 func (a *stub) ListModelPackagesAsync(ctx workflow.Context, input *sagemaker.ListModelPackagesInput) *ListModelPackagesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListModelPackages", input)
 	return &ListModelPackagesFuture{Future: future}
+}
+
+func (a *stub) ListModelQualityJobDefinitions(ctx workflow.Context, input *sagemaker.ListModelQualityJobDefinitionsInput) (*sagemaker.ListModelQualityJobDefinitionsOutput, error) {
+	var output sagemaker.ListModelQualityJobDefinitionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListModelQualityJobDefinitions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListModelQualityJobDefinitionsAsync(ctx workflow.Context, input *sagemaker.ListModelQualityJobDefinitionsInput) *ListModelQualityJobDefinitionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListModelQualityJobDefinitions", input)
+	return &ListModelQualityJobDefinitionsFuture{Future: future}
 }
 
 func (a *stub) ListModels(ctx workflow.Context, input *sagemaker.ListModelsInput) (*sagemaker.ListModelsOutput, error) {
@@ -2908,6 +4503,50 @@ func (a *stub) ListNotebookInstancesAsync(ctx workflow.Context, input *sagemaker
 	return &ListNotebookInstancesFuture{Future: future}
 }
 
+func (a *stub) ListPipelineExecutionSteps(ctx workflow.Context, input *sagemaker.ListPipelineExecutionStepsInput) (*sagemaker.ListPipelineExecutionStepsOutput, error) {
+	var output sagemaker.ListPipelineExecutionStepsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListPipelineExecutionSteps", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListPipelineExecutionStepsAsync(ctx workflow.Context, input *sagemaker.ListPipelineExecutionStepsInput) *ListPipelineExecutionStepsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListPipelineExecutionSteps", input)
+	return &ListPipelineExecutionStepsFuture{Future: future}
+}
+
+func (a *stub) ListPipelineExecutions(ctx workflow.Context, input *sagemaker.ListPipelineExecutionsInput) (*sagemaker.ListPipelineExecutionsOutput, error) {
+	var output sagemaker.ListPipelineExecutionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListPipelineExecutions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListPipelineExecutionsAsync(ctx workflow.Context, input *sagemaker.ListPipelineExecutionsInput) *ListPipelineExecutionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListPipelineExecutions", input)
+	return &ListPipelineExecutionsFuture{Future: future}
+}
+
+func (a *stub) ListPipelineParametersForExecution(ctx workflow.Context, input *sagemaker.ListPipelineParametersForExecutionInput) (*sagemaker.ListPipelineParametersForExecutionOutput, error) {
+	var output sagemaker.ListPipelineParametersForExecutionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListPipelineParametersForExecution", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListPipelineParametersForExecutionAsync(ctx workflow.Context, input *sagemaker.ListPipelineParametersForExecutionInput) *ListPipelineParametersForExecutionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListPipelineParametersForExecution", input)
+	return &ListPipelineParametersForExecutionFuture{Future: future}
+}
+
+func (a *stub) ListPipelines(ctx workflow.Context, input *sagemaker.ListPipelinesInput) (*sagemaker.ListPipelinesOutput, error) {
+	var output sagemaker.ListPipelinesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListPipelines", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListPipelinesAsync(ctx workflow.Context, input *sagemaker.ListPipelinesInput) *ListPipelinesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListPipelines", input)
+	return &ListPipelinesFuture{Future: future}
+}
+
 func (a *stub) ListProcessingJobs(ctx workflow.Context, input *sagemaker.ListProcessingJobsInput) (*sagemaker.ListProcessingJobsOutput, error) {
 	var output sagemaker.ListProcessingJobsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListProcessingJobs", input).Get(ctx, &output)
@@ -2917,6 +4556,17 @@ func (a *stub) ListProcessingJobs(ctx workflow.Context, input *sagemaker.ListPro
 func (a *stub) ListProcessingJobsAsync(ctx workflow.Context, input *sagemaker.ListProcessingJobsInput) *ListProcessingJobsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListProcessingJobs", input)
 	return &ListProcessingJobsFuture{Future: future}
+}
+
+func (a *stub) ListProjects(ctx workflow.Context, input *sagemaker.ListProjectsInput) (*sagemaker.ListProjectsOutput, error) {
+	var output sagemaker.ListProjectsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListProjects", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListProjectsAsync(ctx workflow.Context, input *sagemaker.ListProjectsInput) *ListProjectsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-ListProjects", input)
+	return &ListProjectsFuture{Future: future}
 }
 
 func (a *stub) ListSubscribedWorkteams(ctx workflow.Context, input *sagemaker.ListSubscribedWorkteamsInput) (*sagemaker.ListSubscribedWorkteamsOutput, error) {
@@ -3029,6 +4679,28 @@ func (a *stub) ListWorkteamsAsync(ctx workflow.Context, input *sagemaker.ListWor
 	return &ListWorkteamsFuture{Future: future}
 }
 
+func (a *stub) PutModelPackageGroupPolicy(ctx workflow.Context, input *sagemaker.PutModelPackageGroupPolicyInput) (*sagemaker.PutModelPackageGroupPolicyOutput, error) {
+	var output sagemaker.PutModelPackageGroupPolicyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-PutModelPackageGroupPolicy", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutModelPackageGroupPolicyAsync(ctx workflow.Context, input *sagemaker.PutModelPackageGroupPolicyInput) *PutModelPackageGroupPolicyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-PutModelPackageGroupPolicy", input)
+	return &PutModelPackageGroupPolicyFuture{Future: future}
+}
+
+func (a *stub) RegisterDevices(ctx workflow.Context, input *sagemaker.RegisterDevicesInput) (*sagemaker.RegisterDevicesOutput, error) {
+	var output sagemaker.RegisterDevicesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-RegisterDevices", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) RegisterDevicesAsync(ctx workflow.Context, input *sagemaker.RegisterDevicesInput) *RegisterDevicesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-RegisterDevices", input)
+	return &RegisterDevicesFuture{Future: future}
+}
+
 func (a *stub) RenderUiTemplate(ctx workflow.Context, input *sagemaker.RenderUiTemplateInput) (*sagemaker.RenderUiTemplateOutput, error) {
 	var output sagemaker.RenderUiTemplateOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-RenderUiTemplate", input).Get(ctx, &output)
@@ -3073,6 +4745,17 @@ func (a *stub) StartNotebookInstanceAsync(ctx workflow.Context, input *sagemaker
 	return &StartNotebookInstanceFuture{Future: future}
 }
 
+func (a *stub) StartPipelineExecution(ctx workflow.Context, input *sagemaker.StartPipelineExecutionInput) (*sagemaker.StartPipelineExecutionOutput, error) {
+	var output sagemaker.StartPipelineExecutionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-StartPipelineExecution", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartPipelineExecutionAsync(ctx workflow.Context, input *sagemaker.StartPipelineExecutionInput) *StartPipelineExecutionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-StartPipelineExecution", input)
+	return &StartPipelineExecutionFuture{Future: future}
+}
+
 func (a *stub) StopAutoMLJob(ctx workflow.Context, input *sagemaker.StopAutoMLJobInput) (*sagemaker.StopAutoMLJobOutput, error) {
 	var output sagemaker.StopAutoMLJobOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-StopAutoMLJob", input).Get(ctx, &output)
@@ -3093,6 +4776,17 @@ func (a *stub) StopCompilationJob(ctx workflow.Context, input *sagemaker.StopCom
 func (a *stub) StopCompilationJobAsync(ctx workflow.Context, input *sagemaker.StopCompilationJobInput) *StopCompilationJobFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-StopCompilationJob", input)
 	return &StopCompilationJobFuture{Future: future}
+}
+
+func (a *stub) StopEdgePackagingJob(ctx workflow.Context, input *sagemaker.StopEdgePackagingJobInput) (*sagemaker.StopEdgePackagingJobOutput, error) {
+	var output sagemaker.StopEdgePackagingJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-StopEdgePackagingJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StopEdgePackagingJobAsync(ctx workflow.Context, input *sagemaker.StopEdgePackagingJobInput) *StopEdgePackagingJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-StopEdgePackagingJob", input)
+	return &StopEdgePackagingJobFuture{Future: future}
 }
 
 func (a *stub) StopHyperParameterTuningJob(ctx workflow.Context, input *sagemaker.StopHyperParameterTuningJobInput) (*sagemaker.StopHyperParameterTuningJobOutput, error) {
@@ -3139,6 +4833,17 @@ func (a *stub) StopNotebookInstanceAsync(ctx workflow.Context, input *sagemaker.
 	return &StopNotebookInstanceFuture{Future: future}
 }
 
+func (a *stub) StopPipelineExecution(ctx workflow.Context, input *sagemaker.StopPipelineExecutionInput) (*sagemaker.StopPipelineExecutionOutput, error) {
+	var output sagemaker.StopPipelineExecutionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-StopPipelineExecution", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StopPipelineExecutionAsync(ctx workflow.Context, input *sagemaker.StopPipelineExecutionInput) *StopPipelineExecutionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-StopPipelineExecution", input)
+	return &StopPipelineExecutionFuture{Future: future}
+}
+
 func (a *stub) StopProcessingJob(ctx workflow.Context, input *sagemaker.StopProcessingJobInput) (*sagemaker.StopProcessingJobOutput, error) {
 	var output sagemaker.StopProcessingJobOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-StopProcessingJob", input).Get(ctx, &output)
@@ -3172,6 +4877,17 @@ func (a *stub) StopTransformJobAsync(ctx workflow.Context, input *sagemaker.Stop
 	return &StopTransformJobFuture{Future: future}
 }
 
+func (a *stub) UpdateAction(ctx workflow.Context, input *sagemaker.UpdateActionInput) (*sagemaker.UpdateActionOutput, error) {
+	var output sagemaker.UpdateActionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateAction", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateActionAsync(ctx workflow.Context, input *sagemaker.UpdateActionInput) *UpdateActionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateAction", input)
+	return &UpdateActionFuture{Future: future}
+}
+
 func (a *stub) UpdateAppImageConfig(ctx workflow.Context, input *sagemaker.UpdateAppImageConfigInput) (*sagemaker.UpdateAppImageConfigOutput, error) {
 	var output sagemaker.UpdateAppImageConfigOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateAppImageConfig", input).Get(ctx, &output)
@@ -3183,6 +4899,17 @@ func (a *stub) UpdateAppImageConfigAsync(ctx workflow.Context, input *sagemaker.
 	return &UpdateAppImageConfigFuture{Future: future}
 }
 
+func (a *stub) UpdateArtifact(ctx workflow.Context, input *sagemaker.UpdateArtifactInput) (*sagemaker.UpdateArtifactOutput, error) {
+	var output sagemaker.UpdateArtifactOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateArtifact", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateArtifactAsync(ctx workflow.Context, input *sagemaker.UpdateArtifactInput) *UpdateArtifactFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateArtifact", input)
+	return &UpdateArtifactFuture{Future: future}
+}
+
 func (a *stub) UpdateCodeRepository(ctx workflow.Context, input *sagemaker.UpdateCodeRepositoryInput) (*sagemaker.UpdateCodeRepositoryOutput, error) {
 	var output sagemaker.UpdateCodeRepositoryOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateCodeRepository", input).Get(ctx, &output)
@@ -3192,6 +4919,39 @@ func (a *stub) UpdateCodeRepository(ctx workflow.Context, input *sagemaker.Updat
 func (a *stub) UpdateCodeRepositoryAsync(ctx workflow.Context, input *sagemaker.UpdateCodeRepositoryInput) *UpdateCodeRepositoryFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateCodeRepository", input)
 	return &UpdateCodeRepositoryFuture{Future: future}
+}
+
+func (a *stub) UpdateContext(ctx workflow.Context, input *sagemaker.UpdateContextInput) (*sagemaker.UpdateContextOutput, error) {
+	var output sagemaker.UpdateContextOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateContext", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateContextAsync(ctx workflow.Context, input *sagemaker.UpdateContextInput) *UpdateContextFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateContext", input)
+	return &UpdateContextFuture{Future: future}
+}
+
+func (a *stub) UpdateDeviceFleet(ctx workflow.Context, input *sagemaker.UpdateDeviceFleetInput) (*sagemaker.UpdateDeviceFleetOutput, error) {
+	var output sagemaker.UpdateDeviceFleetOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateDeviceFleet", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateDeviceFleetAsync(ctx workflow.Context, input *sagemaker.UpdateDeviceFleetInput) *UpdateDeviceFleetFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateDeviceFleet", input)
+	return &UpdateDeviceFleetFuture{Future: future}
+}
+
+func (a *stub) UpdateDevices(ctx workflow.Context, input *sagemaker.UpdateDevicesInput) (*sagemaker.UpdateDevicesOutput, error) {
+	var output sagemaker.UpdateDevicesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateDevices", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateDevicesAsync(ctx workflow.Context, input *sagemaker.UpdateDevicesInput) *UpdateDevicesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateDevices", input)
+	return &UpdateDevicesFuture{Future: future}
 }
 
 func (a *stub) UpdateDomain(ctx workflow.Context, input *sagemaker.UpdateDomainInput) (*sagemaker.UpdateDomainOutput, error) {
@@ -3249,6 +5009,17 @@ func (a *stub) UpdateImageAsync(ctx workflow.Context, input *sagemaker.UpdateIma
 	return &UpdateImageFuture{Future: future}
 }
 
+func (a *stub) UpdateModelPackage(ctx workflow.Context, input *sagemaker.UpdateModelPackageInput) (*sagemaker.UpdateModelPackageOutput, error) {
+	var output sagemaker.UpdateModelPackageOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateModelPackage", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateModelPackageAsync(ctx workflow.Context, input *sagemaker.UpdateModelPackageInput) *UpdateModelPackageFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateModelPackage", input)
+	return &UpdateModelPackageFuture{Future: future}
+}
+
 func (a *stub) UpdateMonitoringSchedule(ctx workflow.Context, input *sagemaker.UpdateMonitoringScheduleInput) (*sagemaker.UpdateMonitoringScheduleOutput, error) {
 	var output sagemaker.UpdateMonitoringScheduleOutput
 	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateMonitoringSchedule", input).Get(ctx, &output)
@@ -3280,6 +5051,39 @@ func (a *stub) UpdateNotebookInstanceLifecycleConfig(ctx workflow.Context, input
 func (a *stub) UpdateNotebookInstanceLifecycleConfigAsync(ctx workflow.Context, input *sagemaker.UpdateNotebookInstanceLifecycleConfigInput) *UpdateNotebookInstanceLifecycleConfigFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateNotebookInstanceLifecycleConfig", input)
 	return &UpdateNotebookInstanceLifecycleConfigFuture{Future: future}
+}
+
+func (a *stub) UpdatePipeline(ctx workflow.Context, input *sagemaker.UpdatePipelineInput) (*sagemaker.UpdatePipelineOutput, error) {
+	var output sagemaker.UpdatePipelineOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdatePipeline", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdatePipelineAsync(ctx workflow.Context, input *sagemaker.UpdatePipelineInput) *UpdatePipelineFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdatePipeline", input)
+	return &UpdatePipelineFuture{Future: future}
+}
+
+func (a *stub) UpdatePipelineExecution(ctx workflow.Context, input *sagemaker.UpdatePipelineExecutionInput) (*sagemaker.UpdatePipelineExecutionOutput, error) {
+	var output sagemaker.UpdatePipelineExecutionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdatePipelineExecution", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdatePipelineExecutionAsync(ctx workflow.Context, input *sagemaker.UpdatePipelineExecutionInput) *UpdatePipelineExecutionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdatePipelineExecution", input)
+	return &UpdatePipelineExecutionFuture{Future: future}
+}
+
+func (a *stub) UpdateTrainingJob(ctx workflow.Context, input *sagemaker.UpdateTrainingJobInput) (*sagemaker.UpdateTrainingJobOutput, error) {
+	var output sagemaker.UpdateTrainingJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateTrainingJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateTrainingJobAsync(ctx workflow.Context, input *sagemaker.UpdateTrainingJobInput) *UpdateTrainingJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sagemaker-UpdateTrainingJob", input)
+	return &UpdateTrainingJobFuture{Future: future}
 }
 
 func (a *stub) UpdateTrial(ctx workflow.Context, input *sagemaker.UpdateTrialInput) (*sagemaker.UpdateTrialOutput, error) {

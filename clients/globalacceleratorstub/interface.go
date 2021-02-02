@@ -14,11 +14,26 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	AddCustomRoutingEndpoints(ctx workflow.Context, input *globalaccelerator.AddCustomRoutingEndpointsInput) (*globalaccelerator.AddCustomRoutingEndpointsOutput, error)
+	AddCustomRoutingEndpointsAsync(ctx workflow.Context, input *globalaccelerator.AddCustomRoutingEndpointsInput) *AddCustomRoutingEndpointsFuture
+
 	AdvertiseByoipCidr(ctx workflow.Context, input *globalaccelerator.AdvertiseByoipCidrInput) (*globalaccelerator.AdvertiseByoipCidrOutput, error)
 	AdvertiseByoipCidrAsync(ctx workflow.Context, input *globalaccelerator.AdvertiseByoipCidrInput) *AdvertiseByoipCidrFuture
 
+	AllowCustomRoutingTraffic(ctx workflow.Context, input *globalaccelerator.AllowCustomRoutingTrafficInput) (*globalaccelerator.AllowCustomRoutingTrafficOutput, error)
+	AllowCustomRoutingTrafficAsync(ctx workflow.Context, input *globalaccelerator.AllowCustomRoutingTrafficInput) *AllowCustomRoutingTrafficFuture
+
 	CreateAccelerator(ctx workflow.Context, input *globalaccelerator.CreateAcceleratorInput) (*globalaccelerator.CreateAcceleratorOutput, error)
 	CreateAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.CreateAcceleratorInput) *CreateAcceleratorFuture
+
+	CreateCustomRoutingAccelerator(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingAcceleratorInput) (*globalaccelerator.CreateCustomRoutingAcceleratorOutput, error)
+	CreateCustomRoutingAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingAcceleratorInput) *CreateCustomRoutingAcceleratorFuture
+
+	CreateCustomRoutingEndpointGroup(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingEndpointGroupInput) (*globalaccelerator.CreateCustomRoutingEndpointGroupOutput, error)
+	CreateCustomRoutingEndpointGroupAsync(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingEndpointGroupInput) *CreateCustomRoutingEndpointGroupFuture
+
+	CreateCustomRoutingListener(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingListenerInput) (*globalaccelerator.CreateCustomRoutingListenerOutput, error)
+	CreateCustomRoutingListenerAsync(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingListenerInput) *CreateCustomRoutingListenerFuture
 
 	CreateEndpointGroup(ctx workflow.Context, input *globalaccelerator.CreateEndpointGroupInput) (*globalaccelerator.CreateEndpointGroupOutput, error)
 	CreateEndpointGroupAsync(ctx workflow.Context, input *globalaccelerator.CreateEndpointGroupInput) *CreateEndpointGroupFuture
@@ -29,11 +44,23 @@ type Client interface {
 	DeleteAccelerator(ctx workflow.Context, input *globalaccelerator.DeleteAcceleratorInput) (*globalaccelerator.DeleteAcceleratorOutput, error)
 	DeleteAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.DeleteAcceleratorInput) *DeleteAcceleratorFuture
 
+	DeleteCustomRoutingAccelerator(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingAcceleratorInput) (*globalaccelerator.DeleteCustomRoutingAcceleratorOutput, error)
+	DeleteCustomRoutingAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingAcceleratorInput) *DeleteCustomRoutingAcceleratorFuture
+
+	DeleteCustomRoutingEndpointGroup(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingEndpointGroupInput) (*globalaccelerator.DeleteCustomRoutingEndpointGroupOutput, error)
+	DeleteCustomRoutingEndpointGroupAsync(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingEndpointGroupInput) *DeleteCustomRoutingEndpointGroupFuture
+
+	DeleteCustomRoutingListener(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingListenerInput) (*globalaccelerator.DeleteCustomRoutingListenerOutput, error)
+	DeleteCustomRoutingListenerAsync(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingListenerInput) *DeleteCustomRoutingListenerFuture
+
 	DeleteEndpointGroup(ctx workflow.Context, input *globalaccelerator.DeleteEndpointGroupInput) (*globalaccelerator.DeleteEndpointGroupOutput, error)
 	DeleteEndpointGroupAsync(ctx workflow.Context, input *globalaccelerator.DeleteEndpointGroupInput) *DeleteEndpointGroupFuture
 
 	DeleteListener(ctx workflow.Context, input *globalaccelerator.DeleteListenerInput) (*globalaccelerator.DeleteListenerOutput, error)
 	DeleteListenerAsync(ctx workflow.Context, input *globalaccelerator.DeleteListenerInput) *DeleteListenerFuture
+
+	DenyCustomRoutingTraffic(ctx workflow.Context, input *globalaccelerator.DenyCustomRoutingTrafficInput) (*globalaccelerator.DenyCustomRoutingTrafficOutput, error)
+	DenyCustomRoutingTrafficAsync(ctx workflow.Context, input *globalaccelerator.DenyCustomRoutingTrafficInput) *DenyCustomRoutingTrafficFuture
 
 	DeprovisionByoipCidr(ctx workflow.Context, input *globalaccelerator.DeprovisionByoipCidrInput) (*globalaccelerator.DeprovisionByoipCidrOutput, error)
 	DeprovisionByoipCidrAsync(ctx workflow.Context, input *globalaccelerator.DeprovisionByoipCidrInput) *DeprovisionByoipCidrFuture
@@ -43,6 +70,18 @@ type Client interface {
 
 	DescribeAcceleratorAttributes(ctx workflow.Context, input *globalaccelerator.DescribeAcceleratorAttributesInput) (*globalaccelerator.DescribeAcceleratorAttributesOutput, error)
 	DescribeAcceleratorAttributesAsync(ctx workflow.Context, input *globalaccelerator.DescribeAcceleratorAttributesInput) *DescribeAcceleratorAttributesFuture
+
+	DescribeCustomRoutingAccelerator(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingAcceleratorInput) (*globalaccelerator.DescribeCustomRoutingAcceleratorOutput, error)
+	DescribeCustomRoutingAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingAcceleratorInput) *DescribeCustomRoutingAcceleratorFuture
+
+	DescribeCustomRoutingAcceleratorAttributes(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingAcceleratorAttributesInput) (*globalaccelerator.DescribeCustomRoutingAcceleratorAttributesOutput, error)
+	DescribeCustomRoutingAcceleratorAttributesAsync(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingAcceleratorAttributesInput) *DescribeCustomRoutingAcceleratorAttributesFuture
+
+	DescribeCustomRoutingEndpointGroup(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingEndpointGroupInput) (*globalaccelerator.DescribeCustomRoutingEndpointGroupOutput, error)
+	DescribeCustomRoutingEndpointGroupAsync(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingEndpointGroupInput) *DescribeCustomRoutingEndpointGroupFuture
+
+	DescribeCustomRoutingListener(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingListenerInput) (*globalaccelerator.DescribeCustomRoutingListenerOutput, error)
+	DescribeCustomRoutingListenerAsync(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingListenerInput) *DescribeCustomRoutingListenerFuture
 
 	DescribeEndpointGroup(ctx workflow.Context, input *globalaccelerator.DescribeEndpointGroupInput) (*globalaccelerator.DescribeEndpointGroupOutput, error)
 	DescribeEndpointGroupAsync(ctx workflow.Context, input *globalaccelerator.DescribeEndpointGroupInput) *DescribeEndpointGroupFuture
@@ -56,6 +95,21 @@ type Client interface {
 	ListByoipCidrs(ctx workflow.Context, input *globalaccelerator.ListByoipCidrsInput) (*globalaccelerator.ListByoipCidrsOutput, error)
 	ListByoipCidrsAsync(ctx workflow.Context, input *globalaccelerator.ListByoipCidrsInput) *ListByoipCidrsFuture
 
+	ListCustomRoutingAccelerators(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingAcceleratorsInput) (*globalaccelerator.ListCustomRoutingAcceleratorsOutput, error)
+	ListCustomRoutingAcceleratorsAsync(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingAcceleratorsInput) *ListCustomRoutingAcceleratorsFuture
+
+	ListCustomRoutingEndpointGroups(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingEndpointGroupsInput) (*globalaccelerator.ListCustomRoutingEndpointGroupsOutput, error)
+	ListCustomRoutingEndpointGroupsAsync(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingEndpointGroupsInput) *ListCustomRoutingEndpointGroupsFuture
+
+	ListCustomRoutingListeners(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingListenersInput) (*globalaccelerator.ListCustomRoutingListenersOutput, error)
+	ListCustomRoutingListenersAsync(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingListenersInput) *ListCustomRoutingListenersFuture
+
+	ListCustomRoutingPortMappings(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingPortMappingsInput) (*globalaccelerator.ListCustomRoutingPortMappingsOutput, error)
+	ListCustomRoutingPortMappingsAsync(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingPortMappingsInput) *ListCustomRoutingPortMappingsFuture
+
+	ListCustomRoutingPortMappingsByDestination(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingPortMappingsByDestinationInput) (*globalaccelerator.ListCustomRoutingPortMappingsByDestinationOutput, error)
+	ListCustomRoutingPortMappingsByDestinationAsync(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingPortMappingsByDestinationInput) *ListCustomRoutingPortMappingsByDestinationFuture
+
 	ListEndpointGroups(ctx workflow.Context, input *globalaccelerator.ListEndpointGroupsInput) (*globalaccelerator.ListEndpointGroupsOutput, error)
 	ListEndpointGroupsAsync(ctx workflow.Context, input *globalaccelerator.ListEndpointGroupsInput) *ListEndpointGroupsFuture
 
@@ -68,6 +122,9 @@ type Client interface {
 	ProvisionByoipCidr(ctx workflow.Context, input *globalaccelerator.ProvisionByoipCidrInput) (*globalaccelerator.ProvisionByoipCidrOutput, error)
 	ProvisionByoipCidrAsync(ctx workflow.Context, input *globalaccelerator.ProvisionByoipCidrInput) *ProvisionByoipCidrFuture
 
+	RemoveCustomRoutingEndpoints(ctx workflow.Context, input *globalaccelerator.RemoveCustomRoutingEndpointsInput) (*globalaccelerator.RemoveCustomRoutingEndpointsOutput, error)
+	RemoveCustomRoutingEndpointsAsync(ctx workflow.Context, input *globalaccelerator.RemoveCustomRoutingEndpointsInput) *RemoveCustomRoutingEndpointsFuture
+
 	TagResource(ctx workflow.Context, input *globalaccelerator.TagResourceInput) (*globalaccelerator.TagResourceOutput, error)
 	TagResourceAsync(ctx workflow.Context, input *globalaccelerator.TagResourceInput) *TagResourceFuture
 
@@ -79,6 +136,15 @@ type Client interface {
 
 	UpdateAcceleratorAttributes(ctx workflow.Context, input *globalaccelerator.UpdateAcceleratorAttributesInput) (*globalaccelerator.UpdateAcceleratorAttributesOutput, error)
 	UpdateAcceleratorAttributesAsync(ctx workflow.Context, input *globalaccelerator.UpdateAcceleratorAttributesInput) *UpdateAcceleratorAttributesFuture
+
+	UpdateCustomRoutingAccelerator(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingAcceleratorInput) (*globalaccelerator.UpdateCustomRoutingAcceleratorOutput, error)
+	UpdateCustomRoutingAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingAcceleratorInput) *UpdateCustomRoutingAcceleratorFuture
+
+	UpdateCustomRoutingAcceleratorAttributes(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingAcceleratorAttributesInput) (*globalaccelerator.UpdateCustomRoutingAcceleratorAttributesOutput, error)
+	UpdateCustomRoutingAcceleratorAttributesAsync(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingAcceleratorAttributesInput) *UpdateCustomRoutingAcceleratorAttributesFuture
+
+	UpdateCustomRoutingListener(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingListenerInput) (*globalaccelerator.UpdateCustomRoutingListenerOutput, error)
+	UpdateCustomRoutingListenerAsync(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingListenerInput) *UpdateCustomRoutingListenerFuture
 
 	UpdateEndpointGroup(ctx workflow.Context, input *globalaccelerator.UpdateEndpointGroupInput) (*globalaccelerator.UpdateEndpointGroupOutput, error)
 	UpdateEndpointGroupAsync(ctx workflow.Context, input *globalaccelerator.UpdateEndpointGroupInput) *UpdateEndpointGroupFuture

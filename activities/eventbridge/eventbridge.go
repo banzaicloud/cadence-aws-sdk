@@ -63,6 +63,26 @@ func (a *Activities) ActivateEventSource(ctx context.Context, input *eventbridge
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CancelReplay(ctx context.Context, input *eventbridge.CancelReplayInput) (*eventbridge.CancelReplayOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CancelReplayWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateArchive(ctx context.Context, input *eventbridge.CreateArchiveInput) (*eventbridge.CreateArchiveOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateArchiveWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateEventBus(ctx context.Context, input *eventbridge.CreateEventBusInput) (*eventbridge.CreateEventBusOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -89,6 +109,16 @@ func (a *Activities) DeactivateEventSource(ctx context.Context, input *eventbrid
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeactivateEventSourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteArchive(ctx context.Context, input *eventbridge.DeleteArchiveInput) (*eventbridge.DeleteArchiveOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteArchiveWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -123,6 +153,16 @@ func (a *Activities) DeleteRule(ctx context.Context, input *eventbridge.DeleteRu
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeArchive(ctx context.Context, input *eventbridge.DescribeArchiveInput) (*eventbridge.DescribeArchiveOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeArchiveWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeEventBus(ctx context.Context, input *eventbridge.DescribeEventBusInput) (*eventbridge.DescribeEventBusOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -153,6 +193,16 @@ func (a *Activities) DescribePartnerEventSource(ctx context.Context, input *even
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeReplay(ctx context.Context, input *eventbridge.DescribeReplayInput) (*eventbridge.DescribeReplayOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeReplayWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeRule(ctx context.Context, input *eventbridge.DescribeRuleInput) (*eventbridge.DescribeRuleOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -179,6 +229,16 @@ func (a *Activities) EnableRule(ctx context.Context, input *eventbridge.EnableRu
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.EnableRuleWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListArchives(ctx context.Context, input *eventbridge.ListArchivesInput) (*eventbridge.ListArchivesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListArchivesWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -219,6 +279,16 @@ func (a *Activities) ListPartnerEventSources(ctx context.Context, input *eventbr
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListPartnerEventSourcesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListReplays(ctx context.Context, input *eventbridge.ListReplaysInput) (*eventbridge.ListReplaysOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListReplaysWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -333,6 +403,16 @@ func (a *Activities) RemoveTargets(ctx context.Context, input *eventbridge.Remov
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) StartReplay(ctx context.Context, input *eventbridge.StartReplayInput) (*eventbridge.StartReplayOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StartReplayWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) TagResource(ctx context.Context, input *eventbridge.TagResourceInput) (*eventbridge.TagResourceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -359,6 +439,16 @@ func (a *Activities) UntagResource(ctx context.Context, input *eventbridge.Untag
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UntagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateArchive(ctx context.Context, input *eventbridge.UpdateArchiveInput) (*eventbridge.UpdateArchiveOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateArchiveWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

@@ -44,6 +44,12 @@ type Client interface {
 	ListTags(ctx workflow.Context, input *cloudhsmv2.ListTagsInput) (*cloudhsmv2.ListTagsOutput, error)
 	ListTagsAsync(ctx workflow.Context, input *cloudhsmv2.ListTagsInput) *ListTagsFuture
 
+	ModifyBackupAttributes(ctx workflow.Context, input *cloudhsmv2.ModifyBackupAttributesInput) (*cloudhsmv2.ModifyBackupAttributesOutput, error)
+	ModifyBackupAttributesAsync(ctx workflow.Context, input *cloudhsmv2.ModifyBackupAttributesInput) *ModifyBackupAttributesFuture
+
+	ModifyCluster(ctx workflow.Context, input *cloudhsmv2.ModifyClusterInput) (*cloudhsmv2.ModifyClusterOutput, error)
+	ModifyClusterAsync(ctx workflow.Context, input *cloudhsmv2.ModifyClusterInput) *ModifyClusterFuture
+
 	RestoreBackup(ctx workflow.Context, input *cloudhsmv2.RestoreBackupInput) (*cloudhsmv2.RestoreBackupOutput, error)
 	RestoreBackupAsync(ctx workflow.Context, input *cloudhsmv2.RestoreBackupInput) *RestoreBackupFuture
 

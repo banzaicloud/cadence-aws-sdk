@@ -15,6 +15,17 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type AddCustomRoutingEndpointsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AddCustomRoutingEndpointsFuture) Get(ctx workflow.Context) (*globalaccelerator.AddCustomRoutingEndpointsOutput, error) {
+	var output globalaccelerator.AddCustomRoutingEndpointsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type AdvertiseByoipCidrFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -26,6 +37,17 @@ func (r *AdvertiseByoipCidrFuture) Get(ctx workflow.Context) (*globalaccelerator
 	return &output, err
 }
 
+type AllowCustomRoutingTrafficFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AllowCustomRoutingTrafficFuture) Get(ctx workflow.Context) (*globalaccelerator.AllowCustomRoutingTrafficOutput, error) {
+	var output globalaccelerator.AllowCustomRoutingTrafficOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateAcceleratorFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -33,6 +55,39 @@ type CreateAcceleratorFuture struct {
 
 func (r *CreateAcceleratorFuture) Get(ctx workflow.Context) (*globalaccelerator.CreateAcceleratorOutput, error) {
 	var output globalaccelerator.CreateAcceleratorOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateCustomRoutingAcceleratorFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateCustomRoutingAcceleratorFuture) Get(ctx workflow.Context) (*globalaccelerator.CreateCustomRoutingAcceleratorOutput, error) {
+	var output globalaccelerator.CreateCustomRoutingAcceleratorOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateCustomRoutingEndpointGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateCustomRoutingEndpointGroupFuture) Get(ctx workflow.Context) (*globalaccelerator.CreateCustomRoutingEndpointGroupOutput, error) {
+	var output globalaccelerator.CreateCustomRoutingEndpointGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateCustomRoutingListenerFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateCustomRoutingListenerFuture) Get(ctx workflow.Context) (*globalaccelerator.CreateCustomRoutingListenerOutput, error) {
+	var output globalaccelerator.CreateCustomRoutingListenerOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -70,6 +125,39 @@ func (r *DeleteAcceleratorFuture) Get(ctx workflow.Context) (*globalaccelerator.
 	return &output, err
 }
 
+type DeleteCustomRoutingAcceleratorFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteCustomRoutingAcceleratorFuture) Get(ctx workflow.Context) (*globalaccelerator.DeleteCustomRoutingAcceleratorOutput, error) {
+	var output globalaccelerator.DeleteCustomRoutingAcceleratorOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteCustomRoutingEndpointGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteCustomRoutingEndpointGroupFuture) Get(ctx workflow.Context) (*globalaccelerator.DeleteCustomRoutingEndpointGroupOutput, error) {
+	var output globalaccelerator.DeleteCustomRoutingEndpointGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteCustomRoutingListenerFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteCustomRoutingListenerFuture) Get(ctx workflow.Context) (*globalaccelerator.DeleteCustomRoutingListenerOutput, error) {
+	var output globalaccelerator.DeleteCustomRoutingListenerOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteEndpointGroupFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -88,6 +176,17 @@ type DeleteListenerFuture struct {
 
 func (r *DeleteListenerFuture) Get(ctx workflow.Context) (*globalaccelerator.DeleteListenerOutput, error) {
 	var output globalaccelerator.DeleteListenerOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DenyCustomRoutingTrafficFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DenyCustomRoutingTrafficFuture) Get(ctx workflow.Context) (*globalaccelerator.DenyCustomRoutingTrafficOutput, error) {
+	var output globalaccelerator.DenyCustomRoutingTrafficOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -121,6 +220,50 @@ type DescribeAcceleratorAttributesFuture struct {
 
 func (r *DescribeAcceleratorAttributesFuture) Get(ctx workflow.Context) (*globalaccelerator.DescribeAcceleratorAttributesOutput, error) {
 	var output globalaccelerator.DescribeAcceleratorAttributesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeCustomRoutingAcceleratorFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeCustomRoutingAcceleratorFuture) Get(ctx workflow.Context) (*globalaccelerator.DescribeCustomRoutingAcceleratorOutput, error) {
+	var output globalaccelerator.DescribeCustomRoutingAcceleratorOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeCustomRoutingAcceleratorAttributesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeCustomRoutingAcceleratorAttributesFuture) Get(ctx workflow.Context) (*globalaccelerator.DescribeCustomRoutingAcceleratorAttributesOutput, error) {
+	var output globalaccelerator.DescribeCustomRoutingAcceleratorAttributesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeCustomRoutingEndpointGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeCustomRoutingEndpointGroupFuture) Get(ctx workflow.Context) (*globalaccelerator.DescribeCustomRoutingEndpointGroupOutput, error) {
+	var output globalaccelerator.DescribeCustomRoutingEndpointGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeCustomRoutingListenerFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeCustomRoutingListenerFuture) Get(ctx workflow.Context) (*globalaccelerator.DescribeCustomRoutingListenerOutput, error) {
+	var output globalaccelerator.DescribeCustomRoutingListenerOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -169,6 +312,61 @@ func (r *ListByoipCidrsFuture) Get(ctx workflow.Context) (*globalaccelerator.Lis
 	return &output, err
 }
 
+type ListCustomRoutingAcceleratorsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListCustomRoutingAcceleratorsFuture) Get(ctx workflow.Context) (*globalaccelerator.ListCustomRoutingAcceleratorsOutput, error) {
+	var output globalaccelerator.ListCustomRoutingAcceleratorsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListCustomRoutingEndpointGroupsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListCustomRoutingEndpointGroupsFuture) Get(ctx workflow.Context) (*globalaccelerator.ListCustomRoutingEndpointGroupsOutput, error) {
+	var output globalaccelerator.ListCustomRoutingEndpointGroupsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListCustomRoutingListenersFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListCustomRoutingListenersFuture) Get(ctx workflow.Context) (*globalaccelerator.ListCustomRoutingListenersOutput, error) {
+	var output globalaccelerator.ListCustomRoutingListenersOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListCustomRoutingPortMappingsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListCustomRoutingPortMappingsFuture) Get(ctx workflow.Context) (*globalaccelerator.ListCustomRoutingPortMappingsOutput, error) {
+	var output globalaccelerator.ListCustomRoutingPortMappingsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListCustomRoutingPortMappingsByDestinationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListCustomRoutingPortMappingsByDestinationFuture) Get(ctx workflow.Context) (*globalaccelerator.ListCustomRoutingPortMappingsByDestinationOutput, error) {
+	var output globalaccelerator.ListCustomRoutingPortMappingsByDestinationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListEndpointGroupsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -209,6 +407,17 @@ type ProvisionByoipCidrFuture struct {
 
 func (r *ProvisionByoipCidrFuture) Get(ctx workflow.Context) (*globalaccelerator.ProvisionByoipCidrOutput, error) {
 	var output globalaccelerator.ProvisionByoipCidrOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type RemoveCustomRoutingEndpointsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *RemoveCustomRoutingEndpointsFuture) Get(ctx workflow.Context) (*globalaccelerator.RemoveCustomRoutingEndpointsOutput, error) {
+	var output globalaccelerator.RemoveCustomRoutingEndpointsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -257,6 +466,39 @@ func (r *UpdateAcceleratorAttributesFuture) Get(ctx workflow.Context) (*globalac
 	return &output, err
 }
 
+type UpdateCustomRoutingAcceleratorFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateCustomRoutingAcceleratorFuture) Get(ctx workflow.Context) (*globalaccelerator.UpdateCustomRoutingAcceleratorOutput, error) {
+	var output globalaccelerator.UpdateCustomRoutingAcceleratorOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateCustomRoutingAcceleratorAttributesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateCustomRoutingAcceleratorAttributesFuture) Get(ctx workflow.Context) (*globalaccelerator.UpdateCustomRoutingAcceleratorAttributesOutput, error) {
+	var output globalaccelerator.UpdateCustomRoutingAcceleratorAttributesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateCustomRoutingListenerFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateCustomRoutingListenerFuture) Get(ctx workflow.Context) (*globalaccelerator.UpdateCustomRoutingListenerOutput, error) {
+	var output globalaccelerator.UpdateCustomRoutingListenerOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateEndpointGroupFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -290,6 +532,17 @@ func (r *WithdrawByoipCidrFuture) Get(ctx workflow.Context) (*globalaccelerator.
 	return &output, err
 }
 
+func (a *stub) AddCustomRoutingEndpoints(ctx workflow.Context, input *globalaccelerator.AddCustomRoutingEndpointsInput) (*globalaccelerator.AddCustomRoutingEndpointsOutput, error) {
+	var output globalaccelerator.AddCustomRoutingEndpointsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-AddCustomRoutingEndpoints", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AddCustomRoutingEndpointsAsync(ctx workflow.Context, input *globalaccelerator.AddCustomRoutingEndpointsInput) *AddCustomRoutingEndpointsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-AddCustomRoutingEndpoints", input)
+	return &AddCustomRoutingEndpointsFuture{Future: future}
+}
+
 func (a *stub) AdvertiseByoipCidr(ctx workflow.Context, input *globalaccelerator.AdvertiseByoipCidrInput) (*globalaccelerator.AdvertiseByoipCidrOutput, error) {
 	var output globalaccelerator.AdvertiseByoipCidrOutput
 	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-AdvertiseByoipCidr", input).Get(ctx, &output)
@@ -301,6 +554,17 @@ func (a *stub) AdvertiseByoipCidrAsync(ctx workflow.Context, input *globalaccele
 	return &AdvertiseByoipCidrFuture{Future: future}
 }
 
+func (a *stub) AllowCustomRoutingTraffic(ctx workflow.Context, input *globalaccelerator.AllowCustomRoutingTrafficInput) (*globalaccelerator.AllowCustomRoutingTrafficOutput, error) {
+	var output globalaccelerator.AllowCustomRoutingTrafficOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-AllowCustomRoutingTraffic", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AllowCustomRoutingTrafficAsync(ctx workflow.Context, input *globalaccelerator.AllowCustomRoutingTrafficInput) *AllowCustomRoutingTrafficFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-AllowCustomRoutingTraffic", input)
+	return &AllowCustomRoutingTrafficFuture{Future: future}
+}
+
 func (a *stub) CreateAccelerator(ctx workflow.Context, input *globalaccelerator.CreateAcceleratorInput) (*globalaccelerator.CreateAcceleratorOutput, error) {
 	var output globalaccelerator.CreateAcceleratorOutput
 	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-CreateAccelerator", input).Get(ctx, &output)
@@ -310,6 +574,39 @@ func (a *stub) CreateAccelerator(ctx workflow.Context, input *globalaccelerator.
 func (a *stub) CreateAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.CreateAcceleratorInput) *CreateAcceleratorFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-CreateAccelerator", input)
 	return &CreateAcceleratorFuture{Future: future}
+}
+
+func (a *stub) CreateCustomRoutingAccelerator(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingAcceleratorInput) (*globalaccelerator.CreateCustomRoutingAcceleratorOutput, error) {
+	var output globalaccelerator.CreateCustomRoutingAcceleratorOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-CreateCustomRoutingAccelerator", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateCustomRoutingAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingAcceleratorInput) *CreateCustomRoutingAcceleratorFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-CreateCustomRoutingAccelerator", input)
+	return &CreateCustomRoutingAcceleratorFuture{Future: future}
+}
+
+func (a *stub) CreateCustomRoutingEndpointGroup(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingEndpointGroupInput) (*globalaccelerator.CreateCustomRoutingEndpointGroupOutput, error) {
+	var output globalaccelerator.CreateCustomRoutingEndpointGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-CreateCustomRoutingEndpointGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateCustomRoutingEndpointGroupAsync(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingEndpointGroupInput) *CreateCustomRoutingEndpointGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-CreateCustomRoutingEndpointGroup", input)
+	return &CreateCustomRoutingEndpointGroupFuture{Future: future}
+}
+
+func (a *stub) CreateCustomRoutingListener(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingListenerInput) (*globalaccelerator.CreateCustomRoutingListenerOutput, error) {
+	var output globalaccelerator.CreateCustomRoutingListenerOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-CreateCustomRoutingListener", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateCustomRoutingListenerAsync(ctx workflow.Context, input *globalaccelerator.CreateCustomRoutingListenerInput) *CreateCustomRoutingListenerFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-CreateCustomRoutingListener", input)
+	return &CreateCustomRoutingListenerFuture{Future: future}
 }
 
 func (a *stub) CreateEndpointGroup(ctx workflow.Context, input *globalaccelerator.CreateEndpointGroupInput) (*globalaccelerator.CreateEndpointGroupOutput, error) {
@@ -345,6 +642,39 @@ func (a *stub) DeleteAcceleratorAsync(ctx workflow.Context, input *globalacceler
 	return &DeleteAcceleratorFuture{Future: future}
 }
 
+func (a *stub) DeleteCustomRoutingAccelerator(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingAcceleratorInput) (*globalaccelerator.DeleteCustomRoutingAcceleratorOutput, error) {
+	var output globalaccelerator.DeleteCustomRoutingAcceleratorOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DeleteCustomRoutingAccelerator", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteCustomRoutingAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingAcceleratorInput) *DeleteCustomRoutingAcceleratorFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DeleteCustomRoutingAccelerator", input)
+	return &DeleteCustomRoutingAcceleratorFuture{Future: future}
+}
+
+func (a *stub) DeleteCustomRoutingEndpointGroup(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingEndpointGroupInput) (*globalaccelerator.DeleteCustomRoutingEndpointGroupOutput, error) {
+	var output globalaccelerator.DeleteCustomRoutingEndpointGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DeleteCustomRoutingEndpointGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteCustomRoutingEndpointGroupAsync(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingEndpointGroupInput) *DeleteCustomRoutingEndpointGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DeleteCustomRoutingEndpointGroup", input)
+	return &DeleteCustomRoutingEndpointGroupFuture{Future: future}
+}
+
+func (a *stub) DeleteCustomRoutingListener(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingListenerInput) (*globalaccelerator.DeleteCustomRoutingListenerOutput, error) {
+	var output globalaccelerator.DeleteCustomRoutingListenerOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DeleteCustomRoutingListener", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteCustomRoutingListenerAsync(ctx workflow.Context, input *globalaccelerator.DeleteCustomRoutingListenerInput) *DeleteCustomRoutingListenerFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DeleteCustomRoutingListener", input)
+	return &DeleteCustomRoutingListenerFuture{Future: future}
+}
+
 func (a *stub) DeleteEndpointGroup(ctx workflow.Context, input *globalaccelerator.DeleteEndpointGroupInput) (*globalaccelerator.DeleteEndpointGroupOutput, error) {
 	var output globalaccelerator.DeleteEndpointGroupOutput
 	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DeleteEndpointGroup", input).Get(ctx, &output)
@@ -365,6 +695,17 @@ func (a *stub) DeleteListener(ctx workflow.Context, input *globalaccelerator.Del
 func (a *stub) DeleteListenerAsync(ctx workflow.Context, input *globalaccelerator.DeleteListenerInput) *DeleteListenerFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DeleteListener", input)
 	return &DeleteListenerFuture{Future: future}
+}
+
+func (a *stub) DenyCustomRoutingTraffic(ctx workflow.Context, input *globalaccelerator.DenyCustomRoutingTrafficInput) (*globalaccelerator.DenyCustomRoutingTrafficOutput, error) {
+	var output globalaccelerator.DenyCustomRoutingTrafficOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DenyCustomRoutingTraffic", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DenyCustomRoutingTrafficAsync(ctx workflow.Context, input *globalaccelerator.DenyCustomRoutingTrafficInput) *DenyCustomRoutingTrafficFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DenyCustomRoutingTraffic", input)
+	return &DenyCustomRoutingTrafficFuture{Future: future}
 }
 
 func (a *stub) DeprovisionByoipCidr(ctx workflow.Context, input *globalaccelerator.DeprovisionByoipCidrInput) (*globalaccelerator.DeprovisionByoipCidrOutput, error) {
@@ -398,6 +739,50 @@ func (a *stub) DescribeAcceleratorAttributes(ctx workflow.Context, input *global
 func (a *stub) DescribeAcceleratorAttributesAsync(ctx workflow.Context, input *globalaccelerator.DescribeAcceleratorAttributesInput) *DescribeAcceleratorAttributesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DescribeAcceleratorAttributes", input)
 	return &DescribeAcceleratorAttributesFuture{Future: future}
+}
+
+func (a *stub) DescribeCustomRoutingAccelerator(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingAcceleratorInput) (*globalaccelerator.DescribeCustomRoutingAcceleratorOutput, error) {
+	var output globalaccelerator.DescribeCustomRoutingAcceleratorOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DescribeCustomRoutingAccelerator", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeCustomRoutingAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingAcceleratorInput) *DescribeCustomRoutingAcceleratorFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DescribeCustomRoutingAccelerator", input)
+	return &DescribeCustomRoutingAcceleratorFuture{Future: future}
+}
+
+func (a *stub) DescribeCustomRoutingAcceleratorAttributes(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingAcceleratorAttributesInput) (*globalaccelerator.DescribeCustomRoutingAcceleratorAttributesOutput, error) {
+	var output globalaccelerator.DescribeCustomRoutingAcceleratorAttributesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DescribeCustomRoutingAcceleratorAttributes", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeCustomRoutingAcceleratorAttributesAsync(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingAcceleratorAttributesInput) *DescribeCustomRoutingAcceleratorAttributesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DescribeCustomRoutingAcceleratorAttributes", input)
+	return &DescribeCustomRoutingAcceleratorAttributesFuture{Future: future}
+}
+
+func (a *stub) DescribeCustomRoutingEndpointGroup(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingEndpointGroupInput) (*globalaccelerator.DescribeCustomRoutingEndpointGroupOutput, error) {
+	var output globalaccelerator.DescribeCustomRoutingEndpointGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DescribeCustomRoutingEndpointGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeCustomRoutingEndpointGroupAsync(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingEndpointGroupInput) *DescribeCustomRoutingEndpointGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DescribeCustomRoutingEndpointGroup", input)
+	return &DescribeCustomRoutingEndpointGroupFuture{Future: future}
+}
+
+func (a *stub) DescribeCustomRoutingListener(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingListenerInput) (*globalaccelerator.DescribeCustomRoutingListenerOutput, error) {
+	var output globalaccelerator.DescribeCustomRoutingListenerOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DescribeCustomRoutingListener", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeCustomRoutingListenerAsync(ctx workflow.Context, input *globalaccelerator.DescribeCustomRoutingListenerInput) *DescribeCustomRoutingListenerFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-DescribeCustomRoutingListener", input)
+	return &DescribeCustomRoutingListenerFuture{Future: future}
 }
 
 func (a *stub) DescribeEndpointGroup(ctx workflow.Context, input *globalaccelerator.DescribeEndpointGroupInput) (*globalaccelerator.DescribeEndpointGroupOutput, error) {
@@ -444,6 +829,61 @@ func (a *stub) ListByoipCidrsAsync(ctx workflow.Context, input *globalaccelerato
 	return &ListByoipCidrsFuture{Future: future}
 }
 
+func (a *stub) ListCustomRoutingAccelerators(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingAcceleratorsInput) (*globalaccelerator.ListCustomRoutingAcceleratorsOutput, error) {
+	var output globalaccelerator.ListCustomRoutingAcceleratorsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListCustomRoutingAccelerators", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListCustomRoutingAcceleratorsAsync(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingAcceleratorsInput) *ListCustomRoutingAcceleratorsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListCustomRoutingAccelerators", input)
+	return &ListCustomRoutingAcceleratorsFuture{Future: future}
+}
+
+func (a *stub) ListCustomRoutingEndpointGroups(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingEndpointGroupsInput) (*globalaccelerator.ListCustomRoutingEndpointGroupsOutput, error) {
+	var output globalaccelerator.ListCustomRoutingEndpointGroupsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListCustomRoutingEndpointGroups", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListCustomRoutingEndpointGroupsAsync(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingEndpointGroupsInput) *ListCustomRoutingEndpointGroupsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListCustomRoutingEndpointGroups", input)
+	return &ListCustomRoutingEndpointGroupsFuture{Future: future}
+}
+
+func (a *stub) ListCustomRoutingListeners(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingListenersInput) (*globalaccelerator.ListCustomRoutingListenersOutput, error) {
+	var output globalaccelerator.ListCustomRoutingListenersOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListCustomRoutingListeners", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListCustomRoutingListenersAsync(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingListenersInput) *ListCustomRoutingListenersFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListCustomRoutingListeners", input)
+	return &ListCustomRoutingListenersFuture{Future: future}
+}
+
+func (a *stub) ListCustomRoutingPortMappings(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingPortMappingsInput) (*globalaccelerator.ListCustomRoutingPortMappingsOutput, error) {
+	var output globalaccelerator.ListCustomRoutingPortMappingsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListCustomRoutingPortMappings", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListCustomRoutingPortMappingsAsync(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingPortMappingsInput) *ListCustomRoutingPortMappingsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListCustomRoutingPortMappings", input)
+	return &ListCustomRoutingPortMappingsFuture{Future: future}
+}
+
+func (a *stub) ListCustomRoutingPortMappingsByDestination(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingPortMappingsByDestinationInput) (*globalaccelerator.ListCustomRoutingPortMappingsByDestinationOutput, error) {
+	var output globalaccelerator.ListCustomRoutingPortMappingsByDestinationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListCustomRoutingPortMappingsByDestination", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListCustomRoutingPortMappingsByDestinationAsync(ctx workflow.Context, input *globalaccelerator.ListCustomRoutingPortMappingsByDestinationInput) *ListCustomRoutingPortMappingsByDestinationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListCustomRoutingPortMappingsByDestination", input)
+	return &ListCustomRoutingPortMappingsByDestinationFuture{Future: future}
+}
+
 func (a *stub) ListEndpointGroups(ctx workflow.Context, input *globalaccelerator.ListEndpointGroupsInput) (*globalaccelerator.ListEndpointGroupsOutput, error) {
 	var output globalaccelerator.ListEndpointGroupsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-ListEndpointGroups", input).Get(ctx, &output)
@@ -488,6 +928,17 @@ func (a *stub) ProvisionByoipCidrAsync(ctx workflow.Context, input *globalaccele
 	return &ProvisionByoipCidrFuture{Future: future}
 }
 
+func (a *stub) RemoveCustomRoutingEndpoints(ctx workflow.Context, input *globalaccelerator.RemoveCustomRoutingEndpointsInput) (*globalaccelerator.RemoveCustomRoutingEndpointsOutput, error) {
+	var output globalaccelerator.RemoveCustomRoutingEndpointsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-RemoveCustomRoutingEndpoints", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) RemoveCustomRoutingEndpointsAsync(ctx workflow.Context, input *globalaccelerator.RemoveCustomRoutingEndpointsInput) *RemoveCustomRoutingEndpointsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-RemoveCustomRoutingEndpoints", input)
+	return &RemoveCustomRoutingEndpointsFuture{Future: future}
+}
+
 func (a *stub) TagResource(ctx workflow.Context, input *globalaccelerator.TagResourceInput) (*globalaccelerator.TagResourceOutput, error) {
 	var output globalaccelerator.TagResourceOutput
 	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-TagResource", input).Get(ctx, &output)
@@ -530,6 +981,39 @@ func (a *stub) UpdateAcceleratorAttributes(ctx workflow.Context, input *globalac
 func (a *stub) UpdateAcceleratorAttributesAsync(ctx workflow.Context, input *globalaccelerator.UpdateAcceleratorAttributesInput) *UpdateAcceleratorAttributesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-UpdateAcceleratorAttributes", input)
 	return &UpdateAcceleratorAttributesFuture{Future: future}
+}
+
+func (a *stub) UpdateCustomRoutingAccelerator(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingAcceleratorInput) (*globalaccelerator.UpdateCustomRoutingAcceleratorOutput, error) {
+	var output globalaccelerator.UpdateCustomRoutingAcceleratorOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-UpdateCustomRoutingAccelerator", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateCustomRoutingAcceleratorAsync(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingAcceleratorInput) *UpdateCustomRoutingAcceleratorFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-UpdateCustomRoutingAccelerator", input)
+	return &UpdateCustomRoutingAcceleratorFuture{Future: future}
+}
+
+func (a *stub) UpdateCustomRoutingAcceleratorAttributes(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingAcceleratorAttributesInput) (*globalaccelerator.UpdateCustomRoutingAcceleratorAttributesOutput, error) {
+	var output globalaccelerator.UpdateCustomRoutingAcceleratorAttributesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-UpdateCustomRoutingAcceleratorAttributes", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateCustomRoutingAcceleratorAttributesAsync(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingAcceleratorAttributesInput) *UpdateCustomRoutingAcceleratorAttributesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-UpdateCustomRoutingAcceleratorAttributes", input)
+	return &UpdateCustomRoutingAcceleratorAttributesFuture{Future: future}
+}
+
+func (a *stub) UpdateCustomRoutingListener(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingListenerInput) (*globalaccelerator.UpdateCustomRoutingListenerOutput, error) {
+	var output globalaccelerator.UpdateCustomRoutingListenerOutput
+	err := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-UpdateCustomRoutingListener", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateCustomRoutingListenerAsync(ctx workflow.Context, input *globalaccelerator.UpdateCustomRoutingListenerInput) *UpdateCustomRoutingListenerFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-globalaccelerator-UpdateCustomRoutingListener", input)
+	return &UpdateCustomRoutingListenerFuture{Future: future}
 }
 
 func (a *stub) UpdateEndpointGroup(ctx workflow.Context, input *globalaccelerator.UpdateEndpointGroupInput) (*globalaccelerator.UpdateEndpointGroupOutput, error) {

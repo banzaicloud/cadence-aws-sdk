@@ -83,6 +83,16 @@ func (a *Activities) CreateAlias(ctx context.Context, input *lambda.CreateAliasI
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateCodeSigningConfig(ctx context.Context, input *lambda.CreateCodeSigningConfigInput) (*lambda.CreateCodeSigningConfigOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateCodeSigningConfigWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateEventSourceMapping(ctx context.Context, input *lambda.CreateEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -113,6 +123,16 @@ func (a *Activities) DeleteAlias(ctx context.Context, input *lambda.DeleteAliasI
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteCodeSigningConfig(ctx context.Context, input *lambda.DeleteCodeSigningConfigInput) (*lambda.DeleteCodeSigningConfigOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteCodeSigningConfigWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteEventSourceMapping(ctx context.Context, input *lambda.DeleteEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -129,6 +149,16 @@ func (a *Activities) DeleteFunction(ctx context.Context, input *lambda.DeleteFun
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteFunctionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteFunctionCodeSigningConfig(ctx context.Context, input *lambda.DeleteFunctionCodeSigningConfigInput) (*lambda.DeleteFunctionCodeSigningConfigOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteFunctionCodeSigningConfigWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -193,6 +223,16 @@ func (a *Activities) GetAlias(ctx context.Context, input *lambda.GetAliasInput) 
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetCodeSigningConfig(ctx context.Context, input *lambda.GetCodeSigningConfigInput) (*lambda.GetCodeSigningConfigOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetCodeSigningConfigWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetEventSourceMapping(ctx context.Context, input *lambda.GetEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -209,6 +249,16 @@ func (a *Activities) GetFunction(ctx context.Context, input *lambda.GetFunctionI
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetFunctionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetFunctionCodeSigningConfig(ctx context.Context, input *lambda.GetFunctionCodeSigningConfigInput) (*lambda.GetFunctionCodeSigningConfigOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetFunctionCodeSigningConfigWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -313,6 +363,16 @@ func (a *Activities) ListAliases(ctx context.Context, input *lambda.ListAliasesI
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListCodeSigningConfigs(ctx context.Context, input *lambda.ListCodeSigningConfigsInput) (*lambda.ListCodeSigningConfigsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListCodeSigningConfigsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListEventSourceMappings(ctx context.Context, input *lambda.ListEventSourceMappingsInput) (*lambda.ListEventSourceMappingsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -339,6 +399,16 @@ func (a *Activities) ListFunctions(ctx context.Context, input *lambda.ListFuncti
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListFunctionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListFunctionsByCodeSigningConfig(ctx context.Context, input *lambda.ListFunctionsByCodeSigningConfigInput) (*lambda.ListFunctionsByCodeSigningConfigOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListFunctionsByCodeSigningConfigWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -409,6 +479,16 @@ func (a *Activities) PublishVersion(ctx context.Context, input *lambda.PublishVe
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.PublishVersionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutFunctionCodeSigningConfig(ctx context.Context, input *lambda.PutFunctionCodeSigningConfigInput) (*lambda.PutFunctionCodeSigningConfigOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutFunctionCodeSigningConfigWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -489,6 +569,16 @@ func (a *Activities) UpdateAlias(ctx context.Context, input *lambda.UpdateAliasI
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateAliasWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateCodeSigningConfig(ctx context.Context, input *lambda.UpdateCodeSigningConfigInput) (*lambda.UpdateCodeSigningConfigOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateCodeSigningConfigWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

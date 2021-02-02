@@ -12,18 +12,22 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/acmpca"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/alexaforbusiness"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/amplify"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/amplifybackend"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/apigateway"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/apigatewaymanagementapi"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/apigatewayv2"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/appconfig"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/appflow"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/appintegrationsservice"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/applicationautoscaling"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/applicationdiscoveryservice"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/applicationinsights"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/appmesh"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/appregistry"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/appstream"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/appsync"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/athena"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/auditmanager"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/augmentedairuntime"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/autoscaling"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/autoscalingplans"
@@ -62,9 +66,11 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/computeoptimizer"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/configservice"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/connect"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/connectcontactlens"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/connectparticipant"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/costandusagereportservice"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/costexplorer"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/customerprofiles"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/databasemigrationservice"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/dataexchange"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/datapipeline"
@@ -72,6 +78,7 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/dax"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/detective"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/devicefarm"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/devopsguru"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/directconnect"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/directoryservice"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/dlm"
@@ -82,6 +89,7 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/ec2"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/ec2instanceconnect"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/ecr"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/ecrpublic"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/ecs"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/efs"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/eks"
@@ -93,6 +101,7 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/elb"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/elbv2"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/emr"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/emrcontainers"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/eventbridge"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/firehose"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/fms"
@@ -104,10 +113,13 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/glacier"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/globalaccelerator"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/glue"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/gluedatabrew"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/greengrass"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/greengrassv2"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/groundstation"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/guardduty"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/health"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/healthlake"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/honeycode"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/iam"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/identitystore"
@@ -118,12 +130,15 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/iot1clickprojects"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/iotanalytics"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/iotdataplane"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/iotdeviceadvisor"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/iotevents"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/ioteventsdata"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/iotfleethub"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/iotjobsdataplane"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/iotsecuretunneling"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/iotsitewise"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/iotthingsgraph"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/iotwireless"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/ivs"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/kafka"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/kendra"
@@ -138,9 +153,13 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/lakeformation"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/lambda"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/lexmodelbuildingservice"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/lexmodelsv2"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/lexruntimeservice"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/lexruntimev2"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/licensemanager"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/lightsail"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/locationservice"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/lookoutforvision"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/machinelearning"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/macie"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/macie2"
@@ -163,7 +182,9 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/mobileanalytics"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/mq"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/mturk"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/mwaa"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/neptune"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/networkfirewall"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/networkmanager"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/opsworks"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/opsworkscm"
@@ -178,6 +199,7 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/pinpointsmsvoice"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/polly"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/pricing"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/prometheusservice"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/qldb"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/qldbsession"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/quicksight"
@@ -197,6 +219,8 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/s3control"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/s3outposts"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/sagemaker"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/sagemakeredgemanager"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/sagemakerfeaturestoreruntime"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/sagemakerruntime"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/savingsplans"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/schemas"
@@ -235,6 +259,7 @@ import (
 	"github.com/banzaicloud/cadence-aws-sdk/activities/waf"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/wafregional"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/wafv2"
+	"github.com/banzaicloud/cadence-aws-sdk/activities/wellarchitected"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/workdocs"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/worklink"
 	"github.com/banzaicloud/cadence-aws-sdk/activities/workmail"
@@ -258,18 +283,22 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(acmpca.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-acmpca-"})
 	worker.RegisterActivityWithOptions(alexaforbusiness.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-alexaforbusiness-"})
 	worker.RegisterActivityWithOptions(amplify.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-amplify-"})
+	worker.RegisterActivityWithOptions(amplifybackend.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-amplifybackend-"})
 	worker.RegisterActivityWithOptions(apigateway.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-apigateway-"})
 	worker.RegisterActivityWithOptions(apigatewaymanagementapi.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-apigatewaymanagementapi-"})
 	worker.RegisterActivityWithOptions(apigatewayv2.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-apigatewayv2-"})
 	worker.RegisterActivityWithOptions(appconfig.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-appconfig-"})
 	worker.RegisterActivityWithOptions(appflow.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-appflow-"})
+	worker.RegisterActivityWithOptions(appintegrationsservice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-appintegrationsservice-"})
 	worker.RegisterActivityWithOptions(applicationautoscaling.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-applicationautoscaling-"})
 	worker.RegisterActivityWithOptions(applicationdiscoveryservice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-applicationdiscoveryservice-"})
 	worker.RegisterActivityWithOptions(applicationinsights.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-applicationinsights-"})
 	worker.RegisterActivityWithOptions(appmesh.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-appmesh-"})
+	worker.RegisterActivityWithOptions(appregistry.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-appregistry-"})
 	worker.RegisterActivityWithOptions(appstream.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-appstream-"})
 	worker.RegisterActivityWithOptions(appsync.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-appsync-"})
 	worker.RegisterActivityWithOptions(athena.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-athena-"})
+	worker.RegisterActivityWithOptions(auditmanager.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-auditmanager-"})
 	worker.RegisterActivityWithOptions(augmentedairuntime.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-augmentedairuntime-"})
 	worker.RegisterActivityWithOptions(autoscaling.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-autoscaling-"})
 	worker.RegisterActivityWithOptions(autoscalingplans.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-autoscalingplans-"})
@@ -308,9 +337,11 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(computeoptimizer.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-computeoptimizer-"})
 	worker.RegisterActivityWithOptions(configservice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-configservice-"})
 	worker.RegisterActivityWithOptions(connect.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-connect-"})
+	worker.RegisterActivityWithOptions(connectcontactlens.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-connectcontactlens-"})
 	worker.RegisterActivityWithOptions(connectparticipant.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-connectparticipant-"})
 	worker.RegisterActivityWithOptions(costandusagereportservice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-costandusagereportservice-"})
 	worker.RegisterActivityWithOptions(costexplorer.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-costexplorer-"})
+	worker.RegisterActivityWithOptions(customerprofiles.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-customerprofiles-"})
 	worker.RegisterActivityWithOptions(databasemigrationservice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-databasemigrationservice-"})
 	worker.RegisterActivityWithOptions(dataexchange.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-dataexchange-"})
 	worker.RegisterActivityWithOptions(datapipeline.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-datapipeline-"})
@@ -318,6 +349,7 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(dax.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-dax-"})
 	worker.RegisterActivityWithOptions(detective.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-detective-"})
 	worker.RegisterActivityWithOptions(devicefarm.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-devicefarm-"})
+	worker.RegisterActivityWithOptions(devopsguru.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-devopsguru-"})
 	worker.RegisterActivityWithOptions(directconnect.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-directconnect-"})
 	worker.RegisterActivityWithOptions(directoryservice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-directoryservice-"})
 	worker.RegisterActivityWithOptions(dlm.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-dlm-"})
@@ -328,6 +360,7 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(ec2.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-ec2-"})
 	worker.RegisterActivityWithOptions(ec2instanceconnect.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-ec2instanceconnect-"})
 	worker.RegisterActivityWithOptions(ecr.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-ecr-"})
+	worker.RegisterActivityWithOptions(ecrpublic.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-ecrpublic-"})
 	worker.RegisterActivityWithOptions(ecs.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-ecs-"})
 	worker.RegisterActivityWithOptions(efs.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-efs-"})
 	worker.RegisterActivityWithOptions(eks.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-eks-"})
@@ -339,6 +372,7 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(elb.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-elb-"})
 	worker.RegisterActivityWithOptions(elbv2.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-elbv2-"})
 	worker.RegisterActivityWithOptions(emr.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-emr-"})
+	worker.RegisterActivityWithOptions(emrcontainers.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-emrcontainers-"})
 	worker.RegisterActivityWithOptions(eventbridge.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-eventbridge-"})
 	worker.RegisterActivityWithOptions(firehose.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-firehose-"})
 	worker.RegisterActivityWithOptions(fms.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-fms-"})
@@ -350,10 +384,13 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(glacier.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-glacier-"})
 	worker.RegisterActivityWithOptions(globalaccelerator.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-globalaccelerator-"})
 	worker.RegisterActivityWithOptions(glue.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-glue-"})
+	worker.RegisterActivityWithOptions(gluedatabrew.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-gluedatabrew-"})
 	worker.RegisterActivityWithOptions(greengrass.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-greengrass-"})
+	worker.RegisterActivityWithOptions(greengrassv2.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-greengrassv2-"})
 	worker.RegisterActivityWithOptions(groundstation.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-groundstation-"})
 	worker.RegisterActivityWithOptions(guardduty.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-guardduty-"})
 	worker.RegisterActivityWithOptions(health.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-health-"})
+	worker.RegisterActivityWithOptions(healthlake.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-healthlake-"})
 	worker.RegisterActivityWithOptions(honeycode.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-honeycode-"})
 	worker.RegisterActivityWithOptions(iam.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iam-"})
 	worker.RegisterActivityWithOptions(identitystore.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-identitystore-"})
@@ -364,12 +401,15 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(iot1clickprojects.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iot1clickprojects-"})
 	worker.RegisterActivityWithOptions(iotanalytics.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iotanalytics-"})
 	worker.RegisterActivityWithOptions(iotdataplane.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iotdataplane-"})
+	worker.RegisterActivityWithOptions(iotdeviceadvisor.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iotdeviceadvisor-"})
 	worker.RegisterActivityWithOptions(iotevents.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iotevents-"})
 	worker.RegisterActivityWithOptions(ioteventsdata.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-ioteventsdata-"})
+	worker.RegisterActivityWithOptions(iotfleethub.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iotfleethub-"})
 	worker.RegisterActivityWithOptions(iotjobsdataplane.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iotjobsdataplane-"})
 	worker.RegisterActivityWithOptions(iotsecuretunneling.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iotsecuretunneling-"})
 	worker.RegisterActivityWithOptions(iotsitewise.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iotsitewise-"})
 	worker.RegisterActivityWithOptions(iotthingsgraph.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iotthingsgraph-"})
+	worker.RegisterActivityWithOptions(iotwireless.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-iotwireless-"})
 	worker.RegisterActivityWithOptions(ivs.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-ivs-"})
 	worker.RegisterActivityWithOptions(kafka.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-kafka-"})
 	worker.RegisterActivityWithOptions(kendra.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-kendra-"})
@@ -384,9 +424,13 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(lakeformation.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-lakeformation-"})
 	worker.RegisterActivityWithOptions(lambda.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-lambda-"})
 	worker.RegisterActivityWithOptions(lexmodelbuildingservice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-lexmodelbuildingservice-"})
+	worker.RegisterActivityWithOptions(lexmodelsv2.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-lexmodelsv2-"})
 	worker.RegisterActivityWithOptions(lexruntimeservice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-lexruntimeservice-"})
+	worker.RegisterActivityWithOptions(lexruntimev2.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-lexruntimev2-"})
 	worker.RegisterActivityWithOptions(licensemanager.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-licensemanager-"})
 	worker.RegisterActivityWithOptions(lightsail.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-lightsail-"})
+	worker.RegisterActivityWithOptions(locationservice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-locationservice-"})
+	worker.RegisterActivityWithOptions(lookoutforvision.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-lookoutforvision-"})
 	worker.RegisterActivityWithOptions(machinelearning.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-machinelearning-"})
 	worker.RegisterActivityWithOptions(macie.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-macie-"})
 	worker.RegisterActivityWithOptions(macie2.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-macie2-"})
@@ -409,7 +453,9 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(mobileanalytics.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-mobileanalytics-"})
 	worker.RegisterActivityWithOptions(mq.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-mq-"})
 	worker.RegisterActivityWithOptions(mturk.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-mturk-"})
+	worker.RegisterActivityWithOptions(mwaa.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-mwaa-"})
 	worker.RegisterActivityWithOptions(neptune.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-neptune-"})
+	worker.RegisterActivityWithOptions(networkfirewall.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-networkfirewall-"})
 	worker.RegisterActivityWithOptions(networkmanager.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-networkmanager-"})
 	worker.RegisterActivityWithOptions(opsworks.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-opsworks-"})
 	worker.RegisterActivityWithOptions(opsworkscm.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-opsworkscm-"})
@@ -424,6 +470,7 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(pinpointsmsvoice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-pinpointsmsvoice-"})
 	worker.RegisterActivityWithOptions(polly.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-polly-"})
 	worker.RegisterActivityWithOptions(pricing.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-pricing-"})
+	worker.RegisterActivityWithOptions(prometheusservice.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-prometheusservice-"})
 	worker.RegisterActivityWithOptions(qldb.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-qldb-"})
 	worker.RegisterActivityWithOptions(qldbsession.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-qldbsession-"})
 	worker.RegisterActivityWithOptions(quicksight.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-quicksight-"})
@@ -443,6 +490,8 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(s3control.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-s3control-"})
 	worker.RegisterActivityWithOptions(s3outposts.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-s3outposts-"})
 	worker.RegisterActivityWithOptions(sagemaker.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-sagemaker-"})
+	worker.RegisterActivityWithOptions(sagemakeredgemanager.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-sagemakeredgemanager-"})
+	worker.RegisterActivityWithOptions(sagemakerfeaturestoreruntime.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-sagemakerfeaturestoreruntime-"})
 	worker.RegisterActivityWithOptions(sagemakerruntime.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-sagemakerruntime-"})
 	worker.RegisterActivityWithOptions(savingsplans.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-savingsplans-"})
 	worker.RegisterActivityWithOptions(schemas.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-schemas-"})
@@ -481,6 +530,7 @@ func RegisterAwsActivities(worker worker.Worker, sess *session.Session, config .
 	worker.RegisterActivityWithOptions(waf.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-waf-"})
 	worker.RegisterActivityWithOptions(wafregional.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-wafregional-"})
 	worker.RegisterActivityWithOptions(wafv2.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-wafv2-"})
+	worker.RegisterActivityWithOptions(wellarchitected.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-wellarchitected-"})
 	worker.RegisterActivityWithOptions(workdocs.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-workdocs-"})
 	worker.RegisterActivityWithOptions(worklink.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-worklink-"})
 	worker.RegisterActivityWithOptions(workmail.NewActivities(sess, config...), activity.RegisterOptions{Name: "aws-workmail-"})
@@ -497,18 +547,22 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(acmpca.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-acmpca-"})
 	worker.RegisterActivityWithOptions(alexaforbusiness.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-alexaforbusiness-"})
 	worker.RegisterActivityWithOptions(amplify.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-amplify-"})
+	worker.RegisterActivityWithOptions(amplifybackend.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-amplifybackend-"})
 	worker.RegisterActivityWithOptions(apigateway.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-apigateway-"})
 	worker.RegisterActivityWithOptions(apigatewaymanagementapi.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-apigatewaymanagementapi-"})
 	worker.RegisterActivityWithOptions(apigatewayv2.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-apigatewayv2-"})
 	worker.RegisterActivityWithOptions(appconfig.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-appconfig-"})
 	worker.RegisterActivityWithOptions(appflow.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-appflow-"})
+	worker.RegisterActivityWithOptions(appintegrationsservice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-appintegrationsservice-"})
 	worker.RegisterActivityWithOptions(applicationautoscaling.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-applicationautoscaling-"})
 	worker.RegisterActivityWithOptions(applicationdiscoveryservice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-applicationdiscoveryservice-"})
 	worker.RegisterActivityWithOptions(applicationinsights.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-applicationinsights-"})
 	worker.RegisterActivityWithOptions(appmesh.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-appmesh-"})
+	worker.RegisterActivityWithOptions(appregistry.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-appregistry-"})
 	worker.RegisterActivityWithOptions(appstream.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-appstream-"})
 	worker.RegisterActivityWithOptions(appsync.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-appsync-"})
 	worker.RegisterActivityWithOptions(athena.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-athena-"})
+	worker.RegisterActivityWithOptions(auditmanager.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-auditmanager-"})
 	worker.RegisterActivityWithOptions(augmentedairuntime.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-augmentedairuntime-"})
 	worker.RegisterActivityWithOptions(autoscaling.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-autoscaling-"})
 	worker.RegisterActivityWithOptions(autoscalingplans.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-autoscalingplans-"})
@@ -547,9 +601,11 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(computeoptimizer.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-computeoptimizer-"})
 	worker.RegisterActivityWithOptions(configservice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-configservice-"})
 	worker.RegisterActivityWithOptions(connect.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-connect-"})
+	worker.RegisterActivityWithOptions(connectcontactlens.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-connectcontactlens-"})
 	worker.RegisterActivityWithOptions(connectparticipant.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-connectparticipant-"})
 	worker.RegisterActivityWithOptions(costandusagereportservice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-costandusagereportservice-"})
 	worker.RegisterActivityWithOptions(costexplorer.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-costexplorer-"})
+	worker.RegisterActivityWithOptions(customerprofiles.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-customerprofiles-"})
 	worker.RegisterActivityWithOptions(databasemigrationservice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-databasemigrationservice-"})
 	worker.RegisterActivityWithOptions(dataexchange.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-dataexchange-"})
 	worker.RegisterActivityWithOptions(datapipeline.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-datapipeline-"})
@@ -557,6 +613,7 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(dax.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-dax-"})
 	worker.RegisterActivityWithOptions(detective.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-detective-"})
 	worker.RegisterActivityWithOptions(devicefarm.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-devicefarm-"})
+	worker.RegisterActivityWithOptions(devopsguru.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-devopsguru-"})
 	worker.RegisterActivityWithOptions(directconnect.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-directconnect-"})
 	worker.RegisterActivityWithOptions(directoryservice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-directoryservice-"})
 	worker.RegisterActivityWithOptions(dlm.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-dlm-"})
@@ -567,6 +624,7 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(ec2.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-ec2-"})
 	worker.RegisterActivityWithOptions(ec2instanceconnect.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-ec2instanceconnect-"})
 	worker.RegisterActivityWithOptions(ecr.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-ecr-"})
+	worker.RegisterActivityWithOptions(ecrpublic.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-ecrpublic-"})
 	worker.RegisterActivityWithOptions(ecs.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-ecs-"})
 	worker.RegisterActivityWithOptions(efs.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-efs-"})
 	worker.RegisterActivityWithOptions(eks.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-eks-"})
@@ -578,6 +636,7 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(elb.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-elb-"})
 	worker.RegisterActivityWithOptions(elbv2.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-elbv2-"})
 	worker.RegisterActivityWithOptions(emr.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-emr-"})
+	worker.RegisterActivityWithOptions(emrcontainers.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-emrcontainers-"})
 	worker.RegisterActivityWithOptions(eventbridge.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-eventbridge-"})
 	worker.RegisterActivityWithOptions(firehose.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-firehose-"})
 	worker.RegisterActivityWithOptions(fms.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-fms-"})
@@ -589,10 +648,13 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(glacier.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-glacier-"})
 	worker.RegisterActivityWithOptions(globalaccelerator.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-globalaccelerator-"})
 	worker.RegisterActivityWithOptions(glue.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-glue-"})
+	worker.RegisterActivityWithOptions(gluedatabrew.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-gluedatabrew-"})
 	worker.RegisterActivityWithOptions(greengrass.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-greengrass-"})
+	worker.RegisterActivityWithOptions(greengrassv2.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-greengrassv2-"})
 	worker.RegisterActivityWithOptions(groundstation.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-groundstation-"})
 	worker.RegisterActivityWithOptions(guardduty.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-guardduty-"})
 	worker.RegisterActivityWithOptions(health.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-health-"})
+	worker.RegisterActivityWithOptions(healthlake.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-healthlake-"})
 	worker.RegisterActivityWithOptions(honeycode.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-honeycode-"})
 	worker.RegisterActivityWithOptions(iam.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iam-"})
 	worker.RegisterActivityWithOptions(identitystore.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-identitystore-"})
@@ -603,12 +665,15 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(iot1clickprojects.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iot1clickprojects-"})
 	worker.RegisterActivityWithOptions(iotanalytics.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iotanalytics-"})
 	worker.RegisterActivityWithOptions(iotdataplane.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iotdataplane-"})
+	worker.RegisterActivityWithOptions(iotdeviceadvisor.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iotdeviceadvisor-"})
 	worker.RegisterActivityWithOptions(iotevents.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iotevents-"})
 	worker.RegisterActivityWithOptions(ioteventsdata.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-ioteventsdata-"})
+	worker.RegisterActivityWithOptions(iotfleethub.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iotfleethub-"})
 	worker.RegisterActivityWithOptions(iotjobsdataplane.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iotjobsdataplane-"})
 	worker.RegisterActivityWithOptions(iotsecuretunneling.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iotsecuretunneling-"})
 	worker.RegisterActivityWithOptions(iotsitewise.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iotsitewise-"})
 	worker.RegisterActivityWithOptions(iotthingsgraph.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iotthingsgraph-"})
+	worker.RegisterActivityWithOptions(iotwireless.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-iotwireless-"})
 	worker.RegisterActivityWithOptions(ivs.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-ivs-"})
 	worker.RegisterActivityWithOptions(kafka.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-kafka-"})
 	worker.RegisterActivityWithOptions(kendra.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-kendra-"})
@@ -623,9 +688,13 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(lakeformation.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-lakeformation-"})
 	worker.RegisterActivityWithOptions(lambda.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-lambda-"})
 	worker.RegisterActivityWithOptions(lexmodelbuildingservice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-lexmodelbuildingservice-"})
+	worker.RegisterActivityWithOptions(lexmodelsv2.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-lexmodelsv2-"})
 	worker.RegisterActivityWithOptions(lexruntimeservice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-lexruntimeservice-"})
+	worker.RegisterActivityWithOptions(lexruntimev2.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-lexruntimev2-"})
 	worker.RegisterActivityWithOptions(licensemanager.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-licensemanager-"})
 	worker.RegisterActivityWithOptions(lightsail.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-lightsail-"})
+	worker.RegisterActivityWithOptions(locationservice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-locationservice-"})
+	worker.RegisterActivityWithOptions(lookoutforvision.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-lookoutforvision-"})
 	worker.RegisterActivityWithOptions(machinelearning.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-machinelearning-"})
 	worker.RegisterActivityWithOptions(macie.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-macie-"})
 	worker.RegisterActivityWithOptions(macie2.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-macie2-"})
@@ -648,7 +717,9 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(mobileanalytics.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-mobileanalytics-"})
 	worker.RegisterActivityWithOptions(mq.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-mq-"})
 	worker.RegisterActivityWithOptions(mturk.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-mturk-"})
+	worker.RegisterActivityWithOptions(mwaa.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-mwaa-"})
 	worker.RegisterActivityWithOptions(neptune.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-neptune-"})
+	worker.RegisterActivityWithOptions(networkfirewall.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-networkfirewall-"})
 	worker.RegisterActivityWithOptions(networkmanager.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-networkmanager-"})
 	worker.RegisterActivityWithOptions(opsworks.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-opsworks-"})
 	worker.RegisterActivityWithOptions(opsworkscm.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-opsworkscm-"})
@@ -663,6 +734,7 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(pinpointsmsvoice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-pinpointsmsvoice-"})
 	worker.RegisterActivityWithOptions(polly.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-polly-"})
 	worker.RegisterActivityWithOptions(pricing.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-pricing-"})
+	worker.RegisterActivityWithOptions(prometheusservice.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-prometheusservice-"})
 	worker.RegisterActivityWithOptions(qldb.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-qldb-"})
 	worker.RegisterActivityWithOptions(qldbsession.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-qldbsession-"})
 	worker.RegisterActivityWithOptions(quicksight.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-quicksight-"})
@@ -682,6 +754,8 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(s3control.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-s3control-"})
 	worker.RegisterActivityWithOptions(s3outposts.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-s3outposts-"})
 	worker.RegisterActivityWithOptions(sagemaker.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-sagemaker-"})
+	worker.RegisterActivityWithOptions(sagemakeredgemanager.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-sagemakeredgemanager-"})
+	worker.RegisterActivityWithOptions(sagemakerfeaturestoreruntime.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-sagemakerfeaturestoreruntime-"})
 	worker.RegisterActivityWithOptions(sagemakerruntime.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-sagemakerruntime-"})
 	worker.RegisterActivityWithOptions(savingsplans.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-savingsplans-"})
 	worker.RegisterActivityWithOptions(schemas.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-schemas-"})
@@ -720,6 +794,7 @@ func RegisterAwsActivitiesWithSessionFactory(worker worker.Worker, sessionFactor
 	worker.RegisterActivityWithOptions(waf.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-waf-"})
 	worker.RegisterActivityWithOptions(wafregional.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-wafregional-"})
 	worker.RegisterActivityWithOptions(wafv2.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-wafv2-"})
+	worker.RegisterActivityWithOptions(wellarchitected.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-wellarchitected-"})
 	worker.RegisterActivityWithOptions(workdocs.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-workdocs-"})
 	worker.RegisterActivityWithOptions(worklink.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-worklink-"})
 	worker.RegisterActivityWithOptions(workmail.NewActivitiesWithSessionFactory(sessionFactory), activity.RegisterOptions{Name: "aws-workmail-"})

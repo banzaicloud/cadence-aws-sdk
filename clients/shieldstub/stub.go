@@ -70,6 +70,17 @@ func (r *CreateProtectionFuture) Get(ctx workflow.Context) (*shield.CreateProtec
 	return &output, err
 }
 
+type CreateProtectionGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateProtectionGroupFuture) Get(ctx workflow.Context) (*shield.CreateProtectionGroupOutput, error) {
+	var output shield.CreateProtectionGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateSubscriptionFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -92,6 +103,17 @@ func (r *DeleteProtectionFuture) Get(ctx workflow.Context) (*shield.DeleteProtec
 	return &output, err
 }
 
+type DeleteProtectionGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteProtectionGroupFuture) Get(ctx workflow.Context) (*shield.DeleteProtectionGroupOutput, error) {
+	var output shield.DeleteProtectionGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteSubscriptionFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -110,6 +132,17 @@ type DescribeAttackFuture struct {
 
 func (r *DescribeAttackFuture) Get(ctx workflow.Context) (*shield.DescribeAttackOutput, error) {
 	var output shield.DescribeAttackOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeAttackStatisticsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeAttackStatisticsFuture) Get(ctx workflow.Context) (*shield.DescribeAttackStatisticsOutput, error) {
+	var output shield.DescribeAttackStatisticsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -143,6 +176,17 @@ type DescribeProtectionFuture struct {
 
 func (r *DescribeProtectionFuture) Get(ctx workflow.Context) (*shield.DescribeProtectionOutput, error) {
 	var output shield.DescribeProtectionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeProtectionGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeProtectionGroupFuture) Get(ctx workflow.Context) (*shield.DescribeProtectionGroupOutput, error) {
+	var output shield.DescribeProtectionGroupOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -235,6 +279,17 @@ func (r *ListAttacksFuture) Get(ctx workflow.Context) (*shield.ListAttacksOutput
 	return &output, err
 }
 
+type ListProtectionGroupsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListProtectionGroupsFuture) Get(ctx workflow.Context) (*shield.ListProtectionGroupsOutput, error) {
+	var output shield.ListProtectionGroupsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListProtectionsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -246,6 +301,17 @@ func (r *ListProtectionsFuture) Get(ctx workflow.Context) (*shield.ListProtectio
 	return &output, err
 }
 
+type ListResourcesInProtectionGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListResourcesInProtectionGroupFuture) Get(ctx workflow.Context) (*shield.ListResourcesInProtectionGroupOutput, error) {
+	var output shield.ListResourcesInProtectionGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateEmergencyContactSettingsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -253,6 +319,17 @@ type UpdateEmergencyContactSettingsFuture struct {
 
 func (r *UpdateEmergencyContactSettingsFuture) Get(ctx workflow.Context) (*shield.UpdateEmergencyContactSettingsOutput, error) {
 	var output shield.UpdateEmergencyContactSettingsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateProtectionGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateProtectionGroupFuture) Get(ctx workflow.Context) (*shield.UpdateProtectionGroupOutput, error) {
+	var output shield.UpdateProtectionGroupOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -323,6 +400,17 @@ func (a *stub) CreateProtectionAsync(ctx workflow.Context, input *shield.CreateP
 	return &CreateProtectionFuture{Future: future}
 }
 
+func (a *stub) CreateProtectionGroup(ctx workflow.Context, input *shield.CreateProtectionGroupInput) (*shield.CreateProtectionGroupOutput, error) {
+	var output shield.CreateProtectionGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-shield-CreateProtectionGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateProtectionGroupAsync(ctx workflow.Context, input *shield.CreateProtectionGroupInput) *CreateProtectionGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-shield-CreateProtectionGroup", input)
+	return &CreateProtectionGroupFuture{Future: future}
+}
+
 func (a *stub) CreateSubscription(ctx workflow.Context, input *shield.CreateSubscriptionInput) (*shield.CreateSubscriptionOutput, error) {
 	var output shield.CreateSubscriptionOutput
 	err := workflow.ExecuteActivity(ctx, "aws-shield-CreateSubscription", input).Get(ctx, &output)
@@ -345,6 +433,17 @@ func (a *stub) DeleteProtectionAsync(ctx workflow.Context, input *shield.DeleteP
 	return &DeleteProtectionFuture{Future: future}
 }
 
+func (a *stub) DeleteProtectionGroup(ctx workflow.Context, input *shield.DeleteProtectionGroupInput) (*shield.DeleteProtectionGroupOutput, error) {
+	var output shield.DeleteProtectionGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-shield-DeleteProtectionGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteProtectionGroupAsync(ctx workflow.Context, input *shield.DeleteProtectionGroupInput) *DeleteProtectionGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-shield-DeleteProtectionGroup", input)
+	return &DeleteProtectionGroupFuture{Future: future}
+}
+
 func (a *stub) DeleteSubscription(ctx workflow.Context, input *shield.DeleteSubscriptionInput) (*shield.DeleteSubscriptionOutput, error) {
 	var output shield.DeleteSubscriptionOutput
 	err := workflow.ExecuteActivity(ctx, "aws-shield-DeleteSubscription", input).Get(ctx, &output)
@@ -365,6 +464,17 @@ func (a *stub) DescribeAttack(ctx workflow.Context, input *shield.DescribeAttack
 func (a *stub) DescribeAttackAsync(ctx workflow.Context, input *shield.DescribeAttackInput) *DescribeAttackFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-shield-DescribeAttack", input)
 	return &DescribeAttackFuture{Future: future}
+}
+
+func (a *stub) DescribeAttackStatistics(ctx workflow.Context, input *shield.DescribeAttackStatisticsInput) (*shield.DescribeAttackStatisticsOutput, error) {
+	var output shield.DescribeAttackStatisticsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-shield-DescribeAttackStatistics", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeAttackStatisticsAsync(ctx workflow.Context, input *shield.DescribeAttackStatisticsInput) *DescribeAttackStatisticsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-shield-DescribeAttackStatistics", input)
+	return &DescribeAttackStatisticsFuture{Future: future}
 }
 
 func (a *stub) DescribeDRTAccess(ctx workflow.Context, input *shield.DescribeDRTAccessInput) (*shield.DescribeDRTAccessOutput, error) {
@@ -398,6 +508,17 @@ func (a *stub) DescribeProtection(ctx workflow.Context, input *shield.DescribePr
 func (a *stub) DescribeProtectionAsync(ctx workflow.Context, input *shield.DescribeProtectionInput) *DescribeProtectionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-shield-DescribeProtection", input)
 	return &DescribeProtectionFuture{Future: future}
+}
+
+func (a *stub) DescribeProtectionGroup(ctx workflow.Context, input *shield.DescribeProtectionGroupInput) (*shield.DescribeProtectionGroupOutput, error) {
+	var output shield.DescribeProtectionGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-shield-DescribeProtectionGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeProtectionGroupAsync(ctx workflow.Context, input *shield.DescribeProtectionGroupInput) *DescribeProtectionGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-shield-DescribeProtectionGroup", input)
+	return &DescribeProtectionGroupFuture{Future: future}
 }
 
 func (a *stub) DescribeSubscription(ctx workflow.Context, input *shield.DescribeSubscriptionInput) (*shield.DescribeSubscriptionOutput, error) {
@@ -488,6 +609,17 @@ func (a *stub) ListAttacksAsync(ctx workflow.Context, input *shield.ListAttacksI
 	return &ListAttacksFuture{Future: future}
 }
 
+func (a *stub) ListProtectionGroups(ctx workflow.Context, input *shield.ListProtectionGroupsInput) (*shield.ListProtectionGroupsOutput, error) {
+	var output shield.ListProtectionGroupsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-shield-ListProtectionGroups", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListProtectionGroupsAsync(ctx workflow.Context, input *shield.ListProtectionGroupsInput) *ListProtectionGroupsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-shield-ListProtectionGroups", input)
+	return &ListProtectionGroupsFuture{Future: future}
+}
+
 func (a *stub) ListProtections(ctx workflow.Context, input *shield.ListProtectionsInput) (*shield.ListProtectionsOutput, error) {
 	var output shield.ListProtectionsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-shield-ListProtections", input).Get(ctx, &output)
@@ -499,6 +631,17 @@ func (a *stub) ListProtectionsAsync(ctx workflow.Context, input *shield.ListProt
 	return &ListProtectionsFuture{Future: future}
 }
 
+func (a *stub) ListResourcesInProtectionGroup(ctx workflow.Context, input *shield.ListResourcesInProtectionGroupInput) (*shield.ListResourcesInProtectionGroupOutput, error) {
+	var output shield.ListResourcesInProtectionGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-shield-ListResourcesInProtectionGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListResourcesInProtectionGroupAsync(ctx workflow.Context, input *shield.ListResourcesInProtectionGroupInput) *ListResourcesInProtectionGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-shield-ListResourcesInProtectionGroup", input)
+	return &ListResourcesInProtectionGroupFuture{Future: future}
+}
+
 func (a *stub) UpdateEmergencyContactSettings(ctx workflow.Context, input *shield.UpdateEmergencyContactSettingsInput) (*shield.UpdateEmergencyContactSettingsOutput, error) {
 	var output shield.UpdateEmergencyContactSettingsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-shield-UpdateEmergencyContactSettings", input).Get(ctx, &output)
@@ -508,6 +651,17 @@ func (a *stub) UpdateEmergencyContactSettings(ctx workflow.Context, input *shiel
 func (a *stub) UpdateEmergencyContactSettingsAsync(ctx workflow.Context, input *shield.UpdateEmergencyContactSettingsInput) *UpdateEmergencyContactSettingsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-shield-UpdateEmergencyContactSettings", input)
 	return &UpdateEmergencyContactSettingsFuture{Future: future}
+}
+
+func (a *stub) UpdateProtectionGroup(ctx workflow.Context, input *shield.UpdateProtectionGroupInput) (*shield.UpdateProtectionGroupOutput, error) {
+	var output shield.UpdateProtectionGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-shield-UpdateProtectionGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateProtectionGroupAsync(ctx workflow.Context, input *shield.UpdateProtectionGroupInput) *UpdateProtectionGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-shield-UpdateProtectionGroup", input)
+	return &UpdateProtectionGroupFuture{Future: future}
 }
 
 func (a *stub) UpdateSubscription(ctx workflow.Context, input *shield.UpdateSubscriptionInput) (*shield.UpdateSubscriptionOutput, error) {

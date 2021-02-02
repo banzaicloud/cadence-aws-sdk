@@ -15,6 +15,17 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type AssociateFileSystemAliasesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AssociateFileSystemAliasesFuture) Get(ctx workflow.Context) (*fsx.AssociateFileSystemAliasesOutput, error) {
+	var output fsx.AssociateFileSystemAliasesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CancelDataRepositoryTaskFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -114,6 +125,17 @@ func (r *DescribeDataRepositoryTasksFuture) Get(ctx workflow.Context) (*fsx.Desc
 	return &output, err
 }
 
+type DescribeFileSystemAliasesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeFileSystemAliasesFuture) Get(ctx workflow.Context) (*fsx.DescribeFileSystemAliasesOutput, error) {
+	var output fsx.DescribeFileSystemAliasesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeFileSystemsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -121,6 +143,17 @@ type DescribeFileSystemsFuture struct {
 
 func (r *DescribeFileSystemsFuture) Get(ctx workflow.Context) (*fsx.DescribeFileSystemsOutput, error) {
 	var output fsx.DescribeFileSystemsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DisassociateFileSystemAliasesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisassociateFileSystemAliasesFuture) Get(ctx workflow.Context) (*fsx.DisassociateFileSystemAliasesOutput, error) {
+	var output fsx.DisassociateFileSystemAliasesOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -167,6 +200,17 @@ func (r *UpdateFileSystemFuture) Get(ctx workflow.Context) (*fsx.UpdateFileSyste
 	var output fsx.UpdateFileSystemOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
+}
+
+func (a *stub) AssociateFileSystemAliases(ctx workflow.Context, input *fsx.AssociateFileSystemAliasesInput) (*fsx.AssociateFileSystemAliasesOutput, error) {
+	var output fsx.AssociateFileSystemAliasesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-fsx-AssociateFileSystemAliases", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AssociateFileSystemAliasesAsync(ctx workflow.Context, input *fsx.AssociateFileSystemAliasesInput) *AssociateFileSystemAliasesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-fsx-AssociateFileSystemAliases", input)
+	return &AssociateFileSystemAliasesFuture{Future: future}
 }
 
 func (a *stub) CancelDataRepositoryTask(ctx workflow.Context, input *fsx.CancelDataRepositoryTaskInput) (*fsx.CancelDataRepositoryTaskOutput, error) {
@@ -268,6 +312,17 @@ func (a *stub) DescribeDataRepositoryTasksAsync(ctx workflow.Context, input *fsx
 	return &DescribeDataRepositoryTasksFuture{Future: future}
 }
 
+func (a *stub) DescribeFileSystemAliases(ctx workflow.Context, input *fsx.DescribeFileSystemAliasesInput) (*fsx.DescribeFileSystemAliasesOutput, error) {
+	var output fsx.DescribeFileSystemAliasesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-fsx-DescribeFileSystemAliases", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeFileSystemAliasesAsync(ctx workflow.Context, input *fsx.DescribeFileSystemAliasesInput) *DescribeFileSystemAliasesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-fsx-DescribeFileSystemAliases", input)
+	return &DescribeFileSystemAliasesFuture{Future: future}
+}
+
 func (a *stub) DescribeFileSystems(ctx workflow.Context, input *fsx.DescribeFileSystemsInput) (*fsx.DescribeFileSystemsOutput, error) {
 	var output fsx.DescribeFileSystemsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-fsx-DescribeFileSystems", input).Get(ctx, &output)
@@ -277,6 +332,17 @@ func (a *stub) DescribeFileSystems(ctx workflow.Context, input *fsx.DescribeFile
 func (a *stub) DescribeFileSystemsAsync(ctx workflow.Context, input *fsx.DescribeFileSystemsInput) *DescribeFileSystemsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-fsx-DescribeFileSystems", input)
 	return &DescribeFileSystemsFuture{Future: future}
+}
+
+func (a *stub) DisassociateFileSystemAliases(ctx workflow.Context, input *fsx.DisassociateFileSystemAliasesInput) (*fsx.DisassociateFileSystemAliasesOutput, error) {
+	var output fsx.DisassociateFileSystemAliasesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-fsx-DisassociateFileSystemAliases", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisassociateFileSystemAliasesAsync(ctx workflow.Context, input *fsx.DisassociateFileSystemAliasesInput) *DisassociateFileSystemAliasesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-fsx-DisassociateFileSystemAliases", input)
+	return &DisassociateFileSystemAliasesFuture{Future: future}
 }
 
 func (a *stub) ListTagsForResource(ctx workflow.Context, input *fsx.ListTagsForResourceInput) (*fsx.ListTagsForResourceOutput, error) {

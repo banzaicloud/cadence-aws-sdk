@@ -173,6 +173,16 @@ func (a *Activities) DescribeCopyJob(ctx context.Context, input *backup.Describe
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeGlobalSettings(ctx context.Context, input *backup.DescribeGlobalSettingsInput) (*backup.DescribeGlobalSettingsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeGlobalSettingsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeProtectedResource(ctx context.Context, input *backup.DescribeProtectedResourceInput) (*backup.DescribeProtectedResourceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -509,6 +519,16 @@ func (a *Activities) UpdateBackupPlan(ctx context.Context, input *backup.UpdateB
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateBackupPlanWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateGlobalSettings(ctx context.Context, input *backup.UpdateGlobalSettingsInput) (*backup.UpdateGlobalSettingsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateGlobalSettingsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

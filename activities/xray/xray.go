@@ -133,6 +133,46 @@ func (a *Activities) GetGroups(ctx context.Context, input *xray.GetGroupsInput) 
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetInsight(ctx context.Context, input *xray.GetInsightInput) (*xray.GetInsightOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetInsightWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetInsightEvents(ctx context.Context, input *xray.GetInsightEventsInput) (*xray.GetInsightEventsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetInsightEventsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetInsightImpactGraph(ctx context.Context, input *xray.GetInsightImpactGraphInput) (*xray.GetInsightImpactGraphOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetInsightImpactGraphWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetInsightSummaries(ctx context.Context, input *xray.GetInsightSummariesInput) (*xray.GetInsightSummariesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetInsightSummariesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetSamplingRules(ctx context.Context, input *xray.GetSamplingRulesInput) (*xray.GetSamplingRulesOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

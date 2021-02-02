@@ -53,6 +53,16 @@ func (a *Activities) getClient(ctx context.Context) (eksiface.EKSAPI, error) {
 	return eks.New(sess), nil
 }
 
+func (a *Activities) CreateAddon(ctx context.Context, input *eks.CreateAddonInput) (*eks.CreateAddonOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateAddonWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateCluster(ctx context.Context, input *eks.CreateClusterInput) (*eks.CreateClusterOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -83,6 +93,16 @@ func (a *Activities) CreateNodegroup(ctx context.Context, input *eks.CreateNodeg
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteAddon(ctx context.Context, input *eks.DeleteAddonInput) (*eks.DeleteAddonOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteAddonWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteCluster(ctx context.Context, input *eks.DeleteClusterInput) (*eks.DeleteClusterOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -109,6 +129,26 @@ func (a *Activities) DeleteNodegroup(ctx context.Context, input *eks.DeleteNodeg
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteNodegroupWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeAddon(ctx context.Context, input *eks.DescribeAddonInput) (*eks.DescribeAddonOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeAddonWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeAddonVersions(ctx context.Context, input *eks.DescribeAddonVersionsInput) (*eks.DescribeAddonVersionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeAddonVersionsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -149,6 +189,16 @@ func (a *Activities) DescribeUpdate(ctx context.Context, input *eks.DescribeUpda
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeUpdateWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListAddons(ctx context.Context, input *eks.ListAddonsInput) (*eks.ListAddonsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListAddonsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -223,6 +273,16 @@ func (a *Activities) UntagResource(ctx context.Context, input *eks.UntagResource
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) UpdateAddon(ctx context.Context, input *eks.UpdateAddonInput) (*eks.UpdateAddonOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateAddonWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) UpdateClusterConfig(ctx context.Context, input *eks.UpdateClusterConfigInput) (*eks.UpdateClusterConfigOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -261,6 +321,26 @@ func (a *Activities) UpdateNodegroupVersion(ctx context.Context, input *eks.Upda
 	output, err := client.UpdateNodegroupVersionWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) WaitUntilAddonActive(ctx context.Context, input *eks.DescribeAddonInput) error {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return internal.EncodeError(err)
+	}
+	return internal.WaitUntilActivity(ctx, func(ctx context.Context, options ...request.WaiterOption) error {
+		return internal.EncodeError(client.WaitUntilAddonActiveWithContext(ctx, input, options...))
+	})
+}
+
+func (a *Activities) WaitUntilAddonDeleted(ctx context.Context, input *eks.DescribeAddonInput) error {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return internal.EncodeError(err)
+	}
+	return internal.WaitUntilActivity(ctx, func(ctx context.Context, options ...request.WaiterOption) error {
+		return internal.EncodeError(client.WaitUntilAddonDeletedWithContext(ctx, input, options...))
+	})
 }
 
 func (a *Activities) WaitUntilClusterActive(ctx context.Context, input *eks.DescribeClusterInput) error {

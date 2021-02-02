@@ -113,6 +113,16 @@ func (a *Activities) DeleteLifecyclePolicy(ctx context.Context, input *ecr.Delet
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteRegistryPolicy(ctx context.Context, input *ecr.DeleteRegistryPolicyInput) (*ecr.DeleteRegistryPolicyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteRegistryPolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteRepository(ctx context.Context, input *ecr.DeleteRepositoryInput) (*ecr.DeleteRepositoryOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -149,6 +159,16 @@ func (a *Activities) DescribeImages(ctx context.Context, input *ecr.DescribeImag
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeImagesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeRegistry(ctx context.Context, input *ecr.DescribeRegistryInput) (*ecr.DescribeRegistryOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeRegistryWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -199,6 +219,16 @@ func (a *Activities) GetLifecyclePolicyPreview(ctx context.Context, input *ecr.G
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetLifecyclePolicyPreviewWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetRegistryPolicy(ctx context.Context, input *ecr.GetRegistryPolicyInput) (*ecr.GetRegistryPolicyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetRegistryPolicyWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -279,6 +309,26 @@ func (a *Activities) PutLifecyclePolicy(ctx context.Context, input *ecr.PutLifec
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.PutLifecyclePolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutRegistryPolicy(ctx context.Context, input *ecr.PutRegistryPolicyInput) (*ecr.PutRegistryPolicyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutRegistryPolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutReplicationConfiguration(ctx context.Context, input *ecr.PutReplicationConfigurationInput) (*ecr.PutReplicationConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutReplicationConfigurationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

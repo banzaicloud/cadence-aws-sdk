@@ -23,6 +23,9 @@ type Client interface {
 	CreateAlias(ctx workflow.Context, input *lambda.CreateAliasInput) (*lambda.AliasConfiguration, error)
 	CreateAliasAsync(ctx workflow.Context, input *lambda.CreateAliasInput) *CreateAliasFuture
 
+	CreateCodeSigningConfig(ctx workflow.Context, input *lambda.CreateCodeSigningConfigInput) (*lambda.CreateCodeSigningConfigOutput, error)
+	CreateCodeSigningConfigAsync(ctx workflow.Context, input *lambda.CreateCodeSigningConfigInput) *CreateCodeSigningConfigFuture
+
 	CreateEventSourceMapping(ctx workflow.Context, input *lambda.CreateEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error)
 	CreateEventSourceMappingAsync(ctx workflow.Context, input *lambda.CreateEventSourceMappingInput) *CreateEventSourceMappingFuture
 
@@ -32,11 +35,17 @@ type Client interface {
 	DeleteAlias(ctx workflow.Context, input *lambda.DeleteAliasInput) (*lambda.DeleteAliasOutput, error)
 	DeleteAliasAsync(ctx workflow.Context, input *lambda.DeleteAliasInput) *DeleteAliasFuture
 
+	DeleteCodeSigningConfig(ctx workflow.Context, input *lambda.DeleteCodeSigningConfigInput) (*lambda.DeleteCodeSigningConfigOutput, error)
+	DeleteCodeSigningConfigAsync(ctx workflow.Context, input *lambda.DeleteCodeSigningConfigInput) *DeleteCodeSigningConfigFuture
+
 	DeleteEventSourceMapping(ctx workflow.Context, input *lambda.DeleteEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error)
 	DeleteEventSourceMappingAsync(ctx workflow.Context, input *lambda.DeleteEventSourceMappingInput) *DeleteEventSourceMappingFuture
 
 	DeleteFunction(ctx workflow.Context, input *lambda.DeleteFunctionInput) (*lambda.DeleteFunctionOutput, error)
 	DeleteFunctionAsync(ctx workflow.Context, input *lambda.DeleteFunctionInput) *DeleteFunctionFuture
+
+	DeleteFunctionCodeSigningConfig(ctx workflow.Context, input *lambda.DeleteFunctionCodeSigningConfigInput) (*lambda.DeleteFunctionCodeSigningConfigOutput, error)
+	DeleteFunctionCodeSigningConfigAsync(ctx workflow.Context, input *lambda.DeleteFunctionCodeSigningConfigInput) *DeleteFunctionCodeSigningConfigFuture
 
 	DeleteFunctionConcurrency(ctx workflow.Context, input *lambda.DeleteFunctionConcurrencyInput) (*lambda.DeleteFunctionConcurrencyOutput, error)
 	DeleteFunctionConcurrencyAsync(ctx workflow.Context, input *lambda.DeleteFunctionConcurrencyInput) *DeleteFunctionConcurrencyFuture
@@ -56,11 +65,17 @@ type Client interface {
 	GetAlias(ctx workflow.Context, input *lambda.GetAliasInput) (*lambda.AliasConfiguration, error)
 	GetAliasAsync(ctx workflow.Context, input *lambda.GetAliasInput) *GetAliasFuture
 
+	GetCodeSigningConfig(ctx workflow.Context, input *lambda.GetCodeSigningConfigInput) (*lambda.GetCodeSigningConfigOutput, error)
+	GetCodeSigningConfigAsync(ctx workflow.Context, input *lambda.GetCodeSigningConfigInput) *GetCodeSigningConfigFuture
+
 	GetEventSourceMapping(ctx workflow.Context, input *lambda.GetEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error)
 	GetEventSourceMappingAsync(ctx workflow.Context, input *lambda.GetEventSourceMappingInput) *GetEventSourceMappingFuture
 
 	GetFunction(ctx workflow.Context, input *lambda.GetFunctionInput) (*lambda.GetFunctionOutput, error)
 	GetFunctionAsync(ctx workflow.Context, input *lambda.GetFunctionInput) *GetFunctionFuture
+
+	GetFunctionCodeSigningConfig(ctx workflow.Context, input *lambda.GetFunctionCodeSigningConfigInput) (*lambda.GetFunctionCodeSigningConfigOutput, error)
+	GetFunctionCodeSigningConfigAsync(ctx workflow.Context, input *lambda.GetFunctionCodeSigningConfigInput) *GetFunctionCodeSigningConfigFuture
 
 	GetFunctionConcurrency(ctx workflow.Context, input *lambda.GetFunctionConcurrencyInput) (*lambda.GetFunctionConcurrencyOutput, error)
 	GetFunctionConcurrencyAsync(ctx workflow.Context, input *lambda.GetFunctionConcurrencyInput) *GetFunctionConcurrencyFuture
@@ -92,6 +107,9 @@ type Client interface {
 	ListAliases(ctx workflow.Context, input *lambda.ListAliasesInput) (*lambda.ListAliasesOutput, error)
 	ListAliasesAsync(ctx workflow.Context, input *lambda.ListAliasesInput) *ListAliasesFuture
 
+	ListCodeSigningConfigs(ctx workflow.Context, input *lambda.ListCodeSigningConfigsInput) (*lambda.ListCodeSigningConfigsOutput, error)
+	ListCodeSigningConfigsAsync(ctx workflow.Context, input *lambda.ListCodeSigningConfigsInput) *ListCodeSigningConfigsFuture
+
 	ListEventSourceMappings(ctx workflow.Context, input *lambda.ListEventSourceMappingsInput) (*lambda.ListEventSourceMappingsOutput, error)
 	ListEventSourceMappingsAsync(ctx workflow.Context, input *lambda.ListEventSourceMappingsInput) *ListEventSourceMappingsFuture
 
@@ -100,6 +118,9 @@ type Client interface {
 
 	ListFunctions(ctx workflow.Context, input *lambda.ListFunctionsInput) (*lambda.ListFunctionsOutput, error)
 	ListFunctionsAsync(ctx workflow.Context, input *lambda.ListFunctionsInput) *ListFunctionsFuture
+
+	ListFunctionsByCodeSigningConfig(ctx workflow.Context, input *lambda.ListFunctionsByCodeSigningConfigInput) (*lambda.ListFunctionsByCodeSigningConfigOutput, error)
+	ListFunctionsByCodeSigningConfigAsync(ctx workflow.Context, input *lambda.ListFunctionsByCodeSigningConfigInput) *ListFunctionsByCodeSigningConfigFuture
 
 	ListLayerVersions(ctx workflow.Context, input *lambda.ListLayerVersionsInput) (*lambda.ListLayerVersionsOutput, error)
 	ListLayerVersionsAsync(ctx workflow.Context, input *lambda.ListLayerVersionsInput) *ListLayerVersionsFuture
@@ -121,6 +142,9 @@ type Client interface {
 
 	PublishVersion(ctx workflow.Context, input *lambda.PublishVersionInput) (*lambda.FunctionConfiguration, error)
 	PublishVersionAsync(ctx workflow.Context, input *lambda.PublishVersionInput) *PublishVersionFuture
+
+	PutFunctionCodeSigningConfig(ctx workflow.Context, input *lambda.PutFunctionCodeSigningConfigInput) (*lambda.PutFunctionCodeSigningConfigOutput, error)
+	PutFunctionCodeSigningConfigAsync(ctx workflow.Context, input *lambda.PutFunctionCodeSigningConfigInput) *PutFunctionCodeSigningConfigFuture
 
 	PutFunctionConcurrency(ctx workflow.Context, input *lambda.PutFunctionConcurrencyInput) (*lambda.PutFunctionConcurrencyOutput, error)
 	PutFunctionConcurrencyAsync(ctx workflow.Context, input *lambda.PutFunctionConcurrencyInput) *PutFunctionConcurrencyFuture
@@ -145,6 +169,9 @@ type Client interface {
 
 	UpdateAlias(ctx workflow.Context, input *lambda.UpdateAliasInput) (*lambda.AliasConfiguration, error)
 	UpdateAliasAsync(ctx workflow.Context, input *lambda.UpdateAliasInput) *UpdateAliasFuture
+
+	UpdateCodeSigningConfig(ctx workflow.Context, input *lambda.UpdateCodeSigningConfigInput) (*lambda.UpdateCodeSigningConfigOutput, error)
+	UpdateCodeSigningConfigAsync(ctx workflow.Context, input *lambda.UpdateCodeSigningConfigInput) *UpdateCodeSigningConfigFuture
 
 	UpdateEventSourceMapping(ctx workflow.Context, input *lambda.UpdateEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error)
 	UpdateEventSourceMappingAsync(ctx workflow.Context, input *lambda.UpdateEventSourceMappingInput) *UpdateEventSourceMappingFuture

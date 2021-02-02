@@ -15,6 +15,61 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type BatchCreateTableRowsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *BatchCreateTableRowsFuture) Get(ctx workflow.Context) (*honeycode.BatchCreateTableRowsOutput, error) {
+	var output honeycode.BatchCreateTableRowsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type BatchDeleteTableRowsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *BatchDeleteTableRowsFuture) Get(ctx workflow.Context) (*honeycode.BatchDeleteTableRowsOutput, error) {
+	var output honeycode.BatchDeleteTableRowsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type BatchUpdateTableRowsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *BatchUpdateTableRowsFuture) Get(ctx workflow.Context) (*honeycode.BatchUpdateTableRowsOutput, error) {
+	var output honeycode.BatchUpdateTableRowsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type BatchUpsertTableRowsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *BatchUpsertTableRowsFuture) Get(ctx workflow.Context) (*honeycode.BatchUpsertTableRowsOutput, error) {
+	var output honeycode.BatchUpsertTableRowsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeTableDataImportJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeTableDataImportJobFuture) Get(ctx workflow.Context) (*honeycode.DescribeTableDataImportJobOutput, error) {
+	var output honeycode.DescribeTableDataImportJobOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetScreenDataFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -37,6 +92,116 @@ func (r *InvokeScreenAutomationFuture) Get(ctx workflow.Context) (*honeycode.Inv
 	return &output, err
 }
 
+type ListTableColumnsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListTableColumnsFuture) Get(ctx workflow.Context) (*honeycode.ListTableColumnsOutput, error) {
+	var output honeycode.ListTableColumnsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListTableRowsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListTableRowsFuture) Get(ctx workflow.Context) (*honeycode.ListTableRowsOutput, error) {
+	var output honeycode.ListTableRowsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListTablesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListTablesFuture) Get(ctx workflow.Context) (*honeycode.ListTablesOutput, error) {
+	var output honeycode.ListTablesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type QueryTableRowsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *QueryTableRowsFuture) Get(ctx workflow.Context) (*honeycode.QueryTableRowsOutput, error) {
+	var output honeycode.QueryTableRowsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type StartTableDataImportJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartTableDataImportJobFuture) Get(ctx workflow.Context) (*honeycode.StartTableDataImportJobOutput, error) {
+	var output honeycode.StartTableDataImportJobOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) BatchCreateTableRows(ctx workflow.Context, input *honeycode.BatchCreateTableRowsInput) (*honeycode.BatchCreateTableRowsOutput, error) {
+	var output honeycode.BatchCreateTableRowsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-honeycode-BatchCreateTableRows", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) BatchCreateTableRowsAsync(ctx workflow.Context, input *honeycode.BatchCreateTableRowsInput) *BatchCreateTableRowsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-honeycode-BatchCreateTableRows", input)
+	return &BatchCreateTableRowsFuture{Future: future}
+}
+
+func (a *stub) BatchDeleteTableRows(ctx workflow.Context, input *honeycode.BatchDeleteTableRowsInput) (*honeycode.BatchDeleteTableRowsOutput, error) {
+	var output honeycode.BatchDeleteTableRowsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-honeycode-BatchDeleteTableRows", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) BatchDeleteTableRowsAsync(ctx workflow.Context, input *honeycode.BatchDeleteTableRowsInput) *BatchDeleteTableRowsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-honeycode-BatchDeleteTableRows", input)
+	return &BatchDeleteTableRowsFuture{Future: future}
+}
+
+func (a *stub) BatchUpdateTableRows(ctx workflow.Context, input *honeycode.BatchUpdateTableRowsInput) (*honeycode.BatchUpdateTableRowsOutput, error) {
+	var output honeycode.BatchUpdateTableRowsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-honeycode-BatchUpdateTableRows", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) BatchUpdateTableRowsAsync(ctx workflow.Context, input *honeycode.BatchUpdateTableRowsInput) *BatchUpdateTableRowsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-honeycode-BatchUpdateTableRows", input)
+	return &BatchUpdateTableRowsFuture{Future: future}
+}
+
+func (a *stub) BatchUpsertTableRows(ctx workflow.Context, input *honeycode.BatchUpsertTableRowsInput) (*honeycode.BatchUpsertTableRowsOutput, error) {
+	var output honeycode.BatchUpsertTableRowsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-honeycode-BatchUpsertTableRows", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) BatchUpsertTableRowsAsync(ctx workflow.Context, input *honeycode.BatchUpsertTableRowsInput) *BatchUpsertTableRowsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-honeycode-BatchUpsertTableRows", input)
+	return &BatchUpsertTableRowsFuture{Future: future}
+}
+
+func (a *stub) DescribeTableDataImportJob(ctx workflow.Context, input *honeycode.DescribeTableDataImportJobInput) (*honeycode.DescribeTableDataImportJobOutput, error) {
+	var output honeycode.DescribeTableDataImportJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-honeycode-DescribeTableDataImportJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeTableDataImportJobAsync(ctx workflow.Context, input *honeycode.DescribeTableDataImportJobInput) *DescribeTableDataImportJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-honeycode-DescribeTableDataImportJob", input)
+	return &DescribeTableDataImportJobFuture{Future: future}
+}
+
 func (a *stub) GetScreenData(ctx workflow.Context, input *honeycode.GetScreenDataInput) (*honeycode.GetScreenDataOutput, error) {
 	var output honeycode.GetScreenDataOutput
 	err := workflow.ExecuteActivity(ctx, "aws-honeycode-GetScreenData", input).Get(ctx, &output)
@@ -57,4 +222,59 @@ func (a *stub) InvokeScreenAutomation(ctx workflow.Context, input *honeycode.Inv
 func (a *stub) InvokeScreenAutomationAsync(ctx workflow.Context, input *honeycode.InvokeScreenAutomationInput) *InvokeScreenAutomationFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-honeycode-InvokeScreenAutomation", input)
 	return &InvokeScreenAutomationFuture{Future: future}
+}
+
+func (a *stub) ListTableColumns(ctx workflow.Context, input *honeycode.ListTableColumnsInput) (*honeycode.ListTableColumnsOutput, error) {
+	var output honeycode.ListTableColumnsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-honeycode-ListTableColumns", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListTableColumnsAsync(ctx workflow.Context, input *honeycode.ListTableColumnsInput) *ListTableColumnsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-honeycode-ListTableColumns", input)
+	return &ListTableColumnsFuture{Future: future}
+}
+
+func (a *stub) ListTableRows(ctx workflow.Context, input *honeycode.ListTableRowsInput) (*honeycode.ListTableRowsOutput, error) {
+	var output honeycode.ListTableRowsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-honeycode-ListTableRows", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListTableRowsAsync(ctx workflow.Context, input *honeycode.ListTableRowsInput) *ListTableRowsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-honeycode-ListTableRows", input)
+	return &ListTableRowsFuture{Future: future}
+}
+
+func (a *stub) ListTables(ctx workflow.Context, input *honeycode.ListTablesInput) (*honeycode.ListTablesOutput, error) {
+	var output honeycode.ListTablesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-honeycode-ListTables", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListTablesAsync(ctx workflow.Context, input *honeycode.ListTablesInput) *ListTablesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-honeycode-ListTables", input)
+	return &ListTablesFuture{Future: future}
+}
+
+func (a *stub) QueryTableRows(ctx workflow.Context, input *honeycode.QueryTableRowsInput) (*honeycode.QueryTableRowsOutput, error) {
+	var output honeycode.QueryTableRowsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-honeycode-QueryTableRows", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) QueryTableRowsAsync(ctx workflow.Context, input *honeycode.QueryTableRowsInput) *QueryTableRowsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-honeycode-QueryTableRows", input)
+	return &QueryTableRowsFuture{Future: future}
+}
+
+func (a *stub) StartTableDataImportJob(ctx workflow.Context, input *honeycode.StartTableDataImportJobInput) (*honeycode.StartTableDataImportJobOutput, error) {
+	var output honeycode.StartTableDataImportJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-honeycode-StartTableDataImportJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartTableDataImportJobAsync(ctx workflow.Context, input *honeycode.StartTableDataImportJobInput) *StartTableDataImportJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-honeycode-StartTableDataImportJob", input)
+	return &StartTableDataImportJobFuture{Future: future}
 }

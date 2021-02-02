@@ -47,6 +47,9 @@ type Client interface {
 	CancelCertificateTransfer(ctx workflow.Context, input *iot.CancelCertificateTransferInput) (*iot.CancelCertificateTransferOutput, error)
 	CancelCertificateTransferAsync(ctx workflow.Context, input *iot.CancelCertificateTransferInput) *CancelCertificateTransferFuture
 
+	CancelDetectMitigationActionsTask(ctx workflow.Context, input *iot.CancelDetectMitigationActionsTaskInput) (*iot.CancelDetectMitigationActionsTaskOutput, error)
+	CancelDetectMitigationActionsTaskAsync(ctx workflow.Context, input *iot.CancelDetectMitigationActionsTaskInput) *CancelDetectMitigationActionsTaskFuture
+
 	CancelJob(ctx workflow.Context, input *iot.CancelJobInput) (*iot.CancelJobOutput, error)
 	CancelJobAsync(ctx workflow.Context, input *iot.CancelJobInput) *CancelJobFuture
 
@@ -70,6 +73,9 @@ type Client interface {
 
 	CreateCertificateFromCsr(ctx workflow.Context, input *iot.CreateCertificateFromCsrInput) (*iot.CreateCertificateFromCsrOutput, error)
 	CreateCertificateFromCsrAsync(ctx workflow.Context, input *iot.CreateCertificateFromCsrInput) *CreateCertificateFromCsrFuture
+
+	CreateCustomMetric(ctx workflow.Context, input *iot.CreateCustomMetricInput) (*iot.CreateCustomMetricOutput, error)
+	CreateCustomMetricAsync(ctx workflow.Context, input *iot.CreateCustomMetricInput) *CreateCustomMetricFuture
 
 	CreateDimension(ctx workflow.Context, input *iot.CreateDimensionInput) (*iot.CreateDimensionOutput, error)
 	CreateDimensionAsync(ctx workflow.Context, input *iot.CreateDimensionInput) *CreateDimensionFuture
@@ -151,6 +157,9 @@ type Client interface {
 
 	DeleteCertificate(ctx workflow.Context, input *iot.DeleteCertificateInput) (*iot.DeleteCertificateOutput, error)
 	DeleteCertificateAsync(ctx workflow.Context, input *iot.DeleteCertificateInput) *DeleteCertificateFuture
+
+	DeleteCustomMetric(ctx workflow.Context, input *iot.DeleteCustomMetricInput) (*iot.DeleteCustomMetricOutput, error)
+	DeleteCustomMetricAsync(ctx workflow.Context, input *iot.DeleteCustomMetricInput) *DeleteCustomMetricFuture
 
 	DeleteDimension(ctx workflow.Context, input *iot.DeleteDimensionInput) (*iot.DeleteDimensionOutput, error)
 	DeleteDimensionAsync(ctx workflow.Context, input *iot.DeleteDimensionInput) *DeleteDimensionFuture
@@ -248,8 +257,14 @@ type Client interface {
 	DescribeCertificate(ctx workflow.Context, input *iot.DescribeCertificateInput) (*iot.DescribeCertificateOutput, error)
 	DescribeCertificateAsync(ctx workflow.Context, input *iot.DescribeCertificateInput) *DescribeCertificateFuture
 
+	DescribeCustomMetric(ctx workflow.Context, input *iot.DescribeCustomMetricInput) (*iot.DescribeCustomMetricOutput, error)
+	DescribeCustomMetricAsync(ctx workflow.Context, input *iot.DescribeCustomMetricInput) *DescribeCustomMetricFuture
+
 	DescribeDefaultAuthorizer(ctx workflow.Context, input *iot.DescribeDefaultAuthorizerInput) (*iot.DescribeDefaultAuthorizerOutput, error)
 	DescribeDefaultAuthorizerAsync(ctx workflow.Context, input *iot.DescribeDefaultAuthorizerInput) *DescribeDefaultAuthorizerFuture
+
+	DescribeDetectMitigationActionsTask(ctx workflow.Context, input *iot.DescribeDetectMitigationActionsTaskInput) (*iot.DescribeDetectMitigationActionsTaskOutput, error)
+	DescribeDetectMitigationActionsTaskAsync(ctx workflow.Context, input *iot.DescribeDetectMitigationActionsTaskInput) *DescribeDetectMitigationActionsTaskFuture
 
 	DescribeDimension(ctx workflow.Context, input *iot.DescribeDimensionInput) (*iot.DescribeDimensionOutput, error)
 	DescribeDimensionAsync(ctx workflow.Context, input *iot.DescribeDimensionInput) *DescribeDimensionFuture
@@ -322,6 +337,9 @@ type Client interface {
 
 	EnableTopicRule(ctx workflow.Context, input *iot.EnableTopicRuleInput) (*iot.EnableTopicRuleOutput, error)
 	EnableTopicRuleAsync(ctx workflow.Context, input *iot.EnableTopicRuleInput) *EnableTopicRuleFuture
+
+	GetBehaviorModelTrainingSummaries(ctx workflow.Context, input *iot.GetBehaviorModelTrainingSummariesInput) (*iot.GetBehaviorModelTrainingSummariesOutput, error)
+	GetBehaviorModelTrainingSummariesAsync(ctx workflow.Context, input *iot.GetBehaviorModelTrainingSummariesInput) *GetBehaviorModelTrainingSummariesFuture
 
 	GetCardinality(ctx workflow.Context, input *iot.GetCardinalityInput) (*iot.GetCardinalityOutput, error)
 	GetCardinalityAsync(ctx workflow.Context, input *iot.GetCardinalityInput) *GetCardinalityFuture
@@ -400,6 +418,15 @@ type Client interface {
 
 	ListCertificatesByCA(ctx workflow.Context, input *iot.ListCertificatesByCAInput) (*iot.ListCertificatesByCAOutput, error)
 	ListCertificatesByCAAsync(ctx workflow.Context, input *iot.ListCertificatesByCAInput) *ListCertificatesByCAFuture
+
+	ListCustomMetrics(ctx workflow.Context, input *iot.ListCustomMetricsInput) (*iot.ListCustomMetricsOutput, error)
+	ListCustomMetricsAsync(ctx workflow.Context, input *iot.ListCustomMetricsInput) *ListCustomMetricsFuture
+
+	ListDetectMitigationActionsExecutions(ctx workflow.Context, input *iot.ListDetectMitigationActionsExecutionsInput) (*iot.ListDetectMitigationActionsExecutionsOutput, error)
+	ListDetectMitigationActionsExecutionsAsync(ctx workflow.Context, input *iot.ListDetectMitigationActionsExecutionsInput) *ListDetectMitigationActionsExecutionsFuture
+
+	ListDetectMitigationActionsTasks(ctx workflow.Context, input *iot.ListDetectMitigationActionsTasksInput) (*iot.ListDetectMitigationActionsTasksOutput, error)
+	ListDetectMitigationActionsTasksAsync(ctx workflow.Context, input *iot.ListDetectMitigationActionsTasksInput) *ListDetectMitigationActionsTasksFuture
 
 	ListDimensions(ctx workflow.Context, input *iot.ListDimensionsInput) (*iot.ListDimensionsOutput, error)
 	ListDimensionsAsync(ctx workflow.Context, input *iot.ListDimensionsInput) *ListDimensionsFuture
@@ -557,6 +584,9 @@ type Client interface {
 	StartAuditMitigationActionsTask(ctx workflow.Context, input *iot.StartAuditMitigationActionsTaskInput) (*iot.StartAuditMitigationActionsTaskOutput, error)
 	StartAuditMitigationActionsTaskAsync(ctx workflow.Context, input *iot.StartAuditMitigationActionsTaskInput) *StartAuditMitigationActionsTaskFuture
 
+	StartDetectMitigationActionsTask(ctx workflow.Context, input *iot.StartDetectMitigationActionsTaskInput) (*iot.StartDetectMitigationActionsTaskOutput, error)
+	StartDetectMitigationActionsTaskAsync(ctx workflow.Context, input *iot.StartDetectMitigationActionsTaskInput) *StartDetectMitigationActionsTaskFuture
+
 	StartOnDemandAuditTask(ctx workflow.Context, input *iot.StartOnDemandAuditTaskInput) (*iot.StartOnDemandAuditTaskOutput, error)
 	StartOnDemandAuditTaskAsync(ctx workflow.Context, input *iot.StartOnDemandAuditTaskInput) *StartOnDemandAuditTaskFuture
 
@@ -598,6 +628,9 @@ type Client interface {
 
 	UpdateCertificate(ctx workflow.Context, input *iot.UpdateCertificateInput) (*iot.UpdateCertificateOutput, error)
 	UpdateCertificateAsync(ctx workflow.Context, input *iot.UpdateCertificateInput) *UpdateCertificateFuture
+
+	UpdateCustomMetric(ctx workflow.Context, input *iot.UpdateCustomMetricInput) (*iot.UpdateCustomMetricOutput, error)
+	UpdateCustomMetricAsync(ctx workflow.Context, input *iot.UpdateCustomMetricInput) *UpdateCustomMetricFuture
 
 	UpdateDimension(ctx workflow.Context, input *iot.UpdateDimensionInput) (*iot.UpdateDimensionOutput, error)
 	UpdateDimensionAsync(ctx workflow.Context, input *iot.UpdateDimensionInput) *UpdateDimensionFuture

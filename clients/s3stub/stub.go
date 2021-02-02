@@ -114,6 +114,17 @@ func (r *DeleteBucketEncryptionFuture) Get(ctx workflow.Context) (*s3.DeleteBuck
 	return &output, err
 }
 
+type DeleteBucketIntelligentTieringConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteBucketIntelligentTieringConfigurationFuture) Get(ctx workflow.Context) (*s3.DeleteBucketIntelligentTieringConfigurationOutput, error) {
+	var output s3.DeleteBucketIntelligentTieringConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteBucketInventoryConfigurationFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -297,6 +308,17 @@ type GetBucketEncryptionFuture struct {
 
 func (r *GetBucketEncryptionFuture) Get(ctx workflow.Context) (*s3.GetBucketEncryptionOutput, error) {
 	var output s3.GetBucketEncryptionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetBucketIntelligentTieringConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetBucketIntelligentTieringConfigurationFuture) Get(ctx workflow.Context) (*s3.GetBucketIntelligentTieringConfigurationOutput, error) {
+	var output s3.GetBucketIntelligentTieringConfigurationOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -598,6 +620,17 @@ func (r *ListBucketAnalyticsConfigurationsFuture) Get(ctx workflow.Context) (*s3
 	return &output, err
 }
 
+type ListBucketIntelligentTieringConfigurationsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListBucketIntelligentTieringConfigurationsFuture) Get(ctx workflow.Context) (*s3.ListBucketIntelligentTieringConfigurationsOutput, error) {
+	var output s3.ListBucketIntelligentTieringConfigurationsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListBucketInventoryConfigurationsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -737,6 +770,17 @@ type PutBucketEncryptionFuture struct {
 
 func (r *PutBucketEncryptionFuture) Get(ctx workflow.Context) (*s3.PutBucketEncryptionOutput, error) {
 	var output s3.PutBucketEncryptionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type PutBucketIntelligentTieringConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutBucketIntelligentTieringConfigurationFuture) Get(ctx workflow.Context) (*s3.PutBucketIntelligentTieringConfigurationOutput, error) {
+	var output s3.PutBucketIntelligentTieringConfigurationOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1115,6 +1159,17 @@ func (a *stub) DeleteBucketEncryptionAsync(ctx workflow.Context, input *s3.Delet
 	return &DeleteBucketEncryptionFuture{Future: future}
 }
 
+func (a *stub) DeleteBucketIntelligentTieringConfiguration(ctx workflow.Context, input *s3.DeleteBucketIntelligentTieringConfigurationInput) (*s3.DeleteBucketIntelligentTieringConfigurationOutput, error) {
+	var output s3.DeleteBucketIntelligentTieringConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3-DeleteBucketIntelligentTieringConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteBucketIntelligentTieringConfigurationAsync(ctx workflow.Context, input *s3.DeleteBucketIntelligentTieringConfigurationInput) *DeleteBucketIntelligentTieringConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3-DeleteBucketIntelligentTieringConfiguration", input)
+	return &DeleteBucketIntelligentTieringConfigurationFuture{Future: future}
+}
+
 func (a *stub) DeleteBucketInventoryConfiguration(ctx workflow.Context, input *s3.DeleteBucketInventoryConfigurationInput) (*s3.DeleteBucketInventoryConfigurationOutput, error) {
 	var output s3.DeleteBucketInventoryConfigurationOutput
 	err := workflow.ExecuteActivity(ctx, "aws-s3-DeleteBucketInventoryConfiguration", input).Get(ctx, &output)
@@ -1300,6 +1355,17 @@ func (a *stub) GetBucketEncryption(ctx workflow.Context, input *s3.GetBucketEncr
 func (a *stub) GetBucketEncryptionAsync(ctx workflow.Context, input *s3.GetBucketEncryptionInput) *GetBucketEncryptionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-s3-GetBucketEncryption", input)
 	return &GetBucketEncryptionFuture{Future: future}
+}
+
+func (a *stub) GetBucketIntelligentTieringConfiguration(ctx workflow.Context, input *s3.GetBucketIntelligentTieringConfigurationInput) (*s3.GetBucketIntelligentTieringConfigurationOutput, error) {
+	var output s3.GetBucketIntelligentTieringConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3-GetBucketIntelligentTieringConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetBucketIntelligentTieringConfigurationAsync(ctx workflow.Context, input *s3.GetBucketIntelligentTieringConfigurationInput) *GetBucketIntelligentTieringConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3-GetBucketIntelligentTieringConfiguration", input)
+	return &GetBucketIntelligentTieringConfigurationFuture{Future: future}
 }
 
 func (a *stub) GetBucketInventoryConfiguration(ctx workflow.Context, input *s3.GetBucketInventoryConfigurationInput) (*s3.GetBucketInventoryConfigurationOutput, error) {
@@ -1599,6 +1665,17 @@ func (a *stub) ListBucketAnalyticsConfigurationsAsync(ctx workflow.Context, inpu
 	return &ListBucketAnalyticsConfigurationsFuture{Future: future}
 }
 
+func (a *stub) ListBucketIntelligentTieringConfigurations(ctx workflow.Context, input *s3.ListBucketIntelligentTieringConfigurationsInput) (*s3.ListBucketIntelligentTieringConfigurationsOutput, error) {
+	var output s3.ListBucketIntelligentTieringConfigurationsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3-ListBucketIntelligentTieringConfigurations", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListBucketIntelligentTieringConfigurationsAsync(ctx workflow.Context, input *s3.ListBucketIntelligentTieringConfigurationsInput) *ListBucketIntelligentTieringConfigurationsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3-ListBucketIntelligentTieringConfigurations", input)
+	return &ListBucketIntelligentTieringConfigurationsFuture{Future: future}
+}
+
 func (a *stub) ListBucketInventoryConfigurations(ctx workflow.Context, input *s3.ListBucketInventoryConfigurationsInput) (*s3.ListBucketInventoryConfigurationsOutput, error) {
 	var output s3.ListBucketInventoryConfigurationsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-s3-ListBucketInventoryConfigurations", input).Get(ctx, &output)
@@ -1740,6 +1817,17 @@ func (a *stub) PutBucketEncryption(ctx workflow.Context, input *s3.PutBucketEncr
 func (a *stub) PutBucketEncryptionAsync(ctx workflow.Context, input *s3.PutBucketEncryptionInput) *PutBucketEncryptionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-s3-PutBucketEncryption", input)
 	return &PutBucketEncryptionFuture{Future: future}
+}
+
+func (a *stub) PutBucketIntelligentTieringConfiguration(ctx workflow.Context, input *s3.PutBucketIntelligentTieringConfigurationInput) (*s3.PutBucketIntelligentTieringConfigurationOutput, error) {
+	var output s3.PutBucketIntelligentTieringConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-s3-PutBucketIntelligentTieringConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutBucketIntelligentTieringConfigurationAsync(ctx workflow.Context, input *s3.PutBucketIntelligentTieringConfigurationInput) *PutBucketIntelligentTieringConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-s3-PutBucketIntelligentTieringConfiguration", input)
+	return &PutBucketIntelligentTieringConfigurationFuture{Future: future}
 }
 
 func (a *stub) PutBucketInventoryConfiguration(ctx workflow.Context, input *s3.PutBucketInventoryConfigurationInput) (*s3.PutBucketInventoryConfigurationOutput, error) {

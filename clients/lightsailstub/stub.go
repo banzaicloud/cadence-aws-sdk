@@ -136,6 +136,39 @@ func (r *CreateContactMethodFuture) Get(ctx workflow.Context) (*lightsail.Create
 	return &output, err
 }
 
+type CreateContainerServiceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateContainerServiceFuture) Get(ctx workflow.Context) (*lightsail.CreateContainerServiceOutput, error) {
+	var output lightsail.CreateContainerServiceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateContainerServiceDeploymentFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateContainerServiceDeploymentFuture) Get(ctx workflow.Context) (*lightsail.CreateContainerServiceDeploymentOutput, error) {
+	var output lightsail.CreateContainerServiceDeploymentOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateContainerServiceRegistryLoginFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateContainerServiceRegistryLoginFuture) Get(ctx workflow.Context) (*lightsail.CreateContainerServiceRegistryLoginOutput, error) {
+	var output lightsail.CreateContainerServiceRegistryLoginOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateDiskFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -341,6 +374,28 @@ type DeleteContactMethodFuture struct {
 
 func (r *DeleteContactMethodFuture) Get(ctx workflow.Context) (*lightsail.DeleteContactMethodOutput, error) {
 	var output lightsail.DeleteContactMethodOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteContainerImageFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteContainerImageFuture) Get(ctx workflow.Context) (*lightsail.DeleteContainerImageOutput, error) {
+	var output lightsail.DeleteContainerImageOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteContainerServiceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteContainerServiceFuture) Get(ctx workflow.Context) (*lightsail.DeleteContainerServiceOutput, error) {
+	var output lightsail.DeleteContainerServiceOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -660,6 +715,83 @@ type GetContactMethodsFuture struct {
 
 func (r *GetContactMethodsFuture) Get(ctx workflow.Context) (*lightsail.GetContactMethodsOutput, error) {
 	var output lightsail.GetContactMethodsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetContainerAPIMetadataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetContainerAPIMetadataFuture) Get(ctx workflow.Context) (*lightsail.GetContainerAPIMetadataOutput, error) {
+	var output lightsail.GetContainerAPIMetadataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetContainerImagesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetContainerImagesFuture) Get(ctx workflow.Context) (*lightsail.GetContainerImagesOutput, error) {
+	var output lightsail.GetContainerImagesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetContainerLogFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetContainerLogFuture) Get(ctx workflow.Context) (*lightsail.GetContainerLogOutput, error) {
+	var output lightsail.GetContainerLogOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetContainerServiceDeploymentsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetContainerServiceDeploymentsFuture) Get(ctx workflow.Context) (*lightsail.GetContainerServiceDeploymentsOutput, error) {
+	var output lightsail.GetContainerServiceDeploymentsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetContainerServiceMetricDataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetContainerServiceMetricDataFuture) Get(ctx workflow.Context) (*lightsail.GetContainerServiceMetricDataOutput, error) {
+	var output lightsail.GetContainerServiceMetricDataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetContainerServicePowersFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetContainerServicePowersFuture) Get(ctx workflow.Context) (*lightsail.GetContainerServicePowersOutput, error) {
+	var output lightsail.GetContainerServicePowersOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetContainerServicesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetContainerServicesFuture) Get(ctx workflow.Context) (*lightsail.GetContainerServicesOutput, error) {
+	var output lightsail.GetContainerServicesOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1225,6 +1357,17 @@ func (r *RebootRelationalDatabaseFuture) Get(ctx workflow.Context) (*lightsail.R
 	return &output, err
 }
 
+type RegisterContainerImageFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *RegisterContainerImageFuture) Get(ctx workflow.Context) (*lightsail.RegisterContainerImageOutput, error) {
+	var output lightsail.RegisterContainerImageOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ReleaseStaticIpFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1254,6 +1397,17 @@ type SendContactMethodVerificationFuture struct {
 
 func (r *SendContactMethodVerificationFuture) Get(ctx workflow.Context) (*lightsail.SendContactMethodVerificationOutput, error) {
 	var output lightsail.SendContactMethodVerificationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type SetIpAddressTypeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *SetIpAddressTypeFuture) Get(ctx workflow.Context) (*lightsail.SetIpAddressTypeOutput, error) {
+	var output lightsail.SetIpAddressTypeOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1342,6 +1496,17 @@ type UntagResourceFuture struct {
 
 func (r *UntagResourceFuture) Get(ctx workflow.Context) (*lightsail.UntagResourceOutput, error) {
 	var output lightsail.UntagResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateContainerServiceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateContainerServiceFuture) Get(ctx workflow.Context) (*lightsail.UpdateContainerServiceOutput, error) {
+	var output lightsail.UpdateContainerServiceOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -1531,6 +1696,39 @@ func (a *stub) CreateContactMethod(ctx workflow.Context, input *lightsail.Create
 func (a *stub) CreateContactMethodAsync(ctx workflow.Context, input *lightsail.CreateContactMethodInput) *CreateContactMethodFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-lightsail-CreateContactMethod", input)
 	return &CreateContactMethodFuture{Future: future}
+}
+
+func (a *stub) CreateContainerService(ctx workflow.Context, input *lightsail.CreateContainerServiceInput) (*lightsail.CreateContainerServiceOutput, error) {
+	var output lightsail.CreateContainerServiceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-CreateContainerService", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateContainerServiceAsync(ctx workflow.Context, input *lightsail.CreateContainerServiceInput) *CreateContainerServiceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-CreateContainerService", input)
+	return &CreateContainerServiceFuture{Future: future}
+}
+
+func (a *stub) CreateContainerServiceDeployment(ctx workflow.Context, input *lightsail.CreateContainerServiceDeploymentInput) (*lightsail.CreateContainerServiceDeploymentOutput, error) {
+	var output lightsail.CreateContainerServiceDeploymentOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-CreateContainerServiceDeployment", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateContainerServiceDeploymentAsync(ctx workflow.Context, input *lightsail.CreateContainerServiceDeploymentInput) *CreateContainerServiceDeploymentFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-CreateContainerServiceDeployment", input)
+	return &CreateContainerServiceDeploymentFuture{Future: future}
+}
+
+func (a *stub) CreateContainerServiceRegistryLogin(ctx workflow.Context, input *lightsail.CreateContainerServiceRegistryLoginInput) (*lightsail.CreateContainerServiceRegistryLoginOutput, error) {
+	var output lightsail.CreateContainerServiceRegistryLoginOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-CreateContainerServiceRegistryLogin", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateContainerServiceRegistryLoginAsync(ctx workflow.Context, input *lightsail.CreateContainerServiceRegistryLoginInput) *CreateContainerServiceRegistryLoginFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-CreateContainerServiceRegistryLogin", input)
+	return &CreateContainerServiceRegistryLoginFuture{Future: future}
 }
 
 func (a *stub) CreateDisk(ctx workflow.Context, input *lightsail.CreateDiskInput) (*lightsail.CreateDiskOutput, error) {
@@ -1740,6 +1938,28 @@ func (a *stub) DeleteContactMethod(ctx workflow.Context, input *lightsail.Delete
 func (a *stub) DeleteContactMethodAsync(ctx workflow.Context, input *lightsail.DeleteContactMethodInput) *DeleteContactMethodFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-lightsail-DeleteContactMethod", input)
 	return &DeleteContactMethodFuture{Future: future}
+}
+
+func (a *stub) DeleteContainerImage(ctx workflow.Context, input *lightsail.DeleteContainerImageInput) (*lightsail.DeleteContainerImageOutput, error) {
+	var output lightsail.DeleteContainerImageOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-DeleteContainerImage", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteContainerImageAsync(ctx workflow.Context, input *lightsail.DeleteContainerImageInput) *DeleteContainerImageFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-DeleteContainerImage", input)
+	return &DeleteContainerImageFuture{Future: future}
+}
+
+func (a *stub) DeleteContainerService(ctx workflow.Context, input *lightsail.DeleteContainerServiceInput) (*lightsail.DeleteContainerServiceOutput, error) {
+	var output lightsail.DeleteContainerServiceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-DeleteContainerService", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteContainerServiceAsync(ctx workflow.Context, input *lightsail.DeleteContainerServiceInput) *DeleteContainerServiceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-DeleteContainerService", input)
+	return &DeleteContainerServiceFuture{Future: future}
 }
 
 func (a *stub) DeleteDisk(ctx workflow.Context, input *lightsail.DeleteDiskInput) (*lightsail.DeleteDiskOutput, error) {
@@ -2059,6 +2279,83 @@ func (a *stub) GetContactMethods(ctx workflow.Context, input *lightsail.GetConta
 func (a *stub) GetContactMethodsAsync(ctx workflow.Context, input *lightsail.GetContactMethodsInput) *GetContactMethodsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContactMethods", input)
 	return &GetContactMethodsFuture{Future: future}
+}
+
+func (a *stub) GetContainerAPIMetadata(ctx workflow.Context, input *lightsail.GetContainerAPIMetadataInput) (*lightsail.GetContainerAPIMetadataOutput, error) {
+	var output lightsail.GetContainerAPIMetadataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerAPIMetadata", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetContainerAPIMetadataAsync(ctx workflow.Context, input *lightsail.GetContainerAPIMetadataInput) *GetContainerAPIMetadataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerAPIMetadata", input)
+	return &GetContainerAPIMetadataFuture{Future: future}
+}
+
+func (a *stub) GetContainerImages(ctx workflow.Context, input *lightsail.GetContainerImagesInput) (*lightsail.GetContainerImagesOutput, error) {
+	var output lightsail.GetContainerImagesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerImages", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetContainerImagesAsync(ctx workflow.Context, input *lightsail.GetContainerImagesInput) *GetContainerImagesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerImages", input)
+	return &GetContainerImagesFuture{Future: future}
+}
+
+func (a *stub) GetContainerLog(ctx workflow.Context, input *lightsail.GetContainerLogInput) (*lightsail.GetContainerLogOutput, error) {
+	var output lightsail.GetContainerLogOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerLog", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetContainerLogAsync(ctx workflow.Context, input *lightsail.GetContainerLogInput) *GetContainerLogFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerLog", input)
+	return &GetContainerLogFuture{Future: future}
+}
+
+func (a *stub) GetContainerServiceDeployments(ctx workflow.Context, input *lightsail.GetContainerServiceDeploymentsInput) (*lightsail.GetContainerServiceDeploymentsOutput, error) {
+	var output lightsail.GetContainerServiceDeploymentsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerServiceDeployments", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetContainerServiceDeploymentsAsync(ctx workflow.Context, input *lightsail.GetContainerServiceDeploymentsInput) *GetContainerServiceDeploymentsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerServiceDeployments", input)
+	return &GetContainerServiceDeploymentsFuture{Future: future}
+}
+
+func (a *stub) GetContainerServiceMetricData(ctx workflow.Context, input *lightsail.GetContainerServiceMetricDataInput) (*lightsail.GetContainerServiceMetricDataOutput, error) {
+	var output lightsail.GetContainerServiceMetricDataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerServiceMetricData", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetContainerServiceMetricDataAsync(ctx workflow.Context, input *lightsail.GetContainerServiceMetricDataInput) *GetContainerServiceMetricDataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerServiceMetricData", input)
+	return &GetContainerServiceMetricDataFuture{Future: future}
+}
+
+func (a *stub) GetContainerServicePowers(ctx workflow.Context, input *lightsail.GetContainerServicePowersInput) (*lightsail.GetContainerServicePowersOutput, error) {
+	var output lightsail.GetContainerServicePowersOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerServicePowers", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetContainerServicePowersAsync(ctx workflow.Context, input *lightsail.GetContainerServicePowersInput) *GetContainerServicePowersFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerServicePowers", input)
+	return &GetContainerServicePowersFuture{Future: future}
+}
+
+func (a *stub) GetContainerServices(ctx workflow.Context, input *lightsail.GetContainerServicesInput) (*lightsail.GetContainerServicesOutput, error) {
+	var output lightsail.GetContainerServicesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerServices", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetContainerServicesAsync(ctx workflow.Context, input *lightsail.GetContainerServicesInput) *GetContainerServicesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-GetContainerServices", input)
+	return &GetContainerServicesFuture{Future: future}
 }
 
 func (a *stub) GetDisk(ctx workflow.Context, input *lightsail.GetDiskInput) (*lightsail.GetDiskOutput, error) {
@@ -2622,6 +2919,17 @@ func (a *stub) RebootRelationalDatabaseAsync(ctx workflow.Context, input *lights
 	return &RebootRelationalDatabaseFuture{Future: future}
 }
 
+func (a *stub) RegisterContainerImage(ctx workflow.Context, input *lightsail.RegisterContainerImageInput) (*lightsail.RegisterContainerImageOutput, error) {
+	var output lightsail.RegisterContainerImageOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-RegisterContainerImage", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) RegisterContainerImageAsync(ctx workflow.Context, input *lightsail.RegisterContainerImageInput) *RegisterContainerImageFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-RegisterContainerImage", input)
+	return &RegisterContainerImageFuture{Future: future}
+}
+
 func (a *stub) ReleaseStaticIp(ctx workflow.Context, input *lightsail.ReleaseStaticIpInput) (*lightsail.ReleaseStaticIpOutput, error) {
 	var output lightsail.ReleaseStaticIpOutput
 	err := workflow.ExecuteActivity(ctx, "aws-lightsail-ReleaseStaticIp", input).Get(ctx, &output)
@@ -2653,6 +2961,17 @@ func (a *stub) SendContactMethodVerification(ctx workflow.Context, input *lights
 func (a *stub) SendContactMethodVerificationAsync(ctx workflow.Context, input *lightsail.SendContactMethodVerificationInput) *SendContactMethodVerificationFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-lightsail-SendContactMethodVerification", input)
 	return &SendContactMethodVerificationFuture{Future: future}
+}
+
+func (a *stub) SetIpAddressType(ctx workflow.Context, input *lightsail.SetIpAddressTypeInput) (*lightsail.SetIpAddressTypeOutput, error) {
+	var output lightsail.SetIpAddressTypeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-SetIpAddressType", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) SetIpAddressTypeAsync(ctx workflow.Context, input *lightsail.SetIpAddressTypeInput) *SetIpAddressTypeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-SetIpAddressType", input)
+	return &SetIpAddressTypeFuture{Future: future}
 }
 
 func (a *stub) StartInstance(ctx workflow.Context, input *lightsail.StartInstanceInput) (*lightsail.StartInstanceOutput, error) {
@@ -2741,6 +3060,17 @@ func (a *stub) UntagResource(ctx workflow.Context, input *lightsail.UntagResourc
 func (a *stub) UntagResourceAsync(ctx workflow.Context, input *lightsail.UntagResourceInput) *UntagResourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-lightsail-UntagResource", input)
 	return &UntagResourceFuture{Future: future}
+}
+
+func (a *stub) UpdateContainerService(ctx workflow.Context, input *lightsail.UpdateContainerServiceInput) (*lightsail.UpdateContainerServiceOutput, error) {
+	var output lightsail.UpdateContainerServiceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lightsail-UpdateContainerService", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateContainerServiceAsync(ctx workflow.Context, input *lightsail.UpdateContainerServiceInput) *UpdateContainerServiceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lightsail-UpdateContainerService", input)
+	return &UpdateContainerServiceFuture{Future: future}
 }
 
 func (a *stub) UpdateDistribution(ctx workflow.Context, input *lightsail.UpdateDistributionInput) (*lightsail.UpdateDistributionOutput, error) {

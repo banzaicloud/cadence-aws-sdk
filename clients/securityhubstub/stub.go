@@ -180,6 +180,17 @@ func (r *DescribeHubFuture) Get(ctx workflow.Context) (*securityhub.DescribeHubO
 	return &output, err
 }
 
+type DescribeOrganizationConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeOrganizationConfigurationFuture) Get(ctx workflow.Context) (*securityhub.DescribeOrganizationConfigurationOutput, error) {
+	var output securityhub.DescribeOrganizationConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeProductsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -224,6 +235,17 @@ func (r *DisableImportFindingsForProductFuture) Get(ctx workflow.Context) (*secu
 	return &output, err
 }
 
+type DisableOrganizationAdminAccountFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisableOrganizationAdminAccountFuture) Get(ctx workflow.Context) (*securityhub.DisableOrganizationAdminAccountOutput, error) {
+	var output securityhub.DisableOrganizationAdminAccountOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DisableSecurityHubFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -264,6 +286,17 @@ type EnableImportFindingsForProductFuture struct {
 
 func (r *EnableImportFindingsForProductFuture) Get(ctx workflow.Context) (*securityhub.EnableImportFindingsForProductOutput, error) {
 	var output securityhub.EnableImportFindingsForProductOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type EnableOrganizationAdminAccountFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *EnableOrganizationAdminAccountFuture) Get(ctx workflow.Context) (*securityhub.EnableOrganizationAdminAccountOutput, error) {
+	var output securityhub.EnableOrganizationAdminAccountOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -400,6 +433,17 @@ func (r *ListMembersFuture) Get(ctx workflow.Context) (*securityhub.ListMembersO
 	return &output, err
 }
 
+type ListOrganizationAdminAccountsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListOrganizationAdminAccountsFuture) Get(ctx workflow.Context) (*securityhub.ListOrganizationAdminAccountsOutput, error) {
+	var output securityhub.ListOrganizationAdminAccountsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListTagsForResourceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -462,6 +506,17 @@ type UpdateInsightFuture struct {
 
 func (r *UpdateInsightFuture) Get(ctx workflow.Context) (*securityhub.UpdateInsightOutput, error) {
 	var output securityhub.UpdateInsightOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateOrganizationConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateOrganizationConfigurationFuture) Get(ctx workflow.Context) (*securityhub.UpdateOrganizationConfigurationOutput, error) {
+	var output securityhub.UpdateOrganizationConfigurationOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -653,6 +708,17 @@ func (a *stub) DescribeHubAsync(ctx workflow.Context, input *securityhub.Describ
 	return &DescribeHubFuture{Future: future}
 }
 
+func (a *stub) DescribeOrganizationConfiguration(ctx workflow.Context, input *securityhub.DescribeOrganizationConfigurationInput) (*securityhub.DescribeOrganizationConfigurationOutput, error) {
+	var output securityhub.DescribeOrganizationConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-securityhub-DescribeOrganizationConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeOrganizationConfigurationAsync(ctx workflow.Context, input *securityhub.DescribeOrganizationConfigurationInput) *DescribeOrganizationConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-securityhub-DescribeOrganizationConfiguration", input)
+	return &DescribeOrganizationConfigurationFuture{Future: future}
+}
+
 func (a *stub) DescribeProducts(ctx workflow.Context, input *securityhub.DescribeProductsInput) (*securityhub.DescribeProductsOutput, error) {
 	var output securityhub.DescribeProductsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-securityhub-DescribeProducts", input).Get(ctx, &output)
@@ -697,6 +763,17 @@ func (a *stub) DisableImportFindingsForProductAsync(ctx workflow.Context, input 
 	return &DisableImportFindingsForProductFuture{Future: future}
 }
 
+func (a *stub) DisableOrganizationAdminAccount(ctx workflow.Context, input *securityhub.DisableOrganizationAdminAccountInput) (*securityhub.DisableOrganizationAdminAccountOutput, error) {
+	var output securityhub.DisableOrganizationAdminAccountOutput
+	err := workflow.ExecuteActivity(ctx, "aws-securityhub-DisableOrganizationAdminAccount", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisableOrganizationAdminAccountAsync(ctx workflow.Context, input *securityhub.DisableOrganizationAdminAccountInput) *DisableOrganizationAdminAccountFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-securityhub-DisableOrganizationAdminAccount", input)
+	return &DisableOrganizationAdminAccountFuture{Future: future}
+}
+
 func (a *stub) DisableSecurityHub(ctx workflow.Context, input *securityhub.DisableSecurityHubInput) (*securityhub.DisableSecurityHubOutput, error) {
 	var output securityhub.DisableSecurityHubOutput
 	err := workflow.ExecuteActivity(ctx, "aws-securityhub-DisableSecurityHub", input).Get(ctx, &output)
@@ -739,6 +816,17 @@ func (a *stub) EnableImportFindingsForProduct(ctx workflow.Context, input *secur
 func (a *stub) EnableImportFindingsForProductAsync(ctx workflow.Context, input *securityhub.EnableImportFindingsForProductInput) *EnableImportFindingsForProductFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-securityhub-EnableImportFindingsForProduct", input)
 	return &EnableImportFindingsForProductFuture{Future: future}
+}
+
+func (a *stub) EnableOrganizationAdminAccount(ctx workflow.Context, input *securityhub.EnableOrganizationAdminAccountInput) (*securityhub.EnableOrganizationAdminAccountOutput, error) {
+	var output securityhub.EnableOrganizationAdminAccountOutput
+	err := workflow.ExecuteActivity(ctx, "aws-securityhub-EnableOrganizationAdminAccount", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) EnableOrganizationAdminAccountAsync(ctx workflow.Context, input *securityhub.EnableOrganizationAdminAccountInput) *EnableOrganizationAdminAccountFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-securityhub-EnableOrganizationAdminAccount", input)
+	return &EnableOrganizationAdminAccountFuture{Future: future}
 }
 
 func (a *stub) EnableSecurityHub(ctx workflow.Context, input *securityhub.EnableSecurityHubInput) (*securityhub.EnableSecurityHubOutput, error) {
@@ -873,6 +961,17 @@ func (a *stub) ListMembersAsync(ctx workflow.Context, input *securityhub.ListMem
 	return &ListMembersFuture{Future: future}
 }
 
+func (a *stub) ListOrganizationAdminAccounts(ctx workflow.Context, input *securityhub.ListOrganizationAdminAccountsInput) (*securityhub.ListOrganizationAdminAccountsOutput, error) {
+	var output securityhub.ListOrganizationAdminAccountsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-securityhub-ListOrganizationAdminAccounts", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListOrganizationAdminAccountsAsync(ctx workflow.Context, input *securityhub.ListOrganizationAdminAccountsInput) *ListOrganizationAdminAccountsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-securityhub-ListOrganizationAdminAccounts", input)
+	return &ListOrganizationAdminAccountsFuture{Future: future}
+}
+
 func (a *stub) ListTagsForResource(ctx workflow.Context, input *securityhub.ListTagsForResourceInput) (*securityhub.ListTagsForResourceOutput, error) {
 	var output securityhub.ListTagsForResourceOutput
 	err := workflow.ExecuteActivity(ctx, "aws-securityhub-ListTagsForResource", input).Get(ctx, &output)
@@ -937,6 +1036,17 @@ func (a *stub) UpdateInsight(ctx workflow.Context, input *securityhub.UpdateInsi
 func (a *stub) UpdateInsightAsync(ctx workflow.Context, input *securityhub.UpdateInsightInput) *UpdateInsightFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-securityhub-UpdateInsight", input)
 	return &UpdateInsightFuture{Future: future}
+}
+
+func (a *stub) UpdateOrganizationConfiguration(ctx workflow.Context, input *securityhub.UpdateOrganizationConfigurationInput) (*securityhub.UpdateOrganizationConfigurationOutput, error) {
+	var output securityhub.UpdateOrganizationConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-securityhub-UpdateOrganizationConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateOrganizationConfigurationAsync(ctx workflow.Context, input *securityhub.UpdateOrganizationConfigurationInput) *UpdateOrganizationConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-securityhub-UpdateOrganizationConfiguration", input)
+	return &UpdateOrganizationConfigurationFuture{Future: future}
 }
 
 func (a *stub) UpdateSecurityHubConfiguration(ctx workflow.Context, input *securityhub.UpdateSecurityHubConfigurationInput) (*securityhub.UpdateSecurityHubConfigurationOutput, error) {

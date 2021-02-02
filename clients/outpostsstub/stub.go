@@ -92,6 +92,39 @@ func (r *ListSitesFuture) Get(ctx workflow.Context) (*outposts.ListSitesOutput, 
 	return &output, err
 }
 
+type ListTagsForResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListTagsForResourceFuture) Get(ctx workflow.Context) (*outposts.ListTagsForResourceOutput, error) {
+	var output outposts.ListTagsForResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type TagResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *TagResourceFuture) Get(ctx workflow.Context) (*outposts.TagResourceOutput, error) {
+	var output outposts.TagResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UntagResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UntagResourceFuture) Get(ctx workflow.Context) (*outposts.UntagResourceOutput, error) {
+	var output outposts.UntagResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 func (a *stub) CreateOutpost(ctx workflow.Context, input *outposts.CreateOutpostInput) (*outposts.CreateOutpostOutput, error) {
 	var output outposts.CreateOutpostOutput
 	err := workflow.ExecuteActivity(ctx, "aws-outposts-CreateOutpost", input).Get(ctx, &output)
@@ -167,4 +200,37 @@ func (a *stub) ListSites(ctx workflow.Context, input *outposts.ListSitesInput) (
 func (a *stub) ListSitesAsync(ctx workflow.Context, input *outposts.ListSitesInput) *ListSitesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-outposts-ListSites", input)
 	return &ListSitesFuture{Future: future}
+}
+
+func (a *stub) ListTagsForResource(ctx workflow.Context, input *outposts.ListTagsForResourceInput) (*outposts.ListTagsForResourceOutput, error) {
+	var output outposts.ListTagsForResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-outposts-ListTagsForResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListTagsForResourceAsync(ctx workflow.Context, input *outposts.ListTagsForResourceInput) *ListTagsForResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-outposts-ListTagsForResource", input)
+	return &ListTagsForResourceFuture{Future: future}
+}
+
+func (a *stub) TagResource(ctx workflow.Context, input *outposts.TagResourceInput) (*outposts.TagResourceOutput, error) {
+	var output outposts.TagResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-outposts-TagResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) TagResourceAsync(ctx workflow.Context, input *outposts.TagResourceInput) *TagResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-outposts-TagResource", input)
+	return &TagResourceFuture{Future: future}
+}
+
+func (a *stub) UntagResource(ctx workflow.Context, input *outposts.UntagResourceInput) (*outposts.UntagResourceOutput, error) {
+	var output outposts.UntagResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-outposts-UntagResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UntagResourceAsync(ctx workflow.Context, input *outposts.UntagResourceInput) *UntagResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-outposts-UntagResource", input)
+	return &UntagResourceFuture{Future: future}
 }

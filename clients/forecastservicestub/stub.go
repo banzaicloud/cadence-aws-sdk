@@ -81,6 +81,17 @@ func (r *CreatePredictorFuture) Get(ctx workflow.Context) (*forecastservice.Crea
 	return &output, err
 }
 
+type CreatePredictorBacktestExportJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreatePredictorBacktestExportJobFuture) Get(ctx workflow.Context) (*forecastservice.CreatePredictorBacktestExportJobOutput, error) {
+	var output forecastservice.CreatePredictorBacktestExportJobOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteDatasetFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -143,6 +154,17 @@ type DeletePredictorFuture struct {
 
 func (r *DeletePredictorFuture) Get(ctx workflow.Context) (*forecastservice.DeletePredictorOutput, error) {
 	var output forecastservice.DeletePredictorOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeletePredictorBacktestExportJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeletePredictorBacktestExportJobFuture) Get(ctx workflow.Context) (*forecastservice.DeletePredictorBacktestExportJobOutput, error) {
+	var output forecastservice.DeletePredictorBacktestExportJobOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -213,6 +235,17 @@ func (r *DescribePredictorFuture) Get(ctx workflow.Context) (*forecastservice.De
 	return &output, err
 }
 
+type DescribePredictorBacktestExportJobFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribePredictorBacktestExportJobFuture) Get(ctx workflow.Context) (*forecastservice.DescribePredictorBacktestExportJobOutput, error) {
+	var output forecastservice.DescribePredictorBacktestExportJobOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetAccuracyMetricsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -275,6 +308,17 @@ type ListForecastsFuture struct {
 
 func (r *ListForecastsFuture) Get(ctx workflow.Context) (*forecastservice.ListForecastsOutput, error) {
 	var output forecastservice.ListForecastsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListPredictorBacktestExportJobsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListPredictorBacktestExportJobsFuture) Get(ctx workflow.Context) (*forecastservice.ListPredictorBacktestExportJobsOutput, error) {
+	var output forecastservice.ListPredictorBacktestExportJobsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -400,6 +444,17 @@ func (a *stub) CreatePredictorAsync(ctx workflow.Context, input *forecastservice
 	return &CreatePredictorFuture{Future: future}
 }
 
+func (a *stub) CreatePredictorBacktestExportJob(ctx workflow.Context, input *forecastservice.CreatePredictorBacktestExportJobInput) (*forecastservice.CreatePredictorBacktestExportJobOutput, error) {
+	var output forecastservice.CreatePredictorBacktestExportJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-forecastservice-CreatePredictorBacktestExportJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreatePredictorBacktestExportJobAsync(ctx workflow.Context, input *forecastservice.CreatePredictorBacktestExportJobInput) *CreatePredictorBacktestExportJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-forecastservice-CreatePredictorBacktestExportJob", input)
+	return &CreatePredictorBacktestExportJobFuture{Future: future}
+}
+
 func (a *stub) DeleteDataset(ctx workflow.Context, input *forecastservice.DeleteDatasetInput) (*forecastservice.DeleteDatasetOutput, error) {
 	var output forecastservice.DeleteDatasetOutput
 	err := workflow.ExecuteActivity(ctx, "aws-forecastservice-DeleteDataset", input).Get(ctx, &output)
@@ -464,6 +519,17 @@ func (a *stub) DeletePredictor(ctx workflow.Context, input *forecastservice.Dele
 func (a *stub) DeletePredictorAsync(ctx workflow.Context, input *forecastservice.DeletePredictorInput) *DeletePredictorFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-forecastservice-DeletePredictor", input)
 	return &DeletePredictorFuture{Future: future}
+}
+
+func (a *stub) DeletePredictorBacktestExportJob(ctx workflow.Context, input *forecastservice.DeletePredictorBacktestExportJobInput) (*forecastservice.DeletePredictorBacktestExportJobOutput, error) {
+	var output forecastservice.DeletePredictorBacktestExportJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-forecastservice-DeletePredictorBacktestExportJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeletePredictorBacktestExportJobAsync(ctx workflow.Context, input *forecastservice.DeletePredictorBacktestExportJobInput) *DeletePredictorBacktestExportJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-forecastservice-DeletePredictorBacktestExportJob", input)
+	return &DeletePredictorBacktestExportJobFuture{Future: future}
 }
 
 func (a *stub) DescribeDataset(ctx workflow.Context, input *forecastservice.DescribeDatasetInput) (*forecastservice.DescribeDatasetOutput, error) {
@@ -532,6 +598,17 @@ func (a *stub) DescribePredictorAsync(ctx workflow.Context, input *forecastservi
 	return &DescribePredictorFuture{Future: future}
 }
 
+func (a *stub) DescribePredictorBacktestExportJob(ctx workflow.Context, input *forecastservice.DescribePredictorBacktestExportJobInput) (*forecastservice.DescribePredictorBacktestExportJobOutput, error) {
+	var output forecastservice.DescribePredictorBacktestExportJobOutput
+	err := workflow.ExecuteActivity(ctx, "aws-forecastservice-DescribePredictorBacktestExportJob", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribePredictorBacktestExportJobAsync(ctx workflow.Context, input *forecastservice.DescribePredictorBacktestExportJobInput) *DescribePredictorBacktestExportJobFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-forecastservice-DescribePredictorBacktestExportJob", input)
+	return &DescribePredictorBacktestExportJobFuture{Future: future}
+}
+
 func (a *stub) GetAccuracyMetrics(ctx workflow.Context, input *forecastservice.GetAccuracyMetricsInput) (*forecastservice.GetAccuracyMetricsOutput, error) {
 	var output forecastservice.GetAccuracyMetricsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-forecastservice-GetAccuracyMetrics", input).Get(ctx, &output)
@@ -596,6 +673,17 @@ func (a *stub) ListForecasts(ctx workflow.Context, input *forecastservice.ListFo
 func (a *stub) ListForecastsAsync(ctx workflow.Context, input *forecastservice.ListForecastsInput) *ListForecastsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-forecastservice-ListForecasts", input)
 	return &ListForecastsFuture{Future: future}
+}
+
+func (a *stub) ListPredictorBacktestExportJobs(ctx workflow.Context, input *forecastservice.ListPredictorBacktestExportJobsInput) (*forecastservice.ListPredictorBacktestExportJobsOutput, error) {
+	var output forecastservice.ListPredictorBacktestExportJobsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-forecastservice-ListPredictorBacktestExportJobs", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListPredictorBacktestExportJobsAsync(ctx workflow.Context, input *forecastservice.ListPredictorBacktestExportJobsInput) *ListPredictorBacktestExportJobsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-forecastservice-ListPredictorBacktestExportJobs", input)
+	return &ListPredictorBacktestExportJobsFuture{Future: future}
 }
 
 func (a *stub) ListPredictors(ctx workflow.Context, input *forecastservice.ListPredictorsInput) (*forecastservice.ListPredictorsOutput, error) {

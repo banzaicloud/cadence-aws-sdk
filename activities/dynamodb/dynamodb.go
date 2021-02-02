@@ -53,6 +53,16 @@ func (a *Activities) getClient(ctx context.Context) (dynamodbiface.DynamoDBAPI, 
 	return dynamodb.New(sess), nil
 }
 
+func (a *Activities) BatchExecuteStatement(ctx context.Context, input *dynamodb.BatchExecuteStatementInput) (*dynamodb.BatchExecuteStatementOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.BatchExecuteStatementWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) BatchGetItem(ctx context.Context, input *dynamodb.BatchGetItemInput) (*dynamodb.BatchGetItemOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -173,6 +183,16 @@ func (a *Activities) DescribeEndpoints(ctx context.Context, input *dynamodb.Desc
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeExport(ctx context.Context, input *dynamodb.DescribeExportInput) (*dynamodb.DescribeExportOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeExportWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeGlobalTable(ctx context.Context, input *dynamodb.DescribeGlobalTableInput) (*dynamodb.DescribeGlobalTableOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -189,6 +209,16 @@ func (a *Activities) DescribeGlobalTableSettings(ctx context.Context, input *dyn
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeGlobalTableSettingsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeKinesisStreamingDestination(ctx context.Context, input *dynamodb.DescribeKinesisStreamingDestinationInput) (*dynamodb.DescribeKinesisStreamingDestinationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeKinesisStreamingDestinationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -233,6 +263,57 @@ func (a *Activities) DescribeTimeToLive(ctx context.Context, input *dynamodb.Des
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DisableKinesisStreamingDestination(ctx context.Context, input *dynamodb.DisableKinesisStreamingDestinationInput) (*dynamodb.DisableKinesisStreamingDestinationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DisableKinesisStreamingDestinationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) EnableKinesisStreamingDestination(ctx context.Context, input *dynamodb.EnableKinesisStreamingDestinationInput) (*dynamodb.EnableKinesisStreamingDestinationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.EnableKinesisStreamingDestinationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ExecuteStatement(ctx context.Context, input *dynamodb.ExecuteStatementInput) (*dynamodb.ExecuteStatementOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ExecuteStatementWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ExecuteTransaction(ctx context.Context, input *dynamodb.ExecuteTransactionInput) (*dynamodb.ExecuteTransactionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ExecuteTransactionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ExportTableToPointInTime(ctx context.Context, input *dynamodb.ExportTableToPointInTimeInput) (*dynamodb.ExportTableToPointInTimeOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.ExportTableToPointInTimeWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetItem(ctx context.Context, input *dynamodb.GetItemInput) (*dynamodb.GetItemOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -259,6 +340,16 @@ func (a *Activities) ListContributorInsights(ctx context.Context, input *dynamod
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListContributorInsightsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListExports(ctx context.Context, input *dynamodb.ListExportsInput) (*dynamodb.ListExportsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListExportsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

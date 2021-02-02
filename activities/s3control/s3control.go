@@ -163,6 +163,26 @@ func (a *Activities) DeletePublicAccessBlock(ctx context.Context, input *s3contr
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteStorageLensConfiguration(ctx context.Context, input *s3control.DeleteStorageLensConfigurationInput) (*s3control.DeleteStorageLensConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteStorageLensConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteStorageLensConfigurationTagging(ctx context.Context, input *s3control.DeleteStorageLensConfigurationTaggingInput) (*s3control.DeleteStorageLensConfigurationTaggingOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteStorageLensConfigurationTaggingWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeJob(ctx context.Context, input *s3control.DescribeJobInput) (*s3control.DescribeJobOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -263,6 +283,26 @@ func (a *Activities) GetPublicAccessBlock(ctx context.Context, input *s3control.
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetStorageLensConfiguration(ctx context.Context, input *s3control.GetStorageLensConfigurationInput) (*s3control.GetStorageLensConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetStorageLensConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetStorageLensConfigurationTagging(ctx context.Context, input *s3control.GetStorageLensConfigurationTaggingInput) (*s3control.GetStorageLensConfigurationTaggingOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetStorageLensConfigurationTaggingWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListAccessPoints(ctx context.Context, input *s3control.ListAccessPointsInput) (*s3control.ListAccessPointsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -289,6 +329,16 @@ func (a *Activities) ListRegionalBuckets(ctx context.Context, input *s3control.L
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListRegionalBucketsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListStorageLensConfigurations(ctx context.Context, input *s3control.ListStorageLensConfigurationsInput) (*s3control.ListStorageLensConfigurationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListStorageLensConfigurationsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -349,6 +399,26 @@ func (a *Activities) PutPublicAccessBlock(ctx context.Context, input *s3control.
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.PutPublicAccessBlockWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutStorageLensConfiguration(ctx context.Context, input *s3control.PutStorageLensConfigurationInput) (*s3control.PutStorageLensConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutStorageLensConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutStorageLensConfigurationTagging(ctx context.Context, input *s3control.PutStorageLensConfigurationTaggingInput) (*s3control.PutStorageLensConfigurationTaggingOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutStorageLensConfigurationTaggingWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

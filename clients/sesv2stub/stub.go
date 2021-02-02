@@ -708,6 +708,17 @@ func (r *PutDeliverabilityDashboardOptionFuture) Get(ctx workflow.Context) (*ses
 	return &output, err
 }
 
+type PutEmailIdentityConfigurationSetAttributesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutEmailIdentityConfigurationSetAttributesFuture) Get(ctx workflow.Context) (*sesv2.PutEmailIdentityConfigurationSetAttributesOutput, error) {
+	var output sesv2.PutEmailIdentityConfigurationSetAttributesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type PutEmailIdentityDkimAttributesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1586,6 +1597,17 @@ func (a *stub) PutDeliverabilityDashboardOption(ctx workflow.Context, input *ses
 func (a *stub) PutDeliverabilityDashboardOptionAsync(ctx workflow.Context, input *sesv2.PutDeliverabilityDashboardOptionInput) *PutDeliverabilityDashboardOptionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-sesv2-PutDeliverabilityDashboardOption", input)
 	return &PutDeliverabilityDashboardOptionFuture{Future: future}
+}
+
+func (a *stub) PutEmailIdentityConfigurationSetAttributes(ctx workflow.Context, input *sesv2.PutEmailIdentityConfigurationSetAttributesInput) (*sesv2.PutEmailIdentityConfigurationSetAttributesOutput, error) {
+	var output sesv2.PutEmailIdentityConfigurationSetAttributesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-sesv2-PutEmailIdentityConfigurationSetAttributes", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutEmailIdentityConfigurationSetAttributesAsync(ctx workflow.Context, input *sesv2.PutEmailIdentityConfigurationSetAttributesInput) *PutEmailIdentityConfigurationSetAttributesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-sesv2-PutEmailIdentityConfigurationSetAttributes", input)
+	return &PutEmailIdentityConfigurationSetAttributesFuture{Future: future}
 }
 
 func (a *stub) PutEmailIdentityDkimAttributes(ctx workflow.Context, input *sesv2.PutEmailIdentityDkimAttributesInput) (*sesv2.PutEmailIdentityDkimAttributesOutput, error) {

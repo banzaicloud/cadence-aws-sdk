@@ -125,17 +125,6 @@ func (r *CreatePortalFuture) Get(ctx workflow.Context) (*iotsitewise.CreatePorta
 	return &output, err
 }
 
-type CreatePresignedPortalUrlFuture struct {
-	// public to support Selector.addFuture
-	Future workflow.Future
-}
-
-func (r *CreatePresignedPortalUrlFuture) Get(ctx workflow.Context) (*iotsitewise.CreatePresignedPortalUrlOutput, error) {
-	var output iotsitewise.CreatePresignedPortalUrlOutput
-	err := r.Future.Get(ctx, &output)
-	return &output, err
-}
-
 type CreateProjectFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -279,6 +268,17 @@ func (r *DescribeDashboardFuture) Get(ctx workflow.Context) (*iotsitewise.Descri
 	return &output, err
 }
 
+type DescribeDefaultEncryptionConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeDefaultEncryptionConfigurationFuture) Get(ctx workflow.Context) (*iotsitewise.DescribeDefaultEncryptionConfigurationOutput, error) {
+	var output iotsitewise.DescribeDefaultEncryptionConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeGatewayFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -400,6 +400,17 @@ func (r *ListAssetModelsFuture) Get(ctx workflow.Context) (*iotsitewise.ListAsse
 	return &output, err
 }
 
+type ListAssetRelationshipsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListAssetRelationshipsFuture) Get(ctx workflow.Context) (*iotsitewise.ListAssetRelationshipsOutput, error) {
+	var output iotsitewise.ListAssetRelationshipsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListAssetsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -484,6 +495,17 @@ type ListTagsForResourceFuture struct {
 
 func (r *ListTagsForResourceFuture) Get(ctx workflow.Context) (*iotsitewise.ListTagsForResourceOutput, error) {
 	var output iotsitewise.ListTagsForResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type PutDefaultEncryptionConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutDefaultEncryptionConfigurationFuture) Get(ctx workflow.Context) (*iotsitewise.PutDefaultEncryptionConfigurationOutput, error) {
+	var output iotsitewise.PutDefaultEncryptionConfigurationOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -730,17 +752,6 @@ func (a *stub) CreatePortalAsync(ctx workflow.Context, input *iotsitewise.Create
 	return &CreatePortalFuture{Future: future}
 }
 
-func (a *stub) CreatePresignedPortalUrl(ctx workflow.Context, input *iotsitewise.CreatePresignedPortalUrlInput) (*iotsitewise.CreatePresignedPortalUrlOutput, error) {
-	var output iotsitewise.CreatePresignedPortalUrlOutput
-	err := workflow.ExecuteActivity(ctx, "aws-iotsitewise-CreatePresignedPortalUrl", input).Get(ctx, &output)
-	return &output, err
-}
-
-func (a *stub) CreatePresignedPortalUrlAsync(ctx workflow.Context, input *iotsitewise.CreatePresignedPortalUrlInput) *CreatePresignedPortalUrlFuture {
-	future := workflow.ExecuteActivity(ctx, "aws-iotsitewise-CreatePresignedPortalUrl", input)
-	return &CreatePresignedPortalUrlFuture{Future: future}
-}
-
 func (a *stub) CreateProject(ctx workflow.Context, input *iotsitewise.CreateProjectInput) (*iotsitewise.CreateProjectOutput, error) {
 	var output iotsitewise.CreateProjectOutput
 	err := workflow.ExecuteActivity(ctx, "aws-iotsitewise-CreateProject", input).Get(ctx, &output)
@@ -884,6 +895,17 @@ func (a *stub) DescribeDashboardAsync(ctx workflow.Context, input *iotsitewise.D
 	return &DescribeDashboardFuture{Future: future}
 }
 
+func (a *stub) DescribeDefaultEncryptionConfiguration(ctx workflow.Context, input *iotsitewise.DescribeDefaultEncryptionConfigurationInput) (*iotsitewise.DescribeDefaultEncryptionConfigurationOutput, error) {
+	var output iotsitewise.DescribeDefaultEncryptionConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iotsitewise-DescribeDefaultEncryptionConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeDefaultEncryptionConfigurationAsync(ctx workflow.Context, input *iotsitewise.DescribeDefaultEncryptionConfigurationInput) *DescribeDefaultEncryptionConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iotsitewise-DescribeDefaultEncryptionConfiguration", input)
+	return &DescribeDefaultEncryptionConfigurationFuture{Future: future}
+}
+
 func (a *stub) DescribeGateway(ctx workflow.Context, input *iotsitewise.DescribeGatewayInput) (*iotsitewise.DescribeGatewayOutput, error) {
 	var output iotsitewise.DescribeGatewayOutput
 	err := workflow.ExecuteActivity(ctx, "aws-iotsitewise-DescribeGateway", input).Get(ctx, &output)
@@ -1005,6 +1027,17 @@ func (a *stub) ListAssetModelsAsync(ctx workflow.Context, input *iotsitewise.Lis
 	return &ListAssetModelsFuture{Future: future}
 }
 
+func (a *stub) ListAssetRelationships(ctx workflow.Context, input *iotsitewise.ListAssetRelationshipsInput) (*iotsitewise.ListAssetRelationshipsOutput, error) {
+	var output iotsitewise.ListAssetRelationshipsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iotsitewise-ListAssetRelationships", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListAssetRelationshipsAsync(ctx workflow.Context, input *iotsitewise.ListAssetRelationshipsInput) *ListAssetRelationshipsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iotsitewise-ListAssetRelationships", input)
+	return &ListAssetRelationshipsFuture{Future: future}
+}
+
 func (a *stub) ListAssets(ctx workflow.Context, input *iotsitewise.ListAssetsInput) (*iotsitewise.ListAssetsOutput, error) {
 	var output iotsitewise.ListAssetsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-iotsitewise-ListAssets", input).Get(ctx, &output)
@@ -1091,6 +1124,17 @@ func (a *stub) ListTagsForResource(ctx workflow.Context, input *iotsitewise.List
 func (a *stub) ListTagsForResourceAsync(ctx workflow.Context, input *iotsitewise.ListTagsForResourceInput) *ListTagsForResourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-iotsitewise-ListTagsForResource", input)
 	return &ListTagsForResourceFuture{Future: future}
+}
+
+func (a *stub) PutDefaultEncryptionConfiguration(ctx workflow.Context, input *iotsitewise.PutDefaultEncryptionConfigurationInput) (*iotsitewise.PutDefaultEncryptionConfigurationOutput, error) {
+	var output iotsitewise.PutDefaultEncryptionConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-iotsitewise-PutDefaultEncryptionConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutDefaultEncryptionConfigurationAsync(ctx workflow.Context, input *iotsitewise.PutDefaultEncryptionConfigurationInput) *PutDefaultEncryptionConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-iotsitewise-PutDefaultEncryptionConfiguration", input)
+	return &PutDefaultEncryptionConfigurationFuture{Future: future}
 }
 
 func (a *stub) PutLoggingOptions(ctx workflow.Context, input *iotsitewise.PutLoggingOptionsInput) (*iotsitewise.PutLoggingOptionsOutput, error) {

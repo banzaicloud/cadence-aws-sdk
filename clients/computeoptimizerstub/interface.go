@@ -26,6 +26,9 @@ type Client interface {
 	GetAutoScalingGroupRecommendations(ctx workflow.Context, input *computeoptimizer.GetAutoScalingGroupRecommendationsInput) (*computeoptimizer.GetAutoScalingGroupRecommendationsOutput, error)
 	GetAutoScalingGroupRecommendationsAsync(ctx workflow.Context, input *computeoptimizer.GetAutoScalingGroupRecommendationsInput) *GetAutoScalingGroupRecommendationsFuture
 
+	GetEBSVolumeRecommendations(ctx workflow.Context, input *computeoptimizer.GetEBSVolumeRecommendationsInput) (*computeoptimizer.GetEBSVolumeRecommendationsOutput, error)
+	GetEBSVolumeRecommendationsAsync(ctx workflow.Context, input *computeoptimizer.GetEBSVolumeRecommendationsInput) *GetEBSVolumeRecommendationsFuture
+
 	GetEC2InstanceRecommendations(ctx workflow.Context, input *computeoptimizer.GetEC2InstanceRecommendationsInput) (*computeoptimizer.GetEC2InstanceRecommendationsOutput, error)
 	GetEC2InstanceRecommendationsAsync(ctx workflow.Context, input *computeoptimizer.GetEC2InstanceRecommendationsInput) *GetEC2InstanceRecommendationsFuture
 
@@ -34,6 +37,9 @@ type Client interface {
 
 	GetEnrollmentStatus(ctx workflow.Context, input *computeoptimizer.GetEnrollmentStatusInput) (*computeoptimizer.GetEnrollmentStatusOutput, error)
 	GetEnrollmentStatusAsync(ctx workflow.Context, input *computeoptimizer.GetEnrollmentStatusInput) *GetEnrollmentStatusFuture
+
+	GetLambdaFunctionRecommendations(ctx workflow.Context, input *computeoptimizer.GetLambdaFunctionRecommendationsInput) (*computeoptimizer.GetLambdaFunctionRecommendationsOutput, error)
+	GetLambdaFunctionRecommendationsAsync(ctx workflow.Context, input *computeoptimizer.GetLambdaFunctionRecommendationsInput) *GetLambdaFunctionRecommendationsFuture
 
 	GetRecommendationSummaries(ctx workflow.Context, input *computeoptimizer.GetRecommendationSummariesInput) (*computeoptimizer.GetRecommendationSummariesOutput, error)
 	GetRecommendationSummariesAsync(ctx workflow.Context, input *computeoptimizer.GetRecommendationSummariesInput) *GetRecommendationSummariesFuture

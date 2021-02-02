@@ -29,6 +29,9 @@ type Client interface {
 	CreateIndex(ctx workflow.Context, input *kendra.CreateIndexInput) (*kendra.CreateIndexOutput, error)
 	CreateIndexAsync(ctx workflow.Context, input *kendra.CreateIndexInput) *CreateIndexFuture
 
+	CreateThesaurus(ctx workflow.Context, input *kendra.CreateThesaurusInput) (*kendra.CreateThesaurusOutput, error)
+	CreateThesaurusAsync(ctx workflow.Context, input *kendra.CreateThesaurusInput) *CreateThesaurusFuture
+
 	DeleteDataSource(ctx workflow.Context, input *kendra.DeleteDataSourceInput) (*kendra.DeleteDataSourceOutput, error)
 	DeleteDataSourceAsync(ctx workflow.Context, input *kendra.DeleteDataSourceInput) *DeleteDataSourceFuture
 
@@ -38,6 +41,9 @@ type Client interface {
 	DeleteIndex(ctx workflow.Context, input *kendra.DeleteIndexInput) (*kendra.DeleteIndexOutput, error)
 	DeleteIndexAsync(ctx workflow.Context, input *kendra.DeleteIndexInput) *DeleteIndexFuture
 
+	DeleteThesaurus(ctx workflow.Context, input *kendra.DeleteThesaurusInput) (*kendra.DeleteThesaurusOutput, error)
+	DeleteThesaurusAsync(ctx workflow.Context, input *kendra.DeleteThesaurusInput) *DeleteThesaurusFuture
+
 	DescribeDataSource(ctx workflow.Context, input *kendra.DescribeDataSourceInput) (*kendra.DescribeDataSourceOutput, error)
 	DescribeDataSourceAsync(ctx workflow.Context, input *kendra.DescribeDataSourceInput) *DescribeDataSourceFuture
 
@@ -46,6 +52,9 @@ type Client interface {
 
 	DescribeIndex(ctx workflow.Context, input *kendra.DescribeIndexInput) (*kendra.DescribeIndexOutput, error)
 	DescribeIndexAsync(ctx workflow.Context, input *kendra.DescribeIndexInput) *DescribeIndexFuture
+
+	DescribeThesaurus(ctx workflow.Context, input *kendra.DescribeThesaurusInput) (*kendra.DescribeThesaurusOutput, error)
+	DescribeThesaurusAsync(ctx workflow.Context, input *kendra.DescribeThesaurusInput) *DescribeThesaurusFuture
 
 	ListDataSourceSyncJobs(ctx workflow.Context, input *kendra.ListDataSourceSyncJobsInput) (*kendra.ListDataSourceSyncJobsOutput, error)
 	ListDataSourceSyncJobsAsync(ctx workflow.Context, input *kendra.ListDataSourceSyncJobsInput) *ListDataSourceSyncJobsFuture
@@ -61,6 +70,9 @@ type Client interface {
 
 	ListTagsForResource(ctx workflow.Context, input *kendra.ListTagsForResourceInput) (*kendra.ListTagsForResourceOutput, error)
 	ListTagsForResourceAsync(ctx workflow.Context, input *kendra.ListTagsForResourceInput) *ListTagsForResourceFuture
+
+	ListThesauri(ctx workflow.Context, input *kendra.ListThesauriInput) (*kendra.ListThesauriOutput, error)
+	ListThesauriAsync(ctx workflow.Context, input *kendra.ListThesauriInput) *ListThesauriFuture
 
 	Query(ctx workflow.Context, input *kendra.QueryInput) (*kendra.QueryOutput, error)
 	QueryAsync(ctx workflow.Context, input *kendra.QueryInput) *QueryFuture
@@ -85,6 +97,9 @@ type Client interface {
 
 	UpdateIndex(ctx workflow.Context, input *kendra.UpdateIndexInput) (*kendra.UpdateIndexOutput, error)
 	UpdateIndexAsync(ctx workflow.Context, input *kendra.UpdateIndexInput) *UpdateIndexFuture
+
+	UpdateThesaurus(ctx workflow.Context, input *kendra.UpdateThesaurusInput) (*kendra.UpdateThesaurusOutput, error)
+	UpdateThesaurusAsync(ctx workflow.Context, input *kendra.UpdateThesaurusInput) *UpdateThesaurusFuture
 }
 
 func NewClient() Client {

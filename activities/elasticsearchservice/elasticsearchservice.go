@@ -283,6 +283,16 @@ func (a *Activities) GetCompatibleElasticsearchVersions(ctx context.Context, inp
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetPackageVersionHistory(ctx context.Context, input *elasticsearchservice.GetPackageVersionHistoryInput) (*elasticsearchservice.GetPackageVersionHistoryOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetPackageVersionHistoryWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetUpgradeHistory(ctx context.Context, input *elasticsearchservice.GetUpgradeHistoryInput) (*elasticsearchservice.GetUpgradeHistoryOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -409,6 +419,16 @@ func (a *Activities) UpdateElasticsearchDomainConfig(ctx context.Context, input 
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateElasticsearchDomainConfigWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdatePackage(ctx context.Context, input *elasticsearchservice.UpdatePackageInput) (*elasticsearchservice.UpdatePackageOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdatePackageWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

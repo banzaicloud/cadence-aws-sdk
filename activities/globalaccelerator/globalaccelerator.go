@@ -53,6 +53,16 @@ func (a *Activities) getClient(ctx context.Context) (globalacceleratoriface.Glob
 	return globalaccelerator.New(sess), nil
 }
 
+func (a *Activities) AddCustomRoutingEndpoints(ctx context.Context, input *globalaccelerator.AddCustomRoutingEndpointsInput) (*globalaccelerator.AddCustomRoutingEndpointsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.AddCustomRoutingEndpointsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) AdvertiseByoipCidr(ctx context.Context, input *globalaccelerator.AdvertiseByoipCidrInput) (*globalaccelerator.AdvertiseByoipCidrOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -63,12 +73,52 @@ func (a *Activities) AdvertiseByoipCidr(ctx context.Context, input *globalaccele
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) AllowCustomRoutingTraffic(ctx context.Context, input *globalaccelerator.AllowCustomRoutingTrafficInput) (*globalaccelerator.AllowCustomRoutingTrafficOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.AllowCustomRoutingTrafficWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateAccelerator(ctx context.Context, input *globalaccelerator.CreateAcceleratorInput) (*globalaccelerator.CreateAcceleratorOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreateAcceleratorWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateCustomRoutingAccelerator(ctx context.Context, input *globalaccelerator.CreateCustomRoutingAcceleratorInput) (*globalaccelerator.CreateCustomRoutingAcceleratorOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateCustomRoutingAcceleratorWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateCustomRoutingEndpointGroup(ctx context.Context, input *globalaccelerator.CreateCustomRoutingEndpointGroupInput) (*globalaccelerator.CreateCustomRoutingEndpointGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateCustomRoutingEndpointGroupWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateCustomRoutingListener(ctx context.Context, input *globalaccelerator.CreateCustomRoutingListenerInput) (*globalaccelerator.CreateCustomRoutingListenerOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateCustomRoutingListenerWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -103,6 +153,36 @@ func (a *Activities) DeleteAccelerator(ctx context.Context, input *globalacceler
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteCustomRoutingAccelerator(ctx context.Context, input *globalaccelerator.DeleteCustomRoutingAcceleratorInput) (*globalaccelerator.DeleteCustomRoutingAcceleratorOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteCustomRoutingAcceleratorWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteCustomRoutingEndpointGroup(ctx context.Context, input *globalaccelerator.DeleteCustomRoutingEndpointGroupInput) (*globalaccelerator.DeleteCustomRoutingEndpointGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteCustomRoutingEndpointGroupWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteCustomRoutingListener(ctx context.Context, input *globalaccelerator.DeleteCustomRoutingListenerInput) (*globalaccelerator.DeleteCustomRoutingListenerOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteCustomRoutingListenerWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteEndpointGroup(ctx context.Context, input *globalaccelerator.DeleteEndpointGroupInput) (*globalaccelerator.DeleteEndpointGroupOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -119,6 +199,16 @@ func (a *Activities) DeleteListener(ctx context.Context, input *globalaccelerato
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteListenerWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DenyCustomRoutingTraffic(ctx context.Context, input *globalaccelerator.DenyCustomRoutingTrafficInput) (*globalaccelerator.DenyCustomRoutingTrafficOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DenyCustomRoutingTrafficWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -149,6 +239,46 @@ func (a *Activities) DescribeAcceleratorAttributes(ctx context.Context, input *g
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeAcceleratorAttributesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeCustomRoutingAccelerator(ctx context.Context, input *globalaccelerator.DescribeCustomRoutingAcceleratorInput) (*globalaccelerator.DescribeCustomRoutingAcceleratorOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeCustomRoutingAcceleratorWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeCustomRoutingAcceleratorAttributes(ctx context.Context, input *globalaccelerator.DescribeCustomRoutingAcceleratorAttributesInput) (*globalaccelerator.DescribeCustomRoutingAcceleratorAttributesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeCustomRoutingAcceleratorAttributesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeCustomRoutingEndpointGroup(ctx context.Context, input *globalaccelerator.DescribeCustomRoutingEndpointGroupInput) (*globalaccelerator.DescribeCustomRoutingEndpointGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeCustomRoutingEndpointGroupWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeCustomRoutingListener(ctx context.Context, input *globalaccelerator.DescribeCustomRoutingListenerInput) (*globalaccelerator.DescribeCustomRoutingListenerOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeCustomRoutingListenerWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -193,6 +323,56 @@ func (a *Activities) ListByoipCidrs(ctx context.Context, input *globalaccelerato
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListCustomRoutingAccelerators(ctx context.Context, input *globalaccelerator.ListCustomRoutingAcceleratorsInput) (*globalaccelerator.ListCustomRoutingAcceleratorsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListCustomRoutingAcceleratorsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListCustomRoutingEndpointGroups(ctx context.Context, input *globalaccelerator.ListCustomRoutingEndpointGroupsInput) (*globalaccelerator.ListCustomRoutingEndpointGroupsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListCustomRoutingEndpointGroupsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListCustomRoutingListeners(ctx context.Context, input *globalaccelerator.ListCustomRoutingListenersInput) (*globalaccelerator.ListCustomRoutingListenersOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListCustomRoutingListenersWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListCustomRoutingPortMappings(ctx context.Context, input *globalaccelerator.ListCustomRoutingPortMappingsInput) (*globalaccelerator.ListCustomRoutingPortMappingsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListCustomRoutingPortMappingsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListCustomRoutingPortMappingsByDestination(ctx context.Context, input *globalaccelerator.ListCustomRoutingPortMappingsByDestinationInput) (*globalaccelerator.ListCustomRoutingPortMappingsByDestinationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListCustomRoutingPortMappingsByDestinationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListEndpointGroups(ctx context.Context, input *globalaccelerator.ListEndpointGroupsInput) (*globalaccelerator.ListEndpointGroupsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -233,6 +413,16 @@ func (a *Activities) ProvisionByoipCidr(ctx context.Context, input *globalaccele
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) RemoveCustomRoutingEndpoints(ctx context.Context, input *globalaccelerator.RemoveCustomRoutingEndpointsInput) (*globalaccelerator.RemoveCustomRoutingEndpointsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RemoveCustomRoutingEndpointsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) TagResource(ctx context.Context, input *globalaccelerator.TagResourceInput) (*globalaccelerator.TagResourceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -269,6 +459,36 @@ func (a *Activities) UpdateAcceleratorAttributes(ctx context.Context, input *glo
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateAcceleratorAttributesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateCustomRoutingAccelerator(ctx context.Context, input *globalaccelerator.UpdateCustomRoutingAcceleratorInput) (*globalaccelerator.UpdateCustomRoutingAcceleratorOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateCustomRoutingAcceleratorWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateCustomRoutingAcceleratorAttributes(ctx context.Context, input *globalaccelerator.UpdateCustomRoutingAcceleratorAttributesInput) (*globalaccelerator.UpdateCustomRoutingAcceleratorAttributesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateCustomRoutingAcceleratorAttributesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateCustomRoutingListener(ctx context.Context, input *globalaccelerator.UpdateCustomRoutingListenerInput) (*globalaccelerator.UpdateCustomRoutingListenerOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateCustomRoutingListenerWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

@@ -125,6 +125,28 @@ func (r *ListTagsFuture) Get(ctx workflow.Context) (*cloudhsmv2.ListTagsOutput, 
 	return &output, err
 }
 
+type ModifyBackupAttributesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ModifyBackupAttributesFuture) Get(ctx workflow.Context) (*cloudhsmv2.ModifyBackupAttributesOutput, error) {
+	var output cloudhsmv2.ModifyBackupAttributesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ModifyClusterFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ModifyClusterFuture) Get(ctx workflow.Context) (*cloudhsmv2.ModifyClusterOutput, error) {
+	var output cloudhsmv2.ModifyClusterOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type RestoreBackupFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -266,6 +288,28 @@ func (a *stub) ListTags(ctx workflow.Context, input *cloudhsmv2.ListTagsInput) (
 func (a *stub) ListTagsAsync(ctx workflow.Context, input *cloudhsmv2.ListTagsInput) *ListTagsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-cloudhsmv2-ListTags", input)
 	return &ListTagsFuture{Future: future}
+}
+
+func (a *stub) ModifyBackupAttributes(ctx workflow.Context, input *cloudhsmv2.ModifyBackupAttributesInput) (*cloudhsmv2.ModifyBackupAttributesOutput, error) {
+	var output cloudhsmv2.ModifyBackupAttributesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-cloudhsmv2-ModifyBackupAttributes", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ModifyBackupAttributesAsync(ctx workflow.Context, input *cloudhsmv2.ModifyBackupAttributesInput) *ModifyBackupAttributesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-cloudhsmv2-ModifyBackupAttributes", input)
+	return &ModifyBackupAttributesFuture{Future: future}
+}
+
+func (a *stub) ModifyCluster(ctx workflow.Context, input *cloudhsmv2.ModifyClusterInput) (*cloudhsmv2.ModifyClusterOutput, error) {
+	var output cloudhsmv2.ModifyClusterOutput
+	err := workflow.ExecuteActivity(ctx, "aws-cloudhsmv2-ModifyCluster", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ModifyClusterAsync(ctx workflow.Context, input *cloudhsmv2.ModifyClusterInput) *ModifyClusterFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-cloudhsmv2-ModifyCluster", input)
+	return &ModifyClusterFuture{Future: future}
 }
 
 func (a *stub) RestoreBackup(ctx workflow.Context, input *cloudhsmv2.RestoreBackupInput) (*cloudhsmv2.RestoreBackupOutput, error) {

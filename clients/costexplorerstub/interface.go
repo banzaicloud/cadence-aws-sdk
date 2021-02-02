@@ -50,6 +50,9 @@ type Client interface {
 	GetCostAndUsageWithResources(ctx workflow.Context, input *costexplorer.GetCostAndUsageWithResourcesInput) (*costexplorer.GetCostAndUsageWithResourcesOutput, error)
 	GetCostAndUsageWithResourcesAsync(ctx workflow.Context, input *costexplorer.GetCostAndUsageWithResourcesInput) *GetCostAndUsageWithResourcesFuture
 
+	GetCostCategories(ctx workflow.Context, input *costexplorer.GetCostCategoriesInput) (*costexplorer.GetCostCategoriesOutput, error)
+	GetCostCategoriesAsync(ctx workflow.Context, input *costexplorer.GetCostCategoriesInput) *GetCostCategoriesFuture
+
 	GetCostForecast(ctx workflow.Context, input *costexplorer.GetCostForecastInput) (*costexplorer.GetCostForecastOutput, error)
 	GetCostForecastAsync(ctx workflow.Context, input *costexplorer.GetCostForecastInput) *GetCostForecastFuture
 

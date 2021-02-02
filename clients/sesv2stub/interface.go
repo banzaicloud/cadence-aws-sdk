@@ -203,6 +203,9 @@ type Client interface {
 	PutDeliverabilityDashboardOption(ctx workflow.Context, input *sesv2.PutDeliverabilityDashboardOptionInput) (*sesv2.PutDeliverabilityDashboardOptionOutput, error)
 	PutDeliverabilityDashboardOptionAsync(ctx workflow.Context, input *sesv2.PutDeliverabilityDashboardOptionInput) *PutDeliverabilityDashboardOptionFuture
 
+	PutEmailIdentityConfigurationSetAttributes(ctx workflow.Context, input *sesv2.PutEmailIdentityConfigurationSetAttributesInput) (*sesv2.PutEmailIdentityConfigurationSetAttributesOutput, error)
+	PutEmailIdentityConfigurationSetAttributesAsync(ctx workflow.Context, input *sesv2.PutEmailIdentityConfigurationSetAttributesInput) *PutEmailIdentityConfigurationSetAttributesFuture
+
 	PutEmailIdentityDkimAttributes(ctx workflow.Context, input *sesv2.PutEmailIdentityDkimAttributesInput) (*sesv2.PutEmailIdentityDkimAttributesOutput, error)
 	PutEmailIdentityDkimAttributesAsync(ctx workflow.Context, input *sesv2.PutEmailIdentityDkimAttributesInput) *PutEmailIdentityDkimAttributesFuture
 

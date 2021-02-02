@@ -89,6 +89,9 @@ type Client interface {
 	UpdateBrokerStorage(ctx workflow.Context, input *kafka.UpdateBrokerStorageInput) (*kafka.UpdateBrokerStorageOutput, error)
 	UpdateBrokerStorageAsync(ctx workflow.Context, input *kafka.UpdateBrokerStorageInput) *UpdateBrokerStorageFuture
 
+	UpdateBrokerType(ctx workflow.Context, input *kafka.UpdateBrokerTypeInput) (*kafka.UpdateBrokerTypeOutput, error)
+	UpdateBrokerTypeAsync(ctx workflow.Context, input *kafka.UpdateBrokerTypeInput) *UpdateBrokerTypeFuture
+
 	UpdateClusterConfiguration(ctx workflow.Context, input *kafka.UpdateClusterConfigurationInput) (*kafka.UpdateClusterConfigurationOutput, error)
 	UpdateClusterConfigurationAsync(ctx workflow.Context, input *kafka.UpdateClusterConfigurationInput) *UpdateClusterConfigurationFuture
 

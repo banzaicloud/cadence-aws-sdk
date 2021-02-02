@@ -122,3 +122,33 @@ func (a *Activities) ListSites(ctx context.Context, input *outposts.ListSitesInp
 
 	return output, internal.EncodeError(err)
 }
+
+func (a *Activities) ListTagsForResource(ctx context.Context, input *outposts.ListTagsForResourceInput) (*outposts.ListTagsForResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListTagsForResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) TagResource(ctx context.Context, input *outposts.TagResourceInput) (*outposts.TagResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.TagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UntagResource(ctx context.Context, input *outposts.UntagResourceInput) (*outposts.UntagResourceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UntagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}

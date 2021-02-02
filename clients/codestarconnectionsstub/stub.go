@@ -136,6 +136,17 @@ func (r *UntagResourceFuture) Get(ctx workflow.Context) (*codestarconnections.Un
 	return &output, err
 }
 
+type UpdateHostFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateHostFuture) Get(ctx workflow.Context) (*codestarconnections.UpdateHostOutput, error) {
+	var output codestarconnections.UpdateHostOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 func (a *stub) CreateConnection(ctx workflow.Context, input *codestarconnections.CreateConnectionInput) (*codestarconnections.CreateConnectionOutput, error) {
 	var output codestarconnections.CreateConnectionOutput
 	err := workflow.ExecuteActivity(ctx, "aws-codestarconnections-CreateConnection", input).Get(ctx, &output)
@@ -255,4 +266,15 @@ func (a *stub) UntagResource(ctx workflow.Context, input *codestarconnections.Un
 func (a *stub) UntagResourceAsync(ctx workflow.Context, input *codestarconnections.UntagResourceInput) *UntagResourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-codestarconnections-UntagResource", input)
 	return &UntagResourceFuture{Future: future}
+}
+
+func (a *stub) UpdateHost(ctx workflow.Context, input *codestarconnections.UpdateHostInput) (*codestarconnections.UpdateHostOutput, error) {
+	var output codestarconnections.UpdateHostOutput
+	err := workflow.ExecuteActivity(ctx, "aws-codestarconnections-UpdateHost", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateHostAsync(ctx workflow.Context, input *codestarconnections.UpdateHostInput) *UpdateHostFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-codestarconnections-UpdateHost", input)
+	return &UpdateHostFuture{Future: future}
 }

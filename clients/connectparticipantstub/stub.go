@@ -15,6 +15,17 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type CompleteAttachmentUploadFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CompleteAttachmentUploadFuture) Get(ctx workflow.Context) (*connectparticipant.CompleteAttachmentUploadOutput, error) {
+	var output connectparticipant.CompleteAttachmentUploadOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateParticipantConnectionFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -33,6 +44,17 @@ type DisconnectParticipantFuture struct {
 
 func (r *DisconnectParticipantFuture) Get(ctx workflow.Context) (*connectparticipant.DisconnectParticipantOutput, error) {
 	var output connectparticipant.DisconnectParticipantOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetAttachmentFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetAttachmentFuture) Get(ctx workflow.Context) (*connectparticipant.GetAttachmentOutput, error) {
+	var output connectparticipant.GetAttachmentOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -70,6 +92,28 @@ func (r *SendMessageFuture) Get(ctx workflow.Context) (*connectparticipant.SendM
 	return &output, err
 }
 
+type StartAttachmentUploadFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartAttachmentUploadFuture) Get(ctx workflow.Context) (*connectparticipant.StartAttachmentUploadOutput, error) {
+	var output connectparticipant.StartAttachmentUploadOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CompleteAttachmentUpload(ctx workflow.Context, input *connectparticipant.CompleteAttachmentUploadInput) (*connectparticipant.CompleteAttachmentUploadOutput, error) {
+	var output connectparticipant.CompleteAttachmentUploadOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connectparticipant-CompleteAttachmentUpload", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CompleteAttachmentUploadAsync(ctx workflow.Context, input *connectparticipant.CompleteAttachmentUploadInput) *CompleteAttachmentUploadFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connectparticipant-CompleteAttachmentUpload", input)
+	return &CompleteAttachmentUploadFuture{Future: future}
+}
+
 func (a *stub) CreateParticipantConnection(ctx workflow.Context, input *connectparticipant.CreateParticipantConnectionInput) (*connectparticipant.CreateParticipantConnectionOutput, error) {
 	var output connectparticipant.CreateParticipantConnectionOutput
 	err := workflow.ExecuteActivity(ctx, "aws-connectparticipant-CreateParticipantConnection", input).Get(ctx, &output)
@@ -90,6 +134,17 @@ func (a *stub) DisconnectParticipant(ctx workflow.Context, input *connectpartici
 func (a *stub) DisconnectParticipantAsync(ctx workflow.Context, input *connectparticipant.DisconnectParticipantInput) *DisconnectParticipantFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connectparticipant-DisconnectParticipant", input)
 	return &DisconnectParticipantFuture{Future: future}
+}
+
+func (a *stub) GetAttachment(ctx workflow.Context, input *connectparticipant.GetAttachmentInput) (*connectparticipant.GetAttachmentOutput, error) {
+	var output connectparticipant.GetAttachmentOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connectparticipant-GetAttachment", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetAttachmentAsync(ctx workflow.Context, input *connectparticipant.GetAttachmentInput) *GetAttachmentFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connectparticipant-GetAttachment", input)
+	return &GetAttachmentFuture{Future: future}
 }
 
 func (a *stub) GetTranscript(ctx workflow.Context, input *connectparticipant.GetTranscriptInput) (*connectparticipant.GetTranscriptOutput, error) {
@@ -123,4 +178,15 @@ func (a *stub) SendMessage(ctx workflow.Context, input *connectparticipant.SendM
 func (a *stub) SendMessageAsync(ctx workflow.Context, input *connectparticipant.SendMessageInput) *SendMessageFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connectparticipant-SendMessage", input)
 	return &SendMessageFuture{Future: future}
+}
+
+func (a *stub) StartAttachmentUpload(ctx workflow.Context, input *connectparticipant.StartAttachmentUploadInput) (*connectparticipant.StartAttachmentUploadOutput, error) {
+	var output connectparticipant.StartAttachmentUploadOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connectparticipant-StartAttachmentUpload", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartAttachmentUploadAsync(ctx workflow.Context, input *connectparticipant.StartAttachmentUploadInput) *StartAttachmentUploadFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connectparticipant-StartAttachmentUpload", input)
+	return &StartAttachmentUploadFuture{Future: future}
 }

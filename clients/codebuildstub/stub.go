@@ -213,6 +213,17 @@ func (r *DescribeTestCasesFuture) Get(ctx workflow.Context) (*codebuild.Describe
 	return &output, err
 }
 
+type GetReportGroupTrendFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetReportGroupTrendFuture) Get(ctx workflow.Context) (*codebuild.GetReportGroupTrendOutput, error) {
+	var output codebuild.GetReportGroupTrendOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetResourcePolicyFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -684,6 +695,17 @@ func (a *stub) DescribeTestCases(ctx workflow.Context, input *codebuild.Describe
 func (a *stub) DescribeTestCasesAsync(ctx workflow.Context, input *codebuild.DescribeTestCasesInput) *DescribeTestCasesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-codebuild-DescribeTestCases", input)
 	return &DescribeTestCasesFuture{Future: future}
+}
+
+func (a *stub) GetReportGroupTrend(ctx workflow.Context, input *codebuild.GetReportGroupTrendInput) (*codebuild.GetReportGroupTrendOutput, error) {
+	var output codebuild.GetReportGroupTrendOutput
+	err := workflow.ExecuteActivity(ctx, "aws-codebuild-GetReportGroupTrend", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetReportGroupTrendAsync(ctx workflow.Context, input *codebuild.GetReportGroupTrendInput) *GetReportGroupTrendFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-codebuild-GetReportGroupTrend", input)
+	return &GetReportGroupTrendFuture{Future: future}
 }
 
 func (a *stub) GetResourcePolicy(ctx workflow.Context, input *codebuild.GetResourcePolicyInput) (*codebuild.GetResourcePolicyOutput, error) {

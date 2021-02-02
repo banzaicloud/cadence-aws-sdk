@@ -268,6 +268,17 @@ func (r *GetCompatibleElasticsearchVersionsFuture) Get(ctx workflow.Context) (*e
 	return &output, err
 }
 
+type GetPackageVersionHistoryFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetPackageVersionHistoryFuture) Get(ctx workflow.Context) (*elasticsearchservice.GetPackageVersionHistoryOutput, error) {
+	var output elasticsearchservice.GetPackageVersionHistoryOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetUpgradeHistoryFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -407,6 +418,17 @@ type UpdateElasticsearchDomainConfigFuture struct {
 
 func (r *UpdateElasticsearchDomainConfigFuture) Get(ctx workflow.Context) (*elasticsearchservice.UpdateElasticsearchDomainConfigOutput, error) {
 	var output elasticsearchservice.UpdateElasticsearchDomainConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdatePackageFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdatePackageFuture) Get(ctx workflow.Context) (*elasticsearchservice.UpdatePackageOutput, error) {
+	var output elasticsearchservice.UpdatePackageOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -675,6 +697,17 @@ func (a *stub) GetCompatibleElasticsearchVersionsAsync(ctx workflow.Context, inp
 	return &GetCompatibleElasticsearchVersionsFuture{Future: future}
 }
 
+func (a *stub) GetPackageVersionHistory(ctx workflow.Context, input *elasticsearchservice.GetPackageVersionHistoryInput) (*elasticsearchservice.GetPackageVersionHistoryOutput, error) {
+	var output elasticsearchservice.GetPackageVersionHistoryOutput
+	err := workflow.ExecuteActivity(ctx, "aws-elasticsearchservice-GetPackageVersionHistory", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetPackageVersionHistoryAsync(ctx workflow.Context, input *elasticsearchservice.GetPackageVersionHistoryInput) *GetPackageVersionHistoryFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-elasticsearchservice-GetPackageVersionHistory", input)
+	return &GetPackageVersionHistoryFuture{Future: future}
+}
+
 func (a *stub) GetUpgradeHistory(ctx workflow.Context, input *elasticsearchservice.GetUpgradeHistoryInput) (*elasticsearchservice.GetUpgradeHistoryOutput, error) {
 	var output elasticsearchservice.GetUpgradeHistoryOutput
 	err := workflow.ExecuteActivity(ctx, "aws-elasticsearchservice-GetUpgradeHistory", input).Get(ctx, &output)
@@ -816,6 +849,17 @@ func (a *stub) UpdateElasticsearchDomainConfig(ctx workflow.Context, input *elas
 func (a *stub) UpdateElasticsearchDomainConfigAsync(ctx workflow.Context, input *elasticsearchservice.UpdateElasticsearchDomainConfigInput) *UpdateElasticsearchDomainConfigFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-elasticsearchservice-UpdateElasticsearchDomainConfig", input)
 	return &UpdateElasticsearchDomainConfigFuture{Future: future}
+}
+
+func (a *stub) UpdatePackage(ctx workflow.Context, input *elasticsearchservice.UpdatePackageInput) (*elasticsearchservice.UpdatePackageOutput, error) {
+	var output elasticsearchservice.UpdatePackageOutput
+	err := workflow.ExecuteActivity(ctx, "aws-elasticsearchservice-UpdatePackage", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdatePackageAsync(ctx workflow.Context, input *elasticsearchservice.UpdatePackageInput) *UpdatePackageFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-elasticsearchservice-UpdatePackage", input)
+	return &UpdatePackageFuture{Future: future}
 }
 
 func (a *stub) UpgradeElasticsearchDomain(ctx workflow.Context, input *elasticsearchservice.UpgradeElasticsearchDomainInput) (*elasticsearchservice.UpgradeElasticsearchDomainOutput, error) {

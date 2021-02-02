@@ -173,6 +173,16 @@ func (a *Activities) DisassociateResolverRule(ctx context.Context, input *route5
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetResolverDnssecConfig(ctx context.Context, input *route53resolver.GetResolverDnssecConfigInput) (*route53resolver.GetResolverDnssecConfigOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetResolverDnssecConfigWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetResolverEndpoint(ctx context.Context, input *route53resolver.GetResolverEndpointInput) (*route53resolver.GetResolverEndpointOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -239,6 +249,16 @@ func (a *Activities) GetResolverRulePolicy(ctx context.Context, input *route53re
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetResolverRulePolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListResolverDnssecConfigs(ctx context.Context, input *route53resolver.ListResolverDnssecConfigsInput) (*route53resolver.ListResolverDnssecConfigsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListResolverDnssecConfigsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -349,6 +369,16 @@ func (a *Activities) UntagResource(ctx context.Context, input *route53resolver.U
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UntagResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateResolverDnssecConfig(ctx context.Context, input *route53resolver.UpdateResolverDnssecConfigInput) (*route53resolver.UpdateResolverDnssecConfigOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateResolverDnssecConfigWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

@@ -147,6 +147,17 @@ func (r *GetCostAndUsageWithResourcesFuture) Get(ctx workflow.Context) (*costexp
 	return &output, err
 }
 
+type GetCostCategoriesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetCostCategoriesFuture) Get(ctx workflow.Context) (*costexplorer.GetCostCategoriesOutput, error) {
+	var output costexplorer.GetCostCategoriesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetCostForecastFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -464,6 +475,17 @@ func (a *stub) GetCostAndUsageWithResources(ctx workflow.Context, input *costexp
 func (a *stub) GetCostAndUsageWithResourcesAsync(ctx workflow.Context, input *costexplorer.GetCostAndUsageWithResourcesInput) *GetCostAndUsageWithResourcesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-costexplorer-GetCostAndUsageWithResources", input)
 	return &GetCostAndUsageWithResourcesFuture{Future: future}
+}
+
+func (a *stub) GetCostCategories(ctx workflow.Context, input *costexplorer.GetCostCategoriesInput) (*costexplorer.GetCostCategoriesOutput, error) {
+	var output costexplorer.GetCostCategoriesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-costexplorer-GetCostCategories", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetCostCategoriesAsync(ctx workflow.Context, input *costexplorer.GetCostCategoriesInput) *GetCostCategoriesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-costexplorer-GetCostCategories", input)
+	return &GetCostCategoriesFuture{Future: future}
 }
 
 func (a *stub) GetCostForecast(ctx workflow.Context, input *costexplorer.GetCostForecastInput) (*costexplorer.GetCostForecastOutput, error) {

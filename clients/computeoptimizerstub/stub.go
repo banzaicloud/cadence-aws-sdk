@@ -59,6 +59,17 @@ func (r *GetAutoScalingGroupRecommendationsFuture) Get(ctx workflow.Context) (*c
 	return &output, err
 }
 
+type GetEBSVolumeRecommendationsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetEBSVolumeRecommendationsFuture) Get(ctx workflow.Context) (*computeoptimizer.GetEBSVolumeRecommendationsOutput, error) {
+	var output computeoptimizer.GetEBSVolumeRecommendationsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetEC2InstanceRecommendationsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -88,6 +99,17 @@ type GetEnrollmentStatusFuture struct {
 
 func (r *GetEnrollmentStatusFuture) Get(ctx workflow.Context) (*computeoptimizer.GetEnrollmentStatusOutput, error) {
 	var output computeoptimizer.GetEnrollmentStatusOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetLambdaFunctionRecommendationsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetLambdaFunctionRecommendationsFuture) Get(ctx workflow.Context) (*computeoptimizer.GetLambdaFunctionRecommendationsOutput, error) {
+	var output computeoptimizer.GetLambdaFunctionRecommendationsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -158,6 +180,17 @@ func (a *stub) GetAutoScalingGroupRecommendationsAsync(ctx workflow.Context, inp
 	return &GetAutoScalingGroupRecommendationsFuture{Future: future}
 }
 
+func (a *stub) GetEBSVolumeRecommendations(ctx workflow.Context, input *computeoptimizer.GetEBSVolumeRecommendationsInput) (*computeoptimizer.GetEBSVolumeRecommendationsOutput, error) {
+	var output computeoptimizer.GetEBSVolumeRecommendationsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-computeoptimizer-GetEBSVolumeRecommendations", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetEBSVolumeRecommendationsAsync(ctx workflow.Context, input *computeoptimizer.GetEBSVolumeRecommendationsInput) *GetEBSVolumeRecommendationsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-computeoptimizer-GetEBSVolumeRecommendations", input)
+	return &GetEBSVolumeRecommendationsFuture{Future: future}
+}
+
 func (a *stub) GetEC2InstanceRecommendations(ctx workflow.Context, input *computeoptimizer.GetEC2InstanceRecommendationsInput) (*computeoptimizer.GetEC2InstanceRecommendationsOutput, error) {
 	var output computeoptimizer.GetEC2InstanceRecommendationsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-computeoptimizer-GetEC2InstanceRecommendations", input).Get(ctx, &output)
@@ -189,6 +222,17 @@ func (a *stub) GetEnrollmentStatus(ctx workflow.Context, input *computeoptimizer
 func (a *stub) GetEnrollmentStatusAsync(ctx workflow.Context, input *computeoptimizer.GetEnrollmentStatusInput) *GetEnrollmentStatusFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-computeoptimizer-GetEnrollmentStatus", input)
 	return &GetEnrollmentStatusFuture{Future: future}
+}
+
+func (a *stub) GetLambdaFunctionRecommendations(ctx workflow.Context, input *computeoptimizer.GetLambdaFunctionRecommendationsInput) (*computeoptimizer.GetLambdaFunctionRecommendationsOutput, error) {
+	var output computeoptimizer.GetLambdaFunctionRecommendationsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-computeoptimizer-GetLambdaFunctionRecommendations", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetLambdaFunctionRecommendationsAsync(ctx workflow.Context, input *computeoptimizer.GetLambdaFunctionRecommendationsInput) *GetLambdaFunctionRecommendationsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-computeoptimizer-GetLambdaFunctionRecommendations", input)
+	return &GetLambdaFunctionRecommendationsFuture{Future: future}
 }
 
 func (a *stub) GetRecommendationSummaries(ctx workflow.Context, input *computeoptimizer.GetRecommendationSummariesInput) (*computeoptimizer.GetRecommendationSummariesOutput, error) {

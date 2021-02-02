@@ -17,6 +17,12 @@ type Client interface {
 	ActivateEventSource(ctx workflow.Context, input *eventbridge.ActivateEventSourceInput) (*eventbridge.ActivateEventSourceOutput, error)
 	ActivateEventSourceAsync(ctx workflow.Context, input *eventbridge.ActivateEventSourceInput) *ActivateEventSourceFuture
 
+	CancelReplay(ctx workflow.Context, input *eventbridge.CancelReplayInput) (*eventbridge.CancelReplayOutput, error)
+	CancelReplayAsync(ctx workflow.Context, input *eventbridge.CancelReplayInput) *CancelReplayFuture
+
+	CreateArchive(ctx workflow.Context, input *eventbridge.CreateArchiveInput) (*eventbridge.CreateArchiveOutput, error)
+	CreateArchiveAsync(ctx workflow.Context, input *eventbridge.CreateArchiveInput) *CreateArchiveFuture
+
 	CreateEventBus(ctx workflow.Context, input *eventbridge.CreateEventBusInput) (*eventbridge.CreateEventBusOutput, error)
 	CreateEventBusAsync(ctx workflow.Context, input *eventbridge.CreateEventBusInput) *CreateEventBusFuture
 
@@ -25,6 +31,9 @@ type Client interface {
 
 	DeactivateEventSource(ctx workflow.Context, input *eventbridge.DeactivateEventSourceInput) (*eventbridge.DeactivateEventSourceOutput, error)
 	DeactivateEventSourceAsync(ctx workflow.Context, input *eventbridge.DeactivateEventSourceInput) *DeactivateEventSourceFuture
+
+	DeleteArchive(ctx workflow.Context, input *eventbridge.DeleteArchiveInput) (*eventbridge.DeleteArchiveOutput, error)
+	DeleteArchiveAsync(ctx workflow.Context, input *eventbridge.DeleteArchiveInput) *DeleteArchiveFuture
 
 	DeleteEventBus(ctx workflow.Context, input *eventbridge.DeleteEventBusInput) (*eventbridge.DeleteEventBusOutput, error)
 	DeleteEventBusAsync(ctx workflow.Context, input *eventbridge.DeleteEventBusInput) *DeleteEventBusFuture
@@ -35,6 +44,9 @@ type Client interface {
 	DeleteRule(ctx workflow.Context, input *eventbridge.DeleteRuleInput) (*eventbridge.DeleteRuleOutput, error)
 	DeleteRuleAsync(ctx workflow.Context, input *eventbridge.DeleteRuleInput) *DeleteRuleFuture
 
+	DescribeArchive(ctx workflow.Context, input *eventbridge.DescribeArchiveInput) (*eventbridge.DescribeArchiveOutput, error)
+	DescribeArchiveAsync(ctx workflow.Context, input *eventbridge.DescribeArchiveInput) *DescribeArchiveFuture
+
 	DescribeEventBus(ctx workflow.Context, input *eventbridge.DescribeEventBusInput) (*eventbridge.DescribeEventBusOutput, error)
 	DescribeEventBusAsync(ctx workflow.Context, input *eventbridge.DescribeEventBusInput) *DescribeEventBusFuture
 
@@ -44,6 +56,9 @@ type Client interface {
 	DescribePartnerEventSource(ctx workflow.Context, input *eventbridge.DescribePartnerEventSourceInput) (*eventbridge.DescribePartnerEventSourceOutput, error)
 	DescribePartnerEventSourceAsync(ctx workflow.Context, input *eventbridge.DescribePartnerEventSourceInput) *DescribePartnerEventSourceFuture
 
+	DescribeReplay(ctx workflow.Context, input *eventbridge.DescribeReplayInput) (*eventbridge.DescribeReplayOutput, error)
+	DescribeReplayAsync(ctx workflow.Context, input *eventbridge.DescribeReplayInput) *DescribeReplayFuture
+
 	DescribeRule(ctx workflow.Context, input *eventbridge.DescribeRuleInput) (*eventbridge.DescribeRuleOutput, error)
 	DescribeRuleAsync(ctx workflow.Context, input *eventbridge.DescribeRuleInput) *DescribeRuleFuture
 
@@ -52,6 +67,9 @@ type Client interface {
 
 	EnableRule(ctx workflow.Context, input *eventbridge.EnableRuleInput) (*eventbridge.EnableRuleOutput, error)
 	EnableRuleAsync(ctx workflow.Context, input *eventbridge.EnableRuleInput) *EnableRuleFuture
+
+	ListArchives(ctx workflow.Context, input *eventbridge.ListArchivesInput) (*eventbridge.ListArchivesOutput, error)
+	ListArchivesAsync(ctx workflow.Context, input *eventbridge.ListArchivesInput) *ListArchivesFuture
 
 	ListEventBuses(ctx workflow.Context, input *eventbridge.ListEventBusesInput) (*eventbridge.ListEventBusesOutput, error)
 	ListEventBusesAsync(ctx workflow.Context, input *eventbridge.ListEventBusesInput) *ListEventBusesFuture
@@ -64,6 +82,9 @@ type Client interface {
 
 	ListPartnerEventSources(ctx workflow.Context, input *eventbridge.ListPartnerEventSourcesInput) (*eventbridge.ListPartnerEventSourcesOutput, error)
 	ListPartnerEventSourcesAsync(ctx workflow.Context, input *eventbridge.ListPartnerEventSourcesInput) *ListPartnerEventSourcesFuture
+
+	ListReplays(ctx workflow.Context, input *eventbridge.ListReplaysInput) (*eventbridge.ListReplaysOutput, error)
+	ListReplaysAsync(ctx workflow.Context, input *eventbridge.ListReplaysInput) *ListReplaysFuture
 
 	ListRuleNamesByTarget(ctx workflow.Context, input *eventbridge.ListRuleNamesByTargetInput) (*eventbridge.ListRuleNamesByTargetOutput, error)
 	ListRuleNamesByTargetAsync(ctx workflow.Context, input *eventbridge.ListRuleNamesByTargetInput) *ListRuleNamesByTargetFuture
@@ -98,6 +119,9 @@ type Client interface {
 	RemoveTargets(ctx workflow.Context, input *eventbridge.RemoveTargetsInput) (*eventbridge.RemoveTargetsOutput, error)
 	RemoveTargetsAsync(ctx workflow.Context, input *eventbridge.RemoveTargetsInput) *RemoveTargetsFuture
 
+	StartReplay(ctx workflow.Context, input *eventbridge.StartReplayInput) (*eventbridge.StartReplayOutput, error)
+	StartReplayAsync(ctx workflow.Context, input *eventbridge.StartReplayInput) *StartReplayFuture
+
 	TagResource(ctx workflow.Context, input *eventbridge.TagResourceInput) (*eventbridge.TagResourceOutput, error)
 	TagResourceAsync(ctx workflow.Context, input *eventbridge.TagResourceInput) *TagResourceFuture
 
@@ -106,6 +130,9 @@ type Client interface {
 
 	UntagResource(ctx workflow.Context, input *eventbridge.UntagResourceInput) (*eventbridge.UntagResourceOutput, error)
 	UntagResourceAsync(ctx workflow.Context, input *eventbridge.UntagResourceInput) *UntagResourceFuture
+
+	UpdateArchive(ctx workflow.Context, input *eventbridge.UpdateArchiveInput) (*eventbridge.UpdateArchiveOutput, error)
+	UpdateArchiveAsync(ctx workflow.Context, input *eventbridge.UpdateArchiveInput) *UpdateArchiveFuture
 }
 
 func NewClient() Client {

@@ -53,6 +53,16 @@ func (a *Activities) getClient(ctx context.Context) (signeriface.SignerAPI, erro
 	return signer.New(sess), nil
 }
 
+func (a *Activities) AddProfilePermission(ctx context.Context, input *signer.AddProfilePermissionInput) (*signer.AddProfilePermissionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.AddProfilePermissionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CancelSigningProfile(ctx context.Context, input *signer.CancelSigningProfileInput) (*signer.CancelSigningProfileOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -89,6 +99,16 @@ func (a *Activities) GetSigningProfile(ctx context.Context, input *signer.GetSig
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetSigningProfileWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListProfilePermissions(ctx context.Context, input *signer.ListProfilePermissionsInput) (*signer.ListProfilePermissionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListProfilePermissionsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -139,6 +159,36 @@ func (a *Activities) PutSigningProfile(ctx context.Context, input *signer.PutSig
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.PutSigningProfileWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) RemoveProfilePermission(ctx context.Context, input *signer.RemoveProfilePermissionInput) (*signer.RemoveProfilePermissionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RemoveProfilePermissionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) RevokeSignature(ctx context.Context, input *signer.RevokeSignatureInput) (*signer.RevokeSignatureOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RevokeSignatureWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) RevokeSigningProfile(ctx context.Context, input *signer.RevokeSigningProfileInput) (*signer.RevokeSigningProfileOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RevokeSigningProfileWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

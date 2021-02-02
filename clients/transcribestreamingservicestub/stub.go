@@ -15,6 +15,17 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type StartMedicalStreamTranscriptionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartMedicalStreamTranscriptionFuture) Get(ctx workflow.Context) (*transcribestreamingservice.StartMedicalStreamTranscriptionOutput, error) {
+	var output transcribestreamingservice.StartMedicalStreamTranscriptionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type StartStreamTranscriptionFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -24,6 +35,17 @@ func (r *StartStreamTranscriptionFuture) Get(ctx workflow.Context) (*transcribes
 	var output transcribestreamingservice.StartStreamTranscriptionOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
+}
+
+func (a *stub) StartMedicalStreamTranscription(ctx workflow.Context, input *transcribestreamingservice.StartMedicalStreamTranscriptionInput) (*transcribestreamingservice.StartMedicalStreamTranscriptionOutput, error) {
+	var output transcribestreamingservice.StartMedicalStreamTranscriptionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-transcribestreamingservice-StartMedicalStreamTranscription", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartMedicalStreamTranscriptionAsync(ctx workflow.Context, input *transcribestreamingservice.StartMedicalStreamTranscriptionInput) *StartMedicalStreamTranscriptionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-transcribestreamingservice-StartMedicalStreamTranscription", input)
+	return &StartMedicalStreamTranscriptionFuture{Future: future}
 }
 
 func (a *stub) StartStreamTranscription(ctx workflow.Context, input *transcribestreamingservice.StartStreamTranscriptionInput) (*transcribestreamingservice.StartStreamTranscriptionOutput, error) {

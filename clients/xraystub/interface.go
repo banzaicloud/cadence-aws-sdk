@@ -38,6 +38,18 @@ type Client interface {
 	GetGroups(ctx workflow.Context, input *xray.GetGroupsInput) (*xray.GetGroupsOutput, error)
 	GetGroupsAsync(ctx workflow.Context, input *xray.GetGroupsInput) *GetGroupsFuture
 
+	GetInsight(ctx workflow.Context, input *xray.GetInsightInput) (*xray.GetInsightOutput, error)
+	GetInsightAsync(ctx workflow.Context, input *xray.GetInsightInput) *GetInsightFuture
+
+	GetInsightEvents(ctx workflow.Context, input *xray.GetInsightEventsInput) (*xray.GetInsightEventsOutput, error)
+	GetInsightEventsAsync(ctx workflow.Context, input *xray.GetInsightEventsInput) *GetInsightEventsFuture
+
+	GetInsightImpactGraph(ctx workflow.Context, input *xray.GetInsightImpactGraphInput) (*xray.GetInsightImpactGraphOutput, error)
+	GetInsightImpactGraphAsync(ctx workflow.Context, input *xray.GetInsightImpactGraphInput) *GetInsightImpactGraphFuture
+
+	GetInsightSummaries(ctx workflow.Context, input *xray.GetInsightSummariesInput) (*xray.GetInsightSummariesOutput, error)
+	GetInsightSummariesAsync(ctx workflow.Context, input *xray.GetInsightSummariesInput) *GetInsightSummariesFuture
+
 	GetSamplingRules(ctx workflow.Context, input *xray.GetSamplingRulesInput) (*xray.GetSamplingRulesOutput, error)
 	GetSamplingRulesAsync(ctx workflow.Context, input *xray.GetSamplingRulesInput) *GetSamplingRulesFuture
 

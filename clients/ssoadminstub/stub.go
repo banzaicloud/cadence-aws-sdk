@@ -37,6 +37,17 @@ func (r *CreateAccountAssignmentFuture) Get(ctx workflow.Context) (*ssoadmin.Cre
 	return &output, err
 }
 
+type CreateInstanceAccessControlAttributeConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateInstanceAccessControlAttributeConfigurationFuture) Get(ctx workflow.Context) (*ssoadmin.CreateInstanceAccessControlAttributeConfigurationOutput, error) {
+	var output ssoadmin.CreateInstanceAccessControlAttributeConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreatePermissionSetFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -70,6 +81,17 @@ func (r *DeleteInlinePolicyFromPermissionSetFuture) Get(ctx workflow.Context) (*
 	return &output, err
 }
 
+type DeleteInstanceAccessControlAttributeConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteInstanceAccessControlAttributeConfigurationFuture) Get(ctx workflow.Context) (*ssoadmin.DeleteInstanceAccessControlAttributeConfigurationOutput, error) {
+	var output ssoadmin.DeleteInstanceAccessControlAttributeConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeletePermissionSetFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -99,6 +121,17 @@ type DescribeAccountAssignmentDeletionStatusFuture struct {
 
 func (r *DescribeAccountAssignmentDeletionStatusFuture) Get(ctx workflow.Context) (*ssoadmin.DescribeAccountAssignmentDeletionStatusOutput, error) {
 	var output ssoadmin.DescribeAccountAssignmentDeletionStatusOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeInstanceAccessControlAttributeConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeInstanceAccessControlAttributeConfigurationFuture) Get(ctx workflow.Context) (*ssoadmin.DescribeInstanceAccessControlAttributeConfigurationOutput, error) {
+	var output ssoadmin.DescribeInstanceAccessControlAttributeConfigurationOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -301,6 +334,17 @@ func (r *UntagResourceFuture) Get(ctx workflow.Context) (*ssoadmin.UntagResource
 	return &output, err
 }
 
+type UpdateInstanceAccessControlAttributeConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateInstanceAccessControlAttributeConfigurationFuture) Get(ctx workflow.Context) (*ssoadmin.UpdateInstanceAccessControlAttributeConfigurationOutput, error) {
+	var output ssoadmin.UpdateInstanceAccessControlAttributeConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdatePermissionSetFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -332,6 +376,17 @@ func (a *stub) CreateAccountAssignment(ctx workflow.Context, input *ssoadmin.Cre
 func (a *stub) CreateAccountAssignmentAsync(ctx workflow.Context, input *ssoadmin.CreateAccountAssignmentInput) *CreateAccountAssignmentFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ssoadmin-CreateAccountAssignment", input)
 	return &CreateAccountAssignmentFuture{Future: future}
+}
+
+func (a *stub) CreateInstanceAccessControlAttributeConfiguration(ctx workflow.Context, input *ssoadmin.CreateInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.CreateInstanceAccessControlAttributeConfigurationOutput, error) {
+	var output ssoadmin.CreateInstanceAccessControlAttributeConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssoadmin-CreateInstanceAccessControlAttributeConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateInstanceAccessControlAttributeConfigurationAsync(ctx workflow.Context, input *ssoadmin.CreateInstanceAccessControlAttributeConfigurationInput) *CreateInstanceAccessControlAttributeConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssoadmin-CreateInstanceAccessControlAttributeConfiguration", input)
+	return &CreateInstanceAccessControlAttributeConfigurationFuture{Future: future}
 }
 
 func (a *stub) CreatePermissionSet(ctx workflow.Context, input *ssoadmin.CreatePermissionSetInput) (*ssoadmin.CreatePermissionSetOutput, error) {
@@ -367,6 +422,17 @@ func (a *stub) DeleteInlinePolicyFromPermissionSetAsync(ctx workflow.Context, in
 	return &DeleteInlinePolicyFromPermissionSetFuture{Future: future}
 }
 
+func (a *stub) DeleteInstanceAccessControlAttributeConfiguration(ctx workflow.Context, input *ssoadmin.DeleteInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.DeleteInstanceAccessControlAttributeConfigurationOutput, error) {
+	var output ssoadmin.DeleteInstanceAccessControlAttributeConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssoadmin-DeleteInstanceAccessControlAttributeConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteInstanceAccessControlAttributeConfigurationAsync(ctx workflow.Context, input *ssoadmin.DeleteInstanceAccessControlAttributeConfigurationInput) *DeleteInstanceAccessControlAttributeConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssoadmin-DeleteInstanceAccessControlAttributeConfiguration", input)
+	return &DeleteInstanceAccessControlAttributeConfigurationFuture{Future: future}
+}
+
 func (a *stub) DeletePermissionSet(ctx workflow.Context, input *ssoadmin.DeletePermissionSetInput) (*ssoadmin.DeletePermissionSetOutput, error) {
 	var output ssoadmin.DeletePermissionSetOutput
 	err := workflow.ExecuteActivity(ctx, "aws-ssoadmin-DeletePermissionSet", input).Get(ctx, &output)
@@ -398,6 +464,17 @@ func (a *stub) DescribeAccountAssignmentDeletionStatus(ctx workflow.Context, inp
 func (a *stub) DescribeAccountAssignmentDeletionStatusAsync(ctx workflow.Context, input *ssoadmin.DescribeAccountAssignmentDeletionStatusInput) *DescribeAccountAssignmentDeletionStatusFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ssoadmin-DescribeAccountAssignmentDeletionStatus", input)
 	return &DescribeAccountAssignmentDeletionStatusFuture{Future: future}
+}
+
+func (a *stub) DescribeInstanceAccessControlAttributeConfiguration(ctx workflow.Context, input *ssoadmin.DescribeInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.DescribeInstanceAccessControlAttributeConfigurationOutput, error) {
+	var output ssoadmin.DescribeInstanceAccessControlAttributeConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssoadmin-DescribeInstanceAccessControlAttributeConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeInstanceAccessControlAttributeConfigurationAsync(ctx workflow.Context, input *ssoadmin.DescribeInstanceAccessControlAttributeConfigurationInput) *DescribeInstanceAccessControlAttributeConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssoadmin-DescribeInstanceAccessControlAttributeConfiguration", input)
+	return &DescribeInstanceAccessControlAttributeConfigurationFuture{Future: future}
 }
 
 func (a *stub) DescribePermissionSet(ctx workflow.Context, input *ssoadmin.DescribePermissionSetInput) (*ssoadmin.DescribePermissionSetOutput, error) {
@@ -596,6 +673,17 @@ func (a *stub) UntagResource(ctx workflow.Context, input *ssoadmin.UntagResource
 func (a *stub) UntagResourceAsync(ctx workflow.Context, input *ssoadmin.UntagResourceInput) *UntagResourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ssoadmin-UntagResource", input)
 	return &UntagResourceFuture{Future: future}
+}
+
+func (a *stub) UpdateInstanceAccessControlAttributeConfiguration(ctx workflow.Context, input *ssoadmin.UpdateInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.UpdateInstanceAccessControlAttributeConfigurationOutput, error) {
+	var output ssoadmin.UpdateInstanceAccessControlAttributeConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ssoadmin-UpdateInstanceAccessControlAttributeConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateInstanceAccessControlAttributeConfigurationAsync(ctx workflow.Context, input *ssoadmin.UpdateInstanceAccessControlAttributeConfigurationInput) *UpdateInstanceAccessControlAttributeConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ssoadmin-UpdateInstanceAccessControlAttributeConfiguration", input)
+	return &UpdateInstanceAccessControlAttributeConfigurationFuture{Future: future}
 }
 
 func (a *stub) UpdatePermissionSet(ctx workflow.Context, input *ssoadmin.UpdatePermissionSetInput) (*ssoadmin.UpdatePermissionSetOutput, error) {

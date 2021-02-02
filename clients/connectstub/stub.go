@@ -15,6 +15,61 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type AssociateApprovedOriginFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AssociateApprovedOriginFuture) Get(ctx workflow.Context) (*connect.AssociateApprovedOriginOutput, error) {
+	var output connect.AssociateApprovedOriginOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type AssociateInstanceStorageConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AssociateInstanceStorageConfigFuture) Get(ctx workflow.Context) (*connect.AssociateInstanceStorageConfigOutput, error) {
+	var output connect.AssociateInstanceStorageConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type AssociateLambdaFunctionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AssociateLambdaFunctionFuture) Get(ctx workflow.Context) (*connect.AssociateLambdaFunctionOutput, error) {
+	var output connect.AssociateLambdaFunctionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type AssociateLexBotFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AssociateLexBotFuture) Get(ctx workflow.Context) (*connect.AssociateLexBotOutput, error) {
+	var output connect.AssociateLexBotOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type AssociateQueueQuickConnectsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AssociateQueueQuickConnectsFuture) Get(ctx workflow.Context) (*connect.AssociateQueueQuickConnectsOutput, error) {
+	var output connect.AssociateQueueQuickConnectsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type AssociateRoutingProfileQueuesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -22,6 +77,17 @@ type AssociateRoutingProfileQueuesFuture struct {
 
 func (r *AssociateRoutingProfileQueuesFuture) Get(ctx workflow.Context) (*connect.AssociateRoutingProfileQueuesOutput, error) {
 	var output connect.AssociateRoutingProfileQueuesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type AssociateSecurityKeyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *AssociateSecurityKeyFuture) Get(ctx workflow.Context) (*connect.AssociateSecurityKeyOutput, error) {
+	var output connect.AssociateSecurityKeyOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -37,6 +103,50 @@ func (r *CreateContactFlowFuture) Get(ctx workflow.Context) (*connect.CreateCont
 	return &output, err
 }
 
+type CreateInstanceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateInstanceFuture) Get(ctx workflow.Context) (*connect.CreateInstanceOutput, error) {
+	var output connect.CreateInstanceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateIntegrationAssociationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateIntegrationAssociationFuture) Get(ctx workflow.Context) (*connect.CreateIntegrationAssociationOutput, error) {
+	var output connect.CreateIntegrationAssociationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateQueueFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateQueueFuture) Get(ctx workflow.Context) (*connect.CreateQueueOutput, error) {
+	var output connect.CreateQueueOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateQuickConnectFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateQuickConnectFuture) Get(ctx workflow.Context) (*connect.CreateQuickConnectOutput, error) {
+	var output connect.CreateQuickConnectOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateRoutingProfileFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -44,6 +154,17 @@ type CreateRoutingProfileFuture struct {
 
 func (r *CreateRoutingProfileFuture) Get(ctx workflow.Context) (*connect.CreateRoutingProfileOutput, error) {
 	var output connect.CreateRoutingProfileOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type CreateUseCaseFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateUseCaseFuture) Get(ctx workflow.Context) (*connect.CreateUseCaseOutput, error) {
+	var output connect.CreateUseCaseOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -59,6 +180,61 @@ func (r *CreateUserFuture) Get(ctx workflow.Context) (*connect.CreateUserOutput,
 	return &output, err
 }
 
+type CreateUserHierarchyGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateUserHierarchyGroupFuture) Get(ctx workflow.Context) (*connect.CreateUserHierarchyGroupOutput, error) {
+	var output connect.CreateUserHierarchyGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteInstanceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteInstanceFuture) Get(ctx workflow.Context) (*connect.DeleteInstanceOutput, error) {
+	var output connect.DeleteInstanceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteIntegrationAssociationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteIntegrationAssociationFuture) Get(ctx workflow.Context) (*connect.DeleteIntegrationAssociationOutput, error) {
+	var output connect.DeleteIntegrationAssociationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteQuickConnectFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteQuickConnectFuture) Get(ctx workflow.Context) (*connect.DeleteQuickConnectOutput, error) {
+	var output connect.DeleteQuickConnectOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteUseCaseFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteUseCaseFuture) Get(ctx workflow.Context) (*connect.DeleteUseCaseOutput, error) {
+	var output connect.DeleteUseCaseOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteUserFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -70,6 +246,17 @@ func (r *DeleteUserFuture) Get(ctx workflow.Context) (*connect.DeleteUserOutput,
 	return &output, err
 }
 
+type DeleteUserHierarchyGroupFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteUserHierarchyGroupFuture) Get(ctx workflow.Context) (*connect.DeleteUserHierarchyGroupOutput, error) {
+	var output connect.DeleteUserHierarchyGroupOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DescribeContactFlowFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -77,6 +264,72 @@ type DescribeContactFlowFuture struct {
 
 func (r *DescribeContactFlowFuture) Get(ctx workflow.Context) (*connect.DescribeContactFlowOutput, error) {
 	var output connect.DescribeContactFlowOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeHoursOfOperationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeHoursOfOperationFuture) Get(ctx workflow.Context) (*connect.DescribeHoursOfOperationOutput, error) {
+	var output connect.DescribeHoursOfOperationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeInstanceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeInstanceFuture) Get(ctx workflow.Context) (*connect.DescribeInstanceOutput, error) {
+	var output connect.DescribeInstanceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeInstanceAttributeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeInstanceAttributeFuture) Get(ctx workflow.Context) (*connect.DescribeInstanceAttributeOutput, error) {
+	var output connect.DescribeInstanceAttributeOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeInstanceStorageConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeInstanceStorageConfigFuture) Get(ctx workflow.Context) (*connect.DescribeInstanceStorageConfigOutput, error) {
+	var output connect.DescribeInstanceStorageConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeQueueFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeQueueFuture) Get(ctx workflow.Context) (*connect.DescribeQueueOutput, error) {
+	var output connect.DescribeQueueOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DescribeQuickConnectFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DescribeQuickConnectFuture) Get(ctx workflow.Context) (*connect.DescribeQuickConnectOutput, error) {
+	var output connect.DescribeQuickConnectOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -125,6 +378,61 @@ func (r *DescribeUserHierarchyStructureFuture) Get(ctx workflow.Context) (*conne
 	return &output, err
 }
 
+type DisassociateApprovedOriginFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisassociateApprovedOriginFuture) Get(ctx workflow.Context) (*connect.DisassociateApprovedOriginOutput, error) {
+	var output connect.DisassociateApprovedOriginOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DisassociateInstanceStorageConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisassociateInstanceStorageConfigFuture) Get(ctx workflow.Context) (*connect.DisassociateInstanceStorageConfigOutput, error) {
+	var output connect.DisassociateInstanceStorageConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DisassociateLambdaFunctionFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisassociateLambdaFunctionFuture) Get(ctx workflow.Context) (*connect.DisassociateLambdaFunctionOutput, error) {
+	var output connect.DisassociateLambdaFunctionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DisassociateLexBotFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisassociateLexBotFuture) Get(ctx workflow.Context) (*connect.DisassociateLexBotOutput, error) {
+	var output connect.DisassociateLexBotOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DisassociateQueueQuickConnectsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisassociateQueueQuickConnectsFuture) Get(ctx workflow.Context) (*connect.DisassociateQueueQuickConnectsOutput, error) {
+	var output connect.DisassociateQueueQuickConnectsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DisassociateRoutingProfileQueuesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -132,6 +440,17 @@ type DisassociateRoutingProfileQueuesFuture struct {
 
 func (r *DisassociateRoutingProfileQueuesFuture) Get(ctx workflow.Context) (*connect.DisassociateRoutingProfileQueuesOutput, error) {
 	var output connect.DisassociateRoutingProfileQueuesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DisassociateSecurityKeyFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DisassociateSecurityKeyFuture) Get(ctx workflow.Context) (*connect.DisassociateSecurityKeyOutput, error) {
+	var output connect.DisassociateSecurityKeyOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -180,6 +499,17 @@ func (r *GetMetricDataFuture) Get(ctx workflow.Context) (*connect.GetMetricDataO
 	return &output, err
 }
 
+type ListApprovedOriginsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListApprovedOriginsFuture) Get(ctx workflow.Context) (*connect.ListApprovedOriginsOutput, error) {
+	var output connect.ListApprovedOriginsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListContactFlowsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -198,6 +528,72 @@ type ListHoursOfOperationsFuture struct {
 
 func (r *ListHoursOfOperationsFuture) Get(ctx workflow.Context) (*connect.ListHoursOfOperationsOutput, error) {
 	var output connect.ListHoursOfOperationsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListInstanceAttributesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListInstanceAttributesFuture) Get(ctx workflow.Context) (*connect.ListInstanceAttributesOutput, error) {
+	var output connect.ListInstanceAttributesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListInstanceStorageConfigsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListInstanceStorageConfigsFuture) Get(ctx workflow.Context) (*connect.ListInstanceStorageConfigsOutput, error) {
+	var output connect.ListInstanceStorageConfigsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListInstancesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListInstancesFuture) Get(ctx workflow.Context) (*connect.ListInstancesOutput, error) {
+	var output connect.ListInstancesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListIntegrationAssociationsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListIntegrationAssociationsFuture) Get(ctx workflow.Context) (*connect.ListIntegrationAssociationsOutput, error) {
+	var output connect.ListIntegrationAssociationsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListLambdaFunctionsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListLambdaFunctionsFuture) Get(ctx workflow.Context) (*connect.ListLambdaFunctionsOutput, error) {
+	var output connect.ListLambdaFunctionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListLexBotsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListLexBotsFuture) Get(ctx workflow.Context) (*connect.ListLexBotsOutput, error) {
+	var output connect.ListLexBotsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -224,6 +620,17 @@ func (r *ListPromptsFuture) Get(ctx workflow.Context) (*connect.ListPromptsOutpu
 	return &output, err
 }
 
+type ListQueueQuickConnectsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListQueueQuickConnectsFuture) Get(ctx workflow.Context) (*connect.ListQueueQuickConnectsOutput, error) {
+	var output connect.ListQueueQuickConnectsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListQueuesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -231,6 +638,17 @@ type ListQueuesFuture struct {
 
 func (r *ListQueuesFuture) Get(ctx workflow.Context) (*connect.ListQueuesOutput, error) {
 	var output connect.ListQueuesOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListQuickConnectsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListQuickConnectsFuture) Get(ctx workflow.Context) (*connect.ListQuickConnectsOutput, error) {
+	var output connect.ListQuickConnectsOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -257,6 +675,17 @@ func (r *ListRoutingProfilesFuture) Get(ctx workflow.Context) (*connect.ListRout
 	return &output, err
 }
 
+type ListSecurityKeysFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListSecurityKeysFuture) Get(ctx workflow.Context) (*connect.ListSecurityKeysOutput, error) {
+	var output connect.ListSecurityKeysOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListSecurityProfilesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -275,6 +704,17 @@ type ListTagsForResourceFuture struct {
 
 func (r *ListTagsForResourceFuture) Get(ctx workflow.Context) (*connect.ListTagsForResourceOutput, error) {
 	var output connect.ListTagsForResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListUseCasesFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListUseCasesFuture) Get(ctx workflow.Context) (*connect.ListUseCasesOutput, error) {
+	var output connect.ListUseCasesOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -341,6 +781,17 @@ type StartOutboundVoiceContactFuture struct {
 
 func (r *StartOutboundVoiceContactFuture) Get(ctx workflow.Context) (*connect.StartOutboundVoiceContactOutput, error) {
 	var output connect.StartOutboundVoiceContactOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type StartTaskContactFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartTaskContactFuture) Get(ctx workflow.Context) (*connect.StartTaskContactOutput, error) {
+	var output connect.StartTaskContactOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -433,6 +884,105 @@ func (r *UpdateContactFlowNameFuture) Get(ctx workflow.Context) (*connect.Update
 	return &output, err
 }
 
+type UpdateInstanceAttributeFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateInstanceAttributeFuture) Get(ctx workflow.Context) (*connect.UpdateInstanceAttributeOutput, error) {
+	var output connect.UpdateInstanceAttributeOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateInstanceStorageConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateInstanceStorageConfigFuture) Get(ctx workflow.Context) (*connect.UpdateInstanceStorageConfigOutput, error) {
+	var output connect.UpdateInstanceStorageConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateQueueHoursOfOperationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateQueueHoursOfOperationFuture) Get(ctx workflow.Context) (*connect.UpdateQueueHoursOfOperationOutput, error) {
+	var output connect.UpdateQueueHoursOfOperationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateQueueMaxContactsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateQueueMaxContactsFuture) Get(ctx workflow.Context) (*connect.UpdateQueueMaxContactsOutput, error) {
+	var output connect.UpdateQueueMaxContactsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateQueueNameFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateQueueNameFuture) Get(ctx workflow.Context) (*connect.UpdateQueueNameOutput, error) {
+	var output connect.UpdateQueueNameOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateQueueOutboundCallerConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateQueueOutboundCallerConfigFuture) Get(ctx workflow.Context) (*connect.UpdateQueueOutboundCallerConfigOutput, error) {
+	var output connect.UpdateQueueOutboundCallerConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateQueueStatusFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateQueueStatusFuture) Get(ctx workflow.Context) (*connect.UpdateQueueStatusOutput, error) {
+	var output connect.UpdateQueueStatusOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateQuickConnectConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateQuickConnectConfigFuture) Get(ctx workflow.Context) (*connect.UpdateQuickConnectConfigOutput, error) {
+	var output connect.UpdateQuickConnectConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateQuickConnectNameFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateQuickConnectNameFuture) Get(ctx workflow.Context) (*connect.UpdateQuickConnectNameOutput, error) {
+	var output connect.UpdateQuickConnectNameOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateRoutingProfileConcurrencyFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -488,6 +1038,28 @@ func (r *UpdateUserHierarchyFuture) Get(ctx workflow.Context) (*connect.UpdateUs
 	return &output, err
 }
 
+type UpdateUserHierarchyGroupNameFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateUserHierarchyGroupNameFuture) Get(ctx workflow.Context) (*connect.UpdateUserHierarchyGroupNameOutput, error) {
+	var output connect.UpdateUserHierarchyGroupNameOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UpdateUserHierarchyStructureFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateUserHierarchyStructureFuture) Get(ctx workflow.Context) (*connect.UpdateUserHierarchyStructureOutput, error) {
+	var output connect.UpdateUserHierarchyStructureOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateUserIdentityInfoFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -532,6 +1104,61 @@ func (r *UpdateUserSecurityProfilesFuture) Get(ctx workflow.Context) (*connect.U
 	return &output, err
 }
 
+func (a *stub) AssociateApprovedOrigin(ctx workflow.Context, input *connect.AssociateApprovedOriginInput) (*connect.AssociateApprovedOriginOutput, error) {
+	var output connect.AssociateApprovedOriginOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-AssociateApprovedOrigin", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AssociateApprovedOriginAsync(ctx workflow.Context, input *connect.AssociateApprovedOriginInput) *AssociateApprovedOriginFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-AssociateApprovedOrigin", input)
+	return &AssociateApprovedOriginFuture{Future: future}
+}
+
+func (a *stub) AssociateInstanceStorageConfig(ctx workflow.Context, input *connect.AssociateInstanceStorageConfigInput) (*connect.AssociateInstanceStorageConfigOutput, error) {
+	var output connect.AssociateInstanceStorageConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-AssociateInstanceStorageConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AssociateInstanceStorageConfigAsync(ctx workflow.Context, input *connect.AssociateInstanceStorageConfigInput) *AssociateInstanceStorageConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-AssociateInstanceStorageConfig", input)
+	return &AssociateInstanceStorageConfigFuture{Future: future}
+}
+
+func (a *stub) AssociateLambdaFunction(ctx workflow.Context, input *connect.AssociateLambdaFunctionInput) (*connect.AssociateLambdaFunctionOutput, error) {
+	var output connect.AssociateLambdaFunctionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-AssociateLambdaFunction", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AssociateLambdaFunctionAsync(ctx workflow.Context, input *connect.AssociateLambdaFunctionInput) *AssociateLambdaFunctionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-AssociateLambdaFunction", input)
+	return &AssociateLambdaFunctionFuture{Future: future}
+}
+
+func (a *stub) AssociateLexBot(ctx workflow.Context, input *connect.AssociateLexBotInput) (*connect.AssociateLexBotOutput, error) {
+	var output connect.AssociateLexBotOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-AssociateLexBot", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AssociateLexBotAsync(ctx workflow.Context, input *connect.AssociateLexBotInput) *AssociateLexBotFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-AssociateLexBot", input)
+	return &AssociateLexBotFuture{Future: future}
+}
+
+func (a *stub) AssociateQueueQuickConnects(ctx workflow.Context, input *connect.AssociateQueueQuickConnectsInput) (*connect.AssociateQueueQuickConnectsOutput, error) {
+	var output connect.AssociateQueueQuickConnectsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-AssociateQueueQuickConnects", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AssociateQueueQuickConnectsAsync(ctx workflow.Context, input *connect.AssociateQueueQuickConnectsInput) *AssociateQueueQuickConnectsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-AssociateQueueQuickConnects", input)
+	return &AssociateQueueQuickConnectsFuture{Future: future}
+}
+
 func (a *stub) AssociateRoutingProfileQueues(ctx workflow.Context, input *connect.AssociateRoutingProfileQueuesInput) (*connect.AssociateRoutingProfileQueuesOutput, error) {
 	var output connect.AssociateRoutingProfileQueuesOutput
 	err := workflow.ExecuteActivity(ctx, "aws-connect-AssociateRoutingProfileQueues", input).Get(ctx, &output)
@@ -541,6 +1168,17 @@ func (a *stub) AssociateRoutingProfileQueues(ctx workflow.Context, input *connec
 func (a *stub) AssociateRoutingProfileQueuesAsync(ctx workflow.Context, input *connect.AssociateRoutingProfileQueuesInput) *AssociateRoutingProfileQueuesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connect-AssociateRoutingProfileQueues", input)
 	return &AssociateRoutingProfileQueuesFuture{Future: future}
+}
+
+func (a *stub) AssociateSecurityKey(ctx workflow.Context, input *connect.AssociateSecurityKeyInput) (*connect.AssociateSecurityKeyOutput, error) {
+	var output connect.AssociateSecurityKeyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-AssociateSecurityKey", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) AssociateSecurityKeyAsync(ctx workflow.Context, input *connect.AssociateSecurityKeyInput) *AssociateSecurityKeyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-AssociateSecurityKey", input)
+	return &AssociateSecurityKeyFuture{Future: future}
 }
 
 func (a *stub) CreateContactFlow(ctx workflow.Context, input *connect.CreateContactFlowInput) (*connect.CreateContactFlowOutput, error) {
@@ -554,6 +1192,50 @@ func (a *stub) CreateContactFlowAsync(ctx workflow.Context, input *connect.Creat
 	return &CreateContactFlowFuture{Future: future}
 }
 
+func (a *stub) CreateInstance(ctx workflow.Context, input *connect.CreateInstanceInput) (*connect.CreateInstanceOutput, error) {
+	var output connect.CreateInstanceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-CreateInstance", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateInstanceAsync(ctx workflow.Context, input *connect.CreateInstanceInput) *CreateInstanceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-CreateInstance", input)
+	return &CreateInstanceFuture{Future: future}
+}
+
+func (a *stub) CreateIntegrationAssociation(ctx workflow.Context, input *connect.CreateIntegrationAssociationInput) (*connect.CreateIntegrationAssociationOutput, error) {
+	var output connect.CreateIntegrationAssociationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-CreateIntegrationAssociation", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateIntegrationAssociationAsync(ctx workflow.Context, input *connect.CreateIntegrationAssociationInput) *CreateIntegrationAssociationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-CreateIntegrationAssociation", input)
+	return &CreateIntegrationAssociationFuture{Future: future}
+}
+
+func (a *stub) CreateQueue(ctx workflow.Context, input *connect.CreateQueueInput) (*connect.CreateQueueOutput, error) {
+	var output connect.CreateQueueOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-CreateQueue", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateQueueAsync(ctx workflow.Context, input *connect.CreateQueueInput) *CreateQueueFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-CreateQueue", input)
+	return &CreateQueueFuture{Future: future}
+}
+
+func (a *stub) CreateQuickConnect(ctx workflow.Context, input *connect.CreateQuickConnectInput) (*connect.CreateQuickConnectOutput, error) {
+	var output connect.CreateQuickConnectOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-CreateQuickConnect", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateQuickConnectAsync(ctx workflow.Context, input *connect.CreateQuickConnectInput) *CreateQuickConnectFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-CreateQuickConnect", input)
+	return &CreateQuickConnectFuture{Future: future}
+}
+
 func (a *stub) CreateRoutingProfile(ctx workflow.Context, input *connect.CreateRoutingProfileInput) (*connect.CreateRoutingProfileOutput, error) {
 	var output connect.CreateRoutingProfileOutput
 	err := workflow.ExecuteActivity(ctx, "aws-connect-CreateRoutingProfile", input).Get(ctx, &output)
@@ -563,6 +1245,17 @@ func (a *stub) CreateRoutingProfile(ctx workflow.Context, input *connect.CreateR
 func (a *stub) CreateRoutingProfileAsync(ctx workflow.Context, input *connect.CreateRoutingProfileInput) *CreateRoutingProfileFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connect-CreateRoutingProfile", input)
 	return &CreateRoutingProfileFuture{Future: future}
+}
+
+func (a *stub) CreateUseCase(ctx workflow.Context, input *connect.CreateUseCaseInput) (*connect.CreateUseCaseOutput, error) {
+	var output connect.CreateUseCaseOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-CreateUseCase", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateUseCaseAsync(ctx workflow.Context, input *connect.CreateUseCaseInput) *CreateUseCaseFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-CreateUseCase", input)
+	return &CreateUseCaseFuture{Future: future}
 }
 
 func (a *stub) CreateUser(ctx workflow.Context, input *connect.CreateUserInput) (*connect.CreateUserOutput, error) {
@@ -576,6 +1269,61 @@ func (a *stub) CreateUserAsync(ctx workflow.Context, input *connect.CreateUserIn
 	return &CreateUserFuture{Future: future}
 }
 
+func (a *stub) CreateUserHierarchyGroup(ctx workflow.Context, input *connect.CreateUserHierarchyGroupInput) (*connect.CreateUserHierarchyGroupOutput, error) {
+	var output connect.CreateUserHierarchyGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-CreateUserHierarchyGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateUserHierarchyGroupAsync(ctx workflow.Context, input *connect.CreateUserHierarchyGroupInput) *CreateUserHierarchyGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-CreateUserHierarchyGroup", input)
+	return &CreateUserHierarchyGroupFuture{Future: future}
+}
+
+func (a *stub) DeleteInstance(ctx workflow.Context, input *connect.DeleteInstanceInput) (*connect.DeleteInstanceOutput, error) {
+	var output connect.DeleteInstanceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DeleteInstance", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteInstanceAsync(ctx workflow.Context, input *connect.DeleteInstanceInput) *DeleteInstanceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DeleteInstance", input)
+	return &DeleteInstanceFuture{Future: future}
+}
+
+func (a *stub) DeleteIntegrationAssociation(ctx workflow.Context, input *connect.DeleteIntegrationAssociationInput) (*connect.DeleteIntegrationAssociationOutput, error) {
+	var output connect.DeleteIntegrationAssociationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DeleteIntegrationAssociation", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteIntegrationAssociationAsync(ctx workflow.Context, input *connect.DeleteIntegrationAssociationInput) *DeleteIntegrationAssociationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DeleteIntegrationAssociation", input)
+	return &DeleteIntegrationAssociationFuture{Future: future}
+}
+
+func (a *stub) DeleteQuickConnect(ctx workflow.Context, input *connect.DeleteQuickConnectInput) (*connect.DeleteQuickConnectOutput, error) {
+	var output connect.DeleteQuickConnectOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DeleteQuickConnect", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteQuickConnectAsync(ctx workflow.Context, input *connect.DeleteQuickConnectInput) *DeleteQuickConnectFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DeleteQuickConnect", input)
+	return &DeleteQuickConnectFuture{Future: future}
+}
+
+func (a *stub) DeleteUseCase(ctx workflow.Context, input *connect.DeleteUseCaseInput) (*connect.DeleteUseCaseOutput, error) {
+	var output connect.DeleteUseCaseOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DeleteUseCase", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteUseCaseAsync(ctx workflow.Context, input *connect.DeleteUseCaseInput) *DeleteUseCaseFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DeleteUseCase", input)
+	return &DeleteUseCaseFuture{Future: future}
+}
+
 func (a *stub) DeleteUser(ctx workflow.Context, input *connect.DeleteUserInput) (*connect.DeleteUserOutput, error) {
 	var output connect.DeleteUserOutput
 	err := workflow.ExecuteActivity(ctx, "aws-connect-DeleteUser", input).Get(ctx, &output)
@@ -587,6 +1335,17 @@ func (a *stub) DeleteUserAsync(ctx workflow.Context, input *connect.DeleteUserIn
 	return &DeleteUserFuture{Future: future}
 }
 
+func (a *stub) DeleteUserHierarchyGroup(ctx workflow.Context, input *connect.DeleteUserHierarchyGroupInput) (*connect.DeleteUserHierarchyGroupOutput, error) {
+	var output connect.DeleteUserHierarchyGroupOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DeleteUserHierarchyGroup", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteUserHierarchyGroupAsync(ctx workflow.Context, input *connect.DeleteUserHierarchyGroupInput) *DeleteUserHierarchyGroupFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DeleteUserHierarchyGroup", input)
+	return &DeleteUserHierarchyGroupFuture{Future: future}
+}
+
 func (a *stub) DescribeContactFlow(ctx workflow.Context, input *connect.DescribeContactFlowInput) (*connect.DescribeContactFlowOutput, error) {
 	var output connect.DescribeContactFlowOutput
 	err := workflow.ExecuteActivity(ctx, "aws-connect-DescribeContactFlow", input).Get(ctx, &output)
@@ -596,6 +1355,72 @@ func (a *stub) DescribeContactFlow(ctx workflow.Context, input *connect.Describe
 func (a *stub) DescribeContactFlowAsync(ctx workflow.Context, input *connect.DescribeContactFlowInput) *DescribeContactFlowFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connect-DescribeContactFlow", input)
 	return &DescribeContactFlowFuture{Future: future}
+}
+
+func (a *stub) DescribeHoursOfOperation(ctx workflow.Context, input *connect.DescribeHoursOfOperationInput) (*connect.DescribeHoursOfOperationOutput, error) {
+	var output connect.DescribeHoursOfOperationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DescribeHoursOfOperation", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeHoursOfOperationAsync(ctx workflow.Context, input *connect.DescribeHoursOfOperationInput) *DescribeHoursOfOperationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DescribeHoursOfOperation", input)
+	return &DescribeHoursOfOperationFuture{Future: future}
+}
+
+func (a *stub) DescribeInstance(ctx workflow.Context, input *connect.DescribeInstanceInput) (*connect.DescribeInstanceOutput, error) {
+	var output connect.DescribeInstanceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DescribeInstance", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeInstanceAsync(ctx workflow.Context, input *connect.DescribeInstanceInput) *DescribeInstanceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DescribeInstance", input)
+	return &DescribeInstanceFuture{Future: future}
+}
+
+func (a *stub) DescribeInstanceAttribute(ctx workflow.Context, input *connect.DescribeInstanceAttributeInput) (*connect.DescribeInstanceAttributeOutput, error) {
+	var output connect.DescribeInstanceAttributeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DescribeInstanceAttribute", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeInstanceAttributeAsync(ctx workflow.Context, input *connect.DescribeInstanceAttributeInput) *DescribeInstanceAttributeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DescribeInstanceAttribute", input)
+	return &DescribeInstanceAttributeFuture{Future: future}
+}
+
+func (a *stub) DescribeInstanceStorageConfig(ctx workflow.Context, input *connect.DescribeInstanceStorageConfigInput) (*connect.DescribeInstanceStorageConfigOutput, error) {
+	var output connect.DescribeInstanceStorageConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DescribeInstanceStorageConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeInstanceStorageConfigAsync(ctx workflow.Context, input *connect.DescribeInstanceStorageConfigInput) *DescribeInstanceStorageConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DescribeInstanceStorageConfig", input)
+	return &DescribeInstanceStorageConfigFuture{Future: future}
+}
+
+func (a *stub) DescribeQueue(ctx workflow.Context, input *connect.DescribeQueueInput) (*connect.DescribeQueueOutput, error) {
+	var output connect.DescribeQueueOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DescribeQueue", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeQueueAsync(ctx workflow.Context, input *connect.DescribeQueueInput) *DescribeQueueFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DescribeQueue", input)
+	return &DescribeQueueFuture{Future: future}
+}
+
+func (a *stub) DescribeQuickConnect(ctx workflow.Context, input *connect.DescribeQuickConnectInput) (*connect.DescribeQuickConnectOutput, error) {
+	var output connect.DescribeQuickConnectOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DescribeQuickConnect", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DescribeQuickConnectAsync(ctx workflow.Context, input *connect.DescribeQuickConnectInput) *DescribeQuickConnectFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DescribeQuickConnect", input)
+	return &DescribeQuickConnectFuture{Future: future}
 }
 
 func (a *stub) DescribeRoutingProfile(ctx workflow.Context, input *connect.DescribeRoutingProfileInput) (*connect.DescribeRoutingProfileOutput, error) {
@@ -642,6 +1467,61 @@ func (a *stub) DescribeUserHierarchyStructureAsync(ctx workflow.Context, input *
 	return &DescribeUserHierarchyStructureFuture{Future: future}
 }
 
+func (a *stub) DisassociateApprovedOrigin(ctx workflow.Context, input *connect.DisassociateApprovedOriginInput) (*connect.DisassociateApprovedOriginOutput, error) {
+	var output connect.DisassociateApprovedOriginOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateApprovedOrigin", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisassociateApprovedOriginAsync(ctx workflow.Context, input *connect.DisassociateApprovedOriginInput) *DisassociateApprovedOriginFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateApprovedOrigin", input)
+	return &DisassociateApprovedOriginFuture{Future: future}
+}
+
+func (a *stub) DisassociateInstanceStorageConfig(ctx workflow.Context, input *connect.DisassociateInstanceStorageConfigInput) (*connect.DisassociateInstanceStorageConfigOutput, error) {
+	var output connect.DisassociateInstanceStorageConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateInstanceStorageConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisassociateInstanceStorageConfigAsync(ctx workflow.Context, input *connect.DisassociateInstanceStorageConfigInput) *DisassociateInstanceStorageConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateInstanceStorageConfig", input)
+	return &DisassociateInstanceStorageConfigFuture{Future: future}
+}
+
+func (a *stub) DisassociateLambdaFunction(ctx workflow.Context, input *connect.DisassociateLambdaFunctionInput) (*connect.DisassociateLambdaFunctionOutput, error) {
+	var output connect.DisassociateLambdaFunctionOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateLambdaFunction", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisassociateLambdaFunctionAsync(ctx workflow.Context, input *connect.DisassociateLambdaFunctionInput) *DisassociateLambdaFunctionFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateLambdaFunction", input)
+	return &DisassociateLambdaFunctionFuture{Future: future}
+}
+
+func (a *stub) DisassociateLexBot(ctx workflow.Context, input *connect.DisassociateLexBotInput) (*connect.DisassociateLexBotOutput, error) {
+	var output connect.DisassociateLexBotOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateLexBot", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisassociateLexBotAsync(ctx workflow.Context, input *connect.DisassociateLexBotInput) *DisassociateLexBotFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateLexBot", input)
+	return &DisassociateLexBotFuture{Future: future}
+}
+
+func (a *stub) DisassociateQueueQuickConnects(ctx workflow.Context, input *connect.DisassociateQueueQuickConnectsInput) (*connect.DisassociateQueueQuickConnectsOutput, error) {
+	var output connect.DisassociateQueueQuickConnectsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateQueueQuickConnects", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisassociateQueueQuickConnectsAsync(ctx workflow.Context, input *connect.DisassociateQueueQuickConnectsInput) *DisassociateQueueQuickConnectsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateQueueQuickConnects", input)
+	return &DisassociateQueueQuickConnectsFuture{Future: future}
+}
+
 func (a *stub) DisassociateRoutingProfileQueues(ctx workflow.Context, input *connect.DisassociateRoutingProfileQueuesInput) (*connect.DisassociateRoutingProfileQueuesOutput, error) {
 	var output connect.DisassociateRoutingProfileQueuesOutput
 	err := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateRoutingProfileQueues", input).Get(ctx, &output)
@@ -651,6 +1531,17 @@ func (a *stub) DisassociateRoutingProfileQueues(ctx workflow.Context, input *con
 func (a *stub) DisassociateRoutingProfileQueuesAsync(ctx workflow.Context, input *connect.DisassociateRoutingProfileQueuesInput) *DisassociateRoutingProfileQueuesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateRoutingProfileQueues", input)
 	return &DisassociateRoutingProfileQueuesFuture{Future: future}
+}
+
+func (a *stub) DisassociateSecurityKey(ctx workflow.Context, input *connect.DisassociateSecurityKeyInput) (*connect.DisassociateSecurityKeyOutput, error) {
+	var output connect.DisassociateSecurityKeyOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateSecurityKey", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DisassociateSecurityKeyAsync(ctx workflow.Context, input *connect.DisassociateSecurityKeyInput) *DisassociateSecurityKeyFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-DisassociateSecurityKey", input)
+	return &DisassociateSecurityKeyFuture{Future: future}
 }
 
 func (a *stub) GetContactAttributes(ctx workflow.Context, input *connect.GetContactAttributesInput) (*connect.GetContactAttributesOutput, error) {
@@ -697,6 +1588,17 @@ func (a *stub) GetMetricDataAsync(ctx workflow.Context, input *connect.GetMetric
 	return &GetMetricDataFuture{Future: future}
 }
 
+func (a *stub) ListApprovedOrigins(ctx workflow.Context, input *connect.ListApprovedOriginsInput) (*connect.ListApprovedOriginsOutput, error) {
+	var output connect.ListApprovedOriginsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListApprovedOrigins", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListApprovedOriginsAsync(ctx workflow.Context, input *connect.ListApprovedOriginsInput) *ListApprovedOriginsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListApprovedOrigins", input)
+	return &ListApprovedOriginsFuture{Future: future}
+}
+
 func (a *stub) ListContactFlows(ctx workflow.Context, input *connect.ListContactFlowsInput) (*connect.ListContactFlowsOutput, error) {
 	var output connect.ListContactFlowsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-connect-ListContactFlows", input).Get(ctx, &output)
@@ -717,6 +1619,72 @@ func (a *stub) ListHoursOfOperations(ctx workflow.Context, input *connect.ListHo
 func (a *stub) ListHoursOfOperationsAsync(ctx workflow.Context, input *connect.ListHoursOfOperationsInput) *ListHoursOfOperationsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connect-ListHoursOfOperations", input)
 	return &ListHoursOfOperationsFuture{Future: future}
+}
+
+func (a *stub) ListInstanceAttributes(ctx workflow.Context, input *connect.ListInstanceAttributesInput) (*connect.ListInstanceAttributesOutput, error) {
+	var output connect.ListInstanceAttributesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListInstanceAttributes", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListInstanceAttributesAsync(ctx workflow.Context, input *connect.ListInstanceAttributesInput) *ListInstanceAttributesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListInstanceAttributes", input)
+	return &ListInstanceAttributesFuture{Future: future}
+}
+
+func (a *stub) ListInstanceStorageConfigs(ctx workflow.Context, input *connect.ListInstanceStorageConfigsInput) (*connect.ListInstanceStorageConfigsOutput, error) {
+	var output connect.ListInstanceStorageConfigsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListInstanceStorageConfigs", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListInstanceStorageConfigsAsync(ctx workflow.Context, input *connect.ListInstanceStorageConfigsInput) *ListInstanceStorageConfigsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListInstanceStorageConfigs", input)
+	return &ListInstanceStorageConfigsFuture{Future: future}
+}
+
+func (a *stub) ListInstances(ctx workflow.Context, input *connect.ListInstancesInput) (*connect.ListInstancesOutput, error) {
+	var output connect.ListInstancesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListInstances", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListInstancesAsync(ctx workflow.Context, input *connect.ListInstancesInput) *ListInstancesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListInstances", input)
+	return &ListInstancesFuture{Future: future}
+}
+
+func (a *stub) ListIntegrationAssociations(ctx workflow.Context, input *connect.ListIntegrationAssociationsInput) (*connect.ListIntegrationAssociationsOutput, error) {
+	var output connect.ListIntegrationAssociationsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListIntegrationAssociations", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListIntegrationAssociationsAsync(ctx workflow.Context, input *connect.ListIntegrationAssociationsInput) *ListIntegrationAssociationsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListIntegrationAssociations", input)
+	return &ListIntegrationAssociationsFuture{Future: future}
+}
+
+func (a *stub) ListLambdaFunctions(ctx workflow.Context, input *connect.ListLambdaFunctionsInput) (*connect.ListLambdaFunctionsOutput, error) {
+	var output connect.ListLambdaFunctionsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListLambdaFunctions", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListLambdaFunctionsAsync(ctx workflow.Context, input *connect.ListLambdaFunctionsInput) *ListLambdaFunctionsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListLambdaFunctions", input)
+	return &ListLambdaFunctionsFuture{Future: future}
+}
+
+func (a *stub) ListLexBots(ctx workflow.Context, input *connect.ListLexBotsInput) (*connect.ListLexBotsOutput, error) {
+	var output connect.ListLexBotsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListLexBots", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListLexBotsAsync(ctx workflow.Context, input *connect.ListLexBotsInput) *ListLexBotsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListLexBots", input)
+	return &ListLexBotsFuture{Future: future}
 }
 
 func (a *stub) ListPhoneNumbers(ctx workflow.Context, input *connect.ListPhoneNumbersInput) (*connect.ListPhoneNumbersOutput, error) {
@@ -741,6 +1709,17 @@ func (a *stub) ListPromptsAsync(ctx workflow.Context, input *connect.ListPrompts
 	return &ListPromptsFuture{Future: future}
 }
 
+func (a *stub) ListQueueQuickConnects(ctx workflow.Context, input *connect.ListQueueQuickConnectsInput) (*connect.ListQueueQuickConnectsOutput, error) {
+	var output connect.ListQueueQuickConnectsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListQueueQuickConnects", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListQueueQuickConnectsAsync(ctx workflow.Context, input *connect.ListQueueQuickConnectsInput) *ListQueueQuickConnectsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListQueueQuickConnects", input)
+	return &ListQueueQuickConnectsFuture{Future: future}
+}
+
 func (a *stub) ListQueues(ctx workflow.Context, input *connect.ListQueuesInput) (*connect.ListQueuesOutput, error) {
 	var output connect.ListQueuesOutput
 	err := workflow.ExecuteActivity(ctx, "aws-connect-ListQueues", input).Get(ctx, &output)
@@ -750,6 +1729,17 @@ func (a *stub) ListQueues(ctx workflow.Context, input *connect.ListQueuesInput) 
 func (a *stub) ListQueuesAsync(ctx workflow.Context, input *connect.ListQueuesInput) *ListQueuesFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connect-ListQueues", input)
 	return &ListQueuesFuture{Future: future}
+}
+
+func (a *stub) ListQuickConnects(ctx workflow.Context, input *connect.ListQuickConnectsInput) (*connect.ListQuickConnectsOutput, error) {
+	var output connect.ListQuickConnectsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListQuickConnects", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListQuickConnectsAsync(ctx workflow.Context, input *connect.ListQuickConnectsInput) *ListQuickConnectsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListQuickConnects", input)
+	return &ListQuickConnectsFuture{Future: future}
 }
 
 func (a *stub) ListRoutingProfileQueues(ctx workflow.Context, input *connect.ListRoutingProfileQueuesInput) (*connect.ListRoutingProfileQueuesOutput, error) {
@@ -774,6 +1764,17 @@ func (a *stub) ListRoutingProfilesAsync(ctx workflow.Context, input *connect.Lis
 	return &ListRoutingProfilesFuture{Future: future}
 }
 
+func (a *stub) ListSecurityKeys(ctx workflow.Context, input *connect.ListSecurityKeysInput) (*connect.ListSecurityKeysOutput, error) {
+	var output connect.ListSecurityKeysOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListSecurityKeys", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListSecurityKeysAsync(ctx workflow.Context, input *connect.ListSecurityKeysInput) *ListSecurityKeysFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListSecurityKeys", input)
+	return &ListSecurityKeysFuture{Future: future}
+}
+
 func (a *stub) ListSecurityProfiles(ctx workflow.Context, input *connect.ListSecurityProfilesInput) (*connect.ListSecurityProfilesOutput, error) {
 	var output connect.ListSecurityProfilesOutput
 	err := workflow.ExecuteActivity(ctx, "aws-connect-ListSecurityProfiles", input).Get(ctx, &output)
@@ -794,6 +1795,17 @@ func (a *stub) ListTagsForResource(ctx workflow.Context, input *connect.ListTags
 func (a *stub) ListTagsForResourceAsync(ctx workflow.Context, input *connect.ListTagsForResourceInput) *ListTagsForResourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connect-ListTagsForResource", input)
 	return &ListTagsForResourceFuture{Future: future}
+}
+
+func (a *stub) ListUseCases(ctx workflow.Context, input *connect.ListUseCasesInput) (*connect.ListUseCasesOutput, error) {
+	var output connect.ListUseCasesOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-ListUseCases", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListUseCasesAsync(ctx workflow.Context, input *connect.ListUseCasesInput) *ListUseCasesFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-ListUseCases", input)
+	return &ListUseCasesFuture{Future: future}
 }
 
 func (a *stub) ListUserHierarchyGroups(ctx workflow.Context, input *connect.ListUserHierarchyGroupsInput) (*connect.ListUserHierarchyGroupsOutput, error) {
@@ -860,6 +1872,17 @@ func (a *stub) StartOutboundVoiceContact(ctx workflow.Context, input *connect.St
 func (a *stub) StartOutboundVoiceContactAsync(ctx workflow.Context, input *connect.StartOutboundVoiceContactInput) *StartOutboundVoiceContactFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connect-StartOutboundVoiceContact", input)
 	return &StartOutboundVoiceContactFuture{Future: future}
+}
+
+func (a *stub) StartTaskContact(ctx workflow.Context, input *connect.StartTaskContactInput) (*connect.StartTaskContactOutput, error) {
+	var output connect.StartTaskContactOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-StartTaskContact", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartTaskContactAsync(ctx workflow.Context, input *connect.StartTaskContactInput) *StartTaskContactFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-StartTaskContact", input)
+	return &StartTaskContactFuture{Future: future}
 }
 
 func (a *stub) StopContact(ctx workflow.Context, input *connect.StopContactInput) (*connect.StopContactOutput, error) {
@@ -950,6 +1973,105 @@ func (a *stub) UpdateContactFlowNameAsync(ctx workflow.Context, input *connect.U
 	return &UpdateContactFlowNameFuture{Future: future}
 }
 
+func (a *stub) UpdateInstanceAttribute(ctx workflow.Context, input *connect.UpdateInstanceAttributeInput) (*connect.UpdateInstanceAttributeOutput, error) {
+	var output connect.UpdateInstanceAttributeOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateInstanceAttribute", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateInstanceAttributeAsync(ctx workflow.Context, input *connect.UpdateInstanceAttributeInput) *UpdateInstanceAttributeFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateInstanceAttribute", input)
+	return &UpdateInstanceAttributeFuture{Future: future}
+}
+
+func (a *stub) UpdateInstanceStorageConfig(ctx workflow.Context, input *connect.UpdateInstanceStorageConfigInput) (*connect.UpdateInstanceStorageConfigOutput, error) {
+	var output connect.UpdateInstanceStorageConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateInstanceStorageConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateInstanceStorageConfigAsync(ctx workflow.Context, input *connect.UpdateInstanceStorageConfigInput) *UpdateInstanceStorageConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateInstanceStorageConfig", input)
+	return &UpdateInstanceStorageConfigFuture{Future: future}
+}
+
+func (a *stub) UpdateQueueHoursOfOperation(ctx workflow.Context, input *connect.UpdateQueueHoursOfOperationInput) (*connect.UpdateQueueHoursOfOperationOutput, error) {
+	var output connect.UpdateQueueHoursOfOperationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQueueHoursOfOperation", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateQueueHoursOfOperationAsync(ctx workflow.Context, input *connect.UpdateQueueHoursOfOperationInput) *UpdateQueueHoursOfOperationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQueueHoursOfOperation", input)
+	return &UpdateQueueHoursOfOperationFuture{Future: future}
+}
+
+func (a *stub) UpdateQueueMaxContacts(ctx workflow.Context, input *connect.UpdateQueueMaxContactsInput) (*connect.UpdateQueueMaxContactsOutput, error) {
+	var output connect.UpdateQueueMaxContactsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQueueMaxContacts", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateQueueMaxContactsAsync(ctx workflow.Context, input *connect.UpdateQueueMaxContactsInput) *UpdateQueueMaxContactsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQueueMaxContacts", input)
+	return &UpdateQueueMaxContactsFuture{Future: future}
+}
+
+func (a *stub) UpdateQueueName(ctx workflow.Context, input *connect.UpdateQueueNameInput) (*connect.UpdateQueueNameOutput, error) {
+	var output connect.UpdateQueueNameOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQueueName", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateQueueNameAsync(ctx workflow.Context, input *connect.UpdateQueueNameInput) *UpdateQueueNameFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQueueName", input)
+	return &UpdateQueueNameFuture{Future: future}
+}
+
+func (a *stub) UpdateQueueOutboundCallerConfig(ctx workflow.Context, input *connect.UpdateQueueOutboundCallerConfigInput) (*connect.UpdateQueueOutboundCallerConfigOutput, error) {
+	var output connect.UpdateQueueOutboundCallerConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQueueOutboundCallerConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateQueueOutboundCallerConfigAsync(ctx workflow.Context, input *connect.UpdateQueueOutboundCallerConfigInput) *UpdateQueueOutboundCallerConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQueueOutboundCallerConfig", input)
+	return &UpdateQueueOutboundCallerConfigFuture{Future: future}
+}
+
+func (a *stub) UpdateQueueStatus(ctx workflow.Context, input *connect.UpdateQueueStatusInput) (*connect.UpdateQueueStatusOutput, error) {
+	var output connect.UpdateQueueStatusOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQueueStatus", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateQueueStatusAsync(ctx workflow.Context, input *connect.UpdateQueueStatusInput) *UpdateQueueStatusFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQueueStatus", input)
+	return &UpdateQueueStatusFuture{Future: future}
+}
+
+func (a *stub) UpdateQuickConnectConfig(ctx workflow.Context, input *connect.UpdateQuickConnectConfigInput) (*connect.UpdateQuickConnectConfigOutput, error) {
+	var output connect.UpdateQuickConnectConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQuickConnectConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateQuickConnectConfigAsync(ctx workflow.Context, input *connect.UpdateQuickConnectConfigInput) *UpdateQuickConnectConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQuickConnectConfig", input)
+	return &UpdateQuickConnectConfigFuture{Future: future}
+}
+
+func (a *stub) UpdateQuickConnectName(ctx workflow.Context, input *connect.UpdateQuickConnectNameInput) (*connect.UpdateQuickConnectNameOutput, error) {
+	var output connect.UpdateQuickConnectNameOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQuickConnectName", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateQuickConnectNameAsync(ctx workflow.Context, input *connect.UpdateQuickConnectNameInput) *UpdateQuickConnectNameFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateQuickConnectName", input)
+	return &UpdateQuickConnectNameFuture{Future: future}
+}
+
 func (a *stub) UpdateRoutingProfileConcurrency(ctx workflow.Context, input *connect.UpdateRoutingProfileConcurrencyInput) (*connect.UpdateRoutingProfileConcurrencyOutput, error) {
 	var output connect.UpdateRoutingProfileConcurrencyOutput
 	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateRoutingProfileConcurrency", input).Get(ctx, &output)
@@ -1003,6 +2125,28 @@ func (a *stub) UpdateUserHierarchy(ctx workflow.Context, input *connect.UpdateUs
 func (a *stub) UpdateUserHierarchyAsync(ctx workflow.Context, input *connect.UpdateUserHierarchyInput) *UpdateUserHierarchyFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateUserHierarchy", input)
 	return &UpdateUserHierarchyFuture{Future: future}
+}
+
+func (a *stub) UpdateUserHierarchyGroupName(ctx workflow.Context, input *connect.UpdateUserHierarchyGroupNameInput) (*connect.UpdateUserHierarchyGroupNameOutput, error) {
+	var output connect.UpdateUserHierarchyGroupNameOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateUserHierarchyGroupName", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateUserHierarchyGroupNameAsync(ctx workflow.Context, input *connect.UpdateUserHierarchyGroupNameInput) *UpdateUserHierarchyGroupNameFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateUserHierarchyGroupName", input)
+	return &UpdateUserHierarchyGroupNameFuture{Future: future}
+}
+
+func (a *stub) UpdateUserHierarchyStructure(ctx workflow.Context, input *connect.UpdateUserHierarchyStructureInput) (*connect.UpdateUserHierarchyStructureOutput, error) {
+	var output connect.UpdateUserHierarchyStructureOutput
+	err := workflow.ExecuteActivity(ctx, "aws-connect-UpdateUserHierarchyStructure", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateUserHierarchyStructureAsync(ctx workflow.Context, input *connect.UpdateUserHierarchyStructureInput) *UpdateUserHierarchyStructureFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-connect-UpdateUserHierarchyStructure", input)
+	return &UpdateUserHierarchyStructureFuture{Future: future}
 }
 
 func (a *stub) UpdateUserIdentityInfo(ctx workflow.Context, input *connect.UpdateUserIdentityInfoInput) (*connect.UpdateUserIdentityInfoOutput, error) {

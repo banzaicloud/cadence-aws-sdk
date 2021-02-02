@@ -191,6 +191,17 @@ func (r *ListProposalsFuture) Get(ctx workflow.Context) (*managedblockchain.List
 	return &output, err
 }
 
+type ListTagsForResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListTagsForResourceFuture) Get(ctx workflow.Context) (*managedblockchain.ListTagsForResourceOutput, error) {
+	var output managedblockchain.ListTagsForResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type RejectInvitationFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -198,6 +209,28 @@ type RejectInvitationFuture struct {
 
 func (r *RejectInvitationFuture) Get(ctx workflow.Context) (*managedblockchain.RejectInvitationOutput, error) {
 	var output managedblockchain.RejectInvitationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type TagResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *TagResourceFuture) Get(ctx workflow.Context) (*managedblockchain.TagResourceOutput, error) {
+	var output managedblockchain.TagResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UntagResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UntagResourceFuture) Get(ctx workflow.Context) (*managedblockchain.UntagResourceOutput, error) {
+	var output managedblockchain.UntagResourceOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -411,6 +444,17 @@ func (a *stub) ListProposalsAsync(ctx workflow.Context, input *managedblockchain
 	return &ListProposalsFuture{Future: future}
 }
 
+func (a *stub) ListTagsForResource(ctx workflow.Context, input *managedblockchain.ListTagsForResourceInput) (*managedblockchain.ListTagsForResourceOutput, error) {
+	var output managedblockchain.ListTagsForResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-managedblockchain-ListTagsForResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListTagsForResourceAsync(ctx workflow.Context, input *managedblockchain.ListTagsForResourceInput) *ListTagsForResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-managedblockchain-ListTagsForResource", input)
+	return &ListTagsForResourceFuture{Future: future}
+}
+
 func (a *stub) RejectInvitation(ctx workflow.Context, input *managedblockchain.RejectInvitationInput) (*managedblockchain.RejectInvitationOutput, error) {
 	var output managedblockchain.RejectInvitationOutput
 	err := workflow.ExecuteActivity(ctx, "aws-managedblockchain-RejectInvitation", input).Get(ctx, &output)
@@ -420,6 +464,28 @@ func (a *stub) RejectInvitation(ctx workflow.Context, input *managedblockchain.R
 func (a *stub) RejectInvitationAsync(ctx workflow.Context, input *managedblockchain.RejectInvitationInput) *RejectInvitationFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-managedblockchain-RejectInvitation", input)
 	return &RejectInvitationFuture{Future: future}
+}
+
+func (a *stub) TagResource(ctx workflow.Context, input *managedblockchain.TagResourceInput) (*managedblockchain.TagResourceOutput, error) {
+	var output managedblockchain.TagResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-managedblockchain-TagResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) TagResourceAsync(ctx workflow.Context, input *managedblockchain.TagResourceInput) *TagResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-managedblockchain-TagResource", input)
+	return &TagResourceFuture{Future: future}
+}
+
+func (a *stub) UntagResource(ctx workflow.Context, input *managedblockchain.UntagResourceInput) (*managedblockchain.UntagResourceOutput, error) {
+	var output managedblockchain.UntagResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-managedblockchain-UntagResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UntagResourceAsync(ctx workflow.Context, input *managedblockchain.UntagResourceInput) *UntagResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-managedblockchain-UntagResource", input)
+	return &UntagResourceFuture{Future: future}
 }
 
 func (a *stub) UpdateMember(ctx workflow.Context, input *managedblockchain.UpdateMemberInput) (*managedblockchain.UpdateMemberOutput, error) {

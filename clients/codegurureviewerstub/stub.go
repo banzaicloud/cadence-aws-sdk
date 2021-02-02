@@ -125,6 +125,17 @@ func (r *ListRepositoryAssociationsFuture) Get(ctx workflow.Context) (*codegurur
 	return &output, err
 }
 
+type ListTagsForResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListTagsForResourceFuture) Get(ctx workflow.Context) (*codegurureviewer.ListTagsForResourceOutput, error) {
+	var output codegurureviewer.ListTagsForResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type PutRecommendationFeedbackFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -132,6 +143,28 @@ type PutRecommendationFeedbackFuture struct {
 
 func (r *PutRecommendationFeedbackFuture) Get(ctx workflow.Context) (*codegurureviewer.PutRecommendationFeedbackOutput, error) {
 	var output codegurureviewer.PutRecommendationFeedbackOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type TagResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *TagResourceFuture) Get(ctx workflow.Context) (*codegurureviewer.TagResourceOutput, error) {
+	var output codegurureviewer.TagResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UntagResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UntagResourceFuture) Get(ctx workflow.Context) (*codegurureviewer.UntagResourceOutput, error) {
+	var output codegurureviewer.UntagResourceOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -246,6 +279,17 @@ func (a *stub) ListRepositoryAssociationsAsync(ctx workflow.Context, input *code
 	return &ListRepositoryAssociationsFuture{Future: future}
 }
 
+func (a *stub) ListTagsForResource(ctx workflow.Context, input *codegurureviewer.ListTagsForResourceInput) (*codegurureviewer.ListTagsForResourceOutput, error) {
+	var output codegurureviewer.ListTagsForResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-codegurureviewer-ListTagsForResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListTagsForResourceAsync(ctx workflow.Context, input *codegurureviewer.ListTagsForResourceInput) *ListTagsForResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-codegurureviewer-ListTagsForResource", input)
+	return &ListTagsForResourceFuture{Future: future}
+}
+
 func (a *stub) PutRecommendationFeedback(ctx workflow.Context, input *codegurureviewer.PutRecommendationFeedbackInput) (*codegurureviewer.PutRecommendationFeedbackOutput, error) {
 	var output codegurureviewer.PutRecommendationFeedbackOutput
 	err := workflow.ExecuteActivity(ctx, "aws-codegurureviewer-PutRecommendationFeedback", input).Get(ctx, &output)
@@ -255,4 +299,26 @@ func (a *stub) PutRecommendationFeedback(ctx workflow.Context, input *codegurure
 func (a *stub) PutRecommendationFeedbackAsync(ctx workflow.Context, input *codegurureviewer.PutRecommendationFeedbackInput) *PutRecommendationFeedbackFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-codegurureviewer-PutRecommendationFeedback", input)
 	return &PutRecommendationFeedbackFuture{Future: future}
+}
+
+func (a *stub) TagResource(ctx workflow.Context, input *codegurureviewer.TagResourceInput) (*codegurureviewer.TagResourceOutput, error) {
+	var output codegurureviewer.TagResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-codegurureviewer-TagResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) TagResourceAsync(ctx workflow.Context, input *codegurureviewer.TagResourceInput) *TagResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-codegurureviewer-TagResource", input)
+	return &TagResourceFuture{Future: future}
+}
+
+func (a *stub) UntagResource(ctx workflow.Context, input *codegurureviewer.UntagResourceInput) (*codegurureviewer.UntagResourceOutput, error) {
+	var output codegurureviewer.UntagResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-codegurureviewer-UntagResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UntagResourceAsync(ctx workflow.Context, input *codegurureviewer.UntagResourceInput) *UntagResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-codegurureviewer-UntagResource", input)
+	return &UntagResourceFuture{Future: future}
 }

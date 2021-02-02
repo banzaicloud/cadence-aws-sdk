@@ -15,6 +15,28 @@ var _ clients.VoidFuture
 
 type stub struct{}
 
+type CreateParallelDataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateParallelDataFuture) Get(ctx workflow.Context) (*translate.CreateParallelDataOutput, error) {
+	var output translate.CreateParallelDataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteParallelDataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteParallelDataFuture) Get(ctx workflow.Context) (*translate.DeleteParallelDataOutput, error) {
+	var output translate.DeleteParallelDataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteTerminologyFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -37,6 +59,17 @@ func (r *DescribeTextTranslationJobFuture) Get(ctx workflow.Context) (*translate
 	return &output, err
 }
 
+type GetParallelDataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetParallelDataFuture) Get(ctx workflow.Context) (*translate.GetParallelDataOutput, error) {
+	var output translate.GetParallelDataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetTerminologyFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -55,6 +88,17 @@ type ImportTerminologyFuture struct {
 
 func (r *ImportTerminologyFuture) Get(ctx workflow.Context) (*translate.ImportTerminologyOutput, error) {
 	var output translate.ImportTerminologyOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListParallelDataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListParallelDataFuture) Get(ctx workflow.Context) (*translate.ListParallelDataOutput, error) {
+	var output translate.ListParallelDataOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -114,6 +158,39 @@ func (r *TextFuture) Get(ctx workflow.Context) (*translate.TextOutput, error) {
 	return &output, err
 }
 
+type UpdateParallelDataFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateParallelDataFuture) Get(ctx workflow.Context) (*translate.UpdateParallelDataOutput, error) {
+	var output translate.UpdateParallelDataOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateParallelData(ctx workflow.Context, input *translate.CreateParallelDataInput) (*translate.CreateParallelDataOutput, error) {
+	var output translate.CreateParallelDataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-translate-CreateParallelData", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateParallelDataAsync(ctx workflow.Context, input *translate.CreateParallelDataInput) *CreateParallelDataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-translate-CreateParallelData", input)
+	return &CreateParallelDataFuture{Future: future}
+}
+
+func (a *stub) DeleteParallelData(ctx workflow.Context, input *translate.DeleteParallelDataInput) (*translate.DeleteParallelDataOutput, error) {
+	var output translate.DeleteParallelDataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-translate-DeleteParallelData", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteParallelDataAsync(ctx workflow.Context, input *translate.DeleteParallelDataInput) *DeleteParallelDataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-translate-DeleteParallelData", input)
+	return &DeleteParallelDataFuture{Future: future}
+}
+
 func (a *stub) DeleteTerminology(ctx workflow.Context, input *translate.DeleteTerminologyInput) (*translate.DeleteTerminologyOutput, error) {
 	var output translate.DeleteTerminologyOutput
 	err := workflow.ExecuteActivity(ctx, "aws-translate-DeleteTerminology", input).Get(ctx, &output)
@@ -136,6 +213,17 @@ func (a *stub) DescribeTextTranslationJobAsync(ctx workflow.Context, input *tran
 	return &DescribeTextTranslationJobFuture{Future: future}
 }
 
+func (a *stub) GetParallelData(ctx workflow.Context, input *translate.GetParallelDataInput) (*translate.GetParallelDataOutput, error) {
+	var output translate.GetParallelDataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-translate-GetParallelData", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetParallelDataAsync(ctx workflow.Context, input *translate.GetParallelDataInput) *GetParallelDataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-translate-GetParallelData", input)
+	return &GetParallelDataFuture{Future: future}
+}
+
 func (a *stub) GetTerminology(ctx workflow.Context, input *translate.GetTerminologyInput) (*translate.GetTerminologyOutput, error) {
 	var output translate.GetTerminologyOutput
 	err := workflow.ExecuteActivity(ctx, "aws-translate-GetTerminology", input).Get(ctx, &output)
@@ -156,6 +244,17 @@ func (a *stub) ImportTerminology(ctx workflow.Context, input *translate.ImportTe
 func (a *stub) ImportTerminologyAsync(ctx workflow.Context, input *translate.ImportTerminologyInput) *ImportTerminologyFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-translate-ImportTerminology", input)
 	return &ImportTerminologyFuture{Future: future}
+}
+
+func (a *stub) ListParallelData(ctx workflow.Context, input *translate.ListParallelDataInput) (*translate.ListParallelDataOutput, error) {
+	var output translate.ListParallelDataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-translate-ListParallelData", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListParallelDataAsync(ctx workflow.Context, input *translate.ListParallelDataInput) *ListParallelDataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-translate-ListParallelData", input)
+	return &ListParallelDataFuture{Future: future}
 }
 
 func (a *stub) ListTerminologies(ctx workflow.Context, input *translate.ListTerminologiesInput) (*translate.ListTerminologiesOutput, error) {
@@ -211,4 +310,15 @@ func (a *stub) Text(ctx workflow.Context, input *translate.TextInput) (*translat
 func (a *stub) TextAsync(ctx workflow.Context, input *translate.TextInput) *TextFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-translate-Text", input)
 	return &TextFuture{Future: future}
+}
+
+func (a *stub) UpdateParallelData(ctx workflow.Context, input *translate.UpdateParallelDataInput) (*translate.UpdateParallelDataOutput, error) {
+	var output translate.UpdateParallelDataOutput
+	err := workflow.ExecuteActivity(ctx, "aws-translate-UpdateParallelData", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateParallelDataAsync(ctx workflow.Context, input *translate.UpdateParallelDataInput) *UpdateParallelDataFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-translate-UpdateParallelData", input)
+	return &UpdateParallelDataFuture{Future: future}
 }

@@ -48,6 +48,17 @@ func (r *CreateAliasFuture) Get(ctx workflow.Context) (*lambda.AliasConfiguratio
 	return &output, err
 }
 
+type CreateCodeSigningConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateCodeSigningConfigFuture) Get(ctx workflow.Context) (*lambda.CreateCodeSigningConfigOutput, error) {
+	var output lambda.CreateCodeSigningConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateEventSourceMappingFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -81,6 +92,17 @@ func (r *DeleteAliasFuture) Get(ctx workflow.Context) (*lambda.DeleteAliasOutput
 	return &output, err
 }
 
+type DeleteCodeSigningConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteCodeSigningConfigFuture) Get(ctx workflow.Context) (*lambda.DeleteCodeSigningConfigOutput, error) {
+	var output lambda.DeleteCodeSigningConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type DeleteEventSourceMappingFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -99,6 +121,17 @@ type DeleteFunctionFuture struct {
 
 func (r *DeleteFunctionFuture) Get(ctx workflow.Context) (*lambda.DeleteFunctionOutput, error) {
 	var output lambda.DeleteFunctionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type DeleteFunctionCodeSigningConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *DeleteFunctionCodeSigningConfigFuture) Get(ctx workflow.Context) (*lambda.DeleteFunctionCodeSigningConfigOutput, error) {
+	var output lambda.DeleteFunctionCodeSigningConfigOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -169,6 +202,17 @@ func (r *GetAliasFuture) Get(ctx workflow.Context) (*lambda.AliasConfiguration, 
 	return &output, err
 }
 
+type GetCodeSigningConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetCodeSigningConfigFuture) Get(ctx workflow.Context) (*lambda.GetCodeSigningConfigOutput, error) {
+	var output lambda.GetCodeSigningConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type GetEventSourceMappingFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -187,6 +231,17 @@ type GetFunctionFuture struct {
 
 func (r *GetFunctionFuture) Get(ctx workflow.Context) (*lambda.GetFunctionOutput, error) {
 	var output lambda.GetFunctionOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type GetFunctionCodeSigningConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *GetFunctionCodeSigningConfigFuture) Get(ctx workflow.Context) (*lambda.GetFunctionCodeSigningConfigOutput, error) {
+	var output lambda.GetFunctionCodeSigningConfigOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -301,6 +356,17 @@ func (r *ListAliasesFuture) Get(ctx workflow.Context) (*lambda.ListAliasesOutput
 	return &output, err
 }
 
+type ListCodeSigningConfigsFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListCodeSigningConfigsFuture) Get(ctx workflow.Context) (*lambda.ListCodeSigningConfigsOutput, error) {
+	var output lambda.ListCodeSigningConfigsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type ListEventSourceMappingsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -330,6 +396,17 @@ type ListFunctionsFuture struct {
 
 func (r *ListFunctionsFuture) Get(ctx workflow.Context) (*lambda.ListFunctionsOutput, error) {
 	var output lambda.ListFunctionsOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type ListFunctionsByCodeSigningConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListFunctionsByCodeSigningConfigFuture) Get(ctx workflow.Context) (*lambda.ListFunctionsByCodeSigningConfigOutput, error) {
+	var output lambda.ListFunctionsByCodeSigningConfigOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -407,6 +484,17 @@ type PublishVersionFuture struct {
 
 func (r *PublishVersionFuture) Get(ctx workflow.Context) (*lambda.FunctionConfiguration, error) {
 	var output lambda.FunctionConfiguration
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type PutFunctionCodeSigningConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutFunctionCodeSigningConfigFuture) Get(ctx workflow.Context) (*lambda.PutFunctionCodeSigningConfigOutput, error) {
+	var output lambda.PutFunctionCodeSigningConfigOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -499,6 +587,17 @@ func (r *UpdateAliasFuture) Get(ctx workflow.Context) (*lambda.AliasConfiguratio
 	return &output, err
 }
 
+type UpdateCodeSigningConfigFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateCodeSigningConfigFuture) Get(ctx workflow.Context) (*lambda.UpdateCodeSigningConfigOutput, error) {
+	var output lambda.UpdateCodeSigningConfigOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateEventSourceMappingFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -576,6 +675,17 @@ func (a *stub) CreateAliasAsync(ctx workflow.Context, input *lambda.CreateAliasI
 	return &CreateAliasFuture{Future: future}
 }
 
+func (a *stub) CreateCodeSigningConfig(ctx workflow.Context, input *lambda.CreateCodeSigningConfigInput) (*lambda.CreateCodeSigningConfigOutput, error) {
+	var output lambda.CreateCodeSigningConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lambda-CreateCodeSigningConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateCodeSigningConfigAsync(ctx workflow.Context, input *lambda.CreateCodeSigningConfigInput) *CreateCodeSigningConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lambda-CreateCodeSigningConfig", input)
+	return &CreateCodeSigningConfigFuture{Future: future}
+}
+
 func (a *stub) CreateEventSourceMapping(ctx workflow.Context, input *lambda.CreateEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error) {
 	var output lambda.EventSourceMappingConfiguration
 	err := workflow.ExecuteActivity(ctx, "aws-lambda-CreateEventSourceMapping", input).Get(ctx, &output)
@@ -609,6 +719,17 @@ func (a *stub) DeleteAliasAsync(ctx workflow.Context, input *lambda.DeleteAliasI
 	return &DeleteAliasFuture{Future: future}
 }
 
+func (a *stub) DeleteCodeSigningConfig(ctx workflow.Context, input *lambda.DeleteCodeSigningConfigInput) (*lambda.DeleteCodeSigningConfigOutput, error) {
+	var output lambda.DeleteCodeSigningConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lambda-DeleteCodeSigningConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteCodeSigningConfigAsync(ctx workflow.Context, input *lambda.DeleteCodeSigningConfigInput) *DeleteCodeSigningConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lambda-DeleteCodeSigningConfig", input)
+	return &DeleteCodeSigningConfigFuture{Future: future}
+}
+
 func (a *stub) DeleteEventSourceMapping(ctx workflow.Context, input *lambda.DeleteEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error) {
 	var output lambda.EventSourceMappingConfiguration
 	err := workflow.ExecuteActivity(ctx, "aws-lambda-DeleteEventSourceMapping", input).Get(ctx, &output)
@@ -629,6 +750,17 @@ func (a *stub) DeleteFunction(ctx workflow.Context, input *lambda.DeleteFunction
 func (a *stub) DeleteFunctionAsync(ctx workflow.Context, input *lambda.DeleteFunctionInput) *DeleteFunctionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-lambda-DeleteFunction", input)
 	return &DeleteFunctionFuture{Future: future}
+}
+
+func (a *stub) DeleteFunctionCodeSigningConfig(ctx workflow.Context, input *lambda.DeleteFunctionCodeSigningConfigInput) (*lambda.DeleteFunctionCodeSigningConfigOutput, error) {
+	var output lambda.DeleteFunctionCodeSigningConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lambda-DeleteFunctionCodeSigningConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) DeleteFunctionCodeSigningConfigAsync(ctx workflow.Context, input *lambda.DeleteFunctionCodeSigningConfigInput) *DeleteFunctionCodeSigningConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lambda-DeleteFunctionCodeSigningConfig", input)
+	return &DeleteFunctionCodeSigningConfigFuture{Future: future}
 }
 
 func (a *stub) DeleteFunctionConcurrency(ctx workflow.Context, input *lambda.DeleteFunctionConcurrencyInput) (*lambda.DeleteFunctionConcurrencyOutput, error) {
@@ -697,6 +829,17 @@ func (a *stub) GetAliasAsync(ctx workflow.Context, input *lambda.GetAliasInput) 
 	return &GetAliasFuture{Future: future}
 }
 
+func (a *stub) GetCodeSigningConfig(ctx workflow.Context, input *lambda.GetCodeSigningConfigInput) (*lambda.GetCodeSigningConfigOutput, error) {
+	var output lambda.GetCodeSigningConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lambda-GetCodeSigningConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetCodeSigningConfigAsync(ctx workflow.Context, input *lambda.GetCodeSigningConfigInput) *GetCodeSigningConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lambda-GetCodeSigningConfig", input)
+	return &GetCodeSigningConfigFuture{Future: future}
+}
+
 func (a *stub) GetEventSourceMapping(ctx workflow.Context, input *lambda.GetEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error) {
 	var output lambda.EventSourceMappingConfiguration
 	err := workflow.ExecuteActivity(ctx, "aws-lambda-GetEventSourceMapping", input).Get(ctx, &output)
@@ -717,6 +860,17 @@ func (a *stub) GetFunction(ctx workflow.Context, input *lambda.GetFunctionInput)
 func (a *stub) GetFunctionAsync(ctx workflow.Context, input *lambda.GetFunctionInput) *GetFunctionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-lambda-GetFunction", input)
 	return &GetFunctionFuture{Future: future}
+}
+
+func (a *stub) GetFunctionCodeSigningConfig(ctx workflow.Context, input *lambda.GetFunctionCodeSigningConfigInput) (*lambda.GetFunctionCodeSigningConfigOutput, error) {
+	var output lambda.GetFunctionCodeSigningConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lambda-GetFunctionCodeSigningConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) GetFunctionCodeSigningConfigAsync(ctx workflow.Context, input *lambda.GetFunctionCodeSigningConfigInput) *GetFunctionCodeSigningConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lambda-GetFunctionCodeSigningConfig", input)
+	return &GetFunctionCodeSigningConfigFuture{Future: future}
 }
 
 func (a *stub) GetFunctionConcurrency(ctx workflow.Context, input *lambda.GetFunctionConcurrencyInput) (*lambda.GetFunctionConcurrencyOutput, error) {
@@ -829,6 +983,17 @@ func (a *stub) ListAliasesAsync(ctx workflow.Context, input *lambda.ListAliasesI
 	return &ListAliasesFuture{Future: future}
 }
 
+func (a *stub) ListCodeSigningConfigs(ctx workflow.Context, input *lambda.ListCodeSigningConfigsInput) (*lambda.ListCodeSigningConfigsOutput, error) {
+	var output lambda.ListCodeSigningConfigsOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lambda-ListCodeSigningConfigs", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListCodeSigningConfigsAsync(ctx workflow.Context, input *lambda.ListCodeSigningConfigsInput) *ListCodeSigningConfigsFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lambda-ListCodeSigningConfigs", input)
+	return &ListCodeSigningConfigsFuture{Future: future}
+}
+
 func (a *stub) ListEventSourceMappings(ctx workflow.Context, input *lambda.ListEventSourceMappingsInput) (*lambda.ListEventSourceMappingsOutput, error) {
 	var output lambda.ListEventSourceMappingsOutput
 	err := workflow.ExecuteActivity(ctx, "aws-lambda-ListEventSourceMappings", input).Get(ctx, &output)
@@ -860,6 +1025,17 @@ func (a *stub) ListFunctions(ctx workflow.Context, input *lambda.ListFunctionsIn
 func (a *stub) ListFunctionsAsync(ctx workflow.Context, input *lambda.ListFunctionsInput) *ListFunctionsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-lambda-ListFunctions", input)
 	return &ListFunctionsFuture{Future: future}
+}
+
+func (a *stub) ListFunctionsByCodeSigningConfig(ctx workflow.Context, input *lambda.ListFunctionsByCodeSigningConfigInput) (*lambda.ListFunctionsByCodeSigningConfigOutput, error) {
+	var output lambda.ListFunctionsByCodeSigningConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lambda-ListFunctionsByCodeSigningConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListFunctionsByCodeSigningConfigAsync(ctx workflow.Context, input *lambda.ListFunctionsByCodeSigningConfigInput) *ListFunctionsByCodeSigningConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lambda-ListFunctionsByCodeSigningConfig", input)
+	return &ListFunctionsByCodeSigningConfigFuture{Future: future}
 }
 
 func (a *stub) ListLayerVersions(ctx workflow.Context, input *lambda.ListLayerVersionsInput) (*lambda.ListLayerVersionsOutput, error) {
@@ -937,6 +1113,17 @@ func (a *stub) PublishVersion(ctx workflow.Context, input *lambda.PublishVersion
 func (a *stub) PublishVersionAsync(ctx workflow.Context, input *lambda.PublishVersionInput) *PublishVersionFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-lambda-PublishVersion", input)
 	return &PublishVersionFuture{Future: future}
+}
+
+func (a *stub) PutFunctionCodeSigningConfig(ctx workflow.Context, input *lambda.PutFunctionCodeSigningConfigInput) (*lambda.PutFunctionCodeSigningConfigOutput, error) {
+	var output lambda.PutFunctionCodeSigningConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lambda-PutFunctionCodeSigningConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutFunctionCodeSigningConfigAsync(ctx workflow.Context, input *lambda.PutFunctionCodeSigningConfigInput) *PutFunctionCodeSigningConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lambda-PutFunctionCodeSigningConfig", input)
+	return &PutFunctionCodeSigningConfigFuture{Future: future}
 }
 
 func (a *stub) PutFunctionConcurrency(ctx workflow.Context, input *lambda.PutFunctionConcurrencyInput) (*lambda.PutFunctionConcurrencyOutput, error) {
@@ -1025,6 +1212,17 @@ func (a *stub) UpdateAlias(ctx workflow.Context, input *lambda.UpdateAliasInput)
 func (a *stub) UpdateAliasAsync(ctx workflow.Context, input *lambda.UpdateAliasInput) *UpdateAliasFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-lambda-UpdateAlias", input)
 	return &UpdateAliasFuture{Future: future}
+}
+
+func (a *stub) UpdateCodeSigningConfig(ctx workflow.Context, input *lambda.UpdateCodeSigningConfigInput) (*lambda.UpdateCodeSigningConfigOutput, error) {
+	var output lambda.UpdateCodeSigningConfigOutput
+	err := workflow.ExecuteActivity(ctx, "aws-lambda-UpdateCodeSigningConfig", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateCodeSigningConfigAsync(ctx workflow.Context, input *lambda.UpdateCodeSigningConfigInput) *UpdateCodeSigningConfigFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-lambda-UpdateCodeSigningConfig", input)
+	return &UpdateCodeSigningConfigFuture{Future: future}
 }
 
 func (a *stub) UpdateEventSourceMapping(ctx workflow.Context, input *lambda.UpdateEventSourceMappingInput) (*lambda.EventSourceMappingConfiguration, error) {

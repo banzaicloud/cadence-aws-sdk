@@ -68,6 +68,9 @@ type Client interface {
 	DescribeEntityRecognizer(ctx workflow.Context, input *comprehend.DescribeEntityRecognizerInput) (*comprehend.DescribeEntityRecognizerOutput, error)
 	DescribeEntityRecognizerAsync(ctx workflow.Context, input *comprehend.DescribeEntityRecognizerInput) *DescribeEntityRecognizerFuture
 
+	DescribeEventsDetectionJob(ctx workflow.Context, input *comprehend.DescribeEventsDetectionJobInput) (*comprehend.DescribeEventsDetectionJobOutput, error)
+	DescribeEventsDetectionJobAsync(ctx workflow.Context, input *comprehend.DescribeEventsDetectionJobInput) *DescribeEventsDetectionJobFuture
+
 	DescribeKeyPhrasesDetectionJob(ctx workflow.Context, input *comprehend.DescribeKeyPhrasesDetectionJobInput) (*comprehend.DescribeKeyPhrasesDetectionJobOutput, error)
 	DescribeKeyPhrasesDetectionJobAsync(ctx workflow.Context, input *comprehend.DescribeKeyPhrasesDetectionJobInput) *DescribeKeyPhrasesDetectionJobFuture
 
@@ -116,6 +119,9 @@ type Client interface {
 	ListEntityRecognizers(ctx workflow.Context, input *comprehend.ListEntityRecognizersInput) (*comprehend.ListEntityRecognizersOutput, error)
 	ListEntityRecognizersAsync(ctx workflow.Context, input *comprehend.ListEntityRecognizersInput) *ListEntityRecognizersFuture
 
+	ListEventsDetectionJobs(ctx workflow.Context, input *comprehend.ListEventsDetectionJobsInput) (*comprehend.ListEventsDetectionJobsOutput, error)
+	ListEventsDetectionJobsAsync(ctx workflow.Context, input *comprehend.ListEventsDetectionJobsInput) *ListEventsDetectionJobsFuture
+
 	ListKeyPhrasesDetectionJobs(ctx workflow.Context, input *comprehend.ListKeyPhrasesDetectionJobsInput) (*comprehend.ListKeyPhrasesDetectionJobsOutput, error)
 	ListKeyPhrasesDetectionJobsAsync(ctx workflow.Context, input *comprehend.ListKeyPhrasesDetectionJobsInput) *ListKeyPhrasesDetectionJobsFuture
 
@@ -140,6 +146,9 @@ type Client interface {
 	StartEntitiesDetectionJob(ctx workflow.Context, input *comprehend.StartEntitiesDetectionJobInput) (*comprehend.StartEntitiesDetectionJobOutput, error)
 	StartEntitiesDetectionJobAsync(ctx workflow.Context, input *comprehend.StartEntitiesDetectionJobInput) *StartEntitiesDetectionJobFuture
 
+	StartEventsDetectionJob(ctx workflow.Context, input *comprehend.StartEventsDetectionJobInput) (*comprehend.StartEventsDetectionJobOutput, error)
+	StartEventsDetectionJobAsync(ctx workflow.Context, input *comprehend.StartEventsDetectionJobInput) *StartEventsDetectionJobFuture
+
 	StartKeyPhrasesDetectionJob(ctx workflow.Context, input *comprehend.StartKeyPhrasesDetectionJobInput) (*comprehend.StartKeyPhrasesDetectionJobOutput, error)
 	StartKeyPhrasesDetectionJobAsync(ctx workflow.Context, input *comprehend.StartKeyPhrasesDetectionJobInput) *StartKeyPhrasesDetectionJobFuture
 
@@ -157,6 +166,9 @@ type Client interface {
 
 	StopEntitiesDetectionJob(ctx workflow.Context, input *comprehend.StopEntitiesDetectionJobInput) (*comprehend.StopEntitiesDetectionJobOutput, error)
 	StopEntitiesDetectionJobAsync(ctx workflow.Context, input *comprehend.StopEntitiesDetectionJobInput) *StopEntitiesDetectionJobFuture
+
+	StopEventsDetectionJob(ctx workflow.Context, input *comprehend.StopEventsDetectionJobInput) (*comprehend.StopEventsDetectionJobOutput, error)
+	StopEventsDetectionJobAsync(ctx workflow.Context, input *comprehend.StopEventsDetectionJobInput) *StopEventsDetectionJobFuture
 
 	StopKeyPhrasesDetectionJob(ctx workflow.Context, input *comprehend.StopKeyPhrasesDetectionJobInput) (*comprehend.StopKeyPhrasesDetectionJobOutput, error)
 	StopKeyPhrasesDetectionJobAsync(ctx workflow.Context, input *comprehend.StopKeyPhrasesDetectionJobInput) *StopKeyPhrasesDetectionJobFuture

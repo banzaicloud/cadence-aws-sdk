@@ -233,6 +233,16 @@ func (a *Activities) DescribeEntityRecognizer(ctx context.Context, input *compre
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeEventsDetectionJob(ctx context.Context, input *comprehend.DescribeEventsDetectionJobInput) (*comprehend.DescribeEventsDetectionJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeEventsDetectionJobWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeKeyPhrasesDetectionJob(ctx context.Context, input *comprehend.DescribeKeyPhrasesDetectionJobInput) (*comprehend.DescribeKeyPhrasesDetectionJobOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -393,6 +403,16 @@ func (a *Activities) ListEntityRecognizers(ctx context.Context, input *comprehen
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListEventsDetectionJobs(ctx context.Context, input *comprehend.ListEventsDetectionJobsInput) (*comprehend.ListEventsDetectionJobsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListEventsDetectionJobsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListKeyPhrasesDetectionJobs(ctx context.Context, input *comprehend.ListKeyPhrasesDetectionJobsInput) (*comprehend.ListKeyPhrasesDetectionJobsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -473,6 +493,16 @@ func (a *Activities) StartEntitiesDetectionJob(ctx context.Context, input *compr
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) StartEventsDetectionJob(ctx context.Context, input *comprehend.StartEventsDetectionJobInput) (*comprehend.StartEventsDetectionJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StartEventsDetectionJobWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) StartKeyPhrasesDetectionJob(ctx context.Context, input *comprehend.StartKeyPhrasesDetectionJobInput) (*comprehend.StartKeyPhrasesDetectionJobOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -529,6 +559,16 @@ func (a *Activities) StopEntitiesDetectionJob(ctx context.Context, input *compre
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.StopEntitiesDetectionJobWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) StopEventsDetectionJob(ctx context.Context, input *comprehend.StopEventsDetectionJobInput) (*comprehend.StopEventsDetectionJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StopEventsDetectionJobWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

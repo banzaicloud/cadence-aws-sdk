@@ -14,6 +14,9 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	StartMedicalStreamTranscription(ctx workflow.Context, input *transcribestreamingservice.StartMedicalStreamTranscriptionInput) (*transcribestreamingservice.StartMedicalStreamTranscriptionOutput, error)
+	StartMedicalStreamTranscriptionAsync(ctx workflow.Context, input *transcribestreamingservice.StartMedicalStreamTranscriptionInput) *StartMedicalStreamTranscriptionFuture
+
 	StartStreamTranscription(ctx workflow.Context, input *transcribestreamingservice.StartStreamTranscriptionInput) (*transcribestreamingservice.StartStreamTranscriptionOutput, error)
 	StartStreamTranscriptionAsync(ctx workflow.Context, input *transcribestreamingservice.StartStreamTranscriptionInput) *StartStreamTranscriptionFuture
 }

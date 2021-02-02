@@ -1401,6 +1401,17 @@ func (r *StartDBInstanceFuture) Get(ctx workflow.Context) (*rds.StartDBInstanceO
 	return &output, err
 }
 
+type StartDBInstanceAutomatedBackupsReplicationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StartDBInstanceAutomatedBackupsReplicationFuture) Get(ctx workflow.Context) (*rds.StartDBInstanceAutomatedBackupsReplicationOutput, error) {
+	var output rds.StartDBInstanceAutomatedBackupsReplicationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type StartExportTaskFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1441,6 +1452,17 @@ type StopDBInstanceFuture struct {
 
 func (r *StopDBInstanceFuture) Get(ctx workflow.Context) (*rds.StopDBInstanceOutput, error) {
 	var output rds.StopDBInstanceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type StopDBInstanceAutomatedBackupsReplicationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *StopDBInstanceAutomatedBackupsReplicationFuture) Get(ctx workflow.Context) (*rds.StopDBInstanceAutomatedBackupsReplicationOutput, error) {
+	var output rds.StopDBInstanceAutomatedBackupsReplicationOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -2831,6 +2853,17 @@ func (a *stub) StartDBInstanceAsync(ctx workflow.Context, input *rds.StartDBInst
 	return &StartDBInstanceFuture{Future: future}
 }
 
+func (a *stub) StartDBInstanceAutomatedBackupsReplication(ctx workflow.Context, input *rds.StartDBInstanceAutomatedBackupsReplicationInput) (*rds.StartDBInstanceAutomatedBackupsReplicationOutput, error) {
+	var output rds.StartDBInstanceAutomatedBackupsReplicationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-rds-StartDBInstanceAutomatedBackupsReplication", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StartDBInstanceAutomatedBackupsReplicationAsync(ctx workflow.Context, input *rds.StartDBInstanceAutomatedBackupsReplicationInput) *StartDBInstanceAutomatedBackupsReplicationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-rds-StartDBInstanceAutomatedBackupsReplication", input)
+	return &StartDBInstanceAutomatedBackupsReplicationFuture{Future: future}
+}
+
 func (a *stub) StartExportTask(ctx workflow.Context, input *rds.StartExportTaskInput) (*rds.StartExportTaskOutput, error) {
 	var output rds.StartExportTaskOutput
 	err := workflow.ExecuteActivity(ctx, "aws-rds-StartExportTask", input).Get(ctx, &output)
@@ -2873,6 +2906,17 @@ func (a *stub) StopDBInstance(ctx workflow.Context, input *rds.StopDBInstanceInp
 func (a *stub) StopDBInstanceAsync(ctx workflow.Context, input *rds.StopDBInstanceInput) *StopDBInstanceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-rds-StopDBInstance", input)
 	return &StopDBInstanceFuture{Future: future}
+}
+
+func (a *stub) StopDBInstanceAutomatedBackupsReplication(ctx workflow.Context, input *rds.StopDBInstanceAutomatedBackupsReplicationInput) (*rds.StopDBInstanceAutomatedBackupsReplicationOutput, error) {
+	var output rds.StopDBInstanceAutomatedBackupsReplicationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-rds-StopDBInstanceAutomatedBackupsReplication", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) StopDBInstanceAutomatedBackupsReplicationAsync(ctx workflow.Context, input *rds.StopDBInstanceAutomatedBackupsReplicationInput) *StopDBInstanceAutomatedBackupsReplicationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-rds-StopDBInstanceAutomatedBackupsReplication", input)
+	return &StopDBInstanceAutomatedBackupsReplicationFuture{Future: future}
 }
 
 func (a *stub) WaitUntilDBClusterSnapshotAvailable(ctx workflow.Context, input *rds.DescribeDBClusterSnapshotsInput) error {

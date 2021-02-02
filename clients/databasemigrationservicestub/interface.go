@@ -146,6 +146,9 @@ type Client interface {
 	ModifyReplicationTask(ctx workflow.Context, input *databasemigrationservice.ModifyReplicationTaskInput) (*databasemigrationservice.ModifyReplicationTaskOutput, error)
 	ModifyReplicationTaskAsync(ctx workflow.Context, input *databasemigrationservice.ModifyReplicationTaskInput) *ModifyReplicationTaskFuture
 
+	MoveReplicationTask(ctx workflow.Context, input *databasemigrationservice.MoveReplicationTaskInput) (*databasemigrationservice.MoveReplicationTaskOutput, error)
+	MoveReplicationTaskAsync(ctx workflow.Context, input *databasemigrationservice.MoveReplicationTaskInput) *MoveReplicationTaskFuture
+
 	RebootReplicationInstance(ctx workflow.Context, input *databasemigrationservice.RebootReplicationInstanceInput) (*databasemigrationservice.RebootReplicationInstanceOutput, error)
 	RebootReplicationInstanceAsync(ctx workflow.Context, input *databasemigrationservice.RebootReplicationInstanceInput) *RebootReplicationInstanceFuture
 

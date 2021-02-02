@@ -53,6 +53,16 @@ func (a *Activities) getClient(ctx context.Context) (fsxiface.FSxAPI, error) {
 	return fsx.New(sess), nil
 }
 
+func (a *Activities) AssociateFileSystemAliases(ctx context.Context, input *fsx.AssociateFileSystemAliasesInput) (*fsx.AssociateFileSystemAliasesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.AssociateFileSystemAliasesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CancelDataRepositoryTask(ctx context.Context, input *fsx.CancelDataRepositoryTaskInput) (*fsx.CancelDataRepositoryTaskOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -143,12 +153,32 @@ func (a *Activities) DescribeDataRepositoryTasks(ctx context.Context, input *fsx
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeFileSystemAliases(ctx context.Context, input *fsx.DescribeFileSystemAliasesInput) (*fsx.DescribeFileSystemAliasesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeFileSystemAliasesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeFileSystems(ctx context.Context, input *fsx.DescribeFileSystemsInput) (*fsx.DescribeFileSystemsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeFileSystemsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DisassociateFileSystemAliases(ctx context.Context, input *fsx.DisassociateFileSystemAliasesInput) (*fsx.DisassociateFileSystemAliasesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DisassociateFileSystemAliasesWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

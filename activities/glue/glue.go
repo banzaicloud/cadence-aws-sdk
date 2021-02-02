@@ -193,6 +193,16 @@ func (a *Activities) CancelMLTaskRun(ctx context.Context, input *glue.CancelMLTa
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CheckSchemaVersionValidity(ctx context.Context, input *glue.CheckSchemaVersionValidityInput) (*glue.CheckSchemaVersionValidityOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CheckSchemaVersionValidityWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateClassifier(ctx context.Context, input *glue.CreateClassifierInput) (*glue.CreateClassifierOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -269,6 +279,36 @@ func (a *Activities) CreatePartition(ctx context.Context, input *glue.CreatePart
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreatePartitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreatePartitionIndex(ctx context.Context, input *glue.CreatePartitionIndexInput) (*glue.CreatePartitionIndexOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreatePartitionIndexWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateRegistry(ctx context.Context, input *glue.CreateRegistryInput) (*glue.CreateRegistryOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateRegistryWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateSchema(ctx context.Context, input *glue.CreateSchemaInput) (*glue.CreateSchemaOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateSchemaWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -433,12 +473,52 @@ func (a *Activities) DeletePartition(ctx context.Context, input *glue.DeletePart
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeletePartitionIndex(ctx context.Context, input *glue.DeletePartitionIndexInput) (*glue.DeletePartitionIndexOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeletePartitionIndexWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteRegistry(ctx context.Context, input *glue.DeleteRegistryInput) (*glue.DeleteRegistryOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteRegistryWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteResourcePolicy(ctx context.Context, input *glue.DeleteResourcePolicyInput) (*glue.DeleteResourcePolicyOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteResourcePolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteSchema(ctx context.Context, input *glue.DeleteSchemaInput) (*glue.DeleteSchemaOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteSchemaWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteSchemaVersions(ctx context.Context, input *glue.DeleteSchemaVersionsInput) (*glue.DeleteSchemaVersionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteSchemaVersionsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -803,6 +883,16 @@ func (a *Activities) GetPlan(ctx context.Context, input *glue.GetPlanInput) (*gl
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetRegistry(ctx context.Context, input *glue.GetRegistryInput) (*glue.GetRegistryOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetRegistryWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetResourcePolicies(ctx context.Context, input *glue.GetResourcePoliciesInput) (*glue.GetResourcePoliciesOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -819,6 +909,46 @@ func (a *Activities) GetResourcePolicy(ctx context.Context, input *glue.GetResou
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetResourcePolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetSchema(ctx context.Context, input *glue.GetSchemaInput) (*glue.GetSchemaOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetSchemaWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetSchemaByDefinition(ctx context.Context, input *glue.GetSchemaByDefinitionInput) (*glue.GetSchemaByDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetSchemaByDefinitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetSchemaVersion(ctx context.Context, input *glue.GetSchemaVersionInput) (*glue.GetSchemaVersionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetSchemaVersionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetSchemaVersionsDiff(ctx context.Context, input *glue.GetSchemaVersionsDiffInput) (*glue.GetSchemaVersionsDiffOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetSchemaVersionsDiffWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1023,6 +1153,36 @@ func (a *Activities) ListMLTransforms(ctx context.Context, input *glue.ListMLTra
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListRegistries(ctx context.Context, input *glue.ListRegistriesInput) (*glue.ListRegistriesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListRegistriesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListSchemaVersions(ctx context.Context, input *glue.ListSchemaVersionsInput) (*glue.ListSchemaVersionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListSchemaVersionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListSchemas(ctx context.Context, input *glue.ListSchemasInput) (*glue.ListSchemasOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListSchemasWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListTriggers(ctx context.Context, input *glue.ListTriggersInput) (*glue.ListTriggersOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1063,12 +1223,52 @@ func (a *Activities) PutResourcePolicy(ctx context.Context, input *glue.PutResou
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) PutSchemaVersionMetadata(ctx context.Context, input *glue.PutSchemaVersionMetadataInput) (*glue.PutSchemaVersionMetadataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutSchemaVersionMetadataWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) PutWorkflowRunProperties(ctx context.Context, input *glue.PutWorkflowRunPropertiesInput) (*glue.PutWorkflowRunPropertiesOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.PutWorkflowRunPropertiesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) QuerySchemaVersionMetadata(ctx context.Context, input *glue.QuerySchemaVersionMetadataInput) (*glue.QuerySchemaVersionMetadataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.QuerySchemaVersionMetadataWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) RegisterSchemaVersion(ctx context.Context, input *glue.RegisterSchemaVersionInput) (*glue.RegisterSchemaVersionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RegisterSchemaVersionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) RemoveSchemaVersionMetadata(ctx context.Context, input *glue.RemoveSchemaVersionMetadataInput) (*glue.RemoveSchemaVersionMetadataOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RemoveSchemaVersionMetadataWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1359,6 +1559,26 @@ func (a *Activities) UpdatePartition(ctx context.Context, input *glue.UpdatePart
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdatePartitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateRegistry(ctx context.Context, input *glue.UpdateRegistryInput) (*glue.UpdateRegistryOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateRegistryWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateSchema(ctx context.Context, input *glue.UpdateSchemaInput) (*glue.UpdateSchemaOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateSchemaWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

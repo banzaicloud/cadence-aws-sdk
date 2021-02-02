@@ -143,6 +143,16 @@ func (a *Activities) DeleteBucketEncryption(ctx context.Context, input *s3.Delet
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteBucketIntelligentTieringConfiguration(ctx context.Context, input *s3.DeleteBucketIntelligentTieringConfigurationInput) (*s3.DeleteBucketIntelligentTieringConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteBucketIntelligentTieringConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteBucketInventoryConfiguration(ctx context.Context, input *s3.DeleteBucketInventoryConfigurationInput) (*s3.DeleteBucketInventoryConfigurationOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -309,6 +319,16 @@ func (a *Activities) GetBucketEncryption(ctx context.Context, input *s3.GetBucke
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetBucketEncryptionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetBucketIntelligentTieringConfiguration(ctx context.Context, input *s3.GetBucketIntelligentTieringConfigurationInput) (*s3.GetBucketIntelligentTieringConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetBucketIntelligentTieringConfigurationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -583,6 +603,16 @@ func (a *Activities) ListBucketAnalyticsConfigurations(ctx context.Context, inpu
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListBucketIntelligentTieringConfigurations(ctx context.Context, input *s3.ListBucketIntelligentTieringConfigurationsInput) (*s3.ListBucketIntelligentTieringConfigurationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListBucketIntelligentTieringConfigurationsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListBucketInventoryConfigurations(ctx context.Context, input *s3.ListBucketInventoryConfigurationsInput) (*s3.ListBucketInventoryConfigurationsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -709,6 +739,16 @@ func (a *Activities) PutBucketEncryption(ctx context.Context, input *s3.PutBucke
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.PutBucketEncryptionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) PutBucketIntelligentTieringConfiguration(ctx context.Context, input *s3.PutBucketIntelligentTieringConfigurationInput) (*s3.PutBucketIntelligentTieringConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutBucketIntelligentTieringConfigurationWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

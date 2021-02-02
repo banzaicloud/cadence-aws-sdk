@@ -14,11 +14,41 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	BatchCreateTableRows(ctx workflow.Context, input *honeycode.BatchCreateTableRowsInput) (*honeycode.BatchCreateTableRowsOutput, error)
+	BatchCreateTableRowsAsync(ctx workflow.Context, input *honeycode.BatchCreateTableRowsInput) *BatchCreateTableRowsFuture
+
+	BatchDeleteTableRows(ctx workflow.Context, input *honeycode.BatchDeleteTableRowsInput) (*honeycode.BatchDeleteTableRowsOutput, error)
+	BatchDeleteTableRowsAsync(ctx workflow.Context, input *honeycode.BatchDeleteTableRowsInput) *BatchDeleteTableRowsFuture
+
+	BatchUpdateTableRows(ctx workflow.Context, input *honeycode.BatchUpdateTableRowsInput) (*honeycode.BatchUpdateTableRowsOutput, error)
+	BatchUpdateTableRowsAsync(ctx workflow.Context, input *honeycode.BatchUpdateTableRowsInput) *BatchUpdateTableRowsFuture
+
+	BatchUpsertTableRows(ctx workflow.Context, input *honeycode.BatchUpsertTableRowsInput) (*honeycode.BatchUpsertTableRowsOutput, error)
+	BatchUpsertTableRowsAsync(ctx workflow.Context, input *honeycode.BatchUpsertTableRowsInput) *BatchUpsertTableRowsFuture
+
+	DescribeTableDataImportJob(ctx workflow.Context, input *honeycode.DescribeTableDataImportJobInput) (*honeycode.DescribeTableDataImportJobOutput, error)
+	DescribeTableDataImportJobAsync(ctx workflow.Context, input *honeycode.DescribeTableDataImportJobInput) *DescribeTableDataImportJobFuture
+
 	GetScreenData(ctx workflow.Context, input *honeycode.GetScreenDataInput) (*honeycode.GetScreenDataOutput, error)
 	GetScreenDataAsync(ctx workflow.Context, input *honeycode.GetScreenDataInput) *GetScreenDataFuture
 
 	InvokeScreenAutomation(ctx workflow.Context, input *honeycode.InvokeScreenAutomationInput) (*honeycode.InvokeScreenAutomationOutput, error)
 	InvokeScreenAutomationAsync(ctx workflow.Context, input *honeycode.InvokeScreenAutomationInput) *InvokeScreenAutomationFuture
+
+	ListTableColumns(ctx workflow.Context, input *honeycode.ListTableColumnsInput) (*honeycode.ListTableColumnsOutput, error)
+	ListTableColumnsAsync(ctx workflow.Context, input *honeycode.ListTableColumnsInput) *ListTableColumnsFuture
+
+	ListTableRows(ctx workflow.Context, input *honeycode.ListTableRowsInput) (*honeycode.ListTableRowsOutput, error)
+	ListTableRowsAsync(ctx workflow.Context, input *honeycode.ListTableRowsInput) *ListTableRowsFuture
+
+	ListTables(ctx workflow.Context, input *honeycode.ListTablesInput) (*honeycode.ListTablesOutput, error)
+	ListTablesAsync(ctx workflow.Context, input *honeycode.ListTablesInput) *ListTablesFuture
+
+	QueryTableRows(ctx workflow.Context, input *honeycode.QueryTableRowsInput) (*honeycode.QueryTableRowsOutput, error)
+	QueryTableRowsAsync(ctx workflow.Context, input *honeycode.QueryTableRowsInput) *QueryTableRowsFuture
+
+	StartTableDataImportJob(ctx workflow.Context, input *honeycode.StartTableDataImportJobInput) (*honeycode.StartTableDataImportJobOutput, error)
+	StartTableDataImportJobAsync(ctx workflow.Context, input *honeycode.StartTableDataImportJobInput) *StartTableDataImportJobFuture
 }
 
 func NewClient() Client {

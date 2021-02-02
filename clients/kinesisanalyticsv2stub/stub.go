@@ -92,6 +92,17 @@ func (r *CreateApplicationFuture) Get(ctx workflow.Context) (*kinesisanalyticsv2
 	return &output, err
 }
 
+type CreateApplicationPresignedUrlFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *CreateApplicationPresignedUrlFuture) Get(ctx workflow.Context) (*kinesisanalyticsv2.CreateApplicationPresignedUrlOutput, error) {
+	var output kinesisanalyticsv2.CreateApplicationPresignedUrlOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type CreateApplicationSnapshotFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -376,6 +387,17 @@ func (a *stub) CreateApplication(ctx workflow.Context, input *kinesisanalyticsv2
 func (a *stub) CreateApplicationAsync(ctx workflow.Context, input *kinesisanalyticsv2.CreateApplicationInput) *CreateApplicationFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-kinesisanalyticsv2-CreateApplication", input)
 	return &CreateApplicationFuture{Future: future}
+}
+
+func (a *stub) CreateApplicationPresignedUrl(ctx workflow.Context, input *kinesisanalyticsv2.CreateApplicationPresignedUrlInput) (*kinesisanalyticsv2.CreateApplicationPresignedUrlOutput, error) {
+	var output kinesisanalyticsv2.CreateApplicationPresignedUrlOutput
+	err := workflow.ExecuteActivity(ctx, "aws-kinesisanalyticsv2-CreateApplicationPresignedUrl", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) CreateApplicationPresignedUrlAsync(ctx workflow.Context, input *kinesisanalyticsv2.CreateApplicationPresignedUrlInput) *CreateApplicationPresignedUrlFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-kinesisanalyticsv2-CreateApplicationPresignedUrl", input)
+	return &CreateApplicationPresignedUrlFuture{Future: future}
 }
 
 func (a *stub) CreateApplicationSnapshot(ctx workflow.Context, input *kinesisanalyticsv2.CreateApplicationSnapshotInput) (*kinesisanalyticsv2.CreateApplicationSnapshotOutput, error) {

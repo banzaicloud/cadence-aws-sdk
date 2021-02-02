@@ -153,6 +153,26 @@ func (a *Activities) ListTags(ctx context.Context, input *cloudhsmv2.ListTagsInp
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ModifyBackupAttributes(ctx context.Context, input *cloudhsmv2.ModifyBackupAttributesInput) (*cloudhsmv2.ModifyBackupAttributesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ModifyBackupAttributesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ModifyCluster(ctx context.Context, input *cloudhsmv2.ModifyClusterInput) (*cloudhsmv2.ModifyClusterOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ModifyClusterWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) RestoreBackup(ctx context.Context, input *cloudhsmv2.RestoreBackupInput) (*cloudhsmv2.RestoreBackupOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

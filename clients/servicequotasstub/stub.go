@@ -169,6 +169,17 @@ func (r *ListServicesFuture) Get(ctx workflow.Context) (*servicequotas.ListServi
 	return &output, err
 }
 
+type ListTagsForResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *ListTagsForResourceFuture) Get(ctx workflow.Context) (*servicequotas.ListTagsForResourceOutput, error) {
+	var output servicequotas.ListTagsForResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type PutServiceQuotaIncreaseRequestIntoTemplateFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -187,6 +198,28 @@ type RequestServiceQuotaIncreaseFuture struct {
 
 func (r *RequestServiceQuotaIncreaseFuture) Get(ctx workflow.Context) (*servicequotas.RequestServiceQuotaIncreaseOutput, error) {
 	var output servicequotas.RequestServiceQuotaIncreaseOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type TagResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *TagResourceFuture) Get(ctx workflow.Context) (*servicequotas.TagResourceOutput, error) {
+	var output servicequotas.TagResourceOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
+type UntagResourceFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UntagResourceFuture) Get(ctx workflow.Context) (*servicequotas.UntagResourceOutput, error) {
+	var output servicequotas.UntagResourceOutput
 	err := r.Future.Get(ctx, &output)
 	return &output, err
 }
@@ -345,6 +378,17 @@ func (a *stub) ListServicesAsync(ctx workflow.Context, input *servicequotas.List
 	return &ListServicesFuture{Future: future}
 }
 
+func (a *stub) ListTagsForResource(ctx workflow.Context, input *servicequotas.ListTagsForResourceInput) (*servicequotas.ListTagsForResourceOutput, error) {
+	var output servicequotas.ListTagsForResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-servicequotas-ListTagsForResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) ListTagsForResourceAsync(ctx workflow.Context, input *servicequotas.ListTagsForResourceInput) *ListTagsForResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-servicequotas-ListTagsForResource", input)
+	return &ListTagsForResourceFuture{Future: future}
+}
+
 func (a *stub) PutServiceQuotaIncreaseRequestIntoTemplate(ctx workflow.Context, input *servicequotas.PutServiceQuotaIncreaseRequestIntoTemplateInput) (*servicequotas.PutServiceQuotaIncreaseRequestIntoTemplateOutput, error) {
 	var output servicequotas.PutServiceQuotaIncreaseRequestIntoTemplateOutput
 	err := workflow.ExecuteActivity(ctx, "aws-servicequotas-PutServiceQuotaIncreaseRequestIntoTemplate", input).Get(ctx, &output)
@@ -365,4 +409,26 @@ func (a *stub) RequestServiceQuotaIncrease(ctx workflow.Context, input *serviceq
 func (a *stub) RequestServiceQuotaIncreaseAsync(ctx workflow.Context, input *servicequotas.RequestServiceQuotaIncreaseInput) *RequestServiceQuotaIncreaseFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-servicequotas-RequestServiceQuotaIncrease", input)
 	return &RequestServiceQuotaIncreaseFuture{Future: future}
+}
+
+func (a *stub) TagResource(ctx workflow.Context, input *servicequotas.TagResourceInput) (*servicequotas.TagResourceOutput, error) {
+	var output servicequotas.TagResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-servicequotas-TagResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) TagResourceAsync(ctx workflow.Context, input *servicequotas.TagResourceInput) *TagResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-servicequotas-TagResource", input)
+	return &TagResourceFuture{Future: future}
+}
+
+func (a *stub) UntagResource(ctx workflow.Context, input *servicequotas.UntagResourceInput) (*servicequotas.UntagResourceOutput, error) {
+	var output servicequotas.UntagResourceOutput
+	err := workflow.ExecuteActivity(ctx, "aws-servicequotas-UntagResource", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UntagResourceAsync(ctx workflow.Context, input *servicequotas.UntagResourceInput) *UntagResourceFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-servicequotas-UntagResource", input)
+	return &UntagResourceFuture{Future: future}
 }

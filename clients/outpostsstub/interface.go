@@ -34,6 +34,15 @@ type Client interface {
 
 	ListSites(ctx workflow.Context, input *outposts.ListSitesInput) (*outposts.ListSitesOutput, error)
 	ListSitesAsync(ctx workflow.Context, input *outposts.ListSitesInput) *ListSitesFuture
+
+	ListTagsForResource(ctx workflow.Context, input *outposts.ListTagsForResourceInput) (*outposts.ListTagsForResourceOutput, error)
+	ListTagsForResourceAsync(ctx workflow.Context, input *outposts.ListTagsForResourceInput) *ListTagsForResourceFuture
+
+	TagResource(ctx workflow.Context, input *outposts.TagResourceInput) (*outposts.TagResourceOutput, error)
+	TagResourceAsync(ctx workflow.Context, input *outposts.TagResourceInput) *TagResourceFuture
+
+	UntagResource(ctx workflow.Context, input *outposts.UntagResourceInput) (*outposts.UntagResourceOutput, error)
+	UntagResourceAsync(ctx workflow.Context, input *outposts.UntagResourceInput) *UntagResourceFuture
 }
 
 func NewClient() Client {

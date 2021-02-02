@@ -162,3 +162,13 @@ func (a *Activities) UntagResource(ctx context.Context, input *codestarconnectio
 
 	return output, internal.EncodeError(err)
 }
+
+func (a *Activities) UpdateHost(ctx context.Context, input *codestarconnections.UpdateHostInput) (*codestarconnections.UpdateHostOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateHostWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}

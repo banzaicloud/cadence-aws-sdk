@@ -101,6 +101,9 @@ type Client interface {
 	DescribePortfolioShareStatus(ctx workflow.Context, input *servicecatalog.DescribePortfolioShareStatusInput) (*servicecatalog.DescribePortfolioShareStatusOutput, error)
 	DescribePortfolioShareStatusAsync(ctx workflow.Context, input *servicecatalog.DescribePortfolioShareStatusInput) *DescribePortfolioShareStatusFuture
 
+	DescribePortfolioShares(ctx workflow.Context, input *servicecatalog.DescribePortfolioSharesInput) (*servicecatalog.DescribePortfolioSharesOutput, error)
+	DescribePortfolioSharesAsync(ctx workflow.Context, input *servicecatalog.DescribePortfolioSharesInput) *DescribePortfolioSharesFuture
+
 	DescribeProduct(ctx workflow.Context, input *servicecatalog.DescribeProductInput) (*servicecatalog.DescribeProductOutput, error)
 	DescribeProductAsync(ctx workflow.Context, input *servicecatalog.DescribeProductInput) *DescribeProductFuture
 
@@ -166,6 +169,9 @@ type Client interface {
 
 	GetProvisionedProductOutputs(ctx workflow.Context, input *servicecatalog.GetProvisionedProductOutputsInput) (*servicecatalog.GetProvisionedProductOutputsOutput, error)
 	GetProvisionedProductOutputsAsync(ctx workflow.Context, input *servicecatalog.GetProvisionedProductOutputsInput) *GetProvisionedProductOutputsFuture
+
+	ImportAsProvisionedProduct(ctx workflow.Context, input *servicecatalog.ImportAsProvisionedProductInput) (*servicecatalog.ImportAsProvisionedProductOutput, error)
+	ImportAsProvisionedProductAsync(ctx workflow.Context, input *servicecatalog.ImportAsProvisionedProductInput) *ImportAsProvisionedProductFuture
 
 	ListAcceptedPortfolioShares(ctx workflow.Context, input *servicecatalog.ListAcceptedPortfolioSharesInput) (*servicecatalog.ListAcceptedPortfolioSharesOutput, error)
 	ListAcceptedPortfolioSharesAsync(ctx workflow.Context, input *servicecatalog.ListAcceptedPortfolioSharesInput) *ListAcceptedPortfolioSharesFuture
@@ -247,6 +253,9 @@ type Client interface {
 
 	UpdatePortfolio(ctx workflow.Context, input *servicecatalog.UpdatePortfolioInput) (*servicecatalog.UpdatePortfolioOutput, error)
 	UpdatePortfolioAsync(ctx workflow.Context, input *servicecatalog.UpdatePortfolioInput) *UpdatePortfolioFuture
+
+	UpdatePortfolioShare(ctx workflow.Context, input *servicecatalog.UpdatePortfolioShareInput) (*servicecatalog.UpdatePortfolioShareOutput, error)
+	UpdatePortfolioShareAsync(ctx workflow.Context, input *servicecatalog.UpdatePortfolioShareInput) *UpdatePortfolioShareFuture
 
 	UpdateProduct(ctx workflow.Context, input *servicecatalog.UpdateProductInput) (*servicecatalog.UpdateProductOutput, error)
 	UpdateProductAsync(ctx workflow.Context, input *servicecatalog.UpdateProductInput) *UpdateProductFuture

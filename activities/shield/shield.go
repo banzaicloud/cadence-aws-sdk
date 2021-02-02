@@ -103,6 +103,16 @@ func (a *Activities) CreateProtection(ctx context.Context, input *shield.CreateP
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateProtectionGroup(ctx context.Context, input *shield.CreateProtectionGroupInput) (*shield.CreateProtectionGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateProtectionGroupWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateSubscription(ctx context.Context, input *shield.CreateSubscriptionInput) (*shield.CreateSubscriptionOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -123,6 +133,16 @@ func (a *Activities) DeleteProtection(ctx context.Context, input *shield.DeleteP
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteProtectionGroup(ctx context.Context, input *shield.DeleteProtectionGroupInput) (*shield.DeleteProtectionGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteProtectionGroupWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteSubscription(ctx context.Context, input *shield.DeleteSubscriptionInput) (*shield.DeleteSubscriptionOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -139,6 +159,16 @@ func (a *Activities) DescribeAttack(ctx context.Context, input *shield.DescribeA
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeAttackWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeAttackStatistics(ctx context.Context, input *shield.DescribeAttackStatisticsInput) (*shield.DescribeAttackStatisticsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeAttackStatisticsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -169,6 +199,16 @@ func (a *Activities) DescribeProtection(ctx context.Context, input *shield.Descr
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeProtectionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeProtectionGroup(ctx context.Context, input *shield.DescribeProtectionGroupInput) (*shield.DescribeProtectionGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeProtectionGroupWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -253,6 +293,16 @@ func (a *Activities) ListAttacks(ctx context.Context, input *shield.ListAttacksI
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListProtectionGroups(ctx context.Context, input *shield.ListProtectionGroupsInput) (*shield.ListProtectionGroupsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListProtectionGroupsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListProtections(ctx context.Context, input *shield.ListProtectionsInput) (*shield.ListProtectionsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -263,12 +313,32 @@ func (a *Activities) ListProtections(ctx context.Context, input *shield.ListProt
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListResourcesInProtectionGroup(ctx context.Context, input *shield.ListResourcesInProtectionGroupInput) (*shield.ListResourcesInProtectionGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListResourcesInProtectionGroupWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) UpdateEmergencyContactSettings(ctx context.Context, input *shield.UpdateEmergencyContactSettingsInput) (*shield.UpdateEmergencyContactSettingsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateEmergencyContactSettingsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateProtectionGroup(ctx context.Context, input *shield.UpdateProtectionGroupInput) (*shield.UpdateProtectionGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateProtectionGroupWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

@@ -29,17 +29,26 @@ type Client interface {
 	CreateProtection(ctx workflow.Context, input *shield.CreateProtectionInput) (*shield.CreateProtectionOutput, error)
 	CreateProtectionAsync(ctx workflow.Context, input *shield.CreateProtectionInput) *CreateProtectionFuture
 
+	CreateProtectionGroup(ctx workflow.Context, input *shield.CreateProtectionGroupInput) (*shield.CreateProtectionGroupOutput, error)
+	CreateProtectionGroupAsync(ctx workflow.Context, input *shield.CreateProtectionGroupInput) *CreateProtectionGroupFuture
+
 	CreateSubscription(ctx workflow.Context, input *shield.CreateSubscriptionInput) (*shield.CreateSubscriptionOutput, error)
 	CreateSubscriptionAsync(ctx workflow.Context, input *shield.CreateSubscriptionInput) *CreateSubscriptionFuture
 
 	DeleteProtection(ctx workflow.Context, input *shield.DeleteProtectionInput) (*shield.DeleteProtectionOutput, error)
 	DeleteProtectionAsync(ctx workflow.Context, input *shield.DeleteProtectionInput) *DeleteProtectionFuture
 
+	DeleteProtectionGroup(ctx workflow.Context, input *shield.DeleteProtectionGroupInput) (*shield.DeleteProtectionGroupOutput, error)
+	DeleteProtectionGroupAsync(ctx workflow.Context, input *shield.DeleteProtectionGroupInput) *DeleteProtectionGroupFuture
+
 	DeleteSubscription(ctx workflow.Context, input *shield.DeleteSubscriptionInput) (*shield.DeleteSubscriptionOutput, error)
 	DeleteSubscriptionAsync(ctx workflow.Context, input *shield.DeleteSubscriptionInput) *DeleteSubscriptionFuture
 
 	DescribeAttack(ctx workflow.Context, input *shield.DescribeAttackInput) (*shield.DescribeAttackOutput, error)
 	DescribeAttackAsync(ctx workflow.Context, input *shield.DescribeAttackInput) *DescribeAttackFuture
+
+	DescribeAttackStatistics(ctx workflow.Context, input *shield.DescribeAttackStatisticsInput) (*shield.DescribeAttackStatisticsOutput, error)
+	DescribeAttackStatisticsAsync(ctx workflow.Context, input *shield.DescribeAttackStatisticsInput) *DescribeAttackStatisticsFuture
 
 	DescribeDRTAccess(ctx workflow.Context, input *shield.DescribeDRTAccessInput) (*shield.DescribeDRTAccessOutput, error)
 	DescribeDRTAccessAsync(ctx workflow.Context, input *shield.DescribeDRTAccessInput) *DescribeDRTAccessFuture
@@ -49,6 +58,9 @@ type Client interface {
 
 	DescribeProtection(ctx workflow.Context, input *shield.DescribeProtectionInput) (*shield.DescribeProtectionOutput, error)
 	DescribeProtectionAsync(ctx workflow.Context, input *shield.DescribeProtectionInput) *DescribeProtectionFuture
+
+	DescribeProtectionGroup(ctx workflow.Context, input *shield.DescribeProtectionGroupInput) (*shield.DescribeProtectionGroupOutput, error)
+	DescribeProtectionGroupAsync(ctx workflow.Context, input *shield.DescribeProtectionGroupInput) *DescribeProtectionGroupFuture
 
 	DescribeSubscription(ctx workflow.Context, input *shield.DescribeSubscriptionInput) (*shield.DescribeSubscriptionOutput, error)
 	DescribeSubscriptionAsync(ctx workflow.Context, input *shield.DescribeSubscriptionInput) *DescribeSubscriptionFuture
@@ -74,11 +86,20 @@ type Client interface {
 	ListAttacks(ctx workflow.Context, input *shield.ListAttacksInput) (*shield.ListAttacksOutput, error)
 	ListAttacksAsync(ctx workflow.Context, input *shield.ListAttacksInput) *ListAttacksFuture
 
+	ListProtectionGroups(ctx workflow.Context, input *shield.ListProtectionGroupsInput) (*shield.ListProtectionGroupsOutput, error)
+	ListProtectionGroupsAsync(ctx workflow.Context, input *shield.ListProtectionGroupsInput) *ListProtectionGroupsFuture
+
 	ListProtections(ctx workflow.Context, input *shield.ListProtectionsInput) (*shield.ListProtectionsOutput, error)
 	ListProtectionsAsync(ctx workflow.Context, input *shield.ListProtectionsInput) *ListProtectionsFuture
 
+	ListResourcesInProtectionGroup(ctx workflow.Context, input *shield.ListResourcesInProtectionGroupInput) (*shield.ListResourcesInProtectionGroupOutput, error)
+	ListResourcesInProtectionGroupAsync(ctx workflow.Context, input *shield.ListResourcesInProtectionGroupInput) *ListResourcesInProtectionGroupFuture
+
 	UpdateEmergencyContactSettings(ctx workflow.Context, input *shield.UpdateEmergencyContactSettingsInput) (*shield.UpdateEmergencyContactSettingsOutput, error)
 	UpdateEmergencyContactSettingsAsync(ctx workflow.Context, input *shield.UpdateEmergencyContactSettingsInput) *UpdateEmergencyContactSettingsFuture
+
+	UpdateProtectionGroup(ctx workflow.Context, input *shield.UpdateProtectionGroupInput) (*shield.UpdateProtectionGroupOutput, error)
+	UpdateProtectionGroupAsync(ctx workflow.Context, input *shield.UpdateProtectionGroupInput) *UpdateProtectionGroupFuture
 
 	UpdateSubscription(ctx workflow.Context, input *shield.UpdateSubscriptionInput) (*shield.UpdateSubscriptionOutput, error)
 	UpdateSubscriptionAsync(ctx workflow.Context, input *shield.UpdateSubscriptionInput) *UpdateSubscriptionFuture

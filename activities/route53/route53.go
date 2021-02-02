@@ -53,6 +53,16 @@ func (a *Activities) getClient(ctx context.Context) (route53iface.Route53API, er
 	return route53.New(sess), nil
 }
 
+func (a *Activities) ActivateKeySigningKey(ctx context.Context, input *route53.ActivateKeySigningKeyInput) (*route53.ActivateKeySigningKeyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ActivateKeySigningKeyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) AssociateVPCWithHostedZone(ctx context.Context, input *route53.AssociateVPCWithHostedZoneInput) (*route53.AssociateVPCWithHostedZoneOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -99,6 +109,16 @@ func (a *Activities) CreateHostedZone(ctx context.Context, input *route53.Create
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreateHostedZoneWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateKeySigningKey(ctx context.Context, input *route53.CreateKeySigningKeyInput) (*route53.CreateKeySigningKeyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateKeySigningKeyWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -163,6 +183,16 @@ func (a *Activities) CreateVPCAssociationAuthorization(ctx context.Context, inpu
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeactivateKeySigningKey(ctx context.Context, input *route53.DeactivateKeySigningKeyInput) (*route53.DeactivateKeySigningKeyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeactivateKeySigningKeyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteHealthCheck(ctx context.Context, input *route53.DeleteHealthCheckInput) (*route53.DeleteHealthCheckOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -179,6 +209,16 @@ func (a *Activities) DeleteHostedZone(ctx context.Context, input *route53.Delete
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteHostedZoneWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteKeySigningKey(ctx context.Context, input *route53.DeleteKeySigningKeyInput) (*route53.DeleteKeySigningKeyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteKeySigningKeyWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -233,12 +273,32 @@ func (a *Activities) DeleteVPCAssociationAuthorization(ctx context.Context, inpu
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DisableHostedZoneDNSSEC(ctx context.Context, input *route53.DisableHostedZoneDNSSECInput) (*route53.DisableHostedZoneDNSSECOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DisableHostedZoneDNSSECWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DisassociateVPCFromHostedZone(ctx context.Context, input *route53.DisassociateVPCFromHostedZoneInput) (*route53.DisassociateVPCFromHostedZoneOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DisassociateVPCFromHostedZoneWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) EnableHostedZoneDNSSEC(ctx context.Context, input *route53.EnableHostedZoneDNSSECInput) (*route53.EnableHostedZoneDNSSECOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.EnableHostedZoneDNSSECWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -269,6 +329,16 @@ func (a *Activities) GetCheckerIpRanges(ctx context.Context, input *route53.GetC
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetCheckerIpRangesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetDNSSEC(ctx context.Context, input *route53.GetDNSSECInput) (*route53.GetDNSSECOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetDNSSECWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

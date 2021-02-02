@@ -17,6 +17,12 @@ type Client interface {
 	ActivateEventSource(ctx workflow.Context, input *cloudwatchevents.ActivateEventSourceInput) (*cloudwatchevents.ActivateEventSourceOutput, error)
 	ActivateEventSourceAsync(ctx workflow.Context, input *cloudwatchevents.ActivateEventSourceInput) *ActivateEventSourceFuture
 
+	CancelReplay(ctx workflow.Context, input *cloudwatchevents.CancelReplayInput) (*cloudwatchevents.CancelReplayOutput, error)
+	CancelReplayAsync(ctx workflow.Context, input *cloudwatchevents.CancelReplayInput) *CancelReplayFuture
+
+	CreateArchive(ctx workflow.Context, input *cloudwatchevents.CreateArchiveInput) (*cloudwatchevents.CreateArchiveOutput, error)
+	CreateArchiveAsync(ctx workflow.Context, input *cloudwatchevents.CreateArchiveInput) *CreateArchiveFuture
+
 	CreateEventBus(ctx workflow.Context, input *cloudwatchevents.CreateEventBusInput) (*cloudwatchevents.CreateEventBusOutput, error)
 	CreateEventBusAsync(ctx workflow.Context, input *cloudwatchevents.CreateEventBusInput) *CreateEventBusFuture
 
@@ -25,6 +31,9 @@ type Client interface {
 
 	DeactivateEventSource(ctx workflow.Context, input *cloudwatchevents.DeactivateEventSourceInput) (*cloudwatchevents.DeactivateEventSourceOutput, error)
 	DeactivateEventSourceAsync(ctx workflow.Context, input *cloudwatchevents.DeactivateEventSourceInput) *DeactivateEventSourceFuture
+
+	DeleteArchive(ctx workflow.Context, input *cloudwatchevents.DeleteArchiveInput) (*cloudwatchevents.DeleteArchiveOutput, error)
+	DeleteArchiveAsync(ctx workflow.Context, input *cloudwatchevents.DeleteArchiveInput) *DeleteArchiveFuture
 
 	DeleteEventBus(ctx workflow.Context, input *cloudwatchevents.DeleteEventBusInput) (*cloudwatchevents.DeleteEventBusOutput, error)
 	DeleteEventBusAsync(ctx workflow.Context, input *cloudwatchevents.DeleteEventBusInput) *DeleteEventBusFuture
@@ -35,6 +44,9 @@ type Client interface {
 	DeleteRule(ctx workflow.Context, input *cloudwatchevents.DeleteRuleInput) (*cloudwatchevents.DeleteRuleOutput, error)
 	DeleteRuleAsync(ctx workflow.Context, input *cloudwatchevents.DeleteRuleInput) *DeleteRuleFuture
 
+	DescribeArchive(ctx workflow.Context, input *cloudwatchevents.DescribeArchiveInput) (*cloudwatchevents.DescribeArchiveOutput, error)
+	DescribeArchiveAsync(ctx workflow.Context, input *cloudwatchevents.DescribeArchiveInput) *DescribeArchiveFuture
+
 	DescribeEventBus(ctx workflow.Context, input *cloudwatchevents.DescribeEventBusInput) (*cloudwatchevents.DescribeEventBusOutput, error)
 	DescribeEventBusAsync(ctx workflow.Context, input *cloudwatchevents.DescribeEventBusInput) *DescribeEventBusFuture
 
@@ -44,6 +56,9 @@ type Client interface {
 	DescribePartnerEventSource(ctx workflow.Context, input *cloudwatchevents.DescribePartnerEventSourceInput) (*cloudwatchevents.DescribePartnerEventSourceOutput, error)
 	DescribePartnerEventSourceAsync(ctx workflow.Context, input *cloudwatchevents.DescribePartnerEventSourceInput) *DescribePartnerEventSourceFuture
 
+	DescribeReplay(ctx workflow.Context, input *cloudwatchevents.DescribeReplayInput) (*cloudwatchevents.DescribeReplayOutput, error)
+	DescribeReplayAsync(ctx workflow.Context, input *cloudwatchevents.DescribeReplayInput) *DescribeReplayFuture
+
 	DescribeRule(ctx workflow.Context, input *cloudwatchevents.DescribeRuleInput) (*cloudwatchevents.DescribeRuleOutput, error)
 	DescribeRuleAsync(ctx workflow.Context, input *cloudwatchevents.DescribeRuleInput) *DescribeRuleFuture
 
@@ -52,6 +67,9 @@ type Client interface {
 
 	EnableRule(ctx workflow.Context, input *cloudwatchevents.EnableRuleInput) (*cloudwatchevents.EnableRuleOutput, error)
 	EnableRuleAsync(ctx workflow.Context, input *cloudwatchevents.EnableRuleInput) *EnableRuleFuture
+
+	ListArchives(ctx workflow.Context, input *cloudwatchevents.ListArchivesInput) (*cloudwatchevents.ListArchivesOutput, error)
+	ListArchivesAsync(ctx workflow.Context, input *cloudwatchevents.ListArchivesInput) *ListArchivesFuture
 
 	ListEventBuses(ctx workflow.Context, input *cloudwatchevents.ListEventBusesInput) (*cloudwatchevents.ListEventBusesOutput, error)
 	ListEventBusesAsync(ctx workflow.Context, input *cloudwatchevents.ListEventBusesInput) *ListEventBusesFuture
@@ -64,6 +82,9 @@ type Client interface {
 
 	ListPartnerEventSources(ctx workflow.Context, input *cloudwatchevents.ListPartnerEventSourcesInput) (*cloudwatchevents.ListPartnerEventSourcesOutput, error)
 	ListPartnerEventSourcesAsync(ctx workflow.Context, input *cloudwatchevents.ListPartnerEventSourcesInput) *ListPartnerEventSourcesFuture
+
+	ListReplays(ctx workflow.Context, input *cloudwatchevents.ListReplaysInput) (*cloudwatchevents.ListReplaysOutput, error)
+	ListReplaysAsync(ctx workflow.Context, input *cloudwatchevents.ListReplaysInput) *ListReplaysFuture
 
 	ListRuleNamesByTarget(ctx workflow.Context, input *cloudwatchevents.ListRuleNamesByTargetInput) (*cloudwatchevents.ListRuleNamesByTargetOutput, error)
 	ListRuleNamesByTargetAsync(ctx workflow.Context, input *cloudwatchevents.ListRuleNamesByTargetInput) *ListRuleNamesByTargetFuture
@@ -98,6 +119,9 @@ type Client interface {
 	RemoveTargets(ctx workflow.Context, input *cloudwatchevents.RemoveTargetsInput) (*cloudwatchevents.RemoveTargetsOutput, error)
 	RemoveTargetsAsync(ctx workflow.Context, input *cloudwatchevents.RemoveTargetsInput) *RemoveTargetsFuture
 
+	StartReplay(ctx workflow.Context, input *cloudwatchevents.StartReplayInput) (*cloudwatchevents.StartReplayOutput, error)
+	StartReplayAsync(ctx workflow.Context, input *cloudwatchevents.StartReplayInput) *StartReplayFuture
+
 	TagResource(ctx workflow.Context, input *cloudwatchevents.TagResourceInput) (*cloudwatchevents.TagResourceOutput, error)
 	TagResourceAsync(ctx workflow.Context, input *cloudwatchevents.TagResourceInput) *TagResourceFuture
 
@@ -106,6 +130,9 @@ type Client interface {
 
 	UntagResource(ctx workflow.Context, input *cloudwatchevents.UntagResourceInput) (*cloudwatchevents.UntagResourceOutput, error)
 	UntagResourceAsync(ctx workflow.Context, input *cloudwatchevents.UntagResourceInput) *UntagResourceFuture
+
+	UpdateArchive(ctx workflow.Context, input *cloudwatchevents.UpdateArchiveInput) (*cloudwatchevents.UpdateArchiveOutput, error)
+	UpdateArchiveAsync(ctx workflow.Context, input *cloudwatchevents.UpdateArchiveInput) *UpdateArchiveFuture
 }
 
 func NewClient() Client {

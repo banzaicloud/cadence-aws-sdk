@@ -14,11 +14,17 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	CompleteAttachmentUpload(ctx workflow.Context, input *connectparticipant.CompleteAttachmentUploadInput) (*connectparticipant.CompleteAttachmentUploadOutput, error)
+	CompleteAttachmentUploadAsync(ctx workflow.Context, input *connectparticipant.CompleteAttachmentUploadInput) *CompleteAttachmentUploadFuture
+
 	CreateParticipantConnection(ctx workflow.Context, input *connectparticipant.CreateParticipantConnectionInput) (*connectparticipant.CreateParticipantConnectionOutput, error)
 	CreateParticipantConnectionAsync(ctx workflow.Context, input *connectparticipant.CreateParticipantConnectionInput) *CreateParticipantConnectionFuture
 
 	DisconnectParticipant(ctx workflow.Context, input *connectparticipant.DisconnectParticipantInput) (*connectparticipant.DisconnectParticipantOutput, error)
 	DisconnectParticipantAsync(ctx workflow.Context, input *connectparticipant.DisconnectParticipantInput) *DisconnectParticipantFuture
+
+	GetAttachment(ctx workflow.Context, input *connectparticipant.GetAttachmentInput) (*connectparticipant.GetAttachmentOutput, error)
+	GetAttachmentAsync(ctx workflow.Context, input *connectparticipant.GetAttachmentInput) *GetAttachmentFuture
 
 	GetTranscript(ctx workflow.Context, input *connectparticipant.GetTranscriptInput) (*connectparticipant.GetTranscriptOutput, error)
 	GetTranscriptAsync(ctx workflow.Context, input *connectparticipant.GetTranscriptInput) *GetTranscriptFuture
@@ -28,6 +34,9 @@ type Client interface {
 
 	SendMessage(ctx workflow.Context, input *connectparticipant.SendMessageInput) (*connectparticipant.SendMessageOutput, error)
 	SendMessageAsync(ctx workflow.Context, input *connectparticipant.SendMessageInput) *SendMessageFuture
+
+	StartAttachmentUpload(ctx workflow.Context, input *connectparticipant.StartAttachmentUploadInput) (*connectparticipant.StartAttachmentUploadOutput, error)
+	StartAttachmentUploadAsync(ctx workflow.Context, input *connectparticipant.StartAttachmentUploadInput) *StartAttachmentUploadFuture
 }
 
 func NewClient() Client {

@@ -106,6 +106,17 @@ func (a *Activities) CreateIndex(ctx context.Context, input *kendra.CreateIndexI
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateThesaurus(ctx context.Context, input *kendra.CreateThesaurusInput) (*kendra.CreateThesaurusOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	internal.SetClientToken(ctx, &input.ClientToken)
+	output, err := client.CreateThesaurusWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteDataSource(ctx context.Context, input *kendra.DeleteDataSourceInput) (*kendra.DeleteDataSourceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -136,6 +147,16 @@ func (a *Activities) DeleteIndex(ctx context.Context, input *kendra.DeleteIndexI
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteThesaurus(ctx context.Context, input *kendra.DeleteThesaurusInput) (*kendra.DeleteThesaurusOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteThesaurusWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeDataSource(ctx context.Context, input *kendra.DescribeDataSourceInput) (*kendra.DescribeDataSourceOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -162,6 +183,16 @@ func (a *Activities) DescribeIndex(ctx context.Context, input *kendra.DescribeIn
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeIndexWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeThesaurus(ctx context.Context, input *kendra.DescribeThesaurusInput) (*kendra.DescribeThesaurusOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeThesaurusWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -212,6 +243,16 @@ func (a *Activities) ListTagsForResource(ctx context.Context, input *kendra.List
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListTagsForResourceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListThesauri(ctx context.Context, input *kendra.ListThesauriInput) (*kendra.ListThesauriOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListThesauriWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -292,6 +333,16 @@ func (a *Activities) UpdateIndex(ctx context.Context, input *kendra.UpdateIndexI
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateIndexWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateThesaurus(ctx context.Context, input *kendra.UpdateThesaurusInput) (*kendra.UpdateThesaurusOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateThesaurusWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

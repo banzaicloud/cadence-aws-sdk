@@ -499,6 +499,17 @@ func (r *ModifyReplicationTaskFuture) Get(ctx workflow.Context) (*databasemigrat
 	return &output, err
 }
 
+type MoveReplicationTaskFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *MoveReplicationTaskFuture) Get(ctx workflow.Context) (*databasemigrationservice.MoveReplicationTaskOutput, error) {
+	var output databasemigrationservice.MoveReplicationTaskOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type RebootReplicationInstanceFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1080,6 +1091,17 @@ func (a *stub) ModifyReplicationTask(ctx workflow.Context, input *databasemigrat
 func (a *stub) ModifyReplicationTaskAsync(ctx workflow.Context, input *databasemigrationservice.ModifyReplicationTaskInput) *ModifyReplicationTaskFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-databasemigrationservice-ModifyReplicationTask", input)
 	return &ModifyReplicationTaskFuture{Future: future}
+}
+
+func (a *stub) MoveReplicationTask(ctx workflow.Context, input *databasemigrationservice.MoveReplicationTaskInput) (*databasemigrationservice.MoveReplicationTaskOutput, error) {
+	var output databasemigrationservice.MoveReplicationTaskOutput
+	err := workflow.ExecuteActivity(ctx, "aws-databasemigrationservice-MoveReplicationTask", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) MoveReplicationTaskAsync(ctx workflow.Context, input *databasemigrationservice.MoveReplicationTaskInput) *MoveReplicationTaskFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-databasemigrationservice-MoveReplicationTask", input)
+	return &MoveReplicationTaskFuture{Future: future}
 }
 
 func (a *stub) RebootReplicationInstance(ctx workflow.Context, input *databasemigrationservice.RebootReplicationInstanceInput) (*databasemigrationservice.RebootReplicationInstanceOutput, error) {

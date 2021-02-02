@@ -41,6 +41,9 @@ type Client interface {
 	CreateOpsItem(ctx workflow.Context, input *ssm.CreateOpsItemInput) (*ssm.CreateOpsItemOutput, error)
 	CreateOpsItemAsync(ctx workflow.Context, input *ssm.CreateOpsItemInput) *CreateOpsItemFuture
 
+	CreateOpsMetadata(ctx workflow.Context, input *ssm.CreateOpsMetadataInput) (*ssm.CreateOpsMetadataOutput, error)
+	CreateOpsMetadataAsync(ctx workflow.Context, input *ssm.CreateOpsMetadataInput) *CreateOpsMetadataFuture
+
 	CreatePatchBaseline(ctx workflow.Context, input *ssm.CreatePatchBaselineInput) (*ssm.CreatePatchBaselineOutput, error)
 	CreatePatchBaselineAsync(ctx workflow.Context, input *ssm.CreatePatchBaselineInput) *CreatePatchBaselineFuture
 
@@ -61,6 +64,9 @@ type Client interface {
 
 	DeleteMaintenanceWindow(ctx workflow.Context, input *ssm.DeleteMaintenanceWindowInput) (*ssm.DeleteMaintenanceWindowOutput, error)
 	DeleteMaintenanceWindowAsync(ctx workflow.Context, input *ssm.DeleteMaintenanceWindowInput) *DeleteMaintenanceWindowFuture
+
+	DeleteOpsMetadata(ctx workflow.Context, input *ssm.DeleteOpsMetadataInput) (*ssm.DeleteOpsMetadataOutput, error)
+	DeleteOpsMetadataAsync(ctx workflow.Context, input *ssm.DeleteOpsMetadataInput) *DeleteOpsMetadataFuture
 
 	DeleteParameter(ctx workflow.Context, input *ssm.DeleteParameterInput) (*ssm.DeleteParameterOutput, error)
 	DeleteParameterAsync(ctx workflow.Context, input *ssm.DeleteParameterInput) *DeleteParameterFuture
@@ -227,6 +233,9 @@ type Client interface {
 	GetOpsItem(ctx workflow.Context, input *ssm.GetOpsItemInput) (*ssm.GetOpsItemOutput, error)
 	GetOpsItemAsync(ctx workflow.Context, input *ssm.GetOpsItemInput) *GetOpsItemFuture
 
+	GetOpsMetadata(ctx workflow.Context, input *ssm.GetOpsMetadataInput) (*ssm.GetOpsMetadataOutput, error)
+	GetOpsMetadataAsync(ctx workflow.Context, input *ssm.GetOpsMetadataInput) *GetOpsMetadataFuture
+
 	GetOpsSummary(ctx workflow.Context, input *ssm.GetOpsSummaryInput) (*ssm.GetOpsSummaryOutput, error)
 	GetOpsSummaryAsync(ctx workflow.Context, input *ssm.GetOpsSummaryInput) *GetOpsSummaryFuture
 
@@ -272,6 +281,9 @@ type Client interface {
 	ListComplianceSummaries(ctx workflow.Context, input *ssm.ListComplianceSummariesInput) (*ssm.ListComplianceSummariesOutput, error)
 	ListComplianceSummariesAsync(ctx workflow.Context, input *ssm.ListComplianceSummariesInput) *ListComplianceSummariesFuture
 
+	ListDocumentMetadataHistory(ctx workflow.Context, input *ssm.ListDocumentMetadataHistoryInput) (*ssm.ListDocumentMetadataHistoryOutput, error)
+	ListDocumentMetadataHistoryAsync(ctx workflow.Context, input *ssm.ListDocumentMetadataHistoryInput) *ListDocumentMetadataHistoryFuture
+
 	ListDocumentVersions(ctx workflow.Context, input *ssm.ListDocumentVersionsInput) (*ssm.ListDocumentVersionsOutput, error)
 	ListDocumentVersionsAsync(ctx workflow.Context, input *ssm.ListDocumentVersionsInput) *ListDocumentVersionsFuture
 
@@ -280,6 +292,12 @@ type Client interface {
 
 	ListInventoryEntries(ctx workflow.Context, input *ssm.ListInventoryEntriesInput) (*ssm.ListInventoryEntriesOutput, error)
 	ListInventoryEntriesAsync(ctx workflow.Context, input *ssm.ListInventoryEntriesInput) *ListInventoryEntriesFuture
+
+	ListOpsItemEvents(ctx workflow.Context, input *ssm.ListOpsItemEventsInput) (*ssm.ListOpsItemEventsOutput, error)
+	ListOpsItemEventsAsync(ctx workflow.Context, input *ssm.ListOpsItemEventsInput) *ListOpsItemEventsFuture
+
+	ListOpsMetadata(ctx workflow.Context, input *ssm.ListOpsMetadataInput) (*ssm.ListOpsMetadataOutput, error)
+	ListOpsMetadataAsync(ctx workflow.Context, input *ssm.ListOpsMetadataInput) *ListOpsMetadataFuture
 
 	ListResourceComplianceSummaries(ctx workflow.Context, input *ssm.ListResourceComplianceSummariesInput) (*ssm.ListResourceComplianceSummariesOutput, error)
 	ListResourceComplianceSummariesAsync(ctx workflow.Context, input *ssm.ListResourceComplianceSummariesInput) *ListResourceComplianceSummariesFuture
@@ -335,6 +353,9 @@ type Client interface {
 	StartAutomationExecution(ctx workflow.Context, input *ssm.StartAutomationExecutionInput) (*ssm.StartAutomationExecutionOutput, error)
 	StartAutomationExecutionAsync(ctx workflow.Context, input *ssm.StartAutomationExecutionInput) *StartAutomationExecutionFuture
 
+	StartChangeRequestExecution(ctx workflow.Context, input *ssm.StartChangeRequestExecutionInput) (*ssm.StartChangeRequestExecutionOutput, error)
+	StartChangeRequestExecutionAsync(ctx workflow.Context, input *ssm.StartChangeRequestExecutionInput) *StartChangeRequestExecutionFuture
+
 	StartSession(ctx workflow.Context, input *ssm.StartSessionInput) (*ssm.StartSessionOutput, error)
 	StartSessionAsync(ctx workflow.Context, input *ssm.StartSessionInput) *StartSessionFuture
 
@@ -356,6 +377,9 @@ type Client interface {
 	UpdateDocumentDefaultVersion(ctx workflow.Context, input *ssm.UpdateDocumentDefaultVersionInput) (*ssm.UpdateDocumentDefaultVersionOutput, error)
 	UpdateDocumentDefaultVersionAsync(ctx workflow.Context, input *ssm.UpdateDocumentDefaultVersionInput) *UpdateDocumentDefaultVersionFuture
 
+	UpdateDocumentMetadata(ctx workflow.Context, input *ssm.UpdateDocumentMetadataInput) (*ssm.UpdateDocumentMetadataOutput, error)
+	UpdateDocumentMetadataAsync(ctx workflow.Context, input *ssm.UpdateDocumentMetadataInput) *UpdateDocumentMetadataFuture
+
 	UpdateMaintenanceWindow(ctx workflow.Context, input *ssm.UpdateMaintenanceWindowInput) (*ssm.UpdateMaintenanceWindowOutput, error)
 	UpdateMaintenanceWindowAsync(ctx workflow.Context, input *ssm.UpdateMaintenanceWindowInput) *UpdateMaintenanceWindowFuture
 
@@ -370,6 +394,9 @@ type Client interface {
 
 	UpdateOpsItem(ctx workflow.Context, input *ssm.UpdateOpsItemInput) (*ssm.UpdateOpsItemOutput, error)
 	UpdateOpsItemAsync(ctx workflow.Context, input *ssm.UpdateOpsItemInput) *UpdateOpsItemFuture
+
+	UpdateOpsMetadata(ctx workflow.Context, input *ssm.UpdateOpsMetadataInput) (*ssm.UpdateOpsMetadataOutput, error)
+	UpdateOpsMetadataAsync(ctx workflow.Context, input *ssm.UpdateOpsMetadataInput) *UpdateOpsMetadataFuture
 
 	UpdatePatchBaseline(ctx workflow.Context, input *ssm.UpdatePatchBaselineInput) (*ssm.UpdatePatchBaselineOutput, error)
 	UpdatePatchBaselineAsync(ctx workflow.Context, input *ssm.UpdatePatchBaselineInput) *UpdatePatchBaselineFuture

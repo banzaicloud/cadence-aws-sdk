@@ -32,6 +32,9 @@ type Client interface {
 	CreatePredictor(ctx workflow.Context, input *forecastservice.CreatePredictorInput) (*forecastservice.CreatePredictorOutput, error)
 	CreatePredictorAsync(ctx workflow.Context, input *forecastservice.CreatePredictorInput) *CreatePredictorFuture
 
+	CreatePredictorBacktestExportJob(ctx workflow.Context, input *forecastservice.CreatePredictorBacktestExportJobInput) (*forecastservice.CreatePredictorBacktestExportJobOutput, error)
+	CreatePredictorBacktestExportJobAsync(ctx workflow.Context, input *forecastservice.CreatePredictorBacktestExportJobInput) *CreatePredictorBacktestExportJobFuture
+
 	DeleteDataset(ctx workflow.Context, input *forecastservice.DeleteDatasetInput) (*forecastservice.DeleteDatasetOutput, error)
 	DeleteDatasetAsync(ctx workflow.Context, input *forecastservice.DeleteDatasetInput) *DeleteDatasetFuture
 
@@ -49,6 +52,9 @@ type Client interface {
 
 	DeletePredictor(ctx workflow.Context, input *forecastservice.DeletePredictorInput) (*forecastservice.DeletePredictorOutput, error)
 	DeletePredictorAsync(ctx workflow.Context, input *forecastservice.DeletePredictorInput) *DeletePredictorFuture
+
+	DeletePredictorBacktestExportJob(ctx workflow.Context, input *forecastservice.DeletePredictorBacktestExportJobInput) (*forecastservice.DeletePredictorBacktestExportJobOutput, error)
+	DeletePredictorBacktestExportJobAsync(ctx workflow.Context, input *forecastservice.DeletePredictorBacktestExportJobInput) *DeletePredictorBacktestExportJobFuture
 
 	DescribeDataset(ctx workflow.Context, input *forecastservice.DescribeDatasetInput) (*forecastservice.DescribeDatasetOutput, error)
 	DescribeDatasetAsync(ctx workflow.Context, input *forecastservice.DescribeDatasetInput) *DescribeDatasetFuture
@@ -68,6 +74,9 @@ type Client interface {
 	DescribePredictor(ctx workflow.Context, input *forecastservice.DescribePredictorInput) (*forecastservice.DescribePredictorOutput, error)
 	DescribePredictorAsync(ctx workflow.Context, input *forecastservice.DescribePredictorInput) *DescribePredictorFuture
 
+	DescribePredictorBacktestExportJob(ctx workflow.Context, input *forecastservice.DescribePredictorBacktestExportJobInput) (*forecastservice.DescribePredictorBacktestExportJobOutput, error)
+	DescribePredictorBacktestExportJobAsync(ctx workflow.Context, input *forecastservice.DescribePredictorBacktestExportJobInput) *DescribePredictorBacktestExportJobFuture
+
 	GetAccuracyMetrics(ctx workflow.Context, input *forecastservice.GetAccuracyMetricsInput) (*forecastservice.GetAccuracyMetricsOutput, error)
 	GetAccuracyMetricsAsync(ctx workflow.Context, input *forecastservice.GetAccuracyMetricsInput) *GetAccuracyMetricsFuture
 
@@ -85,6 +94,9 @@ type Client interface {
 
 	ListForecasts(ctx workflow.Context, input *forecastservice.ListForecastsInput) (*forecastservice.ListForecastsOutput, error)
 	ListForecastsAsync(ctx workflow.Context, input *forecastservice.ListForecastsInput) *ListForecastsFuture
+
+	ListPredictorBacktestExportJobs(ctx workflow.Context, input *forecastservice.ListPredictorBacktestExportJobsInput) (*forecastservice.ListPredictorBacktestExportJobsOutput, error)
+	ListPredictorBacktestExportJobsAsync(ctx workflow.Context, input *forecastservice.ListPredictorBacktestExportJobsInput) *ListPredictorBacktestExportJobsFuture
 
 	ListPredictors(ctx workflow.Context, input *forecastservice.ListPredictorsInput) (*forecastservice.ListPredictorsOutput, error)
 	ListPredictorsAsync(ctx workflow.Context, input *forecastservice.ListPredictorsInput) *ListPredictorsFuture

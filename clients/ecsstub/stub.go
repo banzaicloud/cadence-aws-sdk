@@ -488,6 +488,17 @@ func (r *UntagResourceFuture) Get(ctx workflow.Context) (*ecs.UntagResourceOutpu
 	return &output, err
 }
 
+type UpdateCapacityProviderFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *UpdateCapacityProviderFuture) Get(ctx workflow.Context) (*ecs.UpdateCapacityProviderOutput, error) {
+	var output ecs.UpdateCapacityProviderOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type UpdateClusterSettingsFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -1025,6 +1036,17 @@ func (a *stub) UntagResource(ctx workflow.Context, input *ecs.UntagResourceInput
 func (a *stub) UntagResourceAsync(ctx workflow.Context, input *ecs.UntagResourceInput) *UntagResourceFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-ecs-UntagResource", input)
 	return &UntagResourceFuture{Future: future}
+}
+
+func (a *stub) UpdateCapacityProvider(ctx workflow.Context, input *ecs.UpdateCapacityProviderInput) (*ecs.UpdateCapacityProviderOutput, error) {
+	var output ecs.UpdateCapacityProviderOutput
+	err := workflow.ExecuteActivity(ctx, "aws-ecs-UpdateCapacityProvider", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) UpdateCapacityProviderAsync(ctx workflow.Context, input *ecs.UpdateCapacityProviderInput) *UpdateCapacityProviderFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-ecs-UpdateCapacityProvider", input)
+	return &UpdateCapacityProviderFuture{Future: future}
 }
 
 func (a *stub) UpdateClusterSettings(ctx workflow.Context, input *ecs.UpdateClusterSettingsInput) (*ecs.UpdateClusterSettingsOutput, error) {

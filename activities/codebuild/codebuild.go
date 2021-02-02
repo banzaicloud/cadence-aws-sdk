@@ -233,6 +233,16 @@ func (a *Activities) DescribeTestCases(ctx context.Context, input *codebuild.Des
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) GetReportGroupTrend(ctx context.Context, input *codebuild.GetReportGroupTrendInput) (*codebuild.GetReportGroupTrendOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetReportGroupTrendWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetResourcePolicy(ctx context.Context, input *codebuild.GetResourcePolicyInput) (*codebuild.GetResourcePolicyOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {

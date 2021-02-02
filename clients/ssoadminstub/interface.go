@@ -20,6 +20,9 @@ type Client interface {
 	CreateAccountAssignment(ctx workflow.Context, input *ssoadmin.CreateAccountAssignmentInput) (*ssoadmin.CreateAccountAssignmentOutput, error)
 	CreateAccountAssignmentAsync(ctx workflow.Context, input *ssoadmin.CreateAccountAssignmentInput) *CreateAccountAssignmentFuture
 
+	CreateInstanceAccessControlAttributeConfiguration(ctx workflow.Context, input *ssoadmin.CreateInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.CreateInstanceAccessControlAttributeConfigurationOutput, error)
+	CreateInstanceAccessControlAttributeConfigurationAsync(ctx workflow.Context, input *ssoadmin.CreateInstanceAccessControlAttributeConfigurationInput) *CreateInstanceAccessControlAttributeConfigurationFuture
+
 	CreatePermissionSet(ctx workflow.Context, input *ssoadmin.CreatePermissionSetInput) (*ssoadmin.CreatePermissionSetOutput, error)
 	CreatePermissionSetAsync(ctx workflow.Context, input *ssoadmin.CreatePermissionSetInput) *CreatePermissionSetFuture
 
@@ -29,6 +32,9 @@ type Client interface {
 	DeleteInlinePolicyFromPermissionSet(ctx workflow.Context, input *ssoadmin.DeleteInlinePolicyFromPermissionSetInput) (*ssoadmin.DeleteInlinePolicyFromPermissionSetOutput, error)
 	DeleteInlinePolicyFromPermissionSetAsync(ctx workflow.Context, input *ssoadmin.DeleteInlinePolicyFromPermissionSetInput) *DeleteInlinePolicyFromPermissionSetFuture
 
+	DeleteInstanceAccessControlAttributeConfiguration(ctx workflow.Context, input *ssoadmin.DeleteInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.DeleteInstanceAccessControlAttributeConfigurationOutput, error)
+	DeleteInstanceAccessControlAttributeConfigurationAsync(ctx workflow.Context, input *ssoadmin.DeleteInstanceAccessControlAttributeConfigurationInput) *DeleteInstanceAccessControlAttributeConfigurationFuture
+
 	DeletePermissionSet(ctx workflow.Context, input *ssoadmin.DeletePermissionSetInput) (*ssoadmin.DeletePermissionSetOutput, error)
 	DeletePermissionSetAsync(ctx workflow.Context, input *ssoadmin.DeletePermissionSetInput) *DeletePermissionSetFuture
 
@@ -37,6 +43,9 @@ type Client interface {
 
 	DescribeAccountAssignmentDeletionStatus(ctx workflow.Context, input *ssoadmin.DescribeAccountAssignmentDeletionStatusInput) (*ssoadmin.DescribeAccountAssignmentDeletionStatusOutput, error)
 	DescribeAccountAssignmentDeletionStatusAsync(ctx workflow.Context, input *ssoadmin.DescribeAccountAssignmentDeletionStatusInput) *DescribeAccountAssignmentDeletionStatusFuture
+
+	DescribeInstanceAccessControlAttributeConfiguration(ctx workflow.Context, input *ssoadmin.DescribeInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.DescribeInstanceAccessControlAttributeConfigurationOutput, error)
+	DescribeInstanceAccessControlAttributeConfigurationAsync(ctx workflow.Context, input *ssoadmin.DescribeInstanceAccessControlAttributeConfigurationInput) *DescribeInstanceAccessControlAttributeConfigurationFuture
 
 	DescribePermissionSet(ctx workflow.Context, input *ssoadmin.DescribePermissionSetInput) (*ssoadmin.DescribePermissionSetOutput, error)
 	DescribePermissionSetAsync(ctx workflow.Context, input *ssoadmin.DescribePermissionSetInput) *DescribePermissionSetFuture
@@ -91,6 +100,9 @@ type Client interface {
 
 	UntagResource(ctx workflow.Context, input *ssoadmin.UntagResourceInput) (*ssoadmin.UntagResourceOutput, error)
 	UntagResourceAsync(ctx workflow.Context, input *ssoadmin.UntagResourceInput) *UntagResourceFuture
+
+	UpdateInstanceAccessControlAttributeConfiguration(ctx workflow.Context, input *ssoadmin.UpdateInstanceAccessControlAttributeConfigurationInput) (*ssoadmin.UpdateInstanceAccessControlAttributeConfigurationOutput, error)
+	UpdateInstanceAccessControlAttributeConfigurationAsync(ctx workflow.Context, input *ssoadmin.UpdateInstanceAccessControlAttributeConfigurationInput) *UpdateInstanceAccessControlAttributeConfigurationFuture
 
 	UpdatePermissionSet(ctx workflow.Context, input *ssoadmin.UpdatePermissionSetInput) (*ssoadmin.UpdatePermissionSetOutput, error)
 	UpdatePermissionSetAsync(ctx workflow.Context, input *ssoadmin.UpdatePermissionSetInput) *UpdatePermissionSetFuture

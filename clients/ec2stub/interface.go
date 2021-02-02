@@ -17,6 +17,9 @@ type Client interface {
 	AcceptReservedInstancesExchangeQuote(ctx workflow.Context, input *ec2.AcceptReservedInstancesExchangeQuoteInput) (*ec2.AcceptReservedInstancesExchangeQuoteOutput, error)
 	AcceptReservedInstancesExchangeQuoteAsync(ctx workflow.Context, input *ec2.AcceptReservedInstancesExchangeQuoteInput) *AcceptReservedInstancesExchangeQuoteFuture
 
+	AcceptTransitGatewayMulticastDomainAssociations(ctx workflow.Context, input *ec2.AcceptTransitGatewayMulticastDomainAssociationsInput) (*ec2.AcceptTransitGatewayMulticastDomainAssociationsOutput, error)
+	AcceptTransitGatewayMulticastDomainAssociationsAsync(ctx workflow.Context, input *ec2.AcceptTransitGatewayMulticastDomainAssociationsInput) *AcceptTransitGatewayMulticastDomainAssociationsFuture
+
 	AcceptTransitGatewayPeeringAttachment(ctx workflow.Context, input *ec2.AcceptTransitGatewayPeeringAttachmentInput) (*ec2.AcceptTransitGatewayPeeringAttachmentOutput, error)
 	AcceptTransitGatewayPeeringAttachmentAsync(ctx workflow.Context, input *ec2.AcceptTransitGatewayPeeringAttachmentInput) *AcceptTransitGatewayPeeringAttachmentFuture
 
@@ -212,6 +215,9 @@ type Client interface {
 	CreateNetworkAclEntry(ctx workflow.Context, input *ec2.CreateNetworkAclEntryInput) (*ec2.CreateNetworkAclEntryOutput, error)
 	CreateNetworkAclEntryAsync(ctx workflow.Context, input *ec2.CreateNetworkAclEntryInput) *CreateNetworkAclEntryFuture
 
+	CreateNetworkInsightsPath(ctx workflow.Context, input *ec2.CreateNetworkInsightsPathInput) (*ec2.CreateNetworkInsightsPathOutput, error)
+	CreateNetworkInsightsPathAsync(ctx workflow.Context, input *ec2.CreateNetworkInsightsPathInput) *CreateNetworkInsightsPathFuture
+
 	CreateNetworkInterface(ctx workflow.Context, input *ec2.CreateNetworkInterfaceInput) (*ec2.CreateNetworkInterfaceOutput, error)
 	CreateNetworkInterfaceAsync(ctx workflow.Context, input *ec2.CreateNetworkInterfaceInput) *CreateNetworkInterfaceFuture
 
@@ -262,6 +268,12 @@ type Client interface {
 
 	CreateTransitGateway(ctx workflow.Context, input *ec2.CreateTransitGatewayInput) (*ec2.CreateTransitGatewayOutput, error)
 	CreateTransitGatewayAsync(ctx workflow.Context, input *ec2.CreateTransitGatewayInput) *CreateTransitGatewayFuture
+
+	CreateTransitGatewayConnect(ctx workflow.Context, input *ec2.CreateTransitGatewayConnectInput) (*ec2.CreateTransitGatewayConnectOutput, error)
+	CreateTransitGatewayConnectAsync(ctx workflow.Context, input *ec2.CreateTransitGatewayConnectInput) *CreateTransitGatewayConnectFuture
+
+	CreateTransitGatewayConnectPeer(ctx workflow.Context, input *ec2.CreateTransitGatewayConnectPeerInput) (*ec2.CreateTransitGatewayConnectPeerOutput, error)
+	CreateTransitGatewayConnectPeerAsync(ctx workflow.Context, input *ec2.CreateTransitGatewayConnectPeerInput) *CreateTransitGatewayConnectPeerFuture
 
 	CreateTransitGatewayMulticastDomain(ctx workflow.Context, input *ec2.CreateTransitGatewayMulticastDomainInput) (*ec2.CreateTransitGatewayMulticastDomainOutput, error)
 	CreateTransitGatewayMulticastDomainAsync(ctx workflow.Context, input *ec2.CreateTransitGatewayMulticastDomainInput) *CreateTransitGatewayMulticastDomainFuture
@@ -365,6 +377,12 @@ type Client interface {
 	DeleteNetworkAclEntry(ctx workflow.Context, input *ec2.DeleteNetworkAclEntryInput) (*ec2.DeleteNetworkAclEntryOutput, error)
 	DeleteNetworkAclEntryAsync(ctx workflow.Context, input *ec2.DeleteNetworkAclEntryInput) *DeleteNetworkAclEntryFuture
 
+	DeleteNetworkInsightsAnalysis(ctx workflow.Context, input *ec2.DeleteNetworkInsightsAnalysisInput) (*ec2.DeleteNetworkInsightsAnalysisOutput, error)
+	DeleteNetworkInsightsAnalysisAsync(ctx workflow.Context, input *ec2.DeleteNetworkInsightsAnalysisInput) *DeleteNetworkInsightsAnalysisFuture
+
+	DeleteNetworkInsightsPath(ctx workflow.Context, input *ec2.DeleteNetworkInsightsPathInput) (*ec2.DeleteNetworkInsightsPathOutput, error)
+	DeleteNetworkInsightsPathAsync(ctx workflow.Context, input *ec2.DeleteNetworkInsightsPathInput) *DeleteNetworkInsightsPathFuture
+
 	DeleteNetworkInterface(ctx workflow.Context, input *ec2.DeleteNetworkInterfaceInput) (*ec2.DeleteNetworkInterfaceOutput, error)
 	DeleteNetworkInterfaceAsync(ctx workflow.Context, input *ec2.DeleteNetworkInterfaceInput) *DeleteNetworkInterfaceFuture
 
@@ -412,6 +430,12 @@ type Client interface {
 
 	DeleteTransitGateway(ctx workflow.Context, input *ec2.DeleteTransitGatewayInput) (*ec2.DeleteTransitGatewayOutput, error)
 	DeleteTransitGatewayAsync(ctx workflow.Context, input *ec2.DeleteTransitGatewayInput) *DeleteTransitGatewayFuture
+
+	DeleteTransitGatewayConnect(ctx workflow.Context, input *ec2.DeleteTransitGatewayConnectInput) (*ec2.DeleteTransitGatewayConnectOutput, error)
+	DeleteTransitGatewayConnectAsync(ctx workflow.Context, input *ec2.DeleteTransitGatewayConnectInput) *DeleteTransitGatewayConnectFuture
+
+	DeleteTransitGatewayConnectPeer(ctx workflow.Context, input *ec2.DeleteTransitGatewayConnectPeerInput) (*ec2.DeleteTransitGatewayConnectPeerOutput, error)
+	DeleteTransitGatewayConnectPeerAsync(ctx workflow.Context, input *ec2.DeleteTransitGatewayConnectPeerInput) *DeleteTransitGatewayConnectPeerFuture
 
 	DeleteTransitGatewayMulticastDomain(ctx workflow.Context, input *ec2.DeleteTransitGatewayMulticastDomainInput) (*ec2.DeleteTransitGatewayMulticastDomainOutput, error)
 	DeleteTransitGatewayMulticastDomainAsync(ctx workflow.Context, input *ec2.DeleteTransitGatewayMulticastDomainInput) *DeleteTransitGatewayMulticastDomainFuture
@@ -656,6 +680,12 @@ type Client interface {
 	DescribeNetworkAcls(ctx workflow.Context, input *ec2.DescribeNetworkAclsInput) (*ec2.DescribeNetworkAclsOutput, error)
 	DescribeNetworkAclsAsync(ctx workflow.Context, input *ec2.DescribeNetworkAclsInput) *DescribeNetworkAclsFuture
 
+	DescribeNetworkInsightsAnalyses(ctx workflow.Context, input *ec2.DescribeNetworkInsightsAnalysesInput) (*ec2.DescribeNetworkInsightsAnalysesOutput, error)
+	DescribeNetworkInsightsAnalysesAsync(ctx workflow.Context, input *ec2.DescribeNetworkInsightsAnalysesInput) *DescribeNetworkInsightsAnalysesFuture
+
+	DescribeNetworkInsightsPaths(ctx workflow.Context, input *ec2.DescribeNetworkInsightsPathsInput) (*ec2.DescribeNetworkInsightsPathsOutput, error)
+	DescribeNetworkInsightsPathsAsync(ctx workflow.Context, input *ec2.DescribeNetworkInsightsPathsInput) *DescribeNetworkInsightsPathsFuture
+
 	DescribeNetworkInterfaceAttribute(ctx workflow.Context, input *ec2.DescribeNetworkInterfaceAttributeInput) (*ec2.DescribeNetworkInterfaceAttributeOutput, error)
 	DescribeNetworkInterfaceAttributeAsync(ctx workflow.Context, input *ec2.DescribeNetworkInterfaceAttributeInput) *DescribeNetworkInterfaceAttributeFuture
 
@@ -751,6 +781,12 @@ type Client interface {
 
 	DescribeTransitGatewayAttachments(ctx workflow.Context, input *ec2.DescribeTransitGatewayAttachmentsInput) (*ec2.DescribeTransitGatewayAttachmentsOutput, error)
 	DescribeTransitGatewayAttachmentsAsync(ctx workflow.Context, input *ec2.DescribeTransitGatewayAttachmentsInput) *DescribeTransitGatewayAttachmentsFuture
+
+	DescribeTransitGatewayConnectPeers(ctx workflow.Context, input *ec2.DescribeTransitGatewayConnectPeersInput) (*ec2.DescribeTransitGatewayConnectPeersOutput, error)
+	DescribeTransitGatewayConnectPeersAsync(ctx workflow.Context, input *ec2.DescribeTransitGatewayConnectPeersInput) *DescribeTransitGatewayConnectPeersFuture
+
+	DescribeTransitGatewayConnects(ctx workflow.Context, input *ec2.DescribeTransitGatewayConnectsInput) (*ec2.DescribeTransitGatewayConnectsOutput, error)
+	DescribeTransitGatewayConnectsAsync(ctx workflow.Context, input *ec2.DescribeTransitGatewayConnectsInput) *DescribeTransitGatewayConnectsFuture
 
 	DescribeTransitGatewayMulticastDomains(ctx workflow.Context, input *ec2.DescribeTransitGatewayMulticastDomainsInput) (*ec2.DescribeTransitGatewayMulticastDomainsOutput, error)
 	DescribeTransitGatewayMulticastDomainsAsync(ctx workflow.Context, input *ec2.DescribeTransitGatewayMulticastDomainsInput) *DescribeTransitGatewayMulticastDomainsFuture
@@ -1151,6 +1187,9 @@ type Client interface {
 	RegisterTransitGatewayMulticastGroupSources(ctx workflow.Context, input *ec2.RegisterTransitGatewayMulticastGroupSourcesInput) (*ec2.RegisterTransitGatewayMulticastGroupSourcesOutput, error)
 	RegisterTransitGatewayMulticastGroupSourcesAsync(ctx workflow.Context, input *ec2.RegisterTransitGatewayMulticastGroupSourcesInput) *RegisterTransitGatewayMulticastGroupSourcesFuture
 
+	RejectTransitGatewayMulticastDomainAssociations(ctx workflow.Context, input *ec2.RejectTransitGatewayMulticastDomainAssociationsInput) (*ec2.RejectTransitGatewayMulticastDomainAssociationsOutput, error)
+	RejectTransitGatewayMulticastDomainAssociationsAsync(ctx workflow.Context, input *ec2.RejectTransitGatewayMulticastDomainAssociationsInput) *RejectTransitGatewayMulticastDomainAssociationsFuture
+
 	RejectTransitGatewayPeeringAttachment(ctx workflow.Context, input *ec2.RejectTransitGatewayPeeringAttachmentInput) (*ec2.RejectTransitGatewayPeeringAttachmentOutput, error)
 	RejectTransitGatewayPeeringAttachmentAsync(ctx workflow.Context, input *ec2.RejectTransitGatewayPeeringAttachmentInput) *RejectTransitGatewayPeeringAttachmentFuture
 
@@ -1249,6 +1288,9 @@ type Client interface {
 
 	StartInstances(ctx workflow.Context, input *ec2.StartInstancesInput) (*ec2.StartInstancesOutput, error)
 	StartInstancesAsync(ctx workflow.Context, input *ec2.StartInstancesInput) *StartInstancesFuture
+
+	StartNetworkInsightsAnalysis(ctx workflow.Context, input *ec2.StartNetworkInsightsAnalysisInput) (*ec2.StartNetworkInsightsAnalysisOutput, error)
+	StartNetworkInsightsAnalysisAsync(ctx workflow.Context, input *ec2.StartNetworkInsightsAnalysisInput) *StartNetworkInsightsAnalysisFuture
 
 	StartVpcEndpointServicePrivateDnsVerification(ctx workflow.Context, input *ec2.StartVpcEndpointServicePrivateDnsVerificationInput) (*ec2.StartVpcEndpointServicePrivateDnsVerificationOutput, error)
 	StartVpcEndpointServicePrivateDnsVerificationAsync(ctx workflow.Context, input *ec2.StartVpcEndpointServicePrivateDnsVerificationInput) *StartVpcEndpointServicePrivateDnsVerificationFuture

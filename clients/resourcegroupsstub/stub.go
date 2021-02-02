@@ -114,6 +114,17 @@ func (r *ListGroupsFuture) Get(ctx workflow.Context) (*resourcegroups.ListGroups
 	return &output, err
 }
 
+type PutGroupConfigurationFuture struct {
+	// public to support Selector.addFuture
+	Future workflow.Future
+}
+
+func (r *PutGroupConfigurationFuture) Get(ctx workflow.Context) (*resourcegroups.PutGroupConfigurationOutput, error) {
+	var output resourcegroups.PutGroupConfigurationOutput
+	err := r.Future.Get(ctx, &output)
+	return &output, err
+}
+
 type SearchResourcesFuture struct {
 	// public to support Selector.addFuture
 	Future workflow.Future
@@ -277,6 +288,17 @@ func (a *stub) ListGroups(ctx workflow.Context, input *resourcegroups.ListGroups
 func (a *stub) ListGroupsAsync(ctx workflow.Context, input *resourcegroups.ListGroupsInput) *ListGroupsFuture {
 	future := workflow.ExecuteActivity(ctx, "aws-resourcegroups-ListGroups", input)
 	return &ListGroupsFuture{Future: future}
+}
+
+func (a *stub) PutGroupConfiguration(ctx workflow.Context, input *resourcegroups.PutGroupConfigurationInput) (*resourcegroups.PutGroupConfigurationOutput, error) {
+	var output resourcegroups.PutGroupConfigurationOutput
+	err := workflow.ExecuteActivity(ctx, "aws-resourcegroups-PutGroupConfiguration", input).Get(ctx, &output)
+	return &output, err
+}
+
+func (a *stub) PutGroupConfigurationAsync(ctx workflow.Context, input *resourcegroups.PutGroupConfigurationInput) *PutGroupConfigurationFuture {
+	future := workflow.ExecuteActivity(ctx, "aws-resourcegroups-PutGroupConfiguration", input)
+	return &PutGroupConfigurationFuture{Future: future}
 }
 
 func (a *stub) SearchResources(ctx workflow.Context, input *resourcegroups.SearchResourcesInput) (*resourcegroups.SearchResourcesOutput, error) {

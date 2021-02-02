@@ -14,6 +14,9 @@ import (
 var _ clients.VoidFuture
 
 type Client interface {
+	AddProfilePermission(ctx workflow.Context, input *signer.AddProfilePermissionInput) (*signer.AddProfilePermissionOutput, error)
+	AddProfilePermissionAsync(ctx workflow.Context, input *signer.AddProfilePermissionInput) *AddProfilePermissionFuture
+
 	CancelSigningProfile(ctx workflow.Context, input *signer.CancelSigningProfileInput) (*signer.CancelSigningProfileOutput, error)
 	CancelSigningProfileAsync(ctx workflow.Context, input *signer.CancelSigningProfileInput) *CancelSigningProfileFuture
 
@@ -25,6 +28,9 @@ type Client interface {
 
 	GetSigningProfile(ctx workflow.Context, input *signer.GetSigningProfileInput) (*signer.GetSigningProfileOutput, error)
 	GetSigningProfileAsync(ctx workflow.Context, input *signer.GetSigningProfileInput) *GetSigningProfileFuture
+
+	ListProfilePermissions(ctx workflow.Context, input *signer.ListProfilePermissionsInput) (*signer.ListProfilePermissionsOutput, error)
+	ListProfilePermissionsAsync(ctx workflow.Context, input *signer.ListProfilePermissionsInput) *ListProfilePermissionsFuture
 
 	ListSigningJobs(ctx workflow.Context, input *signer.ListSigningJobsInput) (*signer.ListSigningJobsOutput, error)
 	ListSigningJobsAsync(ctx workflow.Context, input *signer.ListSigningJobsInput) *ListSigningJobsFuture
@@ -40,6 +46,15 @@ type Client interface {
 
 	PutSigningProfile(ctx workflow.Context, input *signer.PutSigningProfileInput) (*signer.PutSigningProfileOutput, error)
 	PutSigningProfileAsync(ctx workflow.Context, input *signer.PutSigningProfileInput) *PutSigningProfileFuture
+
+	RemoveProfilePermission(ctx workflow.Context, input *signer.RemoveProfilePermissionInput) (*signer.RemoveProfilePermissionOutput, error)
+	RemoveProfilePermissionAsync(ctx workflow.Context, input *signer.RemoveProfilePermissionInput) *RemoveProfilePermissionFuture
+
+	RevokeSignature(ctx workflow.Context, input *signer.RevokeSignatureInput) (*signer.RevokeSignatureOutput, error)
+	RevokeSignatureAsync(ctx workflow.Context, input *signer.RevokeSignatureInput) *RevokeSignatureFuture
+
+	RevokeSigningProfile(ctx workflow.Context, input *signer.RevokeSigningProfileInput) (*signer.RevokeSigningProfileOutput, error)
+	RevokeSigningProfileAsync(ctx workflow.Context, input *signer.RevokeSigningProfileInput) *RevokeSigningProfileFuture
 
 	StartSigningJob(ctx workflow.Context, input *signer.StartSigningJobInput) (*signer.StartSigningJobOutput, error)
 	StartSigningJobAsync(ctx workflow.Context, input *signer.StartSigningJobInput) *StartSigningJobFuture

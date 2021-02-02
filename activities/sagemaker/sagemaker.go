@@ -53,6 +53,16 @@ func (a *Activities) getClient(ctx context.Context) (sagemakeriface.SageMakerAPI
 	return sagemaker.New(sess), nil
 }
 
+func (a *Activities) AddAssociation(ctx context.Context, input *sagemaker.AddAssociationInput) (*sagemaker.AddAssociationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.AddAssociationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) AddTags(ctx context.Context, input *sagemaker.AddTagsInput) (*sagemaker.AddTagsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -69,6 +79,16 @@ func (a *Activities) AssociateTrialComponent(ctx context.Context, input *sagemak
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.AssociateTrialComponentWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateAction(ctx context.Context, input *sagemaker.CreateActionInput) (*sagemaker.CreateActionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateActionWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -103,6 +123,16 @@ func (a *Activities) CreateAppImageConfig(ctx context.Context, input *sagemaker.
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateArtifact(ctx context.Context, input *sagemaker.CreateArtifactInput) (*sagemaker.CreateArtifactOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateArtifactWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateAutoMLJob(ctx context.Context, input *sagemaker.CreateAutoMLJobInput) (*sagemaker.CreateAutoMLJobOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -133,12 +163,52 @@ func (a *Activities) CreateCompilationJob(ctx context.Context, input *sagemaker.
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateContext(ctx context.Context, input *sagemaker.CreateContextInput) (*sagemaker.CreateContextOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateContextWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateDataQualityJobDefinition(ctx context.Context, input *sagemaker.CreateDataQualityJobDefinitionInput) (*sagemaker.CreateDataQualityJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateDataQualityJobDefinitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateDeviceFleet(ctx context.Context, input *sagemaker.CreateDeviceFleetInput) (*sagemaker.CreateDeviceFleetOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateDeviceFleetWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateDomain(ctx context.Context, input *sagemaker.CreateDomainInput) (*sagemaker.CreateDomainOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreateDomainWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateEdgePackagingJob(ctx context.Context, input *sagemaker.CreateEdgePackagingJobInput) (*sagemaker.CreateEdgePackagingJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateEdgePackagingJobWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -169,6 +239,16 @@ func (a *Activities) CreateExperiment(ctx context.Context, input *sagemaker.Crea
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreateExperimentWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateFeatureGroup(ctx context.Context, input *sagemaker.CreateFeatureGroupInput) (*sagemaker.CreateFeatureGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateFeatureGroupWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -244,12 +324,53 @@ func (a *Activities) CreateModel(ctx context.Context, input *sagemaker.CreateMod
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreateModelBiasJobDefinition(ctx context.Context, input *sagemaker.CreateModelBiasJobDefinitionInput) (*sagemaker.CreateModelBiasJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateModelBiasJobDefinitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateModelExplainabilityJobDefinition(ctx context.Context, input *sagemaker.CreateModelExplainabilityJobDefinitionInput) (*sagemaker.CreateModelExplainabilityJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateModelExplainabilityJobDefinitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreateModelPackage(ctx context.Context, input *sagemaker.CreateModelPackageInput) (*sagemaker.CreateModelPackageOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
+	internal.SetClientToken(ctx, &input.ClientToken)
 	output, err := client.CreateModelPackageWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateModelPackageGroup(ctx context.Context, input *sagemaker.CreateModelPackageGroupInput) (*sagemaker.CreateModelPackageGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateModelPackageGroupWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateModelQualityJobDefinition(ctx context.Context, input *sagemaker.CreateModelQualityJobDefinitionInput) (*sagemaker.CreateModelQualityJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateModelQualityJobDefinitionWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -284,6 +405,16 @@ func (a *Activities) CreateNotebookInstanceLifecycleConfig(ctx context.Context, 
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) CreatePipeline(ctx context.Context, input *sagemaker.CreatePipelineInput) (*sagemaker.CreatePipelineOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreatePipelineWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) CreatePresignedDomainUrl(ctx context.Context, input *sagemaker.CreatePresignedDomainUrlInput) (*sagemaker.CreatePresignedDomainUrlOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -310,6 +441,16 @@ func (a *Activities) CreateProcessingJob(ctx context.Context, input *sagemaker.C
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.CreateProcessingJobWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) CreateProject(ctx context.Context, input *sagemaker.CreateProjectInput) (*sagemaker.CreateProjectOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.CreateProjectWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -384,6 +525,16 @@ func (a *Activities) CreateWorkteam(ctx context.Context, input *sagemaker.Create
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteAction(ctx context.Context, input *sagemaker.DeleteActionInput) (*sagemaker.DeleteActionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteActionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteAlgorithm(ctx context.Context, input *sagemaker.DeleteAlgorithmInput) (*sagemaker.DeleteAlgorithmOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -414,12 +565,62 @@ func (a *Activities) DeleteAppImageConfig(ctx context.Context, input *sagemaker.
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteArtifact(ctx context.Context, input *sagemaker.DeleteArtifactInput) (*sagemaker.DeleteArtifactOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteArtifactWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteAssociation(ctx context.Context, input *sagemaker.DeleteAssociationInput) (*sagemaker.DeleteAssociationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteAssociationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteCodeRepository(ctx context.Context, input *sagemaker.DeleteCodeRepositoryInput) (*sagemaker.DeleteCodeRepositoryOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteCodeRepositoryWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteContext(ctx context.Context, input *sagemaker.DeleteContextInput) (*sagemaker.DeleteContextOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteContextWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteDataQualityJobDefinition(ctx context.Context, input *sagemaker.DeleteDataQualityJobDefinitionInput) (*sagemaker.DeleteDataQualityJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteDataQualityJobDefinitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteDeviceFleet(ctx context.Context, input *sagemaker.DeleteDeviceFleetInput) (*sagemaker.DeleteDeviceFleetOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteDeviceFleetWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -460,6 +661,16 @@ func (a *Activities) DeleteExperiment(ctx context.Context, input *sagemaker.Dele
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteExperimentWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteFeatureGroup(ctx context.Context, input *sagemaker.DeleteFeatureGroupInput) (*sagemaker.DeleteFeatureGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteFeatureGroupWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -514,12 +725,62 @@ func (a *Activities) DeleteModel(ctx context.Context, input *sagemaker.DeleteMod
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeleteModelBiasJobDefinition(ctx context.Context, input *sagemaker.DeleteModelBiasJobDefinitionInput) (*sagemaker.DeleteModelBiasJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteModelBiasJobDefinitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteModelExplainabilityJobDefinition(ctx context.Context, input *sagemaker.DeleteModelExplainabilityJobDefinitionInput) (*sagemaker.DeleteModelExplainabilityJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteModelExplainabilityJobDefinitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DeleteModelPackage(ctx context.Context, input *sagemaker.DeleteModelPackageInput) (*sagemaker.DeleteModelPackageOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteModelPackageWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteModelPackageGroup(ctx context.Context, input *sagemaker.DeleteModelPackageGroupInput) (*sagemaker.DeleteModelPackageGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteModelPackageGroupWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteModelPackageGroupPolicy(ctx context.Context, input *sagemaker.DeleteModelPackageGroupPolicyInput) (*sagemaker.DeleteModelPackageGroupPolicyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteModelPackageGroupPolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteModelQualityJobDefinition(ctx context.Context, input *sagemaker.DeleteModelQualityJobDefinitionInput) (*sagemaker.DeleteModelQualityJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteModelQualityJobDefinitionWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -550,6 +811,26 @@ func (a *Activities) DeleteNotebookInstanceLifecycleConfig(ctx context.Context, 
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DeleteNotebookInstanceLifecycleConfigWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeletePipeline(ctx context.Context, input *sagemaker.DeletePipelineInput) (*sagemaker.DeletePipelineOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeletePipelineWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DeleteProject(ctx context.Context, input *sagemaker.DeleteProjectInput) (*sagemaker.DeleteProjectOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeleteProjectWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -614,6 +895,26 @@ func (a *Activities) DeleteWorkteam(ctx context.Context, input *sagemaker.Delete
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DeregisterDevices(ctx context.Context, input *sagemaker.DeregisterDevicesInput) (*sagemaker.DeregisterDevicesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DeregisterDevicesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeAction(ctx context.Context, input *sagemaker.DescribeActionInput) (*sagemaker.DescribeActionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeActionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeAlgorithm(ctx context.Context, input *sagemaker.DescribeAlgorithmInput) (*sagemaker.DescribeAlgorithmOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -640,6 +941,16 @@ func (a *Activities) DescribeAppImageConfig(ctx context.Context, input *sagemake
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeAppImageConfigWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeArtifact(ctx context.Context, input *sagemaker.DescribeArtifactInput) (*sagemaker.DescribeArtifactOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeArtifactWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -674,12 +985,62 @@ func (a *Activities) DescribeCompilationJob(ctx context.Context, input *sagemake
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeContext(ctx context.Context, input *sagemaker.DescribeContextInput) (*sagemaker.DescribeContextOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeContextWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeDataQualityJobDefinition(ctx context.Context, input *sagemaker.DescribeDataQualityJobDefinitionInput) (*sagemaker.DescribeDataQualityJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeDataQualityJobDefinitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeDevice(ctx context.Context, input *sagemaker.DescribeDeviceInput) (*sagemaker.DescribeDeviceOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeDeviceWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeDeviceFleet(ctx context.Context, input *sagemaker.DescribeDeviceFleetInput) (*sagemaker.DescribeDeviceFleetOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeDeviceFleetWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeDomain(ctx context.Context, input *sagemaker.DescribeDomainInput) (*sagemaker.DescribeDomainOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeDomainWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeEdgePackagingJob(ctx context.Context, input *sagemaker.DescribeEdgePackagingJobInput) (*sagemaker.DescribeEdgePackagingJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeEdgePackagingJobWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -710,6 +1071,16 @@ func (a *Activities) DescribeExperiment(ctx context.Context, input *sagemaker.De
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeExperimentWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeFeatureGroup(ctx context.Context, input *sagemaker.DescribeFeatureGroupInput) (*sagemaker.DescribeFeatureGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeFeatureGroupWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -784,12 +1155,52 @@ func (a *Activities) DescribeModel(ctx context.Context, input *sagemaker.Describ
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribeModelBiasJobDefinition(ctx context.Context, input *sagemaker.DescribeModelBiasJobDefinitionInput) (*sagemaker.DescribeModelBiasJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeModelBiasJobDefinitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeModelExplainabilityJobDefinition(ctx context.Context, input *sagemaker.DescribeModelExplainabilityJobDefinitionInput) (*sagemaker.DescribeModelExplainabilityJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeModelExplainabilityJobDefinitionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeModelPackage(ctx context.Context, input *sagemaker.DescribeModelPackageInput) (*sagemaker.DescribeModelPackageOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeModelPackageWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeModelPackageGroup(ctx context.Context, input *sagemaker.DescribeModelPackageGroupInput) (*sagemaker.DescribeModelPackageGroupOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeModelPackageGroupWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeModelQualityJobDefinition(ctx context.Context, input *sagemaker.DescribeModelQualityJobDefinitionInput) (*sagemaker.DescribeModelQualityJobDefinitionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeModelQualityJobDefinitionWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -824,12 +1235,52 @@ func (a *Activities) DescribeNotebookInstanceLifecycleConfig(ctx context.Context
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DescribePipeline(ctx context.Context, input *sagemaker.DescribePipelineInput) (*sagemaker.DescribePipelineOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribePipelineWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribePipelineDefinitionForExecution(ctx context.Context, input *sagemaker.DescribePipelineDefinitionForExecutionInput) (*sagemaker.DescribePipelineDefinitionForExecutionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribePipelineDefinitionForExecutionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribePipelineExecution(ctx context.Context, input *sagemaker.DescribePipelineExecutionInput) (*sagemaker.DescribePipelineExecutionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribePipelineExecutionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DescribeProcessingJob(ctx context.Context, input *sagemaker.DescribeProcessingJobInput) (*sagemaker.DescribeProcessingJobOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.DescribeProcessingJobWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) DescribeProject(ctx context.Context, input *sagemaker.DescribeProjectInput) (*sagemaker.DescribeProjectOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DescribeProjectWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -914,6 +1365,16 @@ func (a *Activities) DescribeWorkteam(ctx context.Context, input *sagemaker.Desc
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) DisableSagemakerServicecatalogPortfolio(ctx context.Context, input *sagemaker.DisableSagemakerServicecatalogPortfolioInput) (*sagemaker.DisableSagemakerServicecatalogPortfolioOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.DisableSagemakerServicecatalogPortfolioWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) DisassociateTrialComponent(ctx context.Context, input *sagemaker.DisassociateTrialComponentInput) (*sagemaker.DisassociateTrialComponentOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -924,12 +1385,62 @@ func (a *Activities) DisassociateTrialComponent(ctx context.Context, input *sage
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) EnableSagemakerServicecatalogPortfolio(ctx context.Context, input *sagemaker.EnableSagemakerServicecatalogPortfolioInput) (*sagemaker.EnableSagemakerServicecatalogPortfolioOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.EnableSagemakerServicecatalogPortfolioWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetDeviceFleetReport(ctx context.Context, input *sagemaker.GetDeviceFleetReportInput) (*sagemaker.GetDeviceFleetReportOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetDeviceFleetReportWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetModelPackageGroupPolicy(ctx context.Context, input *sagemaker.GetModelPackageGroupPolicyInput) (*sagemaker.GetModelPackageGroupPolicyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetModelPackageGroupPolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) GetSagemakerServicecatalogPortfolioStatus(ctx context.Context, input *sagemaker.GetSagemakerServicecatalogPortfolioStatusInput) (*sagemaker.GetSagemakerServicecatalogPortfolioStatusOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.GetSagemakerServicecatalogPortfolioStatusWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) GetSearchSuggestions(ctx context.Context, input *sagemaker.GetSearchSuggestionsInput) (*sagemaker.GetSearchSuggestionsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.GetSearchSuggestionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListActions(ctx context.Context, input *sagemaker.ListActionsInput) (*sagemaker.ListActionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListActionsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -960,6 +1471,26 @@ func (a *Activities) ListApps(ctx context.Context, input *sagemaker.ListAppsInpu
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListAppsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListArtifacts(ctx context.Context, input *sagemaker.ListArtifactsInput) (*sagemaker.ListArtifactsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListArtifactsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListAssociations(ctx context.Context, input *sagemaker.ListAssociationsInput) (*sagemaker.ListAssociationsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListAssociationsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1004,12 +1535,62 @@ func (a *Activities) ListCompilationJobs(ctx context.Context, input *sagemaker.L
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListContexts(ctx context.Context, input *sagemaker.ListContextsInput) (*sagemaker.ListContextsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListContextsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListDataQualityJobDefinitions(ctx context.Context, input *sagemaker.ListDataQualityJobDefinitionsInput) (*sagemaker.ListDataQualityJobDefinitionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListDataQualityJobDefinitionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListDeviceFleets(ctx context.Context, input *sagemaker.ListDeviceFleetsInput) (*sagemaker.ListDeviceFleetsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListDeviceFleetsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListDevices(ctx context.Context, input *sagemaker.ListDevicesInput) (*sagemaker.ListDevicesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListDevicesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListDomains(ctx context.Context, input *sagemaker.ListDomainsInput) (*sagemaker.ListDomainsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListDomainsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListEdgePackagingJobs(ctx context.Context, input *sagemaker.ListEdgePackagingJobsInput) (*sagemaker.ListEdgePackagingJobsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListEdgePackagingJobsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1040,6 +1621,16 @@ func (a *Activities) ListExperiments(ctx context.Context, input *sagemaker.ListE
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListExperimentsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListFeatureGroups(ctx context.Context, input *sagemaker.ListFeatureGroupsInput) (*sagemaker.ListFeatureGroupsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListFeatureGroupsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1114,12 +1705,52 @@ func (a *Activities) ListLabelingJobsForWorkteam(ctx context.Context, input *sag
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListModelBiasJobDefinitions(ctx context.Context, input *sagemaker.ListModelBiasJobDefinitionsInput) (*sagemaker.ListModelBiasJobDefinitionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListModelBiasJobDefinitionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListModelExplainabilityJobDefinitions(ctx context.Context, input *sagemaker.ListModelExplainabilityJobDefinitionsInput) (*sagemaker.ListModelExplainabilityJobDefinitionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListModelExplainabilityJobDefinitionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListModelPackageGroups(ctx context.Context, input *sagemaker.ListModelPackageGroupsInput) (*sagemaker.ListModelPackageGroupsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListModelPackageGroupsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListModelPackages(ctx context.Context, input *sagemaker.ListModelPackagesInput) (*sagemaker.ListModelPackagesOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListModelPackagesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListModelQualityJobDefinitions(ctx context.Context, input *sagemaker.ListModelQualityJobDefinitionsInput) (*sagemaker.ListModelQualityJobDefinitionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListModelQualityJobDefinitionsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1174,12 +1805,62 @@ func (a *Activities) ListNotebookInstances(ctx context.Context, input *sagemaker
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) ListPipelineExecutionSteps(ctx context.Context, input *sagemaker.ListPipelineExecutionStepsInput) (*sagemaker.ListPipelineExecutionStepsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListPipelineExecutionStepsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListPipelineExecutions(ctx context.Context, input *sagemaker.ListPipelineExecutionsInput) (*sagemaker.ListPipelineExecutionsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListPipelineExecutionsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListPipelineParametersForExecution(ctx context.Context, input *sagemaker.ListPipelineParametersForExecutionInput) (*sagemaker.ListPipelineParametersForExecutionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListPipelineParametersForExecutionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListPipelines(ctx context.Context, input *sagemaker.ListPipelinesInput) (*sagemaker.ListPipelinesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListPipelinesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) ListProcessingJobs(ctx context.Context, input *sagemaker.ListProcessingJobsInput) (*sagemaker.ListProcessingJobsOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.ListProcessingJobsWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) ListProjects(ctx context.Context, input *sagemaker.ListProjectsInput) (*sagemaker.ListProjectsOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.ListProjectsWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1284,6 +1965,26 @@ func (a *Activities) ListWorkteams(ctx context.Context, input *sagemaker.ListWor
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) PutModelPackageGroupPolicy(ctx context.Context, input *sagemaker.PutModelPackageGroupPolicyInput) (*sagemaker.PutModelPackageGroupPolicyOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutModelPackageGroupPolicyWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) RegisterDevices(ctx context.Context, input *sagemaker.RegisterDevicesInput) (*sagemaker.RegisterDevicesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.RegisterDevicesWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) RenderUiTemplate(ctx context.Context, input *sagemaker.RenderUiTemplateInput) (*sagemaker.RenderUiTemplateOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1324,6 +2025,16 @@ func (a *Activities) StartNotebookInstance(ctx context.Context, input *sagemaker
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) StartPipelineExecution(ctx context.Context, input *sagemaker.StartPipelineExecutionInput) (*sagemaker.StartPipelineExecutionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StartPipelineExecutionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) StopAutoMLJob(ctx context.Context, input *sagemaker.StopAutoMLJobInput) (*sagemaker.StopAutoMLJobOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1340,6 +2051,16 @@ func (a *Activities) StopCompilationJob(ctx context.Context, input *sagemaker.St
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.StopCompilationJobWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) StopEdgePackagingJob(ctx context.Context, input *sagemaker.StopEdgePackagingJobInput) (*sagemaker.StopEdgePackagingJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StopEdgePackagingJobWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1384,6 +2105,16 @@ func (a *Activities) StopNotebookInstance(ctx context.Context, input *sagemaker.
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) StopPipelineExecution(ctx context.Context, input *sagemaker.StopPipelineExecutionInput) (*sagemaker.StopPipelineExecutionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.StopPipelineExecutionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) StopProcessingJob(ctx context.Context, input *sagemaker.StopProcessingJobInput) (*sagemaker.StopProcessingJobOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1414,6 +2145,16 @@ func (a *Activities) StopTransformJob(ctx context.Context, input *sagemaker.Stop
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) UpdateAction(ctx context.Context, input *sagemaker.UpdateActionInput) (*sagemaker.UpdateActionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateActionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) UpdateAppImageConfig(ctx context.Context, input *sagemaker.UpdateAppImageConfigInput) (*sagemaker.UpdateAppImageConfigOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1424,12 +2165,52 @@ func (a *Activities) UpdateAppImageConfig(ctx context.Context, input *sagemaker.
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) UpdateArtifact(ctx context.Context, input *sagemaker.UpdateArtifactInput) (*sagemaker.UpdateArtifactOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateArtifactWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) UpdateCodeRepository(ctx context.Context, input *sagemaker.UpdateCodeRepositoryInput) (*sagemaker.UpdateCodeRepositoryOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateCodeRepositoryWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateContext(ctx context.Context, input *sagemaker.UpdateContextInput) (*sagemaker.UpdateContextOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateContextWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateDeviceFleet(ctx context.Context, input *sagemaker.UpdateDeviceFleetInput) (*sagemaker.UpdateDeviceFleetOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateDeviceFleetWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateDevices(ctx context.Context, input *sagemaker.UpdateDevicesInput) (*sagemaker.UpdateDevicesOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateDevicesWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }
@@ -1484,6 +2265,16 @@ func (a *Activities) UpdateImage(ctx context.Context, input *sagemaker.UpdateIma
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) UpdateModelPackage(ctx context.Context, input *sagemaker.UpdateModelPackageInput) (*sagemaker.UpdateModelPackageOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateModelPackageWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) UpdateMonitoringSchedule(ctx context.Context, input *sagemaker.UpdateMonitoringScheduleInput) (*sagemaker.UpdateMonitoringScheduleOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
@@ -1510,6 +2301,36 @@ func (a *Activities) UpdateNotebookInstanceLifecycleConfig(ctx context.Context, 
 		return nil, internal.EncodeError(err)
 	}
 	output, err := client.UpdateNotebookInstanceLifecycleConfigWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdatePipeline(ctx context.Context, input *sagemaker.UpdatePipelineInput) (*sagemaker.UpdatePipelineOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdatePipelineWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdatePipelineExecution(ctx context.Context, input *sagemaker.UpdatePipelineExecutionInput) (*sagemaker.UpdatePipelineExecutionOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdatePipelineExecutionWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
+func (a *Activities) UpdateTrainingJob(ctx context.Context, input *sagemaker.UpdateTrainingJobInput) (*sagemaker.UpdateTrainingJobOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.UpdateTrainingJobWithContext(ctx, input)
 
 	return output, internal.EncodeError(err)
 }

@@ -143,6 +143,16 @@ func (a *Activities) ListGroups(ctx context.Context, input *resourcegroups.ListG
 	return output, internal.EncodeError(err)
 }
 
+func (a *Activities) PutGroupConfiguration(ctx context.Context, input *resourcegroups.PutGroupConfigurationInput) (*resourcegroups.PutGroupConfigurationOutput, error) {
+	client, err := a.getClient(ctx)
+	if err != nil {
+		return nil, internal.EncodeError(err)
+	}
+	output, err := client.PutGroupConfigurationWithContext(ctx, input)
+
+	return output, internal.EncodeError(err)
+}
+
 func (a *Activities) SearchResources(ctx context.Context, input *resourcegroups.SearchResourcesInput) (*resourcegroups.SearchResourcesOutput, error) {
 	client, err := a.getClient(ctx)
 	if err != nil {
